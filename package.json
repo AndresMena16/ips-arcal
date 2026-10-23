@@ -1,0 +1,16 @@
+{
+  "name": "proyecto-ips-arcal",
+  "version": "1.0.0",
+  "description": "Sistema de Agendamiento Presencial & Web para IPS ARCAL Protección Radiológica SAS",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && node server.js",
+    "client": "cd client && npm run dev",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

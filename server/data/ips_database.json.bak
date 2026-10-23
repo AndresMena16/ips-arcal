@@ -1,0 +1,1145 @@
+{
+  "sedes": [
+    {
+      "id": "sede-f66d9955",
+      "codigo": "TUR-CENTRO",
+      "nombre": "ARCAL - TURBO",
+      "ciudad": "Turbo, Antioquia.",
+      "direccion": "Cl 112 #17-51, Turbo, Antioquia",
+      "telefono": "3215894763",
+      "email": "",
+      "horarioAtencion": "Lunes a Viernes: 7:00 AM - 2:00 PM | Sábados: 9:00 AM - 1:00 PM",
+      "consultorios": 3,
+      "activa": true,
+      "especialidadesHabilitadas": [
+        "esp-medicina-interna"
+      ]
+    }
+  ],
+  "especialidades": [
+    {
+      "id": "esp-urologia",
+      "nombre": "UROLOGÍA",
+      "codigo": "URO",
+      "icono": "Activity",
+      "descripcion": "Diagnóstico y tratamiento integral de patologías del aparato urinario y sistema reproductor masculino.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Presentar orden médica de interconsulta y autorización de la EPS (o confirmar atención particular).",
+        "Si su cita incluye ecografía vesical o prostática, tome 4 vasos de agua 1 hora antes y retenga la orina para tener vejiga confortablemente llena.",
+        "Traer exámenes de laboratorio recientes: Antígeno Prostático Específico (PSA), Uroanálisis, Creatinina y ecografías previas.",
+        "Llegar 15 minutos antes de la hora programada para verificación de datos y signos vitales."
+      ]
+    },
+    {
+      "id": "esp-otorrino",
+      "nombre": "OTORRINOLARINGOLOGÍA",
+      "codigo": "ORL",
+      "icono": "Ear",
+      "descripcion": "Atención especializada de oídos, nariz, garganta y estructuras de cabeza y cuello.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No aplicar gotas óticas ni realizar lavados caseros en los oídos durante las 24 horas previas.",
+        "Si consulta por problemas de audición o vértigo, traer audiometrías, impedanciometrías o TAC de senos paranasales previos.",
+        "Traer lista de medicamentos antialérgicos, descongestionantes o anticoagulantes que esté consumiendo.",
+        "Si el paciente es menor de edad, debe ingresar con un acudiente mayor de edad."
+      ]
+    },
+    {
+      "id": "esp-pediatria",
+      "nombre": "PEDIATRÍA",
+      "codigo": "PED",
+      "icono": "Baby",
+      "descripcion": "Cuidado de la salud integral, crecimiento y desarrollo de recién nacidos, niños y adolescentes.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "El menor de edad DEBE ingresar acompañado de padre, madre o representante legal con identificación original.",
+        "Llevar obligatoriamente el carné físico de vacunación actualizado y curva de crecimiento y desarrollo previa.",
+        "Llevar ropa cómoda de dos piezas para facilitar la valoración antropométrica y examen físico.",
+        "Traer notas de egreso hospitalario si estuvo hospitalizado recientemente o notas pediátricas anteriores."
+      ]
+    },
+    {
+      "id": "esp-medicina-interna",
+      "nombre": "MEDICINA INTERNA",
+      "codigo": "MED-INT",
+      "icono": "HeartPulse",
+      "descripcion": "Atención médica integral del adulto para diagnóstico y manejo de enfermedades sistémicas y crónicas.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Llevar fórmula médica actual y lista exacta de medicamentos con dosis y horarios que toma habitualmente.",
+        "Traer resultados de laboratorio de los últimos 6 meses (hemograma, glicemia, perfil lipídico, función renal y tiroidea).",
+        "Si padece de hipertensión arterial o diabetes, traer planilla de automonitoreo de presión arterial y glucometrías.",
+        "Traer copia de electrocardiograma o ecocardiograma si le han sido practicados previamente."
+      ]
+    },
+    {
+      "id": "esp-psicologia",
+      "nombre": "PSICOLOGÍA",
+      "codigo": "PSI",
+      "icono": "Brain",
+      "descripcion": "Evaluación y acompañamiento clínico para el bienestar emocional, cognitivo y de la salud mental.",
+      "duracionMinutos": 45,
+      "activa": true,
+      "recomendaciones": [
+        "Espacio de consulta confidencial de 45 minutos. Se recomienda llegar con 10 minutos de anticipación para ambientación.",
+        "Traer informes de valoraciones psicológicas, psiquiátricas o del colegio/trabajo previas si aplica.",
+        "Para menores de 18 años, los primeros 15 minutos de la sesión inicial requieren la presencia del acudiente.",
+        "Asistir en un estado de tranquilidad y con disposición para dialogar abiertamente con el profesional."
+      ]
+    },
+    {
+      "id": "esp-cardiologia",
+      "nombre": "CARDIOLOGÍA",
+      "codigo": "CARDIO",
+      "icono": "HeartHandshake",
+      "descripcion": "Prevención, diagnóstico y tratamiento de enfermedades cardiovasculares y del ritmo cardíaco.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No consumir bebidas con cafeína (café, té, bebidas energizantes) ni fumar durante las 6 horas previas a la cita.",
+        "Vestir ropa cómoda de dos piezas para facilitar la colocación de electrodos en tórax y extremidades.",
+        "Llevar resultados previos de Electrocardiograma, Ecocardiograma, Prueba de Esfuerzo o Holter.",
+        "Llevar registro claro de medicamentos antihipertensivos o anticoagulantes con sus dosis exactas."
+      ]
+    },
+    {
+      "id": "esp-nutricion",
+      "nombre": "NUTRICIÓN",
+      "codigo": "NUTRI",
+      "icono": "Salad",
+      "descripcion": "Asesoría nutricional clínica personalizada, plan alimentario y manejo metabólico integral.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Ayuno de 2 a 3 horas previas si se realizará análisis de composición corporal (bioimpedancia eléctrica).",
+        "Evitar ejercicio físico extenuante y consumo de alcohol durante las 24 horas previas.",
+        "Llevar registro escrito de alimentos y bebidas consumidas durante los últimos 3 días (recordatorio de 24h).",
+        "Traer exámenes de sangre recientes: perfil lipídico, glucosa, insulina, ácido úrico y hemoglobina glicosilada."
+      ]
+    },
+    {
+      "id": "esp-dermatologia",
+      "nombre": "DERMATOLOGÍA",
+      "codigo": "DERMA",
+      "icono": "Sparkles",
+      "descripcion": "Cuidado clínico, prevención y tratamiento de afecciones de la piel, pelo, uñas y mucosas.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Asistir con el área a evaluar completamente limpia, sin maquillaje, polvos, bases ni cremas espesas.",
+        "Si la consulta es por afecciones en las uñas, asistir sin esmalte tradicional ni acrílico.",
+        "Llevar los frascos o nombres exactos de los bloqueadores, cremas tópicas o tratamientos dermatológicos en uso.",
+        "Identificar previamente los lunares o manchas que hayan cambiado de tamaño, color o forma para mostrarlos."
+      ]
+    },
+    {
+      "id": "esp-ginecologia",
+      "nombre": "GINECOLOGÍA",
+      "codigo": "GIN",
+      "icono": "ShieldPlus",
+      "descripcion": "Salud integral de la mujer, prevención ginecológica, control prenatal y salud reproductiva.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No acudir durante el periodo menstrual (a menos que el motivo de consulta sea una hemorragia anormal).",
+        "Abstenerse de relaciones sexuales durante las 48 horas previas si se tomará citología cérvico-vaginal.",
+        "No utilizar óvulos vaginales, duchas, cremas ni tampones en los 3 días anteriores a la consulta.",
+        "Tener presente la fecha exacta del primer día de su última menstruación (FUM) y llevar citologías o ecografías previas."
+      ]
+    }
+  ],
+  "medicos": [
+    {
+      "id": "med-1",
+      "nombre": "Dr. Carlos Eduardo Restrepo",
+      "registroMedico": "RM-102948-BOG",
+      "especialidadId": "esp-urologia",
+      "sedeId": "sede-1",
+      "consultorio": "402-A",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "activo": true,
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "id": "pausa-demo-1",
+          "horaInicio": "09:00",
+          "horaFin": "09:30",
+          "motivo": "Descanso médico y pausa activa"
+        }
+      ]
+    },
+    {
+      "id": "med-2",
+      "nombre": "Dra. Marcela Gómez Villamizar",
+      "registroMedico": "RM-884210-BOG",
+      "especialidadId": "esp-otorrino",
+      "sedeId": "sede-1",
+      "consultorio": "402-B",
+      "diasAtencion": [
+        "Lunes",
+        "Miércoles",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "16:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-3",
+      "nombre": "Dra. Valentina Arango Ospina",
+      "registroMedico": "RM-763421-BOG",
+      "especialidadId": "esp-pediatria",
+      "sedeId": "sede-1",
+      "consultorio": "403",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "16:30",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-4",
+      "nombre": "Dr. Jorge Ignacio Morales",
+      "registroMedico": "RM-993215-BOG",
+      "especialidadId": "esp-medicina-interna",
+      "sedeId": "sede-1",
+      "consultorio": "404",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-5",
+      "nombre": "Lic. Andrea Catalina Peña",
+      "registroMedico": "RP-552190-BOG",
+      "especialidadId": "esp-psicologia",
+      "sedeId": "sede-1",
+      "consultorio": "405",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves"
+      ],
+      "horaInicio": "09:00",
+      "horaFin": "17:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-6",
+      "nombre": "Dr. Fernando Quintero Rojas",
+      "registroMedico": "RM-612450-BOG",
+      "especialidadId": "esp-cardiologia",
+      "sedeId": "sede-2",
+      "consultorio": "301",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "16:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-7",
+      "nombre": "Nutr. Diana Sofía Lozano",
+      "registroMedico": "RN-331298-BOG",
+      "especialidadId": "esp-nutricion",
+      "sedeId": "sede-2",
+      "consultorio": "302",
+      "diasAtencion": [
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:30",
+      "horaFin": "17:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-8",
+      "nombre": "Dra. Luisa Fernanda Salazar",
+      "registroMedico": "RM-449102-BOG",
+      "especialidadId": "esp-dermatologia",
+      "sedeId": "sede-2",
+      "consultorio": "303",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "16:30",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-9",
+      "nombre": "Dra. Carolina Martínez Zuluaga",
+      "registroMedico": "RM-518290-BOG",
+      "especialidadId": "esp-ginecologia",
+      "sedeId": "sede-1",
+      "consultorio": "406",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-10",
+      "nombre": "Dr. Andrés Felipe Montoya",
+      "registroMedico": "RM-334190-MED",
+      "especialidadId": "esp-cardiologia",
+      "sedeId": "sede-3",
+      "consultorio": "610-A",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "16:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-11",
+      "nombre": "Dra. Juliana Echeverry Gómez",
+      "registroMedico": "RM-441209-MED",
+      "especialidadId": "esp-dermatologia",
+      "sedeId": "sede-3",
+      "consultorio": "610-B",
+      "diasAtencion": [
+        "Lunes",
+        "Miércoles",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-12",
+      "nombre": "Dr. Gustavo Adolfo Caicedo",
+      "registroMedico": "RM-772190-CALI",
+      "especialidadId": "esp-medicina-interna",
+      "sedeId": "sede-4",
+      "consultorio": "401",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "16:00",
+      "activo": false,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-3177b61a",
+      "nombre": "Dr. Test Verificación",
+      "registroMedico": "RM-999888-TEST",
+      "especialidadId": "esp-urologia",
+      "sedeId": "sede-1",
+      "consultorio": "Cons. 505",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "activo": false,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    },
+    {
+      "id": "med-23070185",
+      "nombre": "Dr. Luis Fernando",
+      "registroMedico": "RM-243527-TUR",
+      "especialidadId": "esp-medicina-interna",
+      "sedeId": "sede-f66d9955",
+      "consultorio": "Cons. 001",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "16:00",
+      "activo": true,
+      "duracionCitaMinutos": 30,
+      "pausas": []
+    }
+  ],
+  "citas": [
+    {
+      "id": "cita-demo-1",
+      "codigoCita": "ARC-2026-7812",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1018459203",
+      "pacienteNombres": "Álvaro Javier",
+      "pacienteApellidos": "Mendoza Gómez",
+      "pacienteTelefono": "311 450 9988",
+      "pacienteEmail": "alvaro.mendoza@email.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Control semestral por cifras de tensión arterial",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-4",
+      "fecha": "2026-10-09",
+      "hora": "09:00",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-08T05:08:59.206Z"
+    },
+    {
+      "id": "cita-demo-2",
+      "codigoCita": "ARC-2026-8841",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "52890123",
+      "pacienteNombres": "Gloria Inés",
+      "pacienteApellidos": "Castro Pardo",
+      "pacienteTelefono": "315 220 1478",
+      "pacienteEmail": "gloria.castro@email.com",
+      "pacienteAseguradora": "Sanitas EPS",
+      "motivoConsulta": "Evaluación dermatológica lunar en espalda",
+      "sedeId": "sede-2",
+      "especialidadId": "esp-dermatologia",
+      "medicoId": "med-8",
+      "fecha": "2026-10-09",
+      "hora": "10:30",
+      "tipoAgendamiento": "presencial",
+      "estado": "agendada",
+      "creadaEn": "2026-10-08T05:08:59.206Z"
+    },
+    {
+      "id": "cita-bdc61567-7c3e-4dbf-8727-f382bb710e05",
+      "codigoCita": "ARC-2026-5884",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1020304050",
+      "pacienteNombres": "Mariana",
+      "pacienteApellidos": "Duque Silva",
+      "pacienteTelefono": "3157778899",
+      "pacienteEmail": "mariana@email.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Consulta de control cardiología",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-cardiologia",
+      "medicoId": "med-6",
+      "fecha": "2026-10-15",
+      "hora": "08:30",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-08T05:18:59.686Z"
+    },
+    {
+      "id": "cita-0e7bdb0e-4217-4a43-96a9-2e51fe9c1626",
+      "codigoCita": "ARC-2026-6941",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Mena",
+      "pacienteTelefono": "3243552344",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-urologia",
+      "medicoId": "med-1",
+      "fecha": "2026-10-24",
+      "hora": "08:00",
+      "tipoAgendamiento": "web",
+      "estado": "atendida",
+      "creadaEn": "2026-10-08T16:14:29.219Z",
+      "actualizadaEn": "2026-10-08T16:23:42.104Z"
+    },
+    {
+      "id": "cita-9d5ca96e-2b7f-4b6f-8f9a-058587a771a2",
+      "codigoCita": "ARC-2026-3518",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Mena",
+      "pacienteTelefono": "3243552344",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Consulta presencial en ventanilla",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-1",
+      "fecha": "2026-10-08",
+      "hora": "14:30",
+      "tipoAgendamiento": "presencial",
+      "estado": "cancelada",
+      "creadaEn": "2026-10-08T16:40:33.525Z",
+      "motivoCancelacion": "No vino",
+      "actualizadaEn": "2026-10-08T19:24:17.421Z",
+      "motivoReasignacion": "Reasignación por llegada tarde a cita previa"
+    },
+    {
+      "id": "cita-260b64a0-c310-4157-b86d-b6bee45dec8e",
+      "codigoCita": "ARC-2026-2984",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-08",
+      "hora": "13:30",
+      "tipoAgendamiento": "web",
+      "estado": "no_asistio",
+      "creadaEn": "2026-10-08T16:43:43.374Z",
+      "motivoCancelacion": "El paciente no asistió a su cita médica programada en sede.",
+      "actualizadaEn": "2026-10-08T20:29:14.542Z"
+    },
+    {
+      "id": "cita-a01f7c48-dfef-4dc0-9292-189b1d26357c",
+      "codigoCita": "ARC-2026-1873",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1028005718",
+      "pacienteNombres": "Juan",
+      "pacienteApellidos": "Mena",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Valoración ",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-09",
+      "hora": "11:30",
+      "tipoAgendamiento": "web",
+      "estado": "atendida",
+      "creadaEn": "2026-10-08T20:00:25.947Z",
+      "actualizadaEn": "2026-10-08T22:09:43.747Z"
+    },
+    {
+      "id": "cita-081f82f9-16f4-4a94-9261-5be6963ad631",
+      "codigoCita": "ARC-2026-9003",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1020304050",
+      "pacienteNombres": "Carlos Alberto Corregido",
+      "pacienteApellidos": "Pérez Gómez",
+      "pacienteTelefono": "3159998877",
+      "pacienteEmail": "carlos@test.com",
+      "pacienteAseguradora": "Sura",
+      "motivoConsulta": "Consulta general",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-urologia",
+      "medicoId": "med-1",
+      "fecha": "2026-10-09",
+      "hora": "09:00",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-08T20:17:30.775Z",
+      "actualizadaEn": "2026-10-08T20:17:30.806Z"
+    },
+    {
+      "id": "cita-abd5b683-2014-4168-836b-af08c988f310",
+      "codigoCita": "ARC-2026-3944",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1028005718",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-21",
+      "hora": "10:00",
+      "tipoAgendamiento": "web",
+      "estado": "no_asistio",
+      "creadaEn": "2026-10-20T00:36:32.273Z",
+      "motivoCancelacion": "No vino",
+      "actualizadaEn": "2026-10-20T01:49:06.545Z"
+    },
+    {
+      "id": "cita-d3ea1e55-719b-4faf-a25e-5dbdf8658cd3",
+      "codigoCita": "ARC-2026-5137",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Consulta presencial en ventanilla",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-20",
+      "hora": "10:00",
+      "tipoAgendamiento": "presencial",
+      "estado": "no_asistio",
+      "creadaEn": "2026-10-20T00:43:25.193Z",
+      "motivoCancelacion": "No se presento",
+      "actualizadaEn": "2026-10-20T01:39:31.939Z"
+    },
+    {
+      "id": "cita-0381d760-bc3a-4bfc-81de-1f3db5823672",
+      "codigoCita": "ARC-2026-9827",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Cita primera vez.",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-23",
+      "hora": "09:30",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-20T01:22:17.973Z"
+    },
+    {
+      "id": "cita-74d41d10-d79a-4119-ad26-25cfc6d7e448",
+      "codigoCita": "ARC-2026-3374",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3243552344",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Consulta presencial en ventanilla",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-22",
+      "hora": "10:30",
+      "tipoAgendamiento": "presencial",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-21T22:58:21.852Z"
+    }
+  ],
+  "historialAuditoria": [
+    {
+      "id": "log-1",
+      "fecha": "2026-10-08T05:08:59.206Z",
+      "accion": "INICIALIZACION",
+      "descripcion": "Sistema de citas IPS ARCAL configurado con 4 sedes y 9 especialidades habilitadas."
+    },
+    {
+      "id": "log-1791436739686",
+      "fecha": "2026-10-08T05:18:59.686Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-5884 agendada vía web para paciente Mariana Duque Silva en 2026-10-15 a las 08:30"
+    },
+    {
+      "id": "log-1791476069219",
+      "fecha": "2026-10-08T16:14:29.219Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-6941 agendada vía web para paciente Andres Mena en 2026-10-24 a las 08:00"
+    },
+    {
+      "id": "log-1791476552333",
+      "fecha": "2026-10-08T16:22:32.333Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-6941 cambió a estado: en_sala"
+    },
+    {
+      "id": "log-1791476622104",
+      "fecha": "2026-10-08T16:23:42.104Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-6941 cambió a estado: atendida"
+    },
+    {
+      "id": "log-1791476918815",
+      "fecha": "2026-10-08T16:28:38.815Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: Dr. Test Verificación (RM-999888-TEST)"
+    },
+    {
+      "id": "log-1791477152755",
+      "fecha": "2026-10-08T16:32:32.755Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: ARCAL - TURBO en Turbo, Antioquia."
+    },
+    {
+      "id": "log-1791477261130",
+      "fecha": "2026-10-08T16:34:21.130Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: Luis Fernando (RM-243527-TUR)"
+    },
+    {
+      "id": "log-1791477343437",
+      "fecha": "2026-10-08T16:35:43.437Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477345134",
+      "fecha": "2026-10-08T16:35:45.134Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477347652",
+      "fecha": "2026-10-08T16:35:47.652Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477633525",
+      "fecha": "2026-10-08T16:40:33.525Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3518 agendada vía presencial para paciente Andres Mena en 2026-10-08 a las 13:00"
+    },
+    {
+      "id": "log-1791477823374",
+      "fecha": "2026-10-08T16:43:43.374Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-2984 agendada vía web para paciente Andres Consuegra en 2026-10-08 a las 13:30"
+    },
+    {
+      "id": "log-1791487276075",
+      "fecha": "2026-10-08T19:21:16.075Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3518 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1791487276089",
+      "fecha": "2026-10-08T19:21:16.089Z",
+      "accion": "REASIGNAR_CITA",
+      "descripcion": "Cita ARC-2026-3518 reasignada de 2026-10-08 13:00 a 2026-10-08 14:30. Motivo: Reasignación por llegada tarde a cita previa"
+    },
+    {
+      "id": "log-1791487457421",
+      "fecha": "2026-10-08T19:24:17.421Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3518 cambió a estado: cancelada"
+    },
+    {
+      "id": "log-1791488613242",
+      "fecha": "2026-10-08T19:43:33.242Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488613270",
+      "fecha": "2026-10-08T19:43:33.270Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488613311",
+      "fecha": "2026-10-08T19:43:33.311Z",
+      "accion": "CREAR_USUARIO",
+      "descripcion": "Nuevo agente creado: Pedro Test Silva (agente.test.1791488613301) con 2 sedes asignadas."
+    },
+    {
+      "id": "log-1791488613323",
+      "fecha": "2026-10-08T19:43:33.323Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario agente.test.1791488613301 DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791488613335",
+      "fecha": "2026-10-08T19:43:33.335Z",
+      "accion": "ELIMINAR_USUARIO",
+      "descripcion": "Usuario agente.test.1791488613301 eliminado del sistema."
+    },
+    {
+      "id": "log-1791488899407",
+      "fecha": "2026-10-08T19:48:19.407Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488918650",
+      "fecha": "2026-10-08T19:48:38.650Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario laura.gomez DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791488920730",
+      "fecha": "2026-10-08T19:48:40.730Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario andres.ruiz DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791489625947",
+      "fecha": "2026-10-08T20:00:25.947Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1873 agendada vía web para paciente Juan Mena en 2026-10-09 a las 11:30"
+    },
+    {
+      "id": "log-1791490650775",
+      "fecha": "2026-10-08T20:17:30.775Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9003 agendada vía web para paciente Carlos Pérez en 2026-10-09 a las 09:00"
+    },
+    {
+      "id": "log-1791490650806",
+      "fecha": "2026-10-08T20:17:30.806Z",
+      "accion": "ACTUALIZAR_CITA",
+      "descripcion": "Cita ARC-2026-9003 editada/actualizada para paciente Carlos Alberto Corregido Pérez Gómez"
+    },
+    {
+      "id": "log-1791491304383",
+      "fecha": "2026-10-08T20:28:24.383Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491354542",
+      "fecha": "2026-10-08T20:29:14.542Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-2984 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1791491420643",
+      "fecha": "2026-10-08T20:30:20.643Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491434987",
+      "fecha": "2026-10-08T20:30:34.987Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario laura.gomez HABILITADO por la administración."
+    },
+    {
+      "id": "log-1791491456432",
+      "fecha": "2026-10-08T20:30:56.432Z",
+      "accion": "MODIFICAR_USUARIO",
+      "descripcion": "Usuario laura.gomez actualizado (Sedes asignadas: 1)"
+    },
+    {
+      "id": "log-1791491475146",
+      "fecha": "2026-10-08T20:31:15.146Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491875587",
+      "fecha": "2026-10-08T20:37:55.587Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791495041768",
+      "fecha": "2026-10-08T21:30:41.768Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497061398",
+      "fecha": "2026-10-08T22:04:21.398Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497261641",
+      "fecha": "2026-10-08T22:07:41.641Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497294249",
+      "fecha": "2026-10-08T22:08:14.249Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-1873 cambió a estado: en_sala"
+    },
+    {
+      "id": "log-1791497383747",
+      "fecha": "2026-10-08T22:09:43.747Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-1873 cambió a estado: atendida"
+    },
+    {
+      "id": "log-1791506492977",
+      "fecha": "2026-10-09T00:41:32.977Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: ARCAL - TURBO"
+    },
+    {
+      "id": "log-1791506493008",
+      "fecha": "2026-10-09T00:41:33.008Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: ARCAL - TURBO"
+    },
+    {
+      "id": "log-1792456592273",
+      "fecha": "2026-10-20T00:36:32.273Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3944 agendada vía web para paciente Andres Consuegra en 2026-10-21 a las 10:00"
+    },
+    {
+      "id": "log-1792456707872",
+      "fecha": "2026-10-20T00:38:27.872Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792456925361",
+      "fecha": "2026-10-20T00:42:05.361Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792457005193",
+      "fecha": "2026-10-20T00:43:25.193Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-5137 agendada vía presencial para paciente Andres Consuegra en 2026-10-20 a las 10:00"
+    },
+    {
+      "id": "log-1792459337973",
+      "fecha": "2026-10-20T01:22:17.973Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9827 agendada vía web para paciente Andres Consuegra en 2026-10-23 a las 09:30"
+    },
+    {
+      "id": "log-1792460228001",
+      "fecha": "2026-10-20T01:37:08.001Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792460371939",
+      "fecha": "2026-10-20T01:39:31.939Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-5137 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1792460946546",
+      "fecha": "2026-10-20T01:49:06.546Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3944 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1792461048290",
+      "fecha": "2026-10-20T01:50:48.290Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792561660102",
+      "fecha": "2026-10-21T05:47:40.102Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792611305107",
+      "fecha": "2026-10-21T19:35:05.107Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dra. Marcela Gómez Villamizar actualizado. Duración de cita: 45 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792611325471",
+      "fecha": "2026-10-21T19:35:25.471Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dra. Marcela Gómez Villamizar actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792623299071",
+      "fecha": "2026-10-21T22:54:59.071Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623501852",
+      "fecha": "2026-10-21T22:58:21.852Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3374 agendada vía presencial para paciente Andres Consuegra en 2026-10-22 a las 10:30"
+    },
+    {
+      "id": "log-1792623769515",
+      "fecha": "2026-10-21T23:02:49.515Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623812220",
+      "fecha": "2026-10-21T23:03:32.220Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792623918215",
+      "fecha": "2026-10-21T23:05:18.215Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623967588",
+      "fecha": "2026-10-21T23:06:07.588Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792624131157",
+      "fecha": "2026-10-21T23:08:51.157Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792624146630",
+      "fecha": "2026-10-21T23:09:06.630Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792624155408",
+      "fecha": "2026-10-21T23:09:15.408Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 20 min. Pausas activas: 1."
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "usr-superadmin",
+      "nombre": "Dirección General IPS (Super Admin)",
+      "username": "superadmin",
+      "password": "superadmin123",
+      "rol": "superadmin",
+      "email": "superadmin@ipsarcal.com",
+      "cargo": "Super Administrador del Sistema",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4",
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-21T14:57:16.418Z"
+    },
+    {
+      "id": "usr-admin",
+      "nombre": "Administrador Central IPS",
+      "username": "admin",
+      "password": "admin123",
+      "rol": "admin",
+      "email": "admin@ipsarcal.com",
+      "cargo": "Director de Operaciones & Admisiones",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-1",
+      "nombre": "Laura Camila Gómez",
+      "username": "laura.gomez",
+      "password": "123",
+      "rol": "agente",
+      "email": "laura.gomez@ipsarcal.com",
+      "cargo": "Agente de Admisiones y Recepción",
+      "sedesAsignadas": [
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-2",
+      "nombre": "Andrés Felipe Ruiz",
+      "username": "andres.ruiz",
+      "password": "123",
+      "rol": "agente",
+      "email": "andres.ruiz@ipsarcal.com",
+      "cargo": "Agente de Atención al Cliente",
+      "sedesAsignadas": [
+        "sede-3"
+      ],
+      "activo": false,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-3",
+      "nombre": "Carolina Morales Vega",
+      "username": "carolina.morales",
+      "password": "123",
+      "rol": "agente",
+      "email": "carolina.morales@ipsarcal.com",
+      "cargo": "Agente de Ventanilla y Recepción",
+      "sedesAsignadas": [
+        "sede-4"
+      ],
+      "activo": false,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    }
+  ]
+}
