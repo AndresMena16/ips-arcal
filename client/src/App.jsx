@@ -5,6 +5,7 @@ import PresencialBooking from './components/PresencialBooking';
 import AdminDashboard from './components/AdminDashboard';
 import AppointmentLookup from './components/AppointmentLookup';
 import LoginModal from './components/LoginModal';
+import InstitutionalSection from './components/InstitutionalSection';
 import { ShieldCheck, Phone, MapPin, Mail, Clock, ExternalLink } from 'lucide-react';
 
 export default function App() {
@@ -59,7 +60,12 @@ export default function App() {
 
       {/* Contenido Principal según Vista y Rol */}
       <main className="main-wrapper" style={{ flex: 1 }}>
-        {activeTab === 'web' && <WebBookingWizard />}
+        {activeTab === 'web' && (
+          <WebBookingWizard onVerInstitucional={() => setActiveTab('institucional')} />
+        )}
+        {activeTab === 'institucional' && (
+          <InstitutionalSection onAgendarClick={() => setActiveTab('web')} />
+        )}
         {activeTab === 'consulta' && <AppointmentLookup />}
         {activeTab === 'presencial' && (
           <PresencialBooking usuarioActual={usuarioActual} onOpenLogin={() => setLoginModalOpen(true)} />
@@ -90,49 +96,53 @@ export default function App() {
             <h3 style={{ color: '#FFFFFF', fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 800 }}>
               ARCAL PROTECCIÓN RADIOLÓGICA S.A.S. (IPS)
             </h3>
-            <p style={{ color: '#0a0a0bff', fontSize: '0.85rem', lineHeight: '1.6', maxWidth: '480px' }}>
-              Institución Prestadora de Servicios de Salud y Apoyo Diagnóstico. Expertos en Protección Radiológica, Dosimetría Ocupacional, Ecografía Especializada y Diagnóstico Médico Integral. Habilitada por el Ministerio de Salud y Protección Social.
+            <p style={{ color: '#E2E8F0', fontSize: '0.85rem', lineHeight: '1.6', maxWidth: '480px' }}>
+              Institución Prestadora de Servicios de Salud y Apoyo Diagnóstico. Comprometidos con la integralidad en la prestación de servicios de salud con calidad, capacidad científica, técnica y administrativa con trato humanizado. Habilitada por el Ministerio de Salud y Protección Social.
             </p>
-            <div style={{ marginTop: '0.9rem', fontSize: '0.8rem', color: '#FFFFFF', fontWeight: 700 }}>
+            <div style={{ marginTop: '0.9rem', fontSize: '0.8rem', color: '#99c85d', fontWeight: 700 }}>
               Habilitación MinSalud: 0500109842-01 • NIT: 901.365.419-8
             </div>
           </div>
 
           <div>
             <h4 style={{ color: '#FFFFFF', fontSize: '0.95rem', marginBottom: '0.8rem', fontWeight: 700, borderBottom: '2px solid var(--brand-cyan)', display: 'inline-block', paddingBottom: '4px' }}>
-              Servicios & Apoyo Diagnóstico
+              Departamentos & Portafolio
             </h4>
-            <ul style={{ listStyle: 'none', fontSize: '0.8rem', color: '#000000ff', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-              <li>• Ecografía Especializada & Doppler Vascular</li>
-              <li>• Protección Radiológica & Dosimetría Personal</li>
-              <li>• Control de Calidad de Equipos de Rayos X</li>
-              <li>• Levantamiento Radiométrico y Blindajes</li>
-              <li>• Radiología Digital Convencional</li>
-              <li>• Medicina Laboral & Seguridad Radiológica (POE)</li>
+            <ul style={{ listStyle: 'none', fontSize: '0.8rem', color: '#CBD5E1', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               <li>• Consulta Médica Especializada</li>
+              <li>• Consulta Medicina General & Terapias</li>
+              <li>• Diagnóstico Vascular (Holter, MAPA, EKG, Eco)</li>
+              <li>• Procedimientos Menores (Otorrino, Derma, Uro, Orto)</li>
+              <li>• Ecografía Especializada & Doppler Vascular</li>
+              <li>• Radiología Digital Convencional</li>
+              <li>• Protección Radiológica & Dosimetría Ocupacional</li>
+              <li>• Medicina Laboral & Seguridad Radiológica (POE)</li>
             </ul>
           </div>
 
           <div>
             <h4 style={{ color: '#FFFFFF', fontSize: '0.95rem', marginBottom: '0.8rem', fontWeight: 700, borderBottom: '2px solid var(--brand-green)', display: 'inline-block', paddingBottom: '4px' }}>
-              Sedes & Contacto
+              Sedes de Atención & Contacto
             </h4>
-            <div style={{ fontSize: '0.8rem', color: '#060606ff', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+            <div style={{ fontSize: '0.8rem', color: '#CBD5E1', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
               <div>
-                <b style={{ color: '#FFFFFF' }}>Sede Medellín:</b><br />
-                Calle 19a Nro. 44-25 - B/ Poblado Medellín - Antioquia
-                Torre Medica Salud y Servicio piso 22 Consultorio 2209<br />
-                PBX: (604) 604 8956
+                <b style={{ color: '#FFFFFF' }}>Sede Poblado Medellín:</b><br />
+                Calle 19a Nro. 44-25, Torre Médica Salud y Servicios piso 22 Cons. 2209<br />
+                PBX: (604) 604 8956 • Cel: 323 230 7453
               </div>
               <div>
-                <b style={{ color: '#FFFFFF' }}>Sede Urabá (Turbo):</b><br />
-                Calle 112 # 17-51, Centro de Diagnóstico
+                <b style={{ color: '#FFFFFF' }}>Sede Ciudad Bolívar:</b><br />
+                Calle 48 #48-01 Local 208, Centro Empresarial Privilegio • Cel: 311 601 0895
               </div>
               <div>
-                <b style={{ color: '#FFFFFF' }}>WhatsApp Citas:</b> <span style={{ color: '#FFFFFF', fontWeight: 700 }}>+57 310 854 9210</span><br />
+                <b style={{ color: '#FFFFFF' }}>Sede Apartadó (Urabá):</b><br />
+                Cll 99 # 105-44 piso 1 Barrio Ortiz • Cel: 314 826 5325
+              </div>
+              <div>
+                <b style={{ color: '#FFFFFF' }}>WhatsApp Citas:</b> <span style={{ color: '#99c85d', fontWeight: 700 }}>+57 310 854 9210</span><br />
                 <b>Correo:</b> contacto@arcal.com.co
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#000000ff' }}>
+              <div style={{ fontSize: '0.75rem', color: '#94A3B8' }}>
                 Horario: Lunes a Viernes 7:00 AM - 5:00 PM | Sábados 8:00 AM - 1:00 PM
               </div>
             </div>

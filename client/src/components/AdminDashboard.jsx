@@ -83,6 +83,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   // Edición de Recomendaciones en Especialidad
   const [especialidadEnEdicion, setEspecialidadEnEdicion] = useState(null);
   const [recomendacionesTexto, setRecomendacionesTexto] = useState('');
+  const [filtroDepartamentoEsp, setFiltroDepartamentoEsp] = useState('todos');
 
   // Filtros Avanzados de Citas & Agenda Especialista (Info Salud)
   const [filtroFechaTipo, setFiltroFechaTipo] = useState('todas'); // 'todas' | 'hoy' | 'manana' | 'semana' | 'especifica'
@@ -858,60 +859,98 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
             <div>
               <h3 className="panel-title">
                 <Stethoscope size={20} color="#028090" />
-                9 Especialidades Médicas Habilitadas
+                {especialidades.length} Especialidades & Procedimientos Médicos Habilitados
               </h3>
               <p className="panel-subtitle">
-                Configure las recomendaciones clínicas preparatorias que se imprimen en el comprobante PDF para cada especialidad.
+                Especialidades distribuidas en 6 departamentos clínicos. Configure las recomendaciones preparatorias oficiales que se imprimen en el comprobante PDF.
               </p>
             </div>
           </div>
 
+          {/* Filtros por Departamento */}
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem', background: '#F8FAFC', padding: '0.8rem', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+            <button
+              type="button"
+              className={`btn ${filtroDepartamentoEsp === 'todos' ? 'btn-primary' : 'btn-secondary'}`}
+              style={{ fontSize: '0.78rem', padding: '0.35rem 0.75rem' }}
+              onClick={() => setFiltroDepartamentoEsp('todos')}
+            >
+              Todos los Departamentos ({especialidades.length})
+            </button>
+            {[...new Set(especialidades.map(e => e.departamento).filter(Boolean))].map(dep => {
+              const count = especialidades.filter(e => e.departamento === dep).length;
+              return (
+                <button
+                  key={dep}
+                  type="button"
+                  className={`btn ${filtroDepartamentoEsp === dep ? 'btn-primary' : 'btn-secondary'}`}
+                  style={{ fontSize: '0.78rem', padding: '0.35rem 0.75rem' }}
+                  onClick={() => setFiltroDepartamentoEsp(dep)}
+                >
+                  {dep} ({count})
+                </button>
+              );
+            })}
+          </div>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '1.5rem' }}>
-            {especialidades.map(esp => (
-              <div
-                key={esp.id}
-                style={{
-                  background: '#FFFFFF',
-                  border: '1.5px solid #E2E8F0',
-                  borderRadius: '16px',
-                  padding: '1.5rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between'
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                    <span className="badge badge-web">{esp.codigo}</span>
-                    <span style={{ fontSize: '0.75rem', color: '#64748B' }}>{esp.duracionMinutos} minutos</span>
-                  </div>
-
-                  <h4 style={{ fontSize: '1.2rem', color: '#0F172A', marginBottom: '0.4rem' }}>{esp.nombre}</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '1rem' }}>{esp.descripcion}</p>
-
-                  <div style={{ background: '#FEF3C7', border: '1px solid #FDE68A', padding: '0.8rem', borderRadius: '10px' }}>
-                    <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#92400E', marginBottom: '0.4rem' }}>
-                      Recomendaciones para el PDF:
+            {especialidades
+              .filter(esp => filtroDepartamentoEsp === 'todos' || esp.departamento === filtroDepartamentoEsp)
+              .map(esp => (
+                <div
+                  key={esp.id}
+                  style={{
+                    background: '#FFFFFF',
+                    border: '1.5px solid #E2E8F0',
+                    borderRadius: '16px',
+                    padding: '1.5rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.4rem' }}>
+                      <span className="badge badge-web">{esp.codigo}</span>
+                      <span style={{
+                        fontSize: '0.72rem',
+                        fontWeight: 700,
+                        padding: '0.2rem 0.5rem',
+                        borderRadius: '6px',
+                        background: 'var(--brand-cyan-light)',
+                        color: 'var(--brand-cyan-dark)'
+                      }}>
+                        {esp.departamento || 'Especialidad'}
+                      </span>
+                      <span style={{ fontSize: '0.75rem', color: '#64748B' }}>{esp.duracionMinutos} minutos</span>
                     </div>
-                    <ul style={{ paddingLeft: '1.2rem', fontSize: '0.76rem', color: '#78350F', lineHeight: '1.4' }}>
-                      {esp.recomendaciones?.map((r, i) => (
-                        <li key={i} style={{ marginBottom: '0.3rem' }}>{r}</li>
-                      ))}
-                    </ul>
+
+                    <h4 style={{ fontSize: '1.2rem', color: '#0F172A', marginBottom: '0.4rem' }}>{esp.nombre}</h4>
+                    <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '1rem' }}>{esp.descripcion}</p>
+
+                    <div style={{ background: '#FEF3C7', border: '1px solid #FDE68A', padding: '0.8rem', borderRadius: '10px' }}>
+                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#92400E', marginBottom: '0.4rem' }}>
+                        Recomendaciones para el PDF:
+                      </div>
+                      <ul style={{ paddingLeft: '1.2rem', fontSize: '0.76rem', color: '#78350F', lineHeight: '1.4' }}>
+                        {esp.recomendaciones?.map((r, i) => (
+                          <li key={i} style={{ marginBottom: '0.3rem' }}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: '1rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.8rem' }}>
+                    <button
+                      className="btn btn-secondary"
+                      style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
+                      onClick={() => abrirEdicionEspecialidad(esp)}
+                    >
+                      <Edit2 size={14} /> Editar Recomendaciones del PDF
+                    </button>
                   </div>
                 </div>
-
-                <div style={{ marginTop: '1rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.8rem' }}>
-                  <button
-                    className="btn btn-secondary"
-                    style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
-                    onClick={() => abrirEdicionEspecialidad(esp)}
-                  >
-                    <Edit2 size={14} /> Editar Recomendaciones del PDF
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       )}

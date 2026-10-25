@@ -2,33 +2,62 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   Building2, Stethoscope, User, Calendar, Clock, CheckCircle2,
   AlertTriangle, FileDown, ArrowRight, ArrowLeft, Shield, MapPin,
-  Phone, HeartPulse, Brain, Baby, Activity, Ear, Salad, Sparkles, ShieldPlus, Check
+  Phone, HeartPulse, Brain, Baby, Activity, Ear, Salad, Sparkles, ShieldPlus, Check,
+  Scissors, Bone, Droplets, Wind, Layers, Info, Filter
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { api } from '../services/api';
 import { generarComprobantePDF } from '../utils/pdfGenerator';
+import InstitutionalSection from './InstitutionalSection';
 
-// Mapeo de iconos para las especialidades
+// Mapeo exhaustivo de iconos para todas las especialidades y procedimientos de ARCAL
 const ESPECIALIDAD_ICONS = {
-  'esp-ecografia': Activity,
-  'esp-proteccion-radiologica': Shield,
-  'esp-rayosx': Sparkles,
-  'esp-medicina-laboral-poe': User,
-  'esp-urologia': Activity,
-  'esp-otorrino': Ear,
-  'esp-pediatria': Baby,
-  'esp-medicina-interna': HeartPulse,
-  'esp-psicologia': Brain,
+  // Consulta Médica Especializada
   'esp-cardiologia': HeartPulse,
-  'esp-nutricion': Salad,
+  'esp-medicina-interna': Stethoscope,
+  'esp-pediatria': Baby,
   'esp-dermatologia': Sparkles,
-  'esp-ginecologia': ShieldPlus
+  'esp-cirugia-general': Scissors,
+  'esp-ortopedia': Bone,
+  'esp-otorrino': Ear,
+  'esp-ginecologia': ShieldPlus,
+  'esp-obstetricia': Baby,
+  'esp-urologia': Activity,
+  'esp-hematologia': Droplets,
+  'esp-reumatologia': HeartPulse,
+
+  // Consulta Medicina General
+  'esp-medicina-general': Stethoscope,
+  'esp-nutricion': Salad,
+  'esp-psicologia': Brain,
+  'esp-terapia-respiratoria': Wind,
+
+  // Diagnóstico Vascular
+  'esp-electrocardiograma': Activity,
+  'esp-ecocardiograma': HeartPulse,
+  'esp-holter': Activity,
+  'esp-mapa': Activity,
+
+  // Procedimientos Menores
+  'esp-proc-otorrino': Ear,
+  'esp-proc-dermatologia': Sparkles,
+  'esp-proc-urologia': Activity,
+  'esp-proc-ortopedia': Bone,
+
+  // Imágenes Diagnósticas & Ecografía
+  'esp-ecografia': Activity,
+  'esp-rayosx': Sparkles,
+
+  // Protección Radiológica & Dosimetría
+  'esp-proteccion-radiologica': Shield,
+  'esp-medicina-laboral-poe': User
 };
 
-export default function WebBookingWizard() {
+export default function WebBookingWizard({ onVerInstitucional }) {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [mostrarInfoInstitucional, setMostrarInfoInstitucional] = useState(false);
 
   // Catálogos
   const [sedes, setSedes] = useState([]);
@@ -39,6 +68,7 @@ export default function WebBookingWizard() {
 
   // Selección del Wizard
   const [selectedSedeId, setSelectedSedeId] = useState('');
+  const [selectedDepartamento, setSelectedDepartamento] = useState('');
   const [selectedEspecialidadId, setSelectedEspecialidadId] = useState('');
   const [selectedMedicoId, setSelectedMedicoId] = useState('');
   const [selectedFecha, setSelectedFecha] = useState(() => {
@@ -48,6 +78,7 @@ export default function WebBookingWizard() {
     return d.toISOString().split('T')[0];
   });
   const [selectedHora, setSelectedHora] = useState('');
+  const [selectedCupsCodigo, setSelectedCupsCodigo] = useState('');
 
   // Formulario del Paciente
   const [formData, setFormData] = useState({
@@ -57,7 +88,7 @@ export default function WebBookingWizard() {
     pacienteApellidos: '',
     pacienteTelefono: '',
     pacienteEmail: '',
-    pacienteAseguradora: 'Particular',
+    pacienteAseguradora: 'Savia Salud',
     motivoConsulta: ''
   });
 
@@ -103,17 +134,94 @@ export default function WebBookingWizard() {
     return especialidades;
   }, [selectedSedeId, sedes, especialidades]);
 
-  // Al cambiar de sede o especialidades disponibles, si la especialidad actual no está habilitada en esta sede, auto-seleccionar la primera
+  // Departamentos únicos disponibles en la sede seleccionada
+  const departamentosDisponibles = useMemo(() => {
+    if (!especialidadesDeLaSede || especialidadesDeLaSede.length === 0) return [];
+    const deps = [];
+    especialidadesDeLaSede.forEach(esp => {
+      const dep = esp.departamento || 'Medicina general';
+      if (!deps.includes(dep)) {
+        deps.push(dep);
+      }
+    });
+    return deps;
+  }, [especialidadesDeLaSede]);
+
+  // Sincronizar departamento seleccionado
   useEffect(() => {
-    if (especialidadesDeLaSede.length > 0) {
-      const existe = especialidadesDeLaSede.some(esp => esp.id === selectedEspecialidadId);
-      if (!existe) {
-        setSelectedEspecialidadId(especialidadesDeLaSede[0].id);
+    if (departamentosDisponibles.length > 0) {
+      if (!selectedDepartamento || !departamentosDisponibles.includes(selectedDepartamento)) {
+        const espActual = especialidadesDeLaSede.find(e => e.id === selectedEspecialidadId);
+        if (espActual && departamentosDisponibles.includes(espActual.departamento)) {
+          setSelectedDepartamento(espActual.departamento);
+        } else {
+          setSelectedDepartamento(departamentosDisponibles[0]);
+        }
+      }
+    } else {
+      setSelectedDepartamento('');
+    }
+  }, [departamentosDisponibles, selectedEspecialidadId]);
+
+  // Especialidades filtradas por el departamento seleccionado
+  const especialidadesFiltradasPorDepartamento = useMemo(() => {
+    if (!selectedDepartamento) return especialidadesDeLaSede;
+    return especialidadesDeLaSede.filter(esp => (esp.departamento || 'Medicina general') === selectedDepartamento);
+  }, [especialidadesDeLaSede, selectedDepartamento]);
+
+  // Especialidad seleccionada actualmente
+  const especialidadSeleccionada = useMemo(() => {
+    return especialidades.find(e => e.id === selectedEspecialidadId);
+  }, [especialidades, selectedEspecialidadId]);
+
+  // Modalidades CUPS disponibles para la especialidad actual (Primera vez, Control, o Procedimiento)
+  const modalidadesDisponibles = useMemo(() => {
+    if (!especialidadSeleccionada || !Array.isArray(especialidadSeleccionada.modalidades)) {
+      return [];
+    }
+    return especialidadSeleccionada.modalidades;
+  }, [especialidadSeleccionada]);
+
+  // Sincronizar modalidad / código CUPS seleccionado
+  useEffect(() => {
+    if (modalidadesDisponibles.length > 0) {
+      const existe = modalidadesDisponibles.some(m => m.codigoCups === selectedCupsCodigo);
+      if (!selectedCupsCodigo || !existe) {
+        setSelectedCupsCodigo(modalidadesDisponibles[0].codigoCups);
+      }
+    } else {
+      setSelectedCupsCodigo('');
+    }
+  }, [modalidadesDisponibles, selectedCupsCodigo]);
+
+  // Modalidad actual activa
+  const modalidadActual = useMemo(() => {
+    if (modalidadesDisponibles.length === 0) return null;
+    return modalidadesDisponibles.find(m => m.codigoCups === selectedCupsCodigo) || modalidadesDisponibles[0];
+  }, [modalidadesDisponibles, selectedCupsCodigo]);
+
+  // Manejar cambio de departamento (Nivel 1 del select anidado)
+  function handleDepartamentoChange(nuevoDep) {
+    setSelectedDepartamento(nuevoDep);
+    const esps = especialidadesDeLaSede.filter(e => (e.departamento || 'Medicina general') === nuevoDep);
+    if (esps.length > 0) {
+      const sigueValida = esps.some(e => e.id === selectedEspecialidadId);
+      if (!sigueValida) {
+        setSelectedEspecialidadId(esps[0].id);
       }
     } else {
       setSelectedEspecialidadId('');
     }
-  }, [selectedSedeId, especialidadesDeLaSede]);
+  }
+
+  // Manejar cambio de especialidad (Nivel 2 del select anidado)
+  function handleEspecialidadChange(espId) {
+    setSelectedEspecialidadId(espId);
+    const esp = especialidadesDeLaSede.find(e => e.id === espId);
+    if (esp && esp.departamento && esp.departamento !== selectedDepartamento) {
+      setSelectedDepartamento(esp.departamento);
+    }
+  }
 
   // Filtrar médicos según Sede y Especialidad seleccionadas
   useEffect(() => {
@@ -201,6 +309,10 @@ export default function WebBookingWizard() {
         ...formData,
         sedeId: selectedSedeId,
         especialidadId: selectedEspecialidadId,
+        departamento: selectedDepartamento || especialidadSeleccionada?.departamento || '',
+        tipoCita: modalidadActual?.tipo || (especialidadSeleccionada?.esConsulta ? 'primera_vez' : 'procedimiento'),
+        codigoCups: modalidadActual?.codigoCups || especialidadSeleccionada?.codigo || '',
+        nombreCups: modalidadActual?.descripcionCups || especialidadSeleccionada?.nombre || '',
         medicoId: selectedMedicoId,
         fecha: selectedFecha,
         hora: selectedHora,
@@ -249,14 +361,30 @@ export default function WebBookingWizard() {
           <h2>Portal de Citas & Servicios de Apoyo Diagnóstico</h2>
           <p>
             Reserve su cita de forma ágil y segura en nuestras sedes de Medellín, Urabá y cobertura nacional.
-            Especialistas en <b>Ecografía de alta resolución</b>, <b>Protección Radiológica</b>, <b>Dosimetría Ocupacional</b> y <b>Consultas Clínicas</b>.
+            Especialistas en <b>Ecografía de alta resolución</b>, <b>Protección Radiológica</b>, <b>Dosimetría Ocupacional</b> y <b>Consultas Médicas Especializadas</b>.
             Al completar su reserva, obtendrá inmediatamente su comprobante digital oficial en PDF con recomendaciones médicas.
           </p>
 
-          <div className="hero-badges-row">
-            {especialidades.map(esp => (
-              <span key={esp.id} className="specialty-pill">
-                {esp.nombre}
+          <div style={{ marginTop: '1rem', display: 'flex', gap: '0.6rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            {/* <button
+              type="button"
+              onClick={() => setMostrarInfoInstitucional(!mostrarInfoInstitucional)}
+              className="btn btn-secondary"
+              style={{
+                background: 'rgba(255,255,255,0.18)',
+                borderColor: 'rgba(255,255,255,0.3)',
+                color: '#FFFFFF',
+                fontSize: '0.82rem',
+                padding: '0.45rem 0.95rem',
+                backdropFilter: 'blur(4px)'
+              }}
+            >
+              <Info size={15} color="var(--brand-green)" />
+              {mostrarInfoInstitucional ? 'Ocultar Identidad Institucional' : 'Conocer Misión, Visión & Portafolio Oficial'}
+            </button>*/}
+            {departamentosDisponibles.map(dep => (
+              <span key={dep} className="specialty-pill" style={{ fontSize: '0.74rem' }}>
+                {dep}
               </span>
             ))}
           </div>
@@ -274,6 +402,16 @@ export default function WebBookingWizard() {
           </div>
         </div>
       </div>
+
+      {/* Despliegue de Misión, Visión y Política Institucional */}
+      {mostrarInfoInstitucional && (
+        <div style={{ marginBottom: '2rem' }}>
+          <InstitutionalSection onAgendarClick={() => {
+            setMostrarInfoInstitucional(false);
+            setStep(1);
+          }} />
+        </div>
+      )}
 
       {/* Stepper de Progreso */}
       <div className="stepper-container">
@@ -381,29 +519,256 @@ export default function WebBookingWizard() {
             </div>
           </div>
 
-          {/* Selector de Especialidades Habilitadas en la Sede */}
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-              <h4 style={{ fontSize: '0.95rem', color: '#1E293B', fontWeight: 700, margin: 0 }}>
-                2. Especialidades Médicas Habilitadas en {sedeActual?.nombre || 'la Sede Seleccionada'}:
-              </h4>
+          {/* ======================================================== */}
+          {/* SELECT ANIDADO: DEPARTAMENTO -> ESPECIALIDAD */}
+          {/* ======================================================== */}
+          <div style={{
+            background: '#F8FAFC',
+            border: '1.5px solid var(--border-light)',
+            borderRadius: '16px',
+            padding: '1.4rem',
+            marginBottom: '2rem',
+            boxShadow: 'var(--shadow-sm)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '10px',
+                  background: 'var(--brand-cyan-light)',
+                  color: 'var(--brand-cyan)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Layers size={20} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1rem', color: '#1E293B', fontWeight: 800, margin: 0 }}>
+                    Selección por Departamento de Salud
+                  </h4>
+                  <span style={{ fontSize: '0.78rem', color: '#64748B' }}>
+                    Filtre por departamento para desplegar las especialidades y procedimientos específicos
+                  </span>
+                </div>
+              </div>
+
               <span className="badge badge-web" style={{ fontSize: '0.78rem' }}>
-                {especialidadesDeLaSede.length} {especialidadesDeLaSede.length === 1 ? 'especialidad habilitada' : 'especialidades habilitadas'}
+                {especialidadesDeLaSede.length} especialidades en esta sede
               </span>
             </div>
 
-            {especialidadesDeLaSede.length === 0 ? (
+            {/* Fila de los TRES selects anidados encadenados */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.2rem' }}>
+              {/* SELECT 1: DEPARTAMENTO */}
+              <div className="form-group" style={{ margin: 0 }}>
+                <label className="form-label" style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--primary-900)' }}>
+                  Departamento Clínico / Área
+                </label>
+                <select
+                  className="form-select"
+                  value={selectedDepartamento}
+                  onChange={e => handleDepartamentoChange(e.target.value)}
+                  disabled={departamentosDisponibles.length === 0}
+                  style={{ fontWeight: 700, borderColor: 'var(--brand-cyan)', padding: '0.65rem 0.8rem', background: '#FFFFFF' }}
+                >
+                  {departamentosDisponibles.length === 0 ? (
+                    <option value="">Sin departamentos disponibles</option>
+                  ) : (
+                    departamentosDisponibles.map(dep => {
+                      const count = especialidadesDeLaSede.filter(e => (e.departamento || 'Medicina general') === dep).length;
+                      return (
+                        <option key={dep} value={dep}>
+                          {dep} ({count} {count === 1 ? 'servicio' : 'servicios'})
+                        </option>
+                      );
+                    })
+                  )}
+                </select>
+              </div>
+
+              {/* SELECT 2: ESPECIALIDAD ANIDADA */}
+              <div className="form-group" style={{ margin: 0 }}>
+                <label className="form-label" style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--primary-900)' }}>
+                  Especialidad o Procedimiento
+                </label>
+                <select
+                  className="form-select"
+                  value={selectedEspecialidadId}
+                  onChange={e => handleEspecialidadChange(e.target.value)}
+                  disabled={!selectedDepartamento || especialidadesFiltradasPorDepartamento.length === 0}
+                  style={{ fontWeight: 700, borderColor: 'var(--brand-green)', padding: '0.65rem 0.8rem', background: '#FFFFFF' }}
+                >
+                  {especialidadesFiltradasPorDepartamento.length === 0 ? (
+                    <option value="">No hay especialidades en este departamento</option>
+                  ) : (
+                    especialidadesFiltradasPorDepartamento.map(esp => (
+                      <option key={esp.id} value={esp.id}>
+                        {esp.nombre} — {esp.duracionMinutos} min ({esp.codigo})
+                      </option>
+                    ))
+                  )}
+                </select>
+              </div>
+
+              {/* SELECT 3: TIPO DE CITA (PRIMERA VEZ VS CONTROL) Y CÓDIGO CUPS ANIDADO */}
+              <div className="form-group" style={{ margin: 0 }}>
+                <label className="form-label" style={{ fontSize: '0.80rem', fontWeight: 500, color: 'var(--primary-900)', display: 'flex', justifyContent: 'space-between' }}>
+                  <span>Tipo de Cita & Código CUPS</span>
+                  {modalidadActual && (
+                    <span style={{ color: 'var(--brand-green-dark)', fontWeight: 500 }}>
+                      CUPS:{modalidadActual.codigoCups}
+                    </span>
+                  )}
+                </label>
+                {modalidadesDisponibles.length > 1 ? (
+                  <select
+                    className="form-select"
+                    value={selectedCupsCodigo}
+                    onChange={e => setSelectedCupsCodigo(e.target.value)}
+                    style={{ fontWeight: 700, borderColor: '#8CC63F', padding: '0.65rem 0.8rem', background: '#FFFFFF', color: '#0F172A' }}
+                  >
+                    {modalidadesDisponibles.map(mod => (
+                      <option key={mod.codigoCups} value={mod.codigoCups}>
+                        {mod.etiqueta} — CUPS: {mod.codigoCups}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <div style={{
+                    padding: '0.62rem 0.8rem',
+                    borderRadius: '8px',
+                    background: '#F0FDF4',
+                    border: '1.5px solid #86EFAC',
+                    color: '#166534',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    minHeight: '42px'
+                  }}>
+                    <span style={{ background: '#16A34A', color: '#FFF', fontSize: '0.72rem', padding: '2px 7px', borderRadius: '4px', fontWeight: 800 }}>
+                      CUPS {modalidadActual?.codigoCups || 'Oficial'}
+                    </span>
+                    <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {modalidadActual?.etiqueta || 'Procedimiento / Examen Único'}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Selector interactivo directo para Primera Vez vs Control en consultas médicas */}
+            {modalidadesDisponibles.length > 1 && (
+              <div style={{ marginTop: '1.1rem', paddingTop: '0.9rem', borderTop: '1px dashed #CBD5E1', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.8rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.78rem', fontWeight: 700, color: '#334155' }}>
+                  <Filter size={15} color="var(--brand-cyan)" />
+                  <span>Seleccione Modalidad de Consulta:</span>
+                </div>
+                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                  {modalidadesDisponibles.map(mod => {
+                    const isActiva = selectedCupsCodigo === mod.codigoCups;
+                    const esPrimera = mod.tipo === 'primera_vez';
+                    return (
+                      <button
+                        key={mod.codigoCups}
+                        type="button"
+                        onClick={() => setSelectedCupsCodigo(mod.codigoCups)}
+                        style={{
+                          padding: '0.45rem 1rem',
+                          borderRadius: '8px',
+                          fontSize: '0.82rem',
+                          fontWeight: 800,
+                          border: isActiva ? '2px solid var(--brand-green)' : '1px solid #CBD5E1',
+                          background: isActiva ? (esPrimera ? '#F0FDF4' : '#F0F9FF') : '#FFFFFF',
+                          color: isActiva ? (esPrimera ? '#166534' : '#0369A1') : '#475569',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                          transition: 'all 0.15s ease',
+                          boxShadow: isActiva ? '0 3px 8px rgba(140, 198, 63, 0.25)' : 'none'
+                        }}
+                      >
+                        <Check size={15} color={isActiva ? (esPrimera ? '#16A34A' : '#0284C7') : 'transparent'} />
+                        <span>{mod.etiqueta}</span>
+                        <span style={{
+                          fontSize: '0.72rem',
+                          fontWeight: 800,
+                          background: isActiva ? (esPrimera ? '#8CC63F' : '#36B0C1') : '#E2E8F0',
+                          color: isActiva ? (esPrimera ? '#0B2233' : '#FFFFFF') : '#64748B',
+                          padding: '2px 7px',
+                          borderRadius: '4px'
+                        }}>
+                          CUPS: {mod.codigoCups}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Chips de departamentos para cambio visual con un solo clic */}
+            <div style={{ marginTop: '1.1rem', paddingTop: '0.9rem', borderTop: '1px dashed #CBD5E1' }}>
+              {/* <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748B', marginBottom: '0.5rem' }}>
+                Departamentos de salud habilitados en {sedeActual?.nombre || 'la sede'}:
+              </div>
+               <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+                {departamentosDisponibles.map(dep => {
+                  const isSelected = selectedDepartamento === dep;
+                  const count = especialidadesDeLaSede.filter(e => (e.departamento || 'Departamento 1. Medicina general') === dep).length;
+                  return (
+                    <button
+                      key={dep}
+                      type="button"
+                      onClick={() => handleDepartamentoChange(dep)}
+                      style={{
+                        padding: '0.35rem 0.75rem',
+                        borderRadius: '20px',
+                        fontSize: '0.76rem',
+                        border: isSelected ? '2px solid var(--brand-cyan)' : '1px solid #CBD5E1',
+                        background: isSelected ? 'var(--brand-cyan-light)' : '#FFFFFF',
+                        color: isSelected ? 'var(--brand-cyan-dark)' : '#334155',
+                        fontWeight: isSelected ? 800 : 500,
+                        cursor: 'pointer',
+                        transition: 'all 0.15s ease',
+                        boxShadow: isSelected ? '0 2px 6px rgba(54, 176, 193, 0.2)' : 'none'
+                      }}
+                    >
+                      {dep} ({count})
+                    </button>
+                  );
+                })}
+              </div> */}
+            </div>
+          </div>
+
+          {/* Cuadrícula de Tarjetas del Departamento Seleccionado */}
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <h4 style={{ fontSize: '0.95rem', color: '#1E293B', fontWeight: 700, margin: 0 }}>
+                Especialidades en: <span style={{ color: 'var(--brand-cyan-dark)' }}>{selectedDepartamento || 'Departamento'}</span>
+              </h4>
+              <span style={{ fontSize: '0.78rem', color: '#64748B' }}>
+                Haga clic en la tarjeta o elija del menú desplegable superior
+              </span>
+            </div>
+
+            {especialidadesFiltradasPorDepartamento.length === 0 ? (
               <div style={{ background: '#FEF2F2', border: '1px solid #FCA5A5', padding: '1.2rem', borderRadius: '12px', color: '#991B1B', textAlign: 'center', marginTop: '0.5rem' }}>
                 <p style={{ margin: 0, fontWeight: 700 }}>
-                  Actualmente no hay especialidades médicas habilitadas para esta sede.
+                  No hay especialidades habilitadas en este departamento para la sede seleccionada.
                 </p>
                 <p style={{ margin: '0.4rem 0 0', fontSize: '0.82rem', color: '#B91C1C' }}>
-                  Por favor seleccione otra sede de IPS ARCAL para consultar disponibilidad.
+                  Por favor seleccione otro departamento o cambie de sede.
                 </p>
               </div>
             ) : (
               <div className="selection-grid">
-                {especialidadesDeLaSede.map(esp => {
+                {especialidadesFiltradasPorDepartamento.map(esp => {
                   const IconComponent = ESPECIALIDAD_ICONS[esp.id] || Stethoscope;
                   const isSelected = selectedEspecialidadId === esp.id;
 
@@ -411,7 +776,7 @@ export default function WebBookingWizard() {
                     <div
                       key={esp.id}
                       className={`select-card ${isSelected ? 'selected' : ''}`}
-                      onClick={() => setSelectedEspecialidadId(esp.id)}
+                      onClick={() => handleEspecialidadChange(esp.id)}
                     >
                       <div>
                         <div className="card-icon-title">
@@ -428,8 +793,8 @@ export default function WebBookingWizard() {
                         <p>{esp.descripcion}</p>
                       </div>
 
-                      <div style={{ marginTop: '0.6rem', fontSize: '0.75rem', color: '#0369A1', background: '#F0F9FF', padding: '0.5rem 0.7rem', borderRadius: '8px' }}>
-                        Incluye recomendaciones previas para la consulta
+                      <div style={{ marginTop: '0.6rem', fontSize: '0.75rem', color: isSelected ? 'var(--brand-green-dark)' : '#0369A1', background: isSelected ? 'var(--brand-green-light)' : '#F0F9FF', padding: '0.5rem 0.7rem', borderRadius: '8px', fontWeight: isSelected ? 700 : 500 }}>
+                        {isSelected ? '✓ Seleccionada para agendamiento' : 'Incluye recomendaciones previas para la consulta'}
                       </div>
                     </div>
                   );
@@ -439,7 +804,7 @@ export default function WebBookingWizard() {
           </div>
 
           {/* Vista previa de recomendaciones de la especialidad seleccionada */}
-          {espActual && espActual.recomendaciones && especialidadesDeLaSede.length > 0 && (
+          {espActual && espActual.recomendaciones && especialidadesFiltradasPorDepartamento.length > 0 && (
             <div className="clinical-rec-box">
               <div className="clinical-rec-header">
                 <AlertTriangle size={20} />
@@ -675,12 +1040,17 @@ export default function WebBookingWizard() {
               <div style={{ fontWeight: 700, color: '#0F172A' }}>{sedeActual?.nombre}</div>
             </div>
             <div>
-              <div style={{ fontSize: '0.72rem', color: '#64748B', textTransform: 'uppercase' }}>Especialidad</div>
+              <div style={{ fontSize: '0.72rem', color: '#64748B', textTransform: 'uppercase' }}>Servicio & CUPS</div>
               <div style={{ fontWeight: 700, color: '#028090' }}>{espActual?.nombre}</div>
+              <div style={{ fontSize: '0.76rem', color: '#166534', fontWeight: 700 }}>
+                {modalidadActual ? `${modalidadActual.etiqueta} • CUPS: ${modalidadActual.codigoCups}` : ''}
+              </div>
             </div>
             <div>
-              <div style={{ fontSize: '0.72rem', color: '#64748B', textTransform: 'uppercase' }}>Profesional</div>
-              <div style={{ fontWeight: 700, color: '#0F172A' }}>{medicoActual?.nombre}</div>
+              <div style={{ fontSize: '0.72rem', color: '#64748B', textTransform: 'uppercase' }}>Departamento</div>
+              <div style={{ fontWeight: 600, color: '#334155', fontSize: '0.82rem' }}>
+                {selectedDepartamento || espActual?.departamento}
+              </div>
             </div>
             <div>
               <div style={{ fontSize: '0.72rem', color: '#64748B', textTransform: 'uppercase' }}>Fecha y Hora</div>
@@ -781,14 +1151,7 @@ export default function WebBookingWizard() {
                   onChange={handleInputChange}
                 >
                   <option value="Particular">Particular (Pago directo)</option>
-                  <option value="Sura EPS">Sura EPS</option>
-                  <option value="Sanitas EPS">Sanitas EPS</option>
-                  <option value="Compensar EPS">Compensar EPS</option>
-                  <option value="Nueva EPS">Nueva EPS</option>
-                  <option value="Salud Total">Salud Total</option>
-                  <option value="Famisanar">Famisanar</option>
-                  <option value="Poliza Colmedica">Póliza Colmédica</option>
-                  <option value="Medicina Prepagada">Medicina Prepagada</option>
+                  <option value="Savia Salud">Savia Salud</option>
                 </select>
               </div>
 
@@ -863,22 +1226,22 @@ export default function WebBookingWizard() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.2rem', fontSize: '0.9rem' }}>
               <div>
-                <span style={{ fontSize: '0.75rem', color: '#64748B' }}>Paciente:</span>
+                <span style={{ fontSize: '0.75rem', color: '#64748B' }}>Paciente & Aseguradora:</span>
                 <div style={{ fontWeight: 700, color: '#0F172A' }}>
                   {citaConfirmada.pacienteNombres} {citaConfirmada.pacienteApellidos}
                 </div>
                 <div style={{ fontSize: '0.8rem', color: '#64748B' }}>
-                  {citaConfirmada.pacienteTipoDoc} {citaConfirmada.pacienteNumDoc}
+                  {citaConfirmada.pacienteTipoDoc} {citaConfirmada.pacienteNumDoc} • <b style={{ color: 'var(--brand-cyan-dark)' }}>{citaConfirmada.pacienteAseguradora || 'Savia Salud'}</b>
                 </div>
               </div>
 
               <div>
-                <span style={{ fontSize: '0.75rem', color: '#64748B' }}>Especialidad:</span>
+                <span style={{ fontSize: '0.75rem', color: '#64748B' }}>Servicio & Código CUPS:</span>
                 <div style={{ fontWeight: 700, color: '#028090' }}>
                   {citaConfirmada.especialidad?.nombre}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#64748B' }}>
-                  {citaConfirmada.medico?.nombre} (Cons. {citaConfirmada.medico?.consultorio})
+                <div style={{ fontSize: '0.8rem', color: '#166534', fontWeight: 800 }}>
+                  CUPS: {citaConfirmada.codigoCups} ({citaConfirmada.tipoCita === 'primera_vez' ? 'Primera Vez' : citaConfirmada.tipoCita === 'control' ? 'Control o Seguimiento' : 'Procedimiento'})
                 </div>
               </div>
 
@@ -893,12 +1256,12 @@ export default function WebBookingWizard() {
               </div>
 
               <div>
-                <span style={{ fontSize: '0.75rem', color: '#64748B' }}>Sede de Atención:</span>
+                <span style={{ fontSize: '0.75rem', color: '#64748B' }}>Departamento & Sede:</span>
                 <div style={{ fontWeight: 700, color: '#0F172A' }}>
                   {citaConfirmada.sede?.nombre}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#64748B' }}>
-                  {citaConfirmada.sede?.direccion}
+                <div style={{ fontSize: '0.78rem', color: '#64748B' }}>
+                  {citaConfirmada.departamento}
                 </div>
               </div>
             </div>

@@ -100,11 +100,12 @@ export function generarComprobantePDF(cita) {
   const colWidth = (pageWidth - 32) / 2;
 
   // Columna 1: DATOS DEL PACIENTE
+  const boxHeight = 48;
   doc.setFillColor(248, 250, 252);
-  doc.roundedRect(14, currentY, colWidth, 42, 2, 2, 'F');
+  doc.roundedRect(14, currentY, colWidth, boxHeight, 2, 2, 'F');
   doc.setDrawColor(203, 213, 225);
   doc.setLineWidth(0.3);
-  doc.roundedRect(14, currentY, colWidth, 42, 2, 2, 'S');
+  doc.roundedRect(14, currentY, colWidth, boxHeight, 2, 2, 'S');
 
   doc.setFillColor(...primaryColor);
   doc.rect(14, currentY, colWidth, 7, 'F');
@@ -114,7 +115,7 @@ export function generarComprobantePDF(cita) {
   doc.text('DATOS DEL PACIENTE', 18, currentY + 5);
 
   const pacienteY = currentY + 12;
-  doc.setFontSize(8);
+  doc.setFontSize(7.8);
   doc.setTextColor(...mutedText);
   doc.text('Nombres y Apellidos:', 18, pacienteY);
   doc.setTextColor(...darkText);
@@ -131,53 +132,76 @@ export function generarComprobantePDF(cita) {
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(...mutedText);
   doc.text('Teléfono / Móvil:', 18, pacienteY + 20);
-  doc.text('Aseguradora:', 18 + colWidth / 2, pacienteY + 20);
+  doc.text('Aseguradora (EPS):', 18 + colWidth / 2, pacienteY + 20);
 
   doc.setTextColor(...darkText);
   doc.setFont('helvetica', 'bold');
   doc.text(cita.pacienteTelefono || 'No registrado', 18, pacienteY + 24);
-  doc.text(cita.pacienteAseguradora || 'Particular', 18 + colWidth / 2, pacienteY + 24);
+  doc.setTextColor(...secondaryColor);
+  doc.text(cita.pacienteAseguradora || 'Savia Salud', 18 + colWidth / 2, pacienteY + 24);
 
-  // Columna 2: DATOS DEL PROFESIONAL Y ESPECIALIDAD
+  // Email
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(...mutedText);
+  doc.text('Correo Electrónico:', 18, pacienteY + 29);
+  doc.setTextColor(...darkText);
+  doc.text(cita.pacienteEmail || 'No registrado', 18, pacienteY + 33);
+
+  // Columna 2: DATOS DEL SERVICIO, CUPS Y PROFESIONAL
   const col2X = 14 + colWidth + 4;
   doc.setFillColor(248, 250, 252);
-  doc.roundedRect(col2X, currentY, colWidth, 42, 2, 2, 'F');
-  doc.roundedRect(col2X, currentY, colWidth, 42, 2, 2, 'S');
+  doc.roundedRect(col2X, currentY, colWidth, boxHeight, 2, 2, 'F');
+  doc.roundedRect(col2X, currentY, colWidth, boxHeight, 2, 2, 'S');
 
   doc.setFillColor(...secondaryColor);
   doc.rect(col2X, currentY, colWidth, 7, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8.5);
-  doc.text('ESPECIALIDAD & PROFESIONAL', col2X + 4, currentY + 5);
+  doc.text('SERVICIO MÉDICO & CÓDIGO CUPS', col2X + 4, currentY + 5);
 
   const medY = currentY + 12;
-  doc.setFontSize(8);
+  doc.setFontSize(7.5);
   doc.setTextColor(...mutedText);
   doc.setFont('helvetica', 'normal');
-  doc.text('Especialidad Médica:', col2X + 4, medY);
+  doc.text('Servicio / Especialidad:', col2X + 4, medY);
   doc.setTextColor(...secondaryColor);
   doc.setFont('helvetica', 'bold');
-  doc.text((cita.especialidad?.nombre || 'Consulta Externa').toUpperCase(), col2X + 4, medY + 4);
+  const nombreServicio = (cita.especialidad?.nombre || cita.servicioNombre || 'Consulta Médica').substring(0, 36);
+  doc.text(nombreServicio.toUpperCase(), col2X + 4, medY + 3.8);
+
+  // Código CUPS y Tipo de Cita
+  const tipoCitaTexto = cita.tipoCita === 'primera_vez' ? 'Primera Vez' : cita.tipoCita === 'control' ? 'Control / Seguimiento' : 'Procedimiento';
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(...mutedText);
+  doc.text('Código CUPS Oficial:', col2X + 4, medY + 9.5);
+  doc.text('Tipo de Cita:', col2X + colWidth / 2, medY + 9.5);
+
+  doc.setFont('helvetica', 'bold');
+  doc.setTextColor(15, 23, 42);
+  doc.text(`CUPS: ${cita.codigoCups || cita.especialidad?.codigo || 'N/A'}`, col2X + 4, medY + 13.5);
+  doc.setTextColor(140, 198, 63); // Color lima para el tipo de cita
+  doc.text(tipoCitaTexto, col2X + colWidth / 2, medY + 13.5);
 
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(...mutedText);
-  doc.text('Profesional Asignado:', col2X + 4, medY + 10);
+  doc.text('Profesional Asignado:', col2X + 4, medY + 19);
   doc.setTextColor(...darkText);
   doc.setFont('helvetica', 'bold');
-  doc.text(cita.medico?.nombre || 'Médico Asignado', col2X + 4, medY + 14);
+  const medicoNombre = (cita.medico?.nombre || 'Médico Asignado').substring(0, 38);
+  doc.text(medicoNombre, col2X + 4, medY + 23);
 
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(...mutedText);
-  doc.text('Registro Médico:', col2X + 4, medY + 20);
-  doc.text('Consultorio:', col2X + colWidth / 2, medY + 20);
+  doc.text('Registro Médico:', col2X + 4, medY + 28.5);
+  doc.text('Consultorio:', col2X + colWidth / 2, medY + 28.5);
 
   doc.setTextColor(...darkText);
   doc.setFont('helvetica', 'bold');
-  doc.text(cita.medico?.registroMedico || 'RM-HAB-001', col2X + 4, medY + 24);
-  doc.text(cita.medico?.consultorio || '402', col2X + colWidth / 2, medY + 24);
+  doc.text(cita.medico?.registroMedico || 'RM-HAB-001', col2X + 4, medY + 32.5);
+  doc.text(cita.medico?.consultorio || 'Cons. 01', col2X + colWidth / 2, medY + 32.5);
 
-  currentY += 46;
+  currentY += boxHeight + 4;
 
   // 5. BANNER DE FECHA, HORA Y SEDE (MUY DESTACADO)
   doc.setFillColor(...primaryColor);

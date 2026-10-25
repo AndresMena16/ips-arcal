@@ -22,7 +22,9 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
 
   // Formulario rápido de taquilla (agendamiento presencial)
   const [fechaConsulta, setFechaConsulta] = useState(() => new Date().toISOString().split('T')[0]);
+  const [selectedDepartamento, setSelectedDepartamento] = useState('');
   const [selectedEspecialidadId, setSelectedEspecialidadId] = useState('');
+  const [selectedCupsCodigo, setSelectedCupsCodigo] = useState('');
   const [selectedMedicoId, setSelectedMedicoId] = useState('');
   const [selectedHora, setSelectedHora] = useState('');
   const [slotsDisponibles, setSlotsDisponibles] = useState([]);
@@ -34,7 +36,7 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
   const [pacienteApellidos, setPacienteApellidos] = useState('');
   const [pacienteTelefono, setPacienteTelefono] = useState('');
   const [pacienteEmail, setPacienteEmail] = useState('');
-  const [pacienteAseguradora, setPacienteAseguradora] = useState('Particular');
+  const [pacienteAseguradora, setPacienteAseguradora] = useState('Savia Salud');
   const [motivoConsulta, setMotivoConsulta] = useState('Consulta presencial en ventanilla');
 
   const [loading, setLoading] = useState(false);
@@ -105,17 +107,98 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
     return especialidades;
   }, [sedeSeleccionadaId, sedes, especialidades]);
 
-  // Al cambiar de sede o lista de especialidades de la sede, auto-seleccionar la primera disponible
+  // Departamentos únicos disponibles en la sede seleccionada
+  const departamentosSedeActual = useMemo(() => {
+    if (!especialidadesSedeActual || especialidadesSedeActual.length === 0) return [];
+    const deps = [];
+    especialidadesSedeActual.forEach(esp => {
+      const dep = esp.departamento || 'Medicina general';
+      if (!deps.includes(dep)) {
+        deps.push(dep);
+      }
+    });
+    return deps;
+  }, [especialidadesSedeActual]);
+
+  // Sincronizar departamento seleccionado
   useEffect(() => {
-    if (especialidadesSedeActual.length > 0) {
-      const existe = especialidadesSedeActual.some(esp => esp.id === selectedEspecialidadId);
-      if (!existe) {
-        setSelectedEspecialidadId(especialidadesSedeActual[0].id);
+    if (departamentosSedeActual.length > 0) {
+      if (!selectedDepartamento || !departamentosSedeActual.includes(selectedDepartamento)) {
+        const espActual = especialidadesSedeActual.find(e => e.id === selectedEspecialidadId);
+        if (espActual && departamentosSedeActual.includes(espActual.departamento)) {
+          setSelectedDepartamento(espActual.departamento);
+        } else {
+          setSelectedDepartamento(departamentosSedeActual[0]);
+        }
+      }
+    } else {
+      setSelectedDepartamento('');
+    }
+  }, [departamentosSedeActual, selectedEspecialidadId]);
+
+  // Especialidades del departamento seleccionado
+  const especialidadesFiltradasPorDep = useMemo(() => {
+    if (!selectedDepartamento) return especialidadesSedeActual;
+    return especialidadesSedeActual.filter(esp => (esp.departamento || 'Medicina general') === selectedDepartamento);
+  }, [especialidadesSedeActual, selectedDepartamento]);
+
+  function handleDepartamentoChange(nuevoDep) {
+    setSelectedDepartamento(nuevoDep);
+    const esps = especialidadesSedeActual.filter(e => (e.departamento || 'Medicina general') === nuevoDep);
+    if (esps.length > 0) {
+      const valida = esps.some(e => e.id === selectedEspecialidadId);
+      if (!valida) {
+        setSelectedEspecialidadId(esps[0].id);
       }
     } else {
       setSelectedEspecialidadId('');
     }
-  }, [sedeSeleccionadaId, especialidadesSedeActual]);
+  }
+
+  // Especialidad seleccionada actualmente
+  const especialidadSeleccionada = useMemo(() => {
+    return especialidades.find(e => e.id === selectedEspecialidadId);
+  }, [especialidades, selectedEspecialidadId]);
+
+  // Modalidades CUPS disponibles para la especialidad actual (Primera vez, Control, o Procedimiento)
+  const modalidadesDisponibles = useMemo(() => {
+    if (!especialidadSeleccionada || !Array.isArray(especialidadSeleccionada.modalidades)) {
+      return [];
+    }
+    return especialidadSeleccionada.modalidades;
+  }, [especialidadSeleccionada]);
+
+  // Sincronizar modalidad / código CUPS seleccionado
+  useEffect(() => {
+    if (modalidadesDisponibles.length > 0) {
+      const existe = modalidadesDisponibles.some(m => m.codigoCups === selectedCupsCodigo);
+      if (!selectedCupsCodigo || !existe) {
+        setSelectedCupsCodigo(modalidadesDisponibles[0].codigoCups);
+      }
+    } else {
+      setSelectedCupsCodigo('');
+    }
+  }, [modalidadesDisponibles, selectedCupsCodigo]);
+
+  // Modalidad actual activa
+  const modalidadActual = useMemo(() => {
+    if (modalidadesDisponibles.length === 0) return null;
+    return modalidadesDisponibles.find(m => m.codigoCups === selectedCupsCodigo) || modalidadesDisponibles[0];
+  }, [modalidadesDisponibles, selectedCupsCodigo]);
+
+  // Al cambiar de sede o lista de especialidades de la sede, auto-seleccionar la primera disponible
+  useEffect(() => {
+    if (especialidadesFiltradasPorDep.length > 0) {
+      const existe = especialidadesFiltradasPorDep.some(esp => esp.id === selectedEspecialidadId);
+      if (!existe) {
+        setSelectedEspecialidadId(especialidadesFiltradasPorDep[0].id);
+      }
+    } else if (especialidadesSedeActual.length > 0) {
+      setSelectedEspecialidadId(especialidadesSedeActual[0].id);
+    } else {
+      setSelectedEspecialidadId('');
+    }
+  }, [sedeSeleccionadaId, selectedDepartamento, especialidadesFiltradasPorDep]);
 
   // Actualizar agenda al cambiar de sede o de fecha en el filtro
   useEffect(() => {
@@ -258,9 +341,13 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
         pacienteTelefono,
         pacienteEmail,
         pacienteAseguradora,
-        motivoConsulta,
+        motivoConsulta: motivoConsulta || modalidadActual?.descripcionCups || especialidadSeleccionada?.nombre || '',
         sedeId: sedeSeleccionadaId,
         especialidadId: selectedEspecialidadId,
+        departamento: selectedDepartamento || especialidadSeleccionada?.departamento || '',
+        tipoCita: modalidadActual?.tipo || (especialidadSeleccionada?.esConsulta ? 'primera_vez' : 'procedimiento'),
+        codigoCups: modalidadActual?.codigoCups || especialidadSeleccionada?.codigo || '',
+        nombreCups: modalidadActual?.descripcionCups || especialidadSeleccionada?.nombre || '',
         medicoId: selectedMedicoId,
         fecha: fechaConsulta,
         hora: selectedHora,
@@ -651,42 +738,102 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
               </div>
 
               <div className="form-group full-width">
-                <label className="form-label">Aseguradora / Régimen</label>
+                <label className="form-label">Aseguradora / Régimen *</label>
                 <select
                   className="form-select"
                   value={pacienteAseguradora}
                   onChange={e => setPacienteAseguradora(e.target.value)}
                 >
+                  <option value="Savia Salud">Savia Salud (Convenio Oficial IPS ARCAL)</option>
                   <option value="Particular">Particular (Pago en caja)</option>
-                  <option value="Sura EPS">Sura EPS</option>
-                  <option value="Sanitas EPS">Sanitas EPS</option>
-                  <option value="Compensar EPS">Compensar EPS</option>
-                  <option value="Nueva EPS">Nueva EPS</option>
-                  <option value="Salud Total">Salud Total</option>
-                  <option value="Famisanar">Famisanar</option>
                 </select>
               </div>
             </div>
 
-            {/* Servicio Médico */}
+            {/* Servicio Médico con Select Anidado de 3 Niveles */}
             <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '1.2rem', marginBottom: '1.2rem' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--primary-900)', marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <span className="badge badge-web" style={{ fontSize: '0.75rem' }}>Selección Anidada de 3 Niveles (Savia Salud / ARCAL):</span>
+              </div>
               <div className="form-grid">
+                {/* SELECT 1: DEPARTAMENTO */}
                 <div className="form-group">
-                  <label className="form-label">Especialidad Médica *</label>
+                  <label className="form-label">Departamento / Área</label>
                   <select
                     className="form-select"
-                    value={selectedEspecialidadId}
-                    onChange={e => setSelectedEspecialidadId(e.target.value)}
-                    disabled={especialidadesSedeActual.length === 0}
+                    value={selectedDepartamento}
+                    onChange={e => handleDepartamentoChange(e.target.value)}
+                    disabled={departamentosSedeActual.length === 0}
+                    style={{ fontWeight: 600, borderColor: 'var(--brand-cyan)' }}
                   >
-                    {especialidadesSedeActual.length === 0 ? (
-                      <option value="">Sin especialidades habilitadas en esta sede</option>
+                    {departamentosSedeActual.length === 0 ? (
+                      <option value="">Sin departamentos en esta sede</option>
                     ) : (
-                      especialidadesSedeActual.map(esp => (
-                        <option key={esp.id} value={esp.id}>{esp.nombre}</option>
+                      departamentosSedeActual.map(dep => (
+                        <option key={dep} value={dep}>{dep}</option>
                       ))
                     )}
                   </select>
+                </div>
+
+                {/* SELECT 2: ESPECIALIDAD ANIDADA */}
+                <div className="form-group">
+                  <label className="form-label">Servicio o Especialidad</label>
+                  <select
+                    className="form-select"
+                    value={selectedEspecialidadId}
+                    onChange={e => handleEspecialidadChange(e.target.value)}
+                    disabled={!selectedDepartamento || especialidadesFiltradasPorDep.length === 0}
+                    style={{ fontWeight: 700, borderColor: 'var(--brand-green)' }}
+                  >
+                    {especialidadesFiltradasPorDep.length === 0 ? (
+                      <option value="">No hay especialidades en este departamento</option>
+                    ) : (
+                      especialidadesFiltradasPorDep.map(esp => (
+                        <option key={esp.id} value={esp.id}>
+                          {esp.nombre} ({esp.codigo} - {esp.duracionMinutos} min)
+                        </option>
+                      ))
+                    )}
+                  </select>
+                </div>
+
+                {/* SELECT 3: TIPO DE CITA (PRIMERA VEZ VS CONTROL) Y CÓDIGO CUPS */}
+                <div className="form-group">
+                  <label className="form-label">Tipo de Cita & Código CUPS</label>
+                  {modalidadesDisponibles.length > 1 ? (
+                    <select
+                      className="form-select"
+                      value={selectedCupsCodigo}
+                      onChange={e => setSelectedCupsCodigo(e.target.value)}
+                      style={{ fontWeight: 700, borderColor: '#8CC63F' }}
+                    >
+                      {modalidadesDisponibles.map(mod => (
+                        <option key={mod.codigoCups} value={mod.codigoCups}>
+                          {mod.etiqueta} — CUPS: {mod.codigoCups}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <div style={{
+                      padding: '0.62rem 0.8rem',
+                      borderRadius: '8px',
+                      background: '#F0FDF4',
+                      border: '1.5px solid #86EFAC',
+                      color: '#166534',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      minHeight: '42px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem'
+                    }}>
+                      <span style={{ background: '#16A34A', color: '#FFF', fontSize: '0.72rem', padding: '2px 6px', borderRadius: '4px' }}>
+                        CUPS {modalidadActual?.codigoCups || 'Oficial'}
+                      </span>
+                      <span>{modalidadActual?.etiqueta || 'Procedimiento Único'}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="form-group">

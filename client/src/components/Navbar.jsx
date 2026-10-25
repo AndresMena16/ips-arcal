@@ -67,6 +67,15 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                   <span>Agendar Cita Web</span>
                 </button>
 
+                {/* <button
+                  className={`nav-tab-btn ${activeTab === 'institucional' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('institucional')}
+                  id="tab-institucional"
+                >
+                  <ShieldCheck size={16} />
+                  <span>Conócenos (Misión & Visión)</span>
+                </button>*/}
+
                 <button
                   className={`nav-tab-btn ${activeTab === 'consulta' ? 'active' : ''}`}
                   onClick={() => setActiveTab('consulta')}

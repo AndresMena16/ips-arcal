@@ -838,6 +838,10 @@ app.post('/api/citas', (req, res) => {
     motivoConsulta,
     sedeId,
     especialidadId,
+    departamento,
+    tipoCita,
+    codigoCups,
+    nombreCups,
     medicoId,
     fecha,
     hora,
@@ -914,6 +918,8 @@ app.post('/api/citas', (req, res) => {
   const randomSuffix = Math.floor(1000 + Math.random() * 9000);
   const codigoCita = `ARC-${currentYear}-${randomSuffix}`;
 
+  const especialidadObj = currentDb.especialidades.find(e => e.id === especialidadId);
+
   const nuevaCita = {
     id: `cita-${uuidv4()}`,
     codigoCita,
@@ -923,10 +929,14 @@ app.post('/api/citas', (req, res) => {
     pacienteApellidos: pacienteApellidos.trim(),
     pacienteTelefono: pacienteTelefono || "",
     pacienteEmail: pacienteEmail || "",
-    pacienteAseguradora: pacienteAseguradora || "Particular",
-    motivoConsulta: motivoConsulta || "Consulta médica especializada",
+    pacienteAseguradora: pacienteAseguradora || "Savia Salud",
+    motivoConsulta: motivoConsulta || (nombreCups || "Consulta médica especializada"),
     sedeId,
     especialidadId,
+    departamento: departamento || especialidadObj?.departamento || "",
+    tipoCita: tipoCita || "primera_vez",
+    codigoCups: codigoCups || especialidadObj?.modalidades?.[0]?.codigoCups || especialidadObj?.codigo || "",
+    nombreCups: nombreCups || especialidadObj?.modalidades?.[0]?.descripcionCups || especialidadObj?.nombre || "",
     medicoId,
     fecha,
     hora,
@@ -941,7 +951,7 @@ app.post('/api/citas', (req, res) => {
     id: `log-${Date.now()}`,
     fecha: new Date().toISOString(),
     accion: "AGENDAR_CITA",
-    descripcion: `Cita ${codigoCita} agendada vía ${nuevaCita.tipoAgendamiento} para paciente ${nuevaCita.pacienteNombres} ${nuevaCita.pacienteApellidos} en ${nuevaCita.fecha} a las ${nuevaCita.hora}`
+    descripcion: `Cita ${codigoCita} agendada vía ${nuevaCita.tipoAgendamiento} [CUPS: ${nuevaCita.codigoCups} - ${nuevaCita.tipoCita}] para paciente ${nuevaCita.pacienteNombres} ${nuevaCita.pacienteApellidos} en ${nuevaCita.fecha} a las ${nuevaCita.hora}`
   });
 
   db.save(currentDb);
@@ -1236,8 +1246,16 @@ function enrichCita(cita, database) {
   const medico = database.medicos.find(m => m.id === cita.medicoId);
   const duracionMinutos = parseInt(medico?.duracionCitaMinutos, 10) || especialidad?.duracionMinutos || 30;
 
+  const codigoCupsCalculado = cita.codigoCups || especialidad?.modalidades?.[0]?.codigoCups || especialidad?.codigo || "";
+  const nombreCupsCalculado = cita.nombreCups || especialidad?.modalidades?.[0]?.descripcionCups || especialidad?.nombre || "";
+  const departamentoCalculado = cita.departamento || especialidad?.departamento || "";
+
   return {
     ...cita,
+    departamento: departamentoCalculado,
+    tipoCita: cita.tipoCita || "primera_vez",
+    codigoCups: codigoCupsCalculado,
+    nombreCups: nombreCupsCalculado,
     ipsInfo: IPS_INFO,
     duracionMinutos,
     sede: sede ? {
@@ -1253,6 +1271,9 @@ function enrichCita(cita, database) {
       id: especialidad.id,
       nombre: especialidad.nombre,
       codigo: especialidad.codigo,
+      departamento: especialidad.departamento,
+      esConsulta: especialidad.esConsulta,
+      modalidades: especialidad.modalidades || [],
       duracionMinutos: especialidad.duracionMinutos,
       recomendaciones: especialidad.recomendaciones || []
     } : null,

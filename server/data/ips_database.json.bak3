@@ -1,0 +1,3737 @@
+{
+  "sedes": [
+    {
+      "id": "sede-fa3dc377",
+      "codigo": "MED-POBLADO",
+      "nombre": "Sede Poblado Medellin",
+      "ciudad": "Medellín, Antioquia",
+      "direccion": "Calle 19a Nro. 44-25 - B/ Poblado Medellín - Antioquia  Torre Medica Salud y Servicio piso 22 Consultorio 2209",
+      "telefono": "323 230 74 53",
+      "email": "[EMAIL_ADDRESS]",
+      "horarioAtencion": "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 1:00 PM",
+      "consultorios": 1,
+      "activa": true,
+      "especialidadesHabilitadas": [
+        "esp-electrocardiograma",
+        "esp-medicina-interna"
+      ]
+    },
+    {
+      "id": "sede-1f7df4c5",
+      "codigo": "CBA - BOLÍVAR",
+      "nombre": "Sede Ciudad Bolívar ",
+      "ciudad": "Ciudad Bolívar, Antioquia",
+      "direccion": "Calle 48 #48-01 Local 208 Ciudad Bolívar Antioquia - Centro empresarial privilegio ",
+      "telefono": "311 601 08 95",
+      "email": "",
+      "horarioAtencion": "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 1:00 PM",
+      "consultorios": "1",
+      "activa": true,
+      "especialidadesHabilitadas": [
+        "esp-cardiologia",
+        "esp-medicina-interna",
+        "esp-pediatria",
+        "esp-dermatologia",
+        "esp-cirugia-general",
+        "esp-ortopedia",
+        "esp-otorrino",
+        "esp-ginecologia",
+        "esp-obstetricia",
+        "esp-urologia",
+        "esp-hematologia",
+        "esp-reumatologia",
+        "esp-medicina-general",
+        "esp-nutricion",
+        "esp-psicologia",
+        "esp-terapia-respiratoria",
+        "esp-electrocardiograma",
+        "esp-ecocardiograma",
+        "esp-holter",
+        "esp-mapa",
+        "esp-proc-otorrino",
+        "esp-proc-dermatologia",
+        "esp-proc-urologia",
+        "esp-proc-ortopedia",
+        "esp-ecografia",
+        "esp-rayosx",
+        "esp-proteccion-radiologica",
+        "esp-medicina-laboral-poe"
+      ]
+    },
+    {
+      "id": "sede-7e12b259",
+      "codigo": "SED-APARTADÓ",
+      "nombre": "Sede Apartadó",
+      "ciudad": "Apartadó, Antioquia",
+      "direccion": "Cll 99 # 105-44 piso 1 Barrio Ortiz / Apartadó - Antioquia",
+      "telefono": "314 826 53 257",
+      "email": "",
+      "horarioAtencion": "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 1:00 PM",
+      "consultorios": 1,
+      "activa": true,
+      "especialidadesHabilitadas": [
+        "esp-cardiologia",
+        "esp-medicina-interna",
+        "esp-pediatria",
+        "esp-dermatologia",
+        "esp-cirugia-general",
+        "esp-ortopedia",
+        "esp-otorrino",
+        "esp-ginecologia",
+        "esp-obstetricia",
+        "esp-urologia",
+        "esp-hematologia",
+        "esp-reumatologia",
+        "esp-medicina-general",
+        "esp-nutricion",
+        "esp-psicologia",
+        "esp-terapia-respiratoria",
+        "esp-electrocardiograma",
+        "esp-ecocardiograma",
+        "esp-holter",
+        "esp-mapa",
+        "esp-proc-otorrino",
+        "esp-proc-dermatologia",
+        "esp-proc-urologia",
+        "esp-proc-ortopedia",
+        "esp-ecografia",
+        "esp-rayosx",
+        "esp-proteccion-radiologica",
+        "esp-medicina-laboral-poe"
+      ]
+    }
+  ],
+  "especialidades": [
+    {
+      "id": "esp-cardiologia",
+      "nombre": "Cardiología",
+      "codigo": "CARDIO",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "HeartPulse",
+      "descripcion": "Prevención, diagnóstico y tratamiento de enfermedades cardiovasculares, hipertensión arterial y arritmias.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No consumir bebidas con cafeína (café, té, bebidas energizantes) ni fumar durante las 6 horas previas.",
+        "Vestir ropa cómoda de dos piezas para facilitar la colocación de electrodos en tórax y extremidades.",
+        "Llevar resultados previos de Electrocardiograma, Ecocardiograma, Prueba de Esfuerzo o Holter.",
+        "Llevar registro claro de medicamentos antihipertensivos o anticoagulantes con sus dosis exactas."
+      ]
+    },
+    {
+      "id": "esp-medicina-interna",
+      "nombre": "Medicina Interna",
+      "codigo": "MED-INT",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Stethoscope",
+      "descripcion": "Atención médica integral del adulto para diagnóstico y manejo de patologías sistémicas, crónicas y chequeos preventivos.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Llevar fórmula médica actual y lista exacta de medicamentos con dosis y horarios habituales.",
+        "Traer resultados de laboratorio de los últimos 6 meses (hemograma, glicemia, perfil lipídico, función renal).",
+        "Si padece de hipertensión arterial o diabetes, traer planilla de automonitoreo de presión y glucometrías.",
+        "Traer copia de electrocardiograma o ecocardiograma si le han sido practicados previamente."
+      ]
+    },
+    {
+      "id": "esp-pediatria",
+      "nombre": "Pediatría",
+      "codigo": "PED",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Baby",
+      "descripcion": "Cuidado de la salud integral, crecimiento, desarrollo y nutrición de recién nacidos, niños y adolescentes.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "El menor de edad DEBE ingresar acompañado de padre, madre o representante legal con identificación original.",
+        "Llevar obligatoriamente el carné físico de vacunación actualizado y curva de crecimiento y desarrollo previa.",
+        "Llevar ropa cómoda de dos piezas para facilitar la valoración antropométrica y examen físico.",
+        "Traer notas de egreso hospitalario si estuvo hospitalizado recientemente o notas pediátricas anteriores."
+      ]
+    },
+    {
+      "id": "esp-dermatologia",
+      "nombre": "Dermatología",
+      "codigo": "DERMA",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Sparkles",
+      "descripcion": "Cuidado clínico, prevención y tratamiento de afecciones de la piel, pelo, uñas y mucosas.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Asistir con el área a evaluar completamente limpia, sin maquillaje, polvos, bases ni cremas espesas.",
+        "Si la consulta es por afecciones en las uñas, asistir sin esmalte tradicional ni acrílico.",
+        "Llevar los nombres o frascos de los tratamientos tópicos, bloqueadores o cremas dermatológicas en uso.",
+        "Identificar previamente los lunares o manchas que hayan cambiado de tamaño, color o forma para mostrarlos."
+      ]
+    },
+    {
+      "id": "esp-cirugia-general",
+      "nombre": "Cirugía General",
+      "codigo": "CIR-GRAL",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Scissors",
+      "descripcion": "Valoración preoperatoria, postoperatoria y manejo de patologías de pared abdominal, hernias, vesícula y tejidos blandos.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Traer ecografías, tomografías (TAC), endoscopias o radiografías previas del área a intervenir.",
+        "Presentar exámenes de laboratorio prequirúrgicos recientes: hemograma, tiempos de coagulación (PT, PTT) y creatinina.",
+        "Traer resumen de historia clínica anterior y órdenes médicas autorizadas.",
+        "Acudir preferiblemente con un acompañante adulto si se van a programar procedimientos."
+      ]
+    },
+    {
+      "id": "esp-ortopedia",
+      "nombre": "Ortopedia y Traumatología",
+      "codigo": "ORTO",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Bone",
+      "descripcion": "Diagnóstico y tratamiento de lesiones óseas, articulares, ligamentosas, patologías de columna y dolor osteomuscular.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Traer radiografías digitales, resonancias magnéticas o ecografías articulares previas de la zona afectada.",
+        "Asistir con ropa cómoda y holgada (pantaloneta o ropa deportiva) para facilitar el examen físico articular.",
+        "Llevar aditamentos o soportes ortopédicos que esté utilizando (férulas, rodilleras, plantillas, muletas).",
+        "Llevar lista de analgésicos o antiinflamatorios que esté tomando para el dolor."
+      ]
+    },
+    {
+      "id": "esp-otorrino",
+      "nombre": "Otorrinolaringología",
+      "codigo": "ORL",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Ear",
+      "descripcion": "Atención especializada de patologías de oídos, audición, fosas nasales, senos paranasales, laringe y cuello.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No aplicar gotas óticas ni realizar lavados caseros en los oídos durante las 24 horas previas.",
+        "Si consulta por problemas de audición o vértigo, traer audiometrías, impedanciometrías o TAC de senos paranasales previos.",
+        "Traer lista de medicamentos antialérgicos, descongestionantes o anticoagulantes que esté consumiendo.",
+        "Si el paciente es menor de edad, debe ingresar con un acudiente mayor de edad."
+      ]
+    },
+    {
+      "id": "esp-ginecologia",
+      "nombre": "Ginecología",
+      "codigo": "GIN",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "ShieldPlus",
+      "descripcion": "Salud integral de la mujer, citología cérvico-vaginal, prevención ginecológica y salud reproductiva.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No acudir durante el periodo menstrual (a menos que el motivo de consulta sea una hemorragia anormal).",
+        "Abstenerse de relaciones sexuales durante las 48 horas previas si se tomará citología cérvico-vaginal.",
+        "No utilizar óvulos vaginales, duchas, cremas ni tampones en los 3 días anteriores a la consulta.",
+        "Tener presente la fecha exacta del primer día de su última menstruación (FUM) y llevar citologías o ecografías previas."
+      ]
+    },
+    {
+      "id": "esp-obstetricia",
+      "nombre": "Obstetricia",
+      "codigo": "OBS",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Baby",
+      "descripcion": "Control prenatal especializado, vigilancia del embarazo de bajo y alto riesgo obstétrico y bienestar materno-fetal.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Traer obligatoriamente el carné prenatal institucional o controles médicos previos.",
+        "Llevar todas las ecografías obstétricas realizadas durante la gestación en orden cronológico.",
+        "Presentar laboratorios de control prenatal (hemoclasificación, toxoplasma, serología, VIH, urocultivo, curva de glucosa).",
+        "Asistir con ropa cómoda de dos piezas y calzado de descanso."
+      ]
+    },
+    {
+      "id": "esp-urologia",
+      "nombre": "Urología",
+      "codigo": "URO",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Activity",
+      "descripcion": "Diagnóstico y tratamiento integral de patologías del aparato urinario y sistema reproductor masculino.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Presentar orden médica de interconsulta y autorización si aplica por convenio.",
+        "Si su cita incluye ecografía vesical o prostática, tome 4 vasos de agua 1 hora antes y retenga la orina para vejiga llena.",
+        "Traer exámenes de laboratorio recientes: Antígeno Prostático Específico (PSA), Uroanálisis, Creatinina y ecografías previas.",
+        "Llegar 15 minutos antes de la hora programada para verificación de datos y signos vitales."
+      ]
+    },
+    {
+      "id": "esp-hematologia",
+      "nombre": "Hematología",
+      "codigo": "HEMA",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "Droplets",
+      "descripcion": "Estudio y tratamiento especializado de anemias, coagulopatías, alteraciones en glóbulos blancos y patologías de la médula ósea.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Traer resultados completos de hemogramas seriados y frotis de sangre periférica.",
+        "Traer perfil de hierro (ferritina, hierro sérico, transferrina), vitamina B12 y ácido fólico si dispone de ellos.",
+        "Llevar lista de medicamentos anticoagulantes (Warfarina, Rivaroxabán, etc.) o antiagregantes plaquetarios.",
+        "Traer antecedentes de transfusiones de sangre o biopsias de médula ósea previas."
+      ]
+    },
+    {
+      "id": "esp-reumatologia",
+      "nombre": "Reumatología",
+      "codigo": "REUMA",
+      "departamento": "Consulta Médica Especializada",
+      "icono": "HeartPulse",
+      "descripcion": "Diagnóstico y control de enfermedades autoinmunes y musculoesqueléticas como artritis reumatoide, lupus, fibromialgia y artrosis.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Traer exámenes inmunológicos previos: Anticuerpos Antinucleares (ANA), Factor Reumatoideo, Anti-CCP y ENA.",
+        "Traer reactantes de fase aguda recientes: Velocidad de Sedimentación Globular (VSG) y Proteína C Reactiva (PCR).",
+        "Llevar radiografías articulares o ecografías osteoarticulares.",
+        "Anotar la duración de la rigidez articular matutina en minutos para informar al especialista."
+      ]
+    },
+    {
+      "id": "esp-medicina-general",
+      "nombre": "Consulta Medicina General",
+      "codigo": "MED-GEN",
+      "departamento": "Consulta Medicina General",
+      "icono": "Stethoscope",
+      "descripcion": "Atención médica integral de primer contacto, promoción y prevención, prescripción y formulación diagnóstica.",
+      "duracionMinutos": 20,
+      "activa": true,
+      "recomendaciones": [
+        "Presentar documento de identidad original.",
+        "Llevar fórmula médica actual y carné de salud.",
+        "Llegar 15 minutos antes para registro de signos vitales en enfermería.",
+        "Traer exámenes de laboratorio o ecografías tomadas en el último año."
+      ]
+    },
+    {
+      "id": "esp-nutricion",
+      "nombre": "Nutrición y Dietética",
+      "codigo": "NUTRI",
+      "departamento": "Consulta Medicina General",
+      "icono": "Salad",
+      "descripcion": "Asesoría nutricional clínica personalizada, valoración antropométrica, plan alimentario y manejo metabólico integral.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Ayuno de 2 a 3 horas previas si se realizará análisis de composición corporal (bioimpedancia eléctrica).",
+        "Evitar ejercicio físico extenuante y consumo de alcohol durante las 24 horas previas.",
+        "Llevar registro escrito de alimentos y bebidas consumidas durante los últimos 3 días (recordatorio de 24h).",
+        "Traer exámenes de sangre recientes: perfil lipídico, glucosa, insulina, ácido úrico y hemoglobina glicosilada."
+      ]
+    },
+    {
+      "id": "esp-psicologia",
+      "nombre": "Psicología",
+      "codigo": "PSI",
+      "departamento": "Consulta Medicina General",
+      "icono": "Brain",
+      "descripcion": "Evaluación y acompañamiento clínico para el bienestar emocional, cognitivo y de la salud mental.",
+      "duracionMinutos": 45,
+      "activa": true,
+      "recomendaciones": [
+        "Espacio de consulta confidencial de 45 minutos. Se recomienda llegar con 10 minutos de anticipación para ambientación.",
+        "Traer informes de valoraciones psicológicas, psiquiátricas o del colegio/trabajo previas si aplica.",
+        "Para menores de 18 años, los primeros 15 minutos de la sesión inicial requieren la presencia del acudiente.",
+        "Asistir en un estado de tranquilidad y con disposición para dialogar abiertamente con el profesional."
+      ]
+    },
+    {
+      "id": "esp-terapia-respiratoria",
+      "nombre": "Terapia Respiratoria",
+      "codigo": "TER-RESP",
+      "departamento": "Consulta Medicina General",
+      "icono": "Wind",
+      "descripcion": "Sesiones de higiene bronquial, micronebulizaciones, ejercicios de expansión pulmonar y rehabilitación respiratoria.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No ingerir comidas pesadas durante las 2 horas anteriores a la sesión terapéutica.",
+        "Llevar sus inhaladores (inhalocámaras) o medicamentos broncodilatadores en uso.",
+        "Asistir con ropa cómoda y holgada que facilite los movimientos torácicos y diafragmáticos.",
+        "Traer orden médica indicando el número de sesiones ordenadas y diagnóstico respiratorio."
+      ]
+    },
+    {
+      "id": "esp-electrocardiograma",
+      "nombre": "Electrocardiograma de Ritmo o Superficie",
+      "codigo": "EKG",
+      "departamento": "Diagnóstico Vascular",
+      "icono": "Activity",
+      "descripcion": "Registro gráfico de la actividad eléctrica del corazón en 12 derivaciones con lectura e informe cardiológico oficial.",
+      "duracionMinutos": 20,
+      "activa": true,
+      "recomendaciones": [
+        "No aplicarse cremas corporales, aceites ni lociones en el pecho, brazos o piernas el día del examen.",
+        "Vestir ropa cómoda de dos piezas sin metales que facilite el acceso al tórax y extremidades.",
+        "No fumar ni consumir cafeína durante las 2 horas previas a la prueba.",
+        "Llegar 15 minutos antes para permitir reposo fisiológico antes del trazado."
+      ]
+    },
+    {
+      "id": "esp-ecocardiograma",
+      "nombre": "Ecocardiograma Transtorácico",
+      "codigo": "ECO-CARDIO",
+      "departamento": "Diagnóstico Vascular",
+      "icono": "HeartPulse",
+      "descripcion": "Ultrasonido cardiovascular bidimensional y Doppler color para evaluar contractilidad, dimensiones de cavidades y válvulas cardíacas.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "No requiere ayuno estricto (puede ingerir alimentos livianos y sus medicamentos habituales).",
+        "Asistir con ropa cómoda de dos piezas que permita descubrir el hemitórax izquierdo.",
+        "Traer electrocardiogramas o ecocardiogramas previos para comparación médica.",
+        "Disponer de 45 minutos para la preparación y ejecución del estudio."
+      ]
+    },
+    {
+      "id": "esp-holter",
+      "nombre": "Electrocardiografía Dinámica (Holter 24 Horas)",
+      "codigo": "HOLTER",
+      "departamento": "Diagnóstico Vascular",
+      "icono": "Activity",
+      "descripcion": "Monitoreo ambulatorio continuo del ritmo cardíaco durante 24 horas continuas para detección de arritmias e isquemia silente.",
+      "duracionMinutos": 20,
+      "activa": true,
+      "recomendaciones": [
+        "Bañarse muy bien antes de asistir a la colocación del equipo, ya que NO podrá mojarse durante las 24 horas del monitoreo.",
+        "Vestir blusa o camisa holgada que abra por delante con botones.",
+        "Durante las 24 horas, mantener su rutina diaria normal y anotar en la bitácora hora de síntomas, sueño y medicamentos.",
+        "Retornar al día siguiente a la misma hora exacta para el retiro y descarga digital de los datos."
+      ]
+    },
+    {
+      "id": "esp-mapa",
+      "nombre": "Monitoreo de Presión Arterial 24 Horas (MAPA)",
+      "codigo": "MAPA",
+      "departamento": "Diagnóstico Vascular",
+      "icono": "Activity",
+      "descripcion": "Monitoreo ambulatorio automático y programado de la presión arterial durante 24 horas para diagnóstico certero de hipertensión.",
+      "duracionMinutos": 20,
+      "activa": true,
+      "recomendaciones": [
+        "Bañarse antes de la colocación del brazalete y grabador digital.",
+        "Vestir ropa cómoda con manga amplia y holgada.",
+        "Cuando sienta que el brazalete empieza a inflar, mantenga el brazo quieto, extendido y relajado a la altura del corazón.",
+        "Registrar en la hoja de control la hora en que toma sus medicamentos antihipertensivos y los horarios de reposo nocturno."
+      ]
+    },
+    {
+      "id": "esp-proc-otorrino",
+      "nombre": "Procedimientos Menores de Otorrino",
+      "codigo": "PROC-ORL",
+      "departamento": "Procedimientos Menores",
+      "icono": "Ear",
+      "descripcion": "Nasolaringoscopia con fibra óptica, toma de biopsias de fosas y laringe, lavado ótico y curaciones especializadas.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Para nasolaringoscopia: ayuno mínimo de 2 horas previas para prevenir reflejo nauseoso.",
+        "Para lavado de oídos: no aplicarse gotas óticas el día del procedimiento ni hisopos de algodón.",
+        "Asistir con un acompañante adulto.",
+        "Traer orden médica autorizada y exámenes diagnósticos previos."
+      ]
+    },
+    {
+      "id": "esp-proc-dermatologia",
+      "nombre": "Procedimientos Menores Dermatológicos",
+      "codigo": "PROC-DERMA",
+      "departamento": "Procedimientos Menores",
+      "icono": "Sparkles",
+      "descripcion": "Biopsias cutáneas por punch/shave, onicectomía, matricectomía parcial y total, crioterapia de lesiones e infiltraciones.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "La piel de la zona a tratar debe estar completamente limpia, libre de cosméticos, cremas o aceites.",
+        "Si el procedimiento es en uñas de pies o manos, asistir sin ningún tipo de esmalte y llevar calzado abierto y cómodo.",
+        "Informar oportunamente al médico si consume medicamentos anticoagulantes, antiinflamatorios o aspirina.",
+        "Acudir con un acompañante responsable."
+      ]
+    },
+    {
+      "id": "esp-proc-urologia",
+      "nombre": "Procedimientos Menores de Urología",
+      "codigo": "PROC-URO",
+      "departamento": "Procedimientos Menores",
+      "icono": "Activity",
+      "descripcion": "Fulguración de lesiones uretrales, cistoscopia transureteral diagnóstica y dilataciones ambulatorias.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Presentar Urocultivo con resultado negativo reciente (máximo 15 días de antigüedad).",
+        "Consumir líquidos normalmente antes del procedimiento para mantener diuresis adecuada.",
+        "Asistir obligatoriamente en compañía de un adulto responsable.",
+        "Informar antecedentes de alergias a anestésicos locales o medicamentos."
+      ]
+    },
+    {
+      "id": "esp-proc-ortopedia",
+      "nombre": "Procedimientos Menores de Ortopedia",
+      "codigo": "PROC-ORTO",
+      "departamento": "Procedimientos Menores",
+      "icono": "Bone",
+      "descripcion": "Infiltraciones articulares e intra-bursales, onicectomía y matricectomía, retiro de pines y curación de heridas complejas.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Asistir con la zona anatómica completamente lavada con agua y jabón neutro.",
+        "Vestir ropa cómoda, elástica y holgada que no comprima la articulación o extremidad intervenida.",
+        "Venir acompañado de un adulto, ya que se recomienda reposo de la extremidad después del procedimiento.",
+        "Traer radiografías o resonancias del área a tratar."
+      ]
+    },
+    {
+      "id": "esp-ecografia",
+      "nombre": "Ecografía Especializada & Doppler Vascular",
+      "codigo": "ECO",
+      "departamento": "Imágenes Diagnósticas & Ecografía",
+      "icono": "Activity",
+      "descripcion": "Ecografía general, abdominal, pélvica, obstétrica, doppler vascular, musculoesquelética y tiroides con tecnología digital avanzada.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Para ecografía abdominal superior o hepatobiliar: presentarse con ayuno de 6 a 8 horas (no grasas, lácteos ni gaseosas).",
+        "Para ecografía pélvica, prostática o renal: tomar 4 vasos de agua 1 hora antes y retener la orina para vejiga llena.",
+        "Para ecografía articular, muscular o tiroides: no requiere ayuno ni preparación especial.",
+        "Traer orden médica autorizada, exámenes de laboratorio y ecografías o radiografías previas."
+      ]
+    },
+    {
+      "id": "esp-rayosx",
+      "nombre": "Radiología Digital Convencional & Rayos X",
+      "codigo": "RX",
+      "departamento": "Imágenes Diagnósticas & Ecografía",
+      "icono": "Sparkles",
+      "descripcion": "Radiología convencional digital de tórax, columna, articulaciones y densitometría ósea con entrega inmediata de placas y reporte digital.",
+      "duracionMinutos": 20,
+      "activa": true,
+      "recomendaciones": [
+        "Asistir con ropa cómoda sin elementos metálicos (cremalleras, broches de metal, joyas o alambres).",
+        "Pacientes mujeres en edad fértil: informar obligatoriamente al tecnólogo ante sospecha o confirmación de embarazo.",
+        "Presentar orden médica indicando claramente la región anatómica y la sospecha clínica.",
+        "Llegar 15 minutos antes de la hora programada para el registro en admisiones."
+      ]
+    },
+    {
+      "id": "esp-proteccion-radiologica",
+      "nombre": "Protección Radiológica & Dosimetría Ocupacional",
+      "codigo": "PROT-RAD",
+      "departamento": "Protección Radiológica & Dosimetría",
+      "icono": "Shield",
+      "descripcion": "Servicio especializado en dosimetría personal ocupacional, control de calidad radiológico, blindajes y asesoría en licenciamiento.",
+      "duracionMinutos": 45,
+      "activa": true,
+      "recomendaciones": [
+        "Presentar ficha técnica y datos del equipo generador de radiación ionizante (Rayos X, Fluoroscopia, Mamografía o TAC).",
+        "Para asignación o recambio de dosímetros personales OSL/TLD, presentar listado del personal ocupacionalmente expuesto (POE).",
+        "Para cálculo de blindajes o levantamiento radiométrico, adjuntar planos arquitectónicos de la instalación.",
+        "Presentar licencia de práctica médica o industrial anterior si aplica para trámite de renovación."
+      ]
+    },
+    {
+      "id": "esp-medicina-laboral-poe",
+      "nombre": "Medicina Laboral (Personal Expuesto POE)",
+      "codigo": "MED-LAB",
+      "departamento": "Protección Radiológica & Dosimetría",
+      "icono": "UserCheck",
+      "descripcion": "Exámenes ocupacionales de ingreso, periódicos y egreso para personal expuesto a radiaciones ionizantes según normativa MinSalud.",
+      "duracionMinutos": 30,
+      "activa": true,
+      "recomendaciones": [
+        "Presentar documento de identidad original y orden de examen médico ocupacional emitida por la empresa.",
+        "Traer reporte del historial dosimétrico acumulado de los últimos 12 meses.",
+        "Si el protocolo incluye hemograma y recuento plaquetario, acudir en ayunas de 8 horas.",
+        "Informar al médico evaluador sobre antecedentes de radioterapia o exposición médica previa."
+      ]
+    }
+  ],
+  "medicos": [
+    {
+      "id": "med-medpoblado-cardio",
+      "nombre": "Dr. Andrés Felipe Montoya",
+      "registroMedico": "RM-842982-ANT",
+      "especialidadId": "esp-cardiologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 102",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-medint",
+      "nombre": "Dr. Jorge Ignacio Morales",
+      "registroMedico": "RM-530269-ANT",
+      "especialidadId": "esp-medicina-interna",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 103",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-ped",
+      "nombre": "Dr. Camilo Andrés Serna",
+      "registroMedico": "RM-825672-ANT",
+      "especialidadId": "esp-pediatria",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 104",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-derma",
+      "nombre": "Dra. Luisa Fernanda Salazar",
+      "registroMedico": "RM-582361-ANT",
+      "especialidadId": "esp-dermatologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 105",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-cirgral",
+      "nombre": "Dr. Mauricio Restrepo Maya",
+      "registroMedico": "RM-457183-ANT",
+      "especialidadId": "esp-cirugia-general",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 106",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-orto",
+      "nombre": "Dr. Alejandro Giraldo Vélez",
+      "registroMedico": "RM-200645-ANT",
+      "especialidadId": "esp-ortopedia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 107",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-orl",
+      "nombre": "Dr. Mateo Zapata Correa",
+      "registroMedico": "RM-704852-ANT",
+      "especialidadId": "esp-otorrino",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 108",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-gin",
+      "nombre": "Dra. Carolina Martínez Zuluaga",
+      "registroMedico": "RM-467788-ANT",
+      "especialidadId": "esp-ginecologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 109",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-obs",
+      "nombre": "Dr. Ricardo León Arismendi",
+      "registroMedico": "RM-665442-ANT",
+      "especialidadId": "esp-obstetricia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 110",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-uro",
+      "nombre": "Dr. Carlos Eduardo Restrepo",
+      "registroMedico": "RM-203955-ANT",
+      "especialidadId": "esp-urologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 111",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-hema",
+      "nombre": "Dra. Gloria Inés Villegas",
+      "registroMedico": "RM-433166-ANT",
+      "especialidadId": "esp-hematologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 112",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-reuma",
+      "nombre": "Dra. Liliana Patricia Barrientos",
+      "registroMedico": "RM-419794-ANT",
+      "especialidadId": "esp-reumatologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 113",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-medgen",
+      "nombre": "Dra. Laura Catalina Osorio",
+      "registroMedico": "RM-665607-ANT",
+      "especialidadId": "esp-medicina-general",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 114",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-nutri",
+      "nombre": "Nutr. Diana Sofía Lozano",
+      "registroMedico": "RM-412167-ANT",
+      "especialidadId": "esp-nutricion",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 115",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-psi",
+      "nombre": "Lic. Juan Sebastián Roldán",
+      "registroMedico": "RM-873365-ANT",
+      "especialidadId": "esp-psicologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 101",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 45,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-terresp",
+      "nombre": "Lic. Paola Andrea Cadavid",
+      "registroMedico": "RM-217076-ANT",
+      "especialidadId": "esp-terapia-respiratoria",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 102",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-ekg",
+      "nombre": "Dr. Fernando Quintero Rojas",
+      "registroMedico": "RM-597034-ANT",
+      "especialidadId": "esp-electrocardiograma",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 103",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-ecocardio",
+      "nombre": "Dr. Andrés Felipe Montoya (Ecocardiografista)",
+      "registroMedico": "RM-231776-ANT",
+      "especialidadId": "esp-ecocardiograma",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 104",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-holter",
+      "nombre": "Dr. Andrés Felipe Montoya",
+      "registroMedico": "RM-259991-ANT",
+      "especialidadId": "esp-holter",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 105",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-mapa",
+      "nombre": "Enf. Esp. Claudia Marcela Ríos",
+      "registroMedico": "RM-225638-ANT",
+      "especialidadId": "esp-mapa",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 106",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-procorl",
+      "nombre": "Dr. Mateo Zapata Correa",
+      "registroMedico": "RM-259357-ANT",
+      "especialidadId": "esp-proc-otorrino",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 107",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-procderma",
+      "nombre": "Dra. Luisa Fernanda Salazar",
+      "registroMedico": "RM-409258-ANT",
+      "especialidadId": "esp-proc-dermatologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 108",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-procuro",
+      "nombre": "Dr. Felipe Tamayo Gil",
+      "registroMedico": "RM-628193-ANT",
+      "especialidadId": "esp-proc-urologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 109",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-procorto",
+      "nombre": "Dr. Alejandro Giraldo Vélez",
+      "registroMedico": "RM-313958-ANT",
+      "especialidadId": "esp-proc-ortopedia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 110",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-eco",
+      "nombre": "Dr. Carlos Alberto Durango",
+      "registroMedico": "RM-313603-ANT",
+      "especialidadId": "esp-ecografia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 111",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-rx",
+      "nombre": "Dra. Elena María Benítez (Tecnóloga Radiología)",
+      "registroMedico": "RM-228259-ANT",
+      "especialidadId": "esp-rayosx",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 112",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-protrad",
+      "nombre": "Ing. Mauricio Restrepo (Oficial de Protección Radiológica)",
+      "registroMedico": "RM-417203-ANT",
+      "especialidadId": "esp-proteccion-radiologica",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 113",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 45,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-medpoblado-medlab",
+      "nombre": "Dr. Mauricio Echeverri Restrepo (Médico Laboral)",
+      "registroMedico": "RM-571342-ANT",
+      "especialidadId": "esp-medicina-laboral-poe",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 114",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-cardio",
+      "nombre": "Dr. Andrés Felipe Montoya",
+      "registroMedico": "RM-601837-ANT",
+      "especialidadId": "esp-cardiologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 115",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-medint",
+      "nombre": "Dr. Jorge Ignacio Morales",
+      "registroMedico": "RM-529995-ANT",
+      "especialidadId": "esp-medicina-interna",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 101",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-ped",
+      "nombre": "Dr. Camilo Andrés Serna",
+      "registroMedico": "RM-373789-ANT",
+      "especialidadId": "esp-pediatria",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 102",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-derma",
+      "nombre": "Dra. Luisa Fernanda Salazar",
+      "registroMedico": "RM-852001-ANT",
+      "especialidadId": "esp-dermatologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 103",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-cirgral",
+      "nombre": "Dr. Mauricio Restrepo Maya",
+      "registroMedico": "RM-740636-ANT",
+      "especialidadId": "esp-cirugia-general",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 104",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-orto",
+      "nombre": "Dr. Alejandro Giraldo Vélez",
+      "registroMedico": "RM-531402-ANT",
+      "especialidadId": "esp-ortopedia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 105",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-orl",
+      "nombre": "Dr. Mateo Zapata Correa",
+      "registroMedico": "RM-729692-ANT",
+      "especialidadId": "esp-otorrino",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 106",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-gin",
+      "nombre": "Dra. Carolina Martínez Zuluaga",
+      "registroMedico": "RM-686193-ANT",
+      "especialidadId": "esp-ginecologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 107",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-obs",
+      "nombre": "Dr. Ricardo León Arismendi",
+      "registroMedico": "RM-410802-ANT",
+      "especialidadId": "esp-obstetricia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 108",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-uro",
+      "nombre": "Dr. Carlos Eduardo Restrepo",
+      "registroMedico": "RM-885688-ANT",
+      "especialidadId": "esp-urologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 109",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-hema",
+      "nombre": "Dra. Gloria Inés Villegas",
+      "registroMedico": "RM-535682-ANT",
+      "especialidadId": "esp-hematologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 110",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-reuma",
+      "nombre": "Dra. Liliana Patricia Barrientos",
+      "registroMedico": "RM-386676-ANT",
+      "especialidadId": "esp-reumatologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 111",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-medgen",
+      "nombre": "Dra. Laura Catalina Osorio",
+      "registroMedico": "RM-741433-ANT",
+      "especialidadId": "esp-medicina-general",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 112",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-nutri",
+      "nombre": "Nutr. Diana Sofía Lozano",
+      "registroMedico": "RM-855341-ANT",
+      "especialidadId": "esp-nutricion",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 113",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-psi",
+      "nombre": "Lic. Juan Sebastián Roldán",
+      "registroMedico": "RM-571049-ANT",
+      "especialidadId": "esp-psicologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 114",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 45,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-terresp",
+      "nombre": "Lic. Paola Andrea Cadavid",
+      "registroMedico": "RM-710872-ANT",
+      "especialidadId": "esp-terapia-respiratoria",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 115",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-ekg",
+      "nombre": "Dr. Fernando Quintero Rojas",
+      "registroMedico": "RM-210106-ANT",
+      "especialidadId": "esp-electrocardiograma",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 101",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-ecocardio",
+      "nombre": "Dr. Andrés Felipe Montoya (Ecocardiografista)",
+      "registroMedico": "RM-575204-ANT",
+      "especialidadId": "esp-ecocardiograma",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 102",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-holter",
+      "nombre": "Dr. Andrés Felipe Montoya",
+      "registroMedico": "RM-313328-ANT",
+      "especialidadId": "esp-holter",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 103",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-mapa",
+      "nombre": "Enf. Esp. Claudia Marcela Ríos",
+      "registroMedico": "RM-512547-ANT",
+      "especialidadId": "esp-mapa",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 104",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-procorl",
+      "nombre": "Dr. Mateo Zapata Correa",
+      "registroMedico": "RM-674543-ANT",
+      "especialidadId": "esp-proc-otorrino",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 105",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-procderma",
+      "nombre": "Dra. Luisa Fernanda Salazar",
+      "registroMedico": "RM-681187-ANT",
+      "especialidadId": "esp-proc-dermatologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 106",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-procuro",
+      "nombre": "Dr. Felipe Tamayo Gil",
+      "registroMedico": "RM-492949-ANT",
+      "especialidadId": "esp-proc-urologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 107",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-procorto",
+      "nombre": "Dr. Alejandro Giraldo Vélez",
+      "registroMedico": "RM-506615-ANT",
+      "especialidadId": "esp-proc-ortopedia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 108",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-eco",
+      "nombre": "Dr. Carlos Alberto Durango",
+      "registroMedico": "RM-586820-ANT",
+      "especialidadId": "esp-ecografia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 109",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-rx",
+      "nombre": "Dra. Elena María Benítez (Tecnóloga Radiología)",
+      "registroMedico": "RM-294307-ANT",
+      "especialidadId": "esp-rayosx",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 110",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-protrad",
+      "nombre": "Ing. Mauricio Restrepo (Oficial de Protección Radiológica)",
+      "registroMedico": "RM-833090-ANT",
+      "especialidadId": "esp-proteccion-radiologica",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 111",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 45,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-medlab",
+      "nombre": "Dr. Mauricio Echeverri Restrepo (Médico Laboral)",
+      "registroMedico": "RM-446987-ANT",
+      "especialidadId": "esp-medicina-laboral-poe",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 112",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-cardio",
+      "nombre": "Dr. Andrés Felipe Montoya",
+      "registroMedico": "RM-259662-ANT",
+      "especialidadId": "esp-cardiologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 113",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-medint",
+      "nombre": "Dr. Jorge Ignacio Morales",
+      "registroMedico": "RM-470681-ANT",
+      "especialidadId": "esp-medicina-interna",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 114",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-ped",
+      "nombre": "Dr. Camilo Andrés Serna",
+      "registroMedico": "RM-745647-ANT",
+      "especialidadId": "esp-pediatria",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 115",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-derma",
+      "nombre": "Dra. Luisa Fernanda Salazar",
+      "registroMedico": "RM-462856-ANT",
+      "especialidadId": "esp-dermatologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 101",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-cirgral",
+      "nombre": "Dr. Mauricio Restrepo Maya",
+      "registroMedico": "RM-284815-ANT",
+      "especialidadId": "esp-cirugia-general",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 102",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-orto",
+      "nombre": "Dr. Alejandro Giraldo Vélez",
+      "registroMedico": "RM-250835-ANT",
+      "especialidadId": "esp-ortopedia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 103",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-orl",
+      "nombre": "Dr. Mateo Zapata Correa",
+      "registroMedico": "RM-505472-ANT",
+      "especialidadId": "esp-otorrino",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 104",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-gin",
+      "nombre": "Dra. Carolina Martínez Zuluaga",
+      "registroMedico": "RM-412555-ANT",
+      "especialidadId": "esp-ginecologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 105",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-obs",
+      "nombre": "Dr. Ricardo León Arismendi",
+      "registroMedico": "RM-522596-ANT",
+      "especialidadId": "esp-obstetricia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 106",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-uro",
+      "nombre": "Dr. Carlos Eduardo Restrepo",
+      "registroMedico": "RM-498407-ANT",
+      "especialidadId": "esp-urologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 107",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-hema",
+      "nombre": "Dra. Gloria Inés Villegas",
+      "registroMedico": "RM-418387-ANT",
+      "especialidadId": "esp-hematologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 108",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-reuma",
+      "nombre": "Dra. Liliana Patricia Barrientos",
+      "registroMedico": "RM-612461-ANT",
+      "especialidadId": "esp-reumatologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 109",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-medgen",
+      "nombre": "Dra. Laura Catalina Osorio",
+      "registroMedico": "RM-596373-ANT",
+      "especialidadId": "esp-medicina-general",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 110",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-nutri",
+      "nombre": "Nutr. Diana Sofía Lozano",
+      "registroMedico": "RM-621561-ANT",
+      "especialidadId": "esp-nutricion",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 111",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-psi",
+      "nombre": "Lic. Juan Sebastián Roldán",
+      "registroMedico": "RM-647653-ANT",
+      "especialidadId": "esp-psicologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 112",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 45,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-terresp",
+      "nombre": "Lic. Paola Andrea Cadavid",
+      "registroMedico": "RM-442757-ANT",
+      "especialidadId": "esp-terapia-respiratoria",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 113",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-ekg",
+      "nombre": "Dr. Fernando Quintero Rojas",
+      "registroMedico": "RM-487498-ANT",
+      "especialidadId": "esp-electrocardiograma",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 114",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-ecocardio",
+      "nombre": "Dr. Andrés Felipe Montoya (Ecocardiografista)",
+      "registroMedico": "RM-792732-ANT",
+      "especialidadId": "esp-ecocardiograma",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 115",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-holter",
+      "nombre": "Dr. Andrés Felipe Montoya",
+      "registroMedico": "RM-271810-ANT",
+      "especialidadId": "esp-holter",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 101",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-mapa",
+      "nombre": "Enf. Esp. Claudia Marcela Ríos",
+      "registroMedico": "RM-708327-ANT",
+      "especialidadId": "esp-mapa",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 102",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-procorl",
+      "nombre": "Dr. Mateo Zapata Correa",
+      "registroMedico": "RM-688372-ANT",
+      "especialidadId": "esp-proc-otorrino",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 103",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-procderma",
+      "nombre": "Dra. Luisa Fernanda Salazar",
+      "registroMedico": "RM-246074-ANT",
+      "especialidadId": "esp-proc-dermatologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 104",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-procuro",
+      "nombre": "Dr. Felipe Tamayo Gil",
+      "registroMedico": "RM-672593-ANT",
+      "especialidadId": "esp-proc-urologia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 105",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-procorto",
+      "nombre": "Dr. Alejandro Giraldo Vélez",
+      "registroMedico": "RM-369048-ANT",
+      "especialidadId": "esp-proc-ortopedia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 106",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-eco",
+      "nombre": "Dr. Carlos Alberto Durango",
+      "registroMedico": "RM-249075-ANT",
+      "especialidadId": "esp-ecografia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 107",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-rx",
+      "nombre": "Dra. Elena María Benítez (Tecnóloga Radiología)",
+      "registroMedico": "RM-374096-ANT",
+      "especialidadId": "esp-rayosx",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 108",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 20,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-protrad",
+      "nombre": "Ing. Mauricio Restrepo (Oficial de Protección Radiológica)",
+      "registroMedico": "RM-725045-ANT",
+      "especialidadId": "esp-proteccion-radiologica",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 109",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 45,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-sedapartad-medlab",
+      "nombre": "Dr. Mauricio Echeverri Restrepo (Médico Laboral)",
+      "registroMedico": "RM-616038-ANT",
+      "especialidadId": "esp-medicina-laboral-poe",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "Cons. 110",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes",
+        "Sábado"
+      ],
+      "horaInicio": "07:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "horaInicio": "12:00",
+          "horaFin": "13:00",
+          "motivo": "Almuerzo y descanso clínico"
+        }
+      ],
+      "activo": true
+    }
+  ],
+  "citas": [
+    {
+      "id": "cita-demo-1",
+      "codigoCita": "ARC-2026-7812",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1018459203",
+      "pacienteNombres": "Álvaro Javier",
+      "pacienteApellidos": "Mendoza Gómez",
+      "pacienteTelefono": "311 450 9988",
+      "pacienteEmail": "alvaro.mendoza@email.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Control semestral por cifras de tensión arterial",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-4",
+      "fecha": "2026-10-09",
+      "hora": "09:00",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-08T05:08:59.206Z"
+    },
+    {
+      "id": "cita-demo-2",
+      "codigoCita": "ARC-2026-8841",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "52890123",
+      "pacienteNombres": "Gloria Inés",
+      "pacienteApellidos": "Castro Pardo",
+      "pacienteTelefono": "315 220 1478",
+      "pacienteEmail": "gloria.castro@email.com",
+      "pacienteAseguradora": "Sanitas EPS",
+      "motivoConsulta": "Evaluación dermatológica lunar en espalda",
+      "sedeId": "sede-2",
+      "especialidadId": "esp-dermatologia",
+      "medicoId": "med-8",
+      "fecha": "2026-10-09",
+      "hora": "10:30",
+      "tipoAgendamiento": "presencial",
+      "estado": "agendada",
+      "creadaEn": "2026-10-08T05:08:59.206Z"
+    },
+    {
+      "id": "cita-bdc61567-7c3e-4dbf-8727-f382bb710e05",
+      "codigoCita": "ARC-2026-5884",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1020304050",
+      "pacienteNombres": "Mariana",
+      "pacienteApellidos": "Duque Silva",
+      "pacienteTelefono": "3157778899",
+      "pacienteEmail": "mariana@email.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Consulta de control cardiología",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-cardiologia",
+      "medicoId": "med-6",
+      "fecha": "2026-10-15",
+      "hora": "08:30",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-08T05:18:59.686Z"
+    },
+    {
+      "id": "cita-0e7bdb0e-4217-4a43-96a9-2e51fe9c1626",
+      "codigoCita": "ARC-2026-6941",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Mena",
+      "pacienteTelefono": "3243552344",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-urologia",
+      "medicoId": "med-1",
+      "fecha": "2026-10-24",
+      "hora": "08:00",
+      "tipoAgendamiento": "web",
+      "estado": "atendida",
+      "creadaEn": "2026-10-08T16:14:29.219Z",
+      "actualizadaEn": "2026-10-08T16:23:42.104Z"
+    },
+    {
+      "id": "cita-9d5ca96e-2b7f-4b6f-8f9a-058587a771a2",
+      "codigoCita": "ARC-2026-3518",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Mena",
+      "pacienteTelefono": "3243552344",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Consulta presencial en ventanilla",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-1",
+      "fecha": "2026-10-08",
+      "hora": "14:30",
+      "tipoAgendamiento": "presencial",
+      "estado": "cancelada",
+      "creadaEn": "2026-10-08T16:40:33.525Z",
+      "motivoCancelacion": "No vino",
+      "actualizadaEn": "2026-10-08T19:24:17.421Z",
+      "motivoReasignacion": "Reasignación por llegada tarde a cita previa"
+    },
+    {
+      "id": "cita-260b64a0-c310-4157-b86d-b6bee45dec8e",
+      "codigoCita": "ARC-2026-2984",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-08",
+      "hora": "13:30",
+      "tipoAgendamiento": "web",
+      "estado": "no_asistio",
+      "creadaEn": "2026-10-08T16:43:43.374Z",
+      "motivoCancelacion": "El paciente no asistió a su cita médica programada en sede.",
+      "actualizadaEn": "2026-10-08T20:29:14.542Z"
+    },
+    {
+      "id": "cita-a01f7c48-dfef-4dc0-9292-189b1d26357c",
+      "codigoCita": "ARC-2026-1873",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1028005718",
+      "pacienteNombres": "Juan",
+      "pacienteApellidos": "Mena",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Valoración ",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-09",
+      "hora": "11:30",
+      "tipoAgendamiento": "web",
+      "estado": "atendida",
+      "creadaEn": "2026-10-08T20:00:25.947Z",
+      "actualizadaEn": "2026-10-08T22:09:43.747Z"
+    },
+    {
+      "id": "cita-081f82f9-16f4-4a94-9261-5be6963ad631",
+      "codigoCita": "ARC-2026-9003",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1020304050",
+      "pacienteNombres": "Carlos Alberto Corregido",
+      "pacienteApellidos": "Pérez Gómez",
+      "pacienteTelefono": "3159998877",
+      "pacienteEmail": "carlos@test.com",
+      "pacienteAseguradora": "Sura",
+      "motivoConsulta": "Consulta general",
+      "sedeId": "sede-1",
+      "especialidadId": "esp-urologia",
+      "medicoId": "med-1",
+      "fecha": "2026-10-09",
+      "hora": "09:00",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-08T20:17:30.775Z",
+      "actualizadaEn": "2026-10-08T20:17:30.806Z"
+    },
+    {
+      "id": "cita-abd5b683-2014-4168-836b-af08c988f310",
+      "codigoCita": "ARC-2026-3944",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1028005718",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-21",
+      "hora": "10:00",
+      "tipoAgendamiento": "web",
+      "estado": "no_asistio",
+      "creadaEn": "2026-10-20T00:36:32.273Z",
+      "motivoCancelacion": "No vino",
+      "actualizadaEn": "2026-10-20T01:49:06.545Z"
+    },
+    {
+      "id": "cita-d3ea1e55-719b-4faf-a25e-5dbdf8658cd3",
+      "codigoCita": "ARC-2026-5137",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Consulta presencial en ventanilla",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-20",
+      "hora": "10:00",
+      "tipoAgendamiento": "presencial",
+      "estado": "no_asistio",
+      "creadaEn": "2026-10-20T00:43:25.193Z",
+      "motivoCancelacion": "No se presento",
+      "actualizadaEn": "2026-10-20T01:39:31.939Z"
+    },
+    {
+      "id": "cita-0381d760-bc3a-4bfc-81de-1f3db5823672",
+      "codigoCita": "ARC-2026-9827",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Sura EPS",
+      "motivoConsulta": "Cita primera vez.",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-23",
+      "hora": "09:30",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-20T01:22:17.973Z"
+    },
+    {
+      "id": "cita-74d41d10-d79a-4119-ad26-25cfc6d7e448",
+      "codigoCita": "ARC-2026-3374",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3243552344",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Particular",
+      "motivoConsulta": "Consulta presencial en ventanilla",
+      "sedeId": "sede-f66d9955",
+      "especialidadId": "esp-medicina-interna",
+      "medicoId": "med-23070185",
+      "fecha": "2026-10-22",
+      "hora": "10:30",
+      "tipoAgendamiento": "presencial",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-21T22:58:21.852Z"
+    },
+    {
+      "id": "cita-9b29b9eb-ed69-4a3c-9330-5e30616125aa",
+      "codigoCita": "ARC-2026-9851",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Savia Salud",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-1f7df4c5",
+      "especialidadId": "esp-cardiologia",
+      "medicoId": "med-cbabolvar-cardio",
+      "fecha": "2026-10-26",
+      "hora": "08:30",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-25T05:22:24.291Z"
+    }
+  ],
+  "historialAuditoria": [
+    {
+      "id": "log-1",
+      "fecha": "2026-10-08T05:08:59.206Z",
+      "accion": "INICIALIZACION",
+      "descripcion": "Sistema de citas IPS ARCAL configurado con 4 sedes y 9 especialidades habilitadas."
+    },
+    {
+      "id": "log-1791436739686",
+      "fecha": "2026-10-08T05:18:59.686Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-5884 agendada vía web para paciente Mariana Duque Silva en 2026-10-15 a las 08:30"
+    },
+    {
+      "id": "log-1791476069219",
+      "fecha": "2026-10-08T16:14:29.219Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-6941 agendada vía web para paciente Andres Mena en 2026-10-24 a las 08:00"
+    },
+    {
+      "id": "log-1791476552333",
+      "fecha": "2026-10-08T16:22:32.333Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-6941 cambió a estado: en_sala"
+    },
+    {
+      "id": "log-1791476622104",
+      "fecha": "2026-10-08T16:23:42.104Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-6941 cambió a estado: atendida"
+    },
+    {
+      "id": "log-1791476918815",
+      "fecha": "2026-10-08T16:28:38.815Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: Dr. Test Verificación (RM-999888-TEST)"
+    },
+    {
+      "id": "log-1791477152755",
+      "fecha": "2026-10-08T16:32:32.755Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: ARCAL - TURBO en Turbo, Antioquia."
+    },
+    {
+      "id": "log-1791477261130",
+      "fecha": "2026-10-08T16:34:21.130Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: Luis Fernando (RM-243527-TUR)"
+    },
+    {
+      "id": "log-1791477343437",
+      "fecha": "2026-10-08T16:35:43.437Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477345134",
+      "fecha": "2026-10-08T16:35:45.134Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477347652",
+      "fecha": "2026-10-08T16:35:47.652Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477633525",
+      "fecha": "2026-10-08T16:40:33.525Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3518 agendada vía presencial para paciente Andres Mena en 2026-10-08 a las 13:00"
+    },
+    {
+      "id": "log-1791477823374",
+      "fecha": "2026-10-08T16:43:43.374Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-2984 agendada vía web para paciente Andres Consuegra en 2026-10-08 a las 13:30"
+    },
+    {
+      "id": "log-1791487276075",
+      "fecha": "2026-10-08T19:21:16.075Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3518 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1791487276089",
+      "fecha": "2026-10-08T19:21:16.089Z",
+      "accion": "REASIGNAR_CITA",
+      "descripcion": "Cita ARC-2026-3518 reasignada de 2026-10-08 13:00 a 2026-10-08 14:30. Motivo: Reasignación por llegada tarde a cita previa"
+    },
+    {
+      "id": "log-1791487457421",
+      "fecha": "2026-10-08T19:24:17.421Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3518 cambió a estado: cancelada"
+    },
+    {
+      "id": "log-1791488613242",
+      "fecha": "2026-10-08T19:43:33.242Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488613270",
+      "fecha": "2026-10-08T19:43:33.270Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488613311",
+      "fecha": "2026-10-08T19:43:33.311Z",
+      "accion": "CREAR_USUARIO",
+      "descripcion": "Nuevo agente creado: Pedro Test Silva (agente.test.1791488613301) con 2 sedes asignadas."
+    },
+    {
+      "id": "log-1791488613323",
+      "fecha": "2026-10-08T19:43:33.323Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario agente.test.1791488613301 DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791488613335",
+      "fecha": "2026-10-08T19:43:33.335Z",
+      "accion": "ELIMINAR_USUARIO",
+      "descripcion": "Usuario agente.test.1791488613301 eliminado del sistema."
+    },
+    {
+      "id": "log-1791488899407",
+      "fecha": "2026-10-08T19:48:19.407Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488918650",
+      "fecha": "2026-10-08T19:48:38.650Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario laura.gomez DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791488920730",
+      "fecha": "2026-10-08T19:48:40.730Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario andres.ruiz DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791489625947",
+      "fecha": "2026-10-08T20:00:25.947Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1873 agendada vía web para paciente Juan Mena en 2026-10-09 a las 11:30"
+    },
+    {
+      "id": "log-1791490650775",
+      "fecha": "2026-10-08T20:17:30.775Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9003 agendada vía web para paciente Carlos Pérez en 2026-10-09 a las 09:00"
+    },
+    {
+      "id": "log-1791490650806",
+      "fecha": "2026-10-08T20:17:30.806Z",
+      "accion": "ACTUALIZAR_CITA",
+      "descripcion": "Cita ARC-2026-9003 editada/actualizada para paciente Carlos Alberto Corregido Pérez Gómez"
+    },
+    {
+      "id": "log-1791491304383",
+      "fecha": "2026-10-08T20:28:24.383Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491354542",
+      "fecha": "2026-10-08T20:29:14.542Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-2984 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1791491420643",
+      "fecha": "2026-10-08T20:30:20.643Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491434987",
+      "fecha": "2026-10-08T20:30:34.987Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario laura.gomez HABILITADO por la administración."
+    },
+    {
+      "id": "log-1791491456432",
+      "fecha": "2026-10-08T20:30:56.432Z",
+      "accion": "MODIFICAR_USUARIO",
+      "descripcion": "Usuario laura.gomez actualizado (Sedes asignadas: 1)"
+    },
+    {
+      "id": "log-1791491475146",
+      "fecha": "2026-10-08T20:31:15.146Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491875587",
+      "fecha": "2026-10-08T20:37:55.587Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791495041768",
+      "fecha": "2026-10-08T21:30:41.768Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497061398",
+      "fecha": "2026-10-08T22:04:21.398Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497261641",
+      "fecha": "2026-10-08T22:07:41.641Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497294249",
+      "fecha": "2026-10-08T22:08:14.249Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-1873 cambió a estado: en_sala"
+    },
+    {
+      "id": "log-1791497383747",
+      "fecha": "2026-10-08T22:09:43.747Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-1873 cambió a estado: atendida"
+    },
+    {
+      "id": "log-1791506492977",
+      "fecha": "2026-10-09T00:41:32.977Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: ARCAL - TURBO"
+    },
+    {
+      "id": "log-1791506493008",
+      "fecha": "2026-10-09T00:41:33.008Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: ARCAL - TURBO"
+    },
+    {
+      "id": "log-1792456592273",
+      "fecha": "2026-10-20T00:36:32.273Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3944 agendada vía web para paciente Andres Consuegra en 2026-10-21 a las 10:00"
+    },
+    {
+      "id": "log-1792456707872",
+      "fecha": "2026-10-20T00:38:27.872Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792456925361",
+      "fecha": "2026-10-20T00:42:05.361Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792457005193",
+      "fecha": "2026-10-20T00:43:25.193Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-5137 agendada vía presencial para paciente Andres Consuegra en 2026-10-20 a las 10:00"
+    },
+    {
+      "id": "log-1792459337973",
+      "fecha": "2026-10-20T01:22:17.973Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9827 agendada vía web para paciente Andres Consuegra en 2026-10-23 a las 09:30"
+    },
+    {
+      "id": "log-1792460228001",
+      "fecha": "2026-10-20T01:37:08.001Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792460371939",
+      "fecha": "2026-10-20T01:39:31.939Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-5137 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1792460946546",
+      "fecha": "2026-10-20T01:49:06.546Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3944 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1792461048290",
+      "fecha": "2026-10-20T01:50:48.290Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792561660102",
+      "fecha": "2026-10-21T05:47:40.102Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792611305107",
+      "fecha": "2026-10-21T19:35:05.107Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dra. Marcela Gómez Villamizar actualizado. Duración de cita: 45 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792611325471",
+      "fecha": "2026-10-21T19:35:25.471Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dra. Marcela Gómez Villamizar actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792623299071",
+      "fecha": "2026-10-21T22:54:59.071Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623501852",
+      "fecha": "2026-10-21T22:58:21.852Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3374 agendada vía presencial para paciente Andres Consuegra en 2026-10-22 a las 10:30"
+    },
+    {
+      "id": "log-1792623769515",
+      "fecha": "2026-10-21T23:02:49.515Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623812220",
+      "fecha": "2026-10-21T23:03:32.220Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792623918215",
+      "fecha": "2026-10-21T23:05:18.215Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623967588",
+      "fecha": "2026-10-21T23:06:07.588Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792624131157",
+      "fecha": "2026-10-21T23:08:51.157Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792624146630",
+      "fecha": "2026-10-21T23:09:06.630Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792624155408",
+      "fecha": "2026-10-21T23:09:15.408Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 20 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792721154889",
+      "fecha": "2026-10-23T02:05:54.889Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792721482183",
+      "fecha": "2026-10-23T02:11:22.183Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792721593414",
+      "fecha": "2026-10-23T02:13:13.414Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792721780252",
+      "fecha": "2026-10-23T02:16:20.252Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792723538841",
+      "fecha": "2026-10-23T02:45:38.841Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792725388938",
+      "fecha": "2026-10-23T03:16:28.938Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792725588197",
+      "fecha": "2026-10-23T03:19:48.197Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Principal Medellín (El Poblado)"
+    },
+    {
+      "id": "log-1792725590905",
+      "fecha": "2026-10-23T03:19:50.905Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Urabá (Turbo - Apartadó)"
+    },
+    {
+      "id": "log-1792725594210",
+      "fecha": "2026-10-23T03:19:54.210Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Bogotá Santa Bárbara"
+    },
+    {
+      "id": "log-1792725596304",
+      "fecha": "2026-10-23T03:19:56.304Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Cali Tequendama Especializada"
+    },
+    {
+      "id": "log-1792725807347",
+      "fecha": "2026-10-23T03:23:27.347Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: Sede Poblado Medellin en Medellín, Antioquia"
+    },
+    {
+      "id": "log-1792726122643",
+      "fecha": "2026-10-23T03:28:42.643Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Poblado Medellin"
+    },
+    {
+      "id": "log-1792726123603",
+      "fecha": "2026-10-23T03:28:43.603Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Poblado Medellin"
+    },
+    {
+      "id": "log-1792726835028",
+      "fecha": "2026-10-23T03:40:35.028Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: Sede Ciudad Bolívar Antioquia en Ciudad Bolívar, Antioquia"
+    },
+    {
+      "id": "log-1792726898645",
+      "fecha": "2026-10-23T03:41:38.645Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Ciudad Bolívar "
+    },
+    {
+      "id": "log-1792727278577",
+      "fecha": "2026-10-23T03:47:58.577Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Ciudad Bolívar "
+    },
+    {
+      "id": "log-1792727556887",
+      "fecha": "2026-10-23T03:52:36.887Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: Sede Apartadó en Apartadó, Antioquia"
+    },
+    {
+      "id": "log-1792730896919",
+      "fecha": "2026-10-23T04:48:16.919Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792730945490",
+      "fecha": "2026-10-23T04:49:05.490Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731172843",
+      "fecha": "2026-10-23T04:52:52.843Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (INGENIERO DE SISTEMAS) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731239303",
+      "fecha": "2026-10-23T04:53:59.303Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (INGENIERO DE SISTEMAS) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731278409",
+      "fecha": "2026-10-23T04:54:38.409Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731539099",
+      "fecha": "2026-10-23T04:58:59.099Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792732858149",
+      "fecha": "2026-10-23T05:20:58.149Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792889209409",
+      "fecha": "2026-10-25T00:46:49.409Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792890881703",
+      "fecha": "2026-10-25T01:14:41.703Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792890937108",
+      "fecha": "2026-10-25T01:15:37.108Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Poblado Medellin"
+    },
+    {
+      "id": "log-1792905744291",
+      "fecha": "2026-10-25T05:22:24.291Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9851 agendada vía web para paciente Andres Consuegra en 2026-10-26 a las 08:30"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "usr-superadmin",
+      "nombre": "Ingeniero Andres Felipe",
+      "username": "AndresMena",
+      "password": "Mena20021.",
+      "rol": "superadmin",
+      "email": "felipemena2002@gmail.com",
+      "cargo": "Ingeniero de sistemas",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4",
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-21T14:57:16.418Z"
+    },
+    {
+      "id": "usr-superadmin",
+      "nombre": "Dirección General IPS (Super Admin)",
+      "username": "superadmin",
+      "password": "superadmin123",
+      "rol": "superadmin",
+      "email": "superadmin@ipsarcal.com",
+      "cargo": "Super Administrador del Sistema",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4",
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-21T14:57:16.418Z"
+    },
+    {
+      "id": "usr-admin",
+      "nombre": "Administrador Central IPS",
+      "username": "admin",
+      "password": "admin123",
+      "rol": "admin",
+      "email": "admin@ipsarcal.com",
+      "cargo": "Director de Operaciones & Admisiones",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-1",
+      "nombre": "Laura Camila Gómez",
+      "username": "laura.gomez",
+      "password": "123",
+      "rol": "agente",
+      "email": "laura.gomez@ipsarcal.com",
+      "cargo": "Agente de Admisiones y Recepción",
+      "sedesAsignadas": [
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-2",
+      "nombre": "Andrés Felipe Ruiz",
+      "username": "andres.ruiz",
+      "password": "123",
+      "rol": "agente",
+      "email": "andres.ruiz@ipsarcal.com",
+      "cargo": "Agente de Atención al Cliente",
+      "sedesAsignadas": [
+        "sede-3"
+      ],
+      "activo": false,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-3",
+      "nombre": "Carolina Morales Vega",
+      "username": "carolina.morales",
+      "password": "123",
+      "rol": "agente",
+      "email": "carolina.morales@ipsarcal.com",
+      "cargo": "Agente de Ventanilla y Recepción",
+      "sedesAsignadas": [
+        "sede-4"
+      ],
+      "activo": false,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    }
+  ]
+}
