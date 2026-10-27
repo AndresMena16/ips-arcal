@@ -920,7 +920,8 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
                     const matchDoc = cita.pacienteNumDoc?.toLowerCase().includes(q);
                     const matchNombre = `${cita.pacienteNombres} ${cita.pacienteApellidos}`.toLowerCase().includes(q);
                     const matchCodigo = cita.codigoCita?.toLowerCase().includes(q);
-                    if (!matchDoc && !matchNombre && !matchCodigo) return false;
+                    const matchMedico = cita.medico?.nombre?.toLowerCase().includes(q);
+                    if (!matchDoc && !matchNombre && !matchCodigo && !matchMedico) return false;
                   }
                   return true;
                 }).length} Citas
@@ -1020,7 +1021,7 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
                   type="text"
                   className="form-input"
                   style={{ padding: '0.35rem 0.65rem 0.35rem 2rem', fontSize: '0.78rem' }}
-                  placeholder="Buscar paciente, cédula o código..."
+                  placeholder="Buscar paciente, cédula, radicado o médico..."
                   value={filtroTextoAgenda}
                   onChange={e => setFiltroTextoAgenda(e.target.value)}
                 />
@@ -1061,7 +1062,8 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
                 const matchDoc = cita.pacienteNumDoc?.toLowerCase().includes(q);
                 const matchNombre = `${cita.pacienteNombres} ${cita.pacienteApellidos}`.toLowerCase().includes(q);
                 const matchCodigo = cita.codigoCita?.toLowerCase().includes(q);
-                if (!matchDoc && !matchNombre && !matchCodigo) return false;
+                const matchMedico = cita.medico?.nombre?.toLowerCase().includes(q);
+                if (!matchDoc && !matchNombre && !matchCodigo && !matchMedico) return false;
               }
               return true;
             });

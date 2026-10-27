@@ -766,7 +766,7 @@ app.get('/api/disponibilidad/proximos-dias', (req, res) => {
 // ==========================================
 app.get('/api/citas', (req, res) => {
   const currentDb = db.get();
-  const { fecha, fechaDesde, fechaHasta, sedeId, especialidadId, medicoId, tipoAgendamiento, pacienteNumDoc, estado } = req.query;
+  const { fecha, fechaDesde, fechaHasta, sedeId, especialidadId, medicoId, tipoAgendamiento, pacienteNumDoc, estado, soloFuturas, codigoCita, criterio } = req.query;
 
   let resultado = [...currentDb.citas];
 
@@ -791,11 +791,49 @@ app.get('/api/citas', (req, res) => {
   if (tipoAgendamiento) {
     resultado = resultado.filter(c => c.tipoAgendamiento === tipoAgendamiento);
   }
+  if (codigoCita) {
+    resultado = resultado.filter(c => c.codigoCita && c.codigoCita.toUpperCase() === codigoCita.trim().toUpperCase());
+  }
   if (pacienteNumDoc) {
-    resultado = resultado.filter(c => c.pacienteNumDoc.includes(pacienteNumDoc));
+    resultado = resultado.filter(c => c.pacienteNumDoc && c.pacienteNumDoc.includes(pacienteNumDoc.trim()));
+  }
+  if (criterio) {
+    const crit = criterio.trim().toUpperCase();
+    resultado = resultado.filter(c =>
+      (c.pacienteNumDoc && c.pacienteNumDoc.includes(crit)) ||
+      (c.codigoCita && c.codigoCita.toUpperCase().includes(crit))
+    );
   }
   if (estado) {
     resultado = resultado.filter(c => c.estado === estado);
+  }
+
+  // Filtrar solo citas a futuro en la fecha actual si se solicita (para consulta de usuarios)
+  if (soloFuturas === 'true' || soloFuturas === true) {
+    const now = new Date();
+    const todayStr = new Intl.DateTimeFormat('en-CA', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).format(now);
+    const currentNowMinutes = now.getHours() * 60 + now.getMinutes();
+
+    resultado = resultado.filter(c => {
+      if (!c.fecha) return false;
+      // Citas ya atendidas o con inasistencia registrada no son citas futuras
+      if (c.estado === 'atendida' || c.estado === 'no_asistio') return false;
+      // Si la fecha es posterior a hoy, es a futuro
+      if (c.fecha > todayStr) return true;
+      // Si es hoy, verificar que la hora sea futura o esté en ventana de atención activa (30 min)
+      if (c.fecha === todayStr) {
+        if (!c.hora) return true;
+        const [h, m] = c.hora.split(':').map(Number);
+        const citaMinutes = (h || 0) * 60 + (m || 0);
+        return (citaMinutes + 30) >= currentNowMinutes;
+      }
+      // Fecha anterior a hoy -> ya transcurrió
+      return false;
+    });
   }
 
   // Ordenar por fecha y hora descendente o ascendente
@@ -815,10 +853,46 @@ app.get('/api/citas', (req, res) => {
 app.get('/api/citas/:identificador', (req, res) => {
   const currentDb = db.get();
   const { identificador } = req.params;
+  const { soloFuturas } = req.query;
 
   const cita = currentDb.citas.find(c => c.id === identificador || c.codigoCita.toUpperCase() === identificador.toUpperCase());
   if (!cita) {
     return res.status(404).json({ success: false, error: "Cita no encontrada" });
+  }
+
+  if (soloFuturas === 'true' || soloFuturas === true) {
+    const now = new Date();
+    const todayStr = new Intl.DateTimeFormat('en-CA', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).format(now);
+    const currentNowMinutes = now.getHours() * 60 + now.getMinutes();
+
+    let esFutura = false;
+    if (cita.fecha > todayStr) {
+      esFutura = true;
+    } else if (cita.fecha === todayStr) {
+      if (!cita.hora) {
+        esFutura = true;
+      } else {
+        const [h, m] = cita.hora.split(':').map(Number);
+        const citaMinutes = (h || 0) * 60 + (m || 0);
+        esFutura = (citaMinutes + 30) >= currentNowMinutes;
+      }
+    }
+
+    if (cita.estado === 'atendida' || cita.estado === 'no_asistio') {
+      esFutura = false;
+    }
+
+    if (!esFutura) {
+      return res.status(404).json({
+        success: false,
+        error: "La cita consultada ya ha transcurrido y no se encuentra vigente.",
+        esPasada: true
+      });
+    }
   }
 
   res.json({ success: true, data: enrichCita(cita, currentDb) });

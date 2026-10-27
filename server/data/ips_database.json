@@ -4098,7 +4098,7 @@
   "medicos": [
     {
       "id": "med-medpoblado-medicina-general",
-      "nombre": "Dr(a). Especialista en Medicina general (Medellín)",
+      "nombre": "Dr. Sebastián Vargas Londoño",
       "registroMedico": "RM-MEDPOBLADO-14700",
       "especialidadId": "esp-medicina-general",
       "sedeId": "sede-fa3dc377",
@@ -4112,26 +4112,20 @@
       ],
       "horaInicio": "07:30",
       "horaFin": "17:30",
-      "duracionCitaMinutos": 30,
+      "duracionCitaMinutos": 20,
       "pausas": [
         {
-          "id": "p-med-medpoblado-medicina-general-1",
-          "horaInicio": "10:30",
-          "horaFin": "10:45",
-          "motivo": "Pausa activa clínica"
-        },
-        {
-          "id": "p-med-medpoblado-medicina-general-2",
-          "horaInicio": "15:30",
-          "horaFin": "15:45",
-          "motivo": "Descanso médico"
+          "id": "pause-1793065413819",
+          "horaInicio": "12:00",
+          "horaFin": "15:00",
+          "motivo": "Descanso y pausa activa"
         }
       ],
       "activo": true
     },
     {
       "id": "med-medpoblado-medicina-interna",
-      "nombre": "Dr(a). Especialista en Medicina interna (Medellín)",
+      "nombre": "Dra. Valentina Ospina García",
       "registroMedico": "RM-MEDPOBLADO-12775",
       "especialidadId": "esp-medicina-interna",
       "sedeId": "sede-fa3dc377",
@@ -4164,7 +4158,7 @@
     },
     {
       "id": "med-medpoblado-neurologia",
-      "nombre": "Dr(a). Especialista en Neurología (Medellín)",
+      "nombre": "Dr. Andrés Felipe Quintero Moreno",
       "registroMedico": "RM-MEDPOBLADO-19158",
       "especialidadId": "esp-neurologia",
       "sedeId": "sede-fa3dc377",
@@ -4197,7 +4191,7 @@
     },
     {
       "id": "med-medpoblado-endocrinologia",
-      "nombre": "Dr(a). Especialista en Endocrinología (Medellín)",
+      "nombre": "Dra. Diana Sofía Suescún Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-21974",
       "especialidadId": "esp-endocrinologia",
       "sedeId": "sede-fa3dc377",
@@ -4230,7 +4224,7 @@
     },
     {
       "id": "med-medpoblado-nefrologia",
-      "nombre": "Dr(a). Especialista en Nefrología (Medellín)",
+      "nombre": "Dr. Fernando Méndez Ramos",
       "registroMedico": "RM-MEDPOBLADO-86092",
       "especialidadId": "esp-nefrologia",
       "sedeId": "sede-fa3dc377",
@@ -4263,7 +4257,7 @@
     },
     {
       "id": "med-medpoblado-hematologia",
-      "nombre": "Dr(a). Especialista en Hematología (Medellín)",
+      "nombre": "Dra. Natalia Vargas Molina",
       "registroMedico": "RM-MEDPOBLADO-60529",
       "especialidadId": "esp-hematologia",
       "sedeId": "sede-fa3dc377",
@@ -4296,7 +4290,7 @@
     },
     {
       "id": "med-medpoblado-reumatologia",
-      "nombre": "Dr(a). Especialista en Reumatología (Medellín)",
+      "nombre": "Dr. Mauricio Botero Castro",
       "registroMedico": "RM-MEDPOBLADO-53548",
       "especialidadId": "esp-reumatologia",
       "sedeId": "sede-fa3dc377",
@@ -4329,7 +4323,7 @@
     },
     {
       "id": "med-medpoblado-pediatria",
-      "nombre": "Dr(a). Especialista en Pediatría (Medellín)",
+      "nombre": "Dra. Valentina Arango Ospina",
       "registroMedico": "RM-MEDPOBLADO-89375",
       "especialidadId": "esp-pediatria",
       "sedeId": "sede-fa3dc377",
@@ -4362,7 +4356,7 @@
     },
     {
       "id": "med-medpoblado-ginecologia-obstetricia",
-      "nombre": "Dr(a). Especialista en Ginecología y obstetricia (Consulta) (Medellín)",
+      "nombre": "Dra. Natalia Echeverri Zuluaga",
       "registroMedico": "RM-MEDPOBLADO-37695",
       "especialidadId": "esp-ginecologia-obstetricia",
       "sedeId": "sede-fa3dc377",
@@ -4395,7 +4389,7 @@
     },
     {
       "id": "med-medpoblado-gyn-eco-pelv-transvag",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica ginecológica transvaginal (Medellín)",
+      "nombre": "Dra. Camila Osorio García",
       "registroMedico": "RM-MEDPOBLADO-62922",
       "especialidadId": "esp-gyn-eco-pelv-transvag",
       "sedeId": "sede-fa3dc377",
@@ -4428,7 +4422,7 @@
     },
     {
       "id": "med-medpoblado-gyn-eco-pelv-transabd",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica ginecológica transabdominal (Medellín)",
+      "nombre": "Dr. Esteban Vélez Moreno",
       "registroMedico": "RM-MEDPOBLADO-50839",
       "especialidadId": "esp-gyn-eco-pelv-transabd",
       "sedeId": "sede-fa3dc377",
@@ -4461,7 +4455,7 @@
     },
     {
       "id": "med-medpoblado-gyn-eco-obs-transabd",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica transabdominal (Medellín)",
+      "nombre": "Dra. Sofía Posada Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-76841",
       "especialidadId": "esp-gyn-eco-obs-transabd",
       "sedeId": "sede-fa3dc377",
@@ -4494,7 +4488,7 @@
     },
     {
       "id": "med-medpoblado-gyn-eco-obs-transvag",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica transvaginal (Medellín)",
+      "nombre": "Dr. Alejandro Montoya Ramos",
       "registroMedico": "RM-MEDPOBLADO-57251",
       "especialidadId": "esp-gyn-eco-obs-transvag",
       "sedeId": "sede-fa3dc377",
@@ -4527,7 +4521,7 @@
     },
     {
       "id": "med-medpoblado-gyn-eco-obs-transluc",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica con translucencia nucal (Medellín)",
+      "nombre": "Dra. Carolina Cano Molina",
       "registroMedico": "RM-MEDPOBLADO-88072",
       "especialidadId": "esp-gyn-eco-obs-transluc",
       "sedeId": "sede-fa3dc377",
@@ -4560,7 +4554,7 @@
     },
     {
       "id": "med-medpoblado-gyn-eco-obs-detalle",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica con detalle anatómico (Medellín)",
+      "nombre": "Dr. Santiago Berrío Castro",
       "registroMedico": "RM-MEDPOBLADO-94756",
       "especialidadId": "esp-gyn-eco-obs-detalle",
       "sedeId": "sede-fa3dc377",
@@ -4593,7 +4587,7 @@
     },
     {
       "id": "med-medpoblado-gyn-perfil-biofisico",
-      "nombre": "Dr(a). Especialista en Perfil biofísico (Medellín)",
+      "nombre": "Dra. Isabella Marín Medina",
       "registroMedico": "RM-MEDPOBLADO-57828",
       "especialidadId": "esp-gyn-perfil-biofisico",
       "sedeId": "sede-fa3dc377",
@@ -4626,7 +4620,7 @@
     },
     {
       "id": "med-medpoblado-gyn-doppler-placentaria",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler obstétrica con evaluación de circulación placentaria (Medellín)",
+      "nombre": "Dr. David Agudelo Londoño",
       "registroMedico": "RM-MEDPOBLADO-30886",
       "especialidadId": "esp-gyn-doppler-placentaria",
       "sedeId": "sede-fa3dc377",
@@ -4659,7 +4653,7 @@
     },
     {
       "id": "med-medpoblado-gyn-pelvica-doppler",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica con análisis Doppler (Medellín)",
+      "nombre": "Dra. Lucía Ramírez García",
       "registroMedico": "RM-MEDPOBLADO-54137",
       "especialidadId": "esp-gyn-pelvica-doppler",
       "sedeId": "sede-fa3dc377",
@@ -4692,7 +4686,7 @@
     },
     {
       "id": "med-medpoblado-eco-881305",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen superior (Medellín)",
+      "nombre": "Dr. Felipe Guzmán Moreno",
       "registroMedico": "RM-MEDPOBLADO-82460",
       "especialidadId": "esp-eco-881305",
       "sedeId": "sede-fa3dc377",
@@ -4725,7 +4719,7 @@
     },
     {
       "id": "med-medpoblado-eco-881306",
-      "nombre": "Dr(a). Especialista en Ecografía de hígado, páncreas, vía biliar y vesícula (Medellín)",
+      "nombre": "Dra. Gabriela Barrientos Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-93170",
       "especialidadId": "esp-eco-881306",
       "sedeId": "sede-fa3dc377",
@@ -4758,7 +4752,7 @@
     },
     {
       "id": "med-medpoblado-eco-881302",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen total (Medellín)",
+      "nombre": "Dr. Manuel Antonio Villamizar Ramos",
       "registroMedico": "RM-MEDPOBLADO-34955",
       "especialidadId": "esp-eco-881302",
       "sedeId": "sede-fa3dc377",
@@ -4791,7 +4785,7 @@
     },
     {
       "id": "med-medpoblado-eco-881332",
-      "nombre": "Dr(a). Especialista en Ecografía de vías urinarias: riñones, vejiga y próstata transabdominal (Medellín)",
+      "nombre": "Dra. Tatiana Morales Molina",
       "registroMedico": "RM-MEDPOBLADO-32722",
       "especialidadId": "esp-eco-881332",
       "sedeId": "sede-fa3dc377",
@@ -4824,7 +4818,7 @@
     },
     {
       "id": "med-medpoblado-eco-881510",
-      "nombre": "Dr(a). Especialista en Ecografía testicular con transductor de 7 MHz o más (Medellín)",
+      "nombre": "Dr. Javier Rojas Castro",
       "registroMedico": "RM-MEDPOBLADO-24552",
       "especialidadId": "esp-eco-881510",
       "sedeId": "sede-fa3dc377",
@@ -4857,7 +4851,7 @@
     },
     {
       "id": "med-medpoblado-eco-881511",
-      "nombre": "Dr(a). Especialista en Ecografía testicular con análisis Doppler (Medellín)",
+      "nombre": "Dra. Gloria Inés Herrera Medina",
       "registroMedico": "RM-MEDPOBLADO-54588",
       "especialidadId": "esp-eco-881511",
       "sedeId": "sede-fa3dc377",
@@ -4890,7 +4884,7 @@
     },
     {
       "id": "med-medpoblado-eco-881501",
-      "nombre": "Dr(a). Especialista en Ecografía de próstata transabdominal (Medellín)",
+      "nombre": "Dr. Leonardo Echeverri Londoño",
       "registroMedico": "RM-MEDPOBLADO-60291",
       "especialidadId": "esp-eco-881501",
       "sedeId": "sede-fa3dc377",
@@ -4923,7 +4917,7 @@
     },
     {
       "id": "med-medpoblado-eco-881502",
-      "nombre": "Dr(a). Especialista en Ecografía de próstata transrectal (Medellín)",
+      "nombre": "Dra. Mónica Londoño García",
       "registroMedico": "RM-MEDPOBLADO-93154",
       "especialidadId": "esp-eco-881502",
       "sedeId": "sede-fa3dc377",
@@ -4956,7 +4950,7 @@
     },
     {
       "id": "med-medpoblado-eco-881131",
-      "nombre": "Dr(a). Especialista en Ecografía de glándulas salivales (Medellín)",
+      "nombre": "Dr. Gustavo Jiménez Moreno",
       "registroMedico": "RM-MEDPOBLADO-96350",
       "especialidadId": "esp-eco-881131",
       "sedeId": "sede-fa3dc377",
@@ -4989,7 +4983,7 @@
     },
     {
       "id": "med-medpoblado-eco-881132",
-      "nombre": "Dr(a). Especialista en Ecografía de cuello (Medellín)",
+      "nombre": "Dra. Cristina Consuegra Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-34863",
       "especialidadId": "esp-eco-881132",
       "sedeId": "sede-fa3dc377",
@@ -5022,7 +5016,7 @@
     },
     {
       "id": "med-medpoblado-eco-881141",
-      "nombre": "Dr(a). Especialista en Ecografía de tiroides (Medellín)",
+      "nombre": "Dr. Fabio Betancur Ramos",
       "registroMedico": "RM-MEDPOBLADO-58734",
       "especialidadId": "esp-eco-881141",
       "sedeId": "sede-fa3dc377",
@@ -5055,7 +5049,7 @@
     },
     {
       "id": "med-medpoblado-eco-881301",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de pared abdominal y pelvis (Medellín)",
+      "nombre": "Dra. Angela María Cadavid Molina",
       "registroMedico": "RM-MEDPOBLADO-13805",
       "especialidadId": "esp-eco-881301",
       "sedeId": "sede-fa3dc377",
@@ -5088,7 +5082,7 @@
     },
     {
       "id": "med-medpoblado-eco-881112",
-      "nombre": "Dr(a). Especialista en Ecografía cerebral transfontanelar (Medellín)",
+      "nombre": "Dr. Víctor Hugo Lopera Castro",
       "registroMedico": "RM-MEDPOBLADO-91775",
       "especialidadId": "esp-eco-881112",
       "sedeId": "sede-fa3dc377",
@@ -5121,7 +5115,7 @@
     },
     {
       "id": "med-medpoblado-eco-881201",
-      "nombre": "Dr(a). Especialista en Ecografía de mama (Medellín)",
+      "nombre": "Dra. Clara Inés Correa Medina",
       "registroMedico": "RM-MEDPOBLADO-33026",
       "especialidadId": "esp-eco-881201",
       "sedeId": "sede-fa3dc377",
@@ -5154,7 +5148,7 @@
     },
     {
       "id": "med-medpoblado-eco-881211",
-      "nombre": "Dr(a). Especialista en Ecografía de tórax: pericardio o pleura (Medellín)",
+      "nombre": "Dr. Sergio Saldarriaga Londoño",
       "registroMedico": "RM-MEDPOBLADO-29450",
       "especialidadId": "esp-eco-881211",
       "sedeId": "sede-fa3dc377",
@@ -5187,7 +5181,7 @@
     },
     {
       "id": "med-medpoblado-eco-881601",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de extremidades superiores (Medellín)",
+      "nombre": "Dra. Ximena Henao García",
       "registroMedico": "RM-MEDPOBLADO-14986",
       "especialidadId": "esp-eco-881601",
       "sedeId": "sede-fa3dc377",
@@ -5220,7 +5214,7 @@
     },
     {
       "id": "med-medpoblado-eco-881602",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de extremidades inferiores (Medellín)",
+      "nombre": "Dr. Tomás Palacio Moreno",
       "registroMedico": "RM-MEDPOBLADO-97305",
       "especialidadId": "esp-eco-881602",
       "sedeId": "sede-fa3dc377",
@@ -5253,7 +5247,7 @@
     },
     {
       "id": "med-medpoblado-eco-881610",
-      "nombre": "Dr(a). Especialista en Ecografía articular de hombro (Medellín)",
+      "nombre": "Dra. Marcela Ceballos Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-88538",
       "especialidadId": "esp-eco-881610",
       "sedeId": "sede-fa3dc377",
@@ -5286,7 +5280,7 @@
     },
     {
       "id": "med-medpoblado-eco-881611",
-      "nombre": "Dr(a). Especialista en Ecografía articular de codo (Medellín)",
+      "nombre": "Dr. Carlos Eduardo Gutiérrez Ramos",
       "registroMedico": "RM-MEDPOBLADO-63481",
       "especialidadId": "esp-eco-881611",
       "sedeId": "sede-fa3dc377",
@@ -5319,7 +5313,7 @@
     },
     {
       "id": "med-medpoblado-eco-881612",
-      "nombre": "Dr(a). Especialista en Ecografía articular de puño o muñeca (Medellín)",
+      "nombre": "Dra. Andrea Catalina Silva Molina",
       "registroMedico": "RM-MEDPOBLADO-60395",
       "especialidadId": "esp-eco-881612",
       "sedeId": "sede-fa3dc377",
@@ -5352,7 +5346,7 @@
     },
     {
       "id": "med-medpoblado-eco-881613",
-      "nombre": "Dr(a). Especialista en Ecografía articular de mano (Medellín)",
+      "nombre": "Dr. Andrés Felipe Tamayo Castro",
       "registroMedico": "RM-MEDPOBLADO-20441",
       "especialidadId": "esp-eco-881613",
       "sedeId": "sede-fa3dc377",
@@ -5385,7 +5379,7 @@
     },
     {
       "id": "med-medpoblado-eco-881620",
-      "nombre": "Dr(a). Especialista en Ecografía articular de rodilla (Medellín)",
+      "nombre": "Dra. Claudia Patricia Restrepo Medina",
       "registroMedico": "RM-MEDPOBLADO-12217",
       "especialidadId": "esp-eco-881620",
       "sedeId": "sede-fa3dc377",
@@ -5418,7 +5412,7 @@
     },
     {
       "id": "med-medpoblado-eco-881621",
-      "nombre": "Dr(a). Especialista en Ecografía articular de tobillo (Medellín)",
+      "nombre": "Dr. Fernando Arango Londoño",
       "registroMedico": "RM-MEDPOBLADO-32759",
       "especialidadId": "esp-eco-881621",
       "sedeId": "sede-fa3dc377",
@@ -5451,7 +5445,7 @@
     },
     {
       "id": "med-medpoblado-eco-881622",
-      "nombre": "Dr(a). Especialista en Ecografía articular de pie (Medellín)",
+      "nombre": "Dra. Juliana Peña García",
       "registroMedico": "RM-MEDPOBLADO-12337",
       "especialidadId": "esp-eco-881622",
       "sedeId": "sede-fa3dc377",
@@ -5484,7 +5478,7 @@
     },
     {
       "id": "med-medpoblado-eco-881630",
-      "nombre": "Dr(a). Especialista en Ecografía articular de cadera (Medellín)",
+      "nombre": "Dr. Mauricio Lozano Moreno",
       "registroMedico": "RM-MEDPOBLADO-29372",
       "especialidadId": "esp-eco-881630",
       "sedeId": "sede-fa3dc377",
@@ -5517,7 +5511,7 @@
     },
     {
       "id": "med-medpoblado-eco-881640",
-      "nombre": "Dr(a). Especialista en Ecografía de calcáneo (Medellín)",
+      "nombre": "Dra. Mariana Pardo Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-84867",
       "especialidadId": "esp-eco-881640",
       "sedeId": "sede-fa3dc377",
@@ -5550,7 +5544,7 @@
     },
     {
       "id": "med-medpoblado-eco-881362",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de abdomen con análisis Doppler (Medellín)",
+      "nombre": "Dr. Ricardo Zuluaga Ramos",
       "registroMedico": "RM-MEDPOBLADO-14519",
       "especialidadId": "esp-eco-881362",
       "sedeId": "sede-fa3dc377",
@@ -5583,7 +5577,7 @@
     },
     {
       "id": "med-medpoblado-eco-881390",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen y pelvis como guía de procedimiento quirúrgico o intervencionista (Medellín)",
+      "nombre": "Dra. Paola Andrea Castro Molina",
       "registroMedico": "RM-MEDPOBLADO-43088",
       "especialidadId": "esp-eco-881390",
       "sedeId": "sede-fa3dc377",
@@ -5616,7 +5610,7 @@
     },
     {
       "id": "med-medpoblado-dop-882112",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos del cuello (Medellín)",
+      "nombre": "Dr. Esteban Ríos Castro",
       "registroMedico": "RM-MEDPOBLADO-74670",
       "especialidadId": "esp-dop-882112",
       "sedeId": "sede-fa3dc377",
@@ -5649,7 +5643,7 @@
     },
     {
       "id": "med-medpoblado-dop-882132",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de otros vasos periféricos del cuello (Medellín)",
+      "nombre": "Dra. Manuela Duque Medina",
       "registroMedico": "RM-MEDPOBLADO-35739",
       "especialidadId": "esp-dop-882132",
       "sedeId": "sede-fa3dc377",
@@ -5682,7 +5676,7 @@
     },
     {
       "id": "med-medpoblado-dop-882203",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos abdominales o pélvicos (Medellín)",
+      "nombre": "Dr. Alejandro Hoyos Londoño",
       "registroMedico": "RM-MEDPOBLADO-26858",
       "especialidadId": "esp-dop-882203",
       "sedeId": "sede-fa3dc377",
@@ -5715,7 +5709,7 @@
     },
     {
       "id": "med-medpoblado-dop-882212",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de aorta abdominal (Medellín)",
+      "nombre": "Dra. Laura Camila Giraldo García",
       "registroMedico": "RM-MEDPOBLADO-93242",
       "especialidadId": "esp-dop-882212",
       "sedeId": "sede-fa3dc377",
@@ -5748,7 +5742,7 @@
     },
     {
       "id": "med-medpoblado-dop-882222",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias renales (Medellín)",
+      "nombre": "Dr. Santiago Jaramillo Moreno",
       "registroMedico": "RM-MEDPOBLADO-30179",
       "especialidadId": "esp-dop-882222",
       "sedeId": "sede-fa3dc377",
@@ -5781,7 +5775,7 @@
     },
     {
       "id": "med-medpoblado-dop-882232",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias mesentéricas (Medellín)",
+      "nombre": "Dra. Catalina Villa Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-12529",
       "especialidadId": "esp-dop-882232",
       "sedeId": "sede-fa3dc377",
@@ -5814,7 +5808,7 @@
     },
     {
       "id": "med-medpoblado-dop-882242",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de tronco celíaco (Medellín)",
+      "nombre": "Dr. David Uribe Ramos",
       "registroMedico": "RM-MEDPOBLADO-27244",
       "especialidadId": "esp-dop-882242",
       "sedeId": "sede-fa3dc377",
@@ -5847,7 +5841,7 @@
     },
     {
       "id": "med-medpoblado-dop-882252",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vena cava (Medellín)",
+      "nombre": "Dra. Elena Flórez Molina",
       "registroMedico": "RM-MEDPOBLADO-58749",
       "especialidadId": "esp-dop-882252",
       "sedeId": "sede-fa3dc377",
@@ -5880,7 +5874,7 @@
     },
     {
       "id": "med-medpoblado-dop-882262",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias ilíacas (Medellín)",
+      "nombre": "Dr. Felipe Tabares Castro",
       "registroMedico": "RM-MEDPOBLADO-69505",
       "especialidadId": "esp-dop-882262",
       "sedeId": "sede-fa3dc377",
@@ -5913,7 +5907,7 @@
     },
     {
       "id": "med-medpoblado-dop-882282",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos escrotales (Medellín)",
+      "nombre": "Dra. Sara Cardona Medina",
       "registroMedico": "RM-MEDPOBLADO-25325",
       "especialidadId": "esp-dop-882282",
       "sedeId": "sede-fa3dc377",
@@ -5946,7 +5940,7 @@
     },
     {
       "id": "med-medpoblado-dop-882292",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en masas abdominales (Medellín)",
+      "nombre": "Dr. Manuel Antonio Carvajal Londoño",
       "registroMedico": "RM-MEDPOBLADO-17716",
       "especialidadId": "esp-dop-882292",
       "sedeId": "sede-fa3dc377",
@@ -5979,7 +5973,7 @@
     },
     {
       "id": "med-medpoblado-dop-882294",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en masas pélvicas (Medellín)",
+      "nombre": "Dra. Patricia Castaño García",
       "registroMedico": "RM-MEDPOBLADO-91892",
       "especialidadId": "esp-dop-882294",
       "sedeId": "sede-fa3dc377",
@@ -6012,7 +6006,7 @@
     },
     {
       "id": "med-medpoblado-dop-882296",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en hipertensión portal (Medellín)",
+      "nombre": "Dr. Javier Piedrahíta Moreno",
       "registroMedico": "RM-MEDPOBLADO-14652",
       "especialidadId": "esp-dop-882296",
       "sedeId": "sede-fa3dc377",
@@ -6045,7 +6039,7 @@
     },
     {
       "id": "med-medpoblado-dop-882307",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos arteriales de miembros superiores (Medellín)",
+      "nombre": "Dra. Adriana Gómez Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-50805",
       "especialidadId": "esp-dop-882307",
       "sedeId": "sede-fa3dc377",
@@ -6078,7 +6072,7 @@
     },
     {
       "id": "med-medpoblado-dop-882308",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos arteriales de miembros inferiores (Medellín)",
+      "nombre": "Dr. Leonardo Ospina Ramos",
       "registroMedico": "RM-MEDPOBLADO-46411",
       "especialidadId": "esp-dop-882308",
       "sedeId": "sede-fa3dc377",
@@ -6111,7 +6105,7 @@
     },
     {
       "id": "med-medpoblado-dop-882309",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembros superiores (Medellín)",
+      "nombre": "Dra. Sandra Milena Quintero Molina",
       "registroMedico": "RM-MEDPOBLADO-39470",
       "especialidadId": "esp-dop-882309",
       "sedeId": "sede-fa3dc377",
@@ -6144,7 +6138,7 @@
     },
     {
       "id": "med-medpoblado-dop-882316",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembro superior (Medellín)",
+      "nombre": "Dr. Gustavo Suescún Castro",
       "registroMedico": "RM-MEDPOBLADO-45343",
       "especialidadId": "esp-dop-882316",
       "sedeId": "sede-fa3dc377",
@@ -6177,7 +6171,7 @@
     },
     {
       "id": "med-medpoblado-dop-882317",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembros inferiores (Medellín)",
+      "nombre": "Dra. Lorena Méndez Medina",
       "registroMedico": "RM-MEDPOBLADO-24872",
       "especialidadId": "esp-dop-882317",
       "sedeId": "sede-fa3dc377",
@@ -6210,7 +6204,7 @@
     },
     {
       "id": "med-medpoblado-dop-882318",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembro inferior (Medellín)",
+      "nombre": "Dr. Fabio Vargas Londoño",
       "registroMedico": "RM-MEDPOBLADO-91065",
       "especialidadId": "esp-dop-882318",
       "sedeId": "sede-fa3dc377",
@@ -6243,7 +6237,7 @@
     },
     {
       "id": "med-medpoblado-dop-882603",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de riñón trasplantado (Medellín)",
+      "nombre": "Dra. Viviana Botero García",
       "registroMedico": "RM-MEDPOBLADO-53870",
       "especialidadId": "esp-dop-882603",
       "sedeId": "sede-fa3dc377",
@@ -6276,7 +6270,7 @@
     },
     {
       "id": "med-medpoblado-cirugia-vascular",
-      "nombre": "Dr(a). Especialista en Cirugía vascular (Consulta) (Medellín)",
+      "nombre": "Dr. Víctor Hugo Mena Moreno",
       "registroMedico": "RM-MEDPOBLADO-28388",
       "especialidadId": "esp-cirugia-vascular",
       "sedeId": "sede-fa3dc377",
@@ -6309,7 +6303,7 @@
     },
     {
       "id": "med-medpoblado-rehab-cardiovasc-dep6",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación cardiovascular (Medellín)",
+      "nombre": "Dra. Liliana Ortiz Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-90173",
       "especialidadId": "esp-rehab-cardiovasc-dep6",
       "sedeId": "sede-fa3dc377",
@@ -6342,7 +6336,7 @@
     },
     {
       "id": "med-medpoblado-cardiologia",
-      "nombre": "Dr(a). Especialista en Cardiología (Consulta) (Medellín)",
+      "nombre": "Dr. Sergio Osorio Ramos",
       "registroMedico": "RM-MEDPOBLADO-12907",
       "especialidadId": "esp-cardiologia",
       "sedeId": "sede-fa3dc377",
@@ -6375,7 +6369,7 @@
     },
     {
       "id": "med-medpoblado-ecocardiograma-transtoracico",
-      "nombre": "Dr(a). Especialista en Ecocardiograma transtorácico (Medellín)",
+      "nombre": "Dra. Silvia Vélez Molina",
       "registroMedico": "RM-MEDPOBLADO-46808",
       "especialidadId": "esp-ecocardiograma-transtoracico",
       "sedeId": "sede-fa3dc377",
@@ -6408,7 +6402,7 @@
     },
     {
       "id": "med-medpoblado-ecocardiograma-estres",
-      "nombre": "Dr(a). Especialista en Ecocardiograma de estrés con prueba de esfuerzo o farmacológica (Medellín)",
+      "nombre": "Dr. Tomás Posada Castro",
       "registroMedico": "RM-MEDPOBLADO-95990",
       "especialidadId": "esp-ecocardiograma-estres",
       "sedeId": "sede-fa3dc377",
@@ -6441,7 +6435,7 @@
     },
     {
       "id": "med-medpoblado-prueba-esfuerzo",
-      "nombre": "Dr(a). Especialista en Prueba de esfuerzo cardiovascular (Medellín)",
+      "nombre": "Dra. Valentina Montoya Medina",
       "registroMedico": "RM-MEDPOBLADO-55541",
       "especialidadId": "esp-prueba-esfuerzo",
       "sedeId": "sede-fa3dc377",
@@ -6474,7 +6468,7 @@
     },
     {
       "id": "med-medpoblado-electrocardiograma",
-      "nombre": "Dr(a). Especialista en Electrocardiograma de ritmo o de superficie (Medellín)",
+      "nombre": "Dr. Carlos Eduardo Cano Londoño",
       "registroMedico": "RM-MEDPOBLADO-51084",
       "especialidadId": "esp-electrocardiograma",
       "sedeId": "sede-fa3dc377",
@@ -6507,7 +6501,7 @@
     },
     {
       "id": "med-medpoblado-holter-24h",
-      "nombre": "Dr(a). Especialista en Monitoreo electrocardiográfico continuo (Holter) (Medellín)",
+      "nombre": "Dra. Diana Sofía Berrío García",
       "registroMedico": "RM-MEDPOBLADO-68793",
       "especialidadId": "esp-holter-24h",
       "sedeId": "sede-fa3dc377",
@@ -6540,7 +6534,7 @@
     },
     {
       "id": "med-medpoblado-telemetria-presion",
-      "nombre": "Dr(a). Especialista en Monitoreo de presión arterial sistémica (telemetría) (Medellín)",
+      "nombre": "Dr. Andrés Felipe Marín Moreno",
       "registroMedico": "RM-MEDPOBLADO-95319",
       "especialidadId": "esp-telemetria-presion",
       "sedeId": "sede-fa3dc377",
@@ -6573,7 +6567,7 @@
     },
     {
       "id": "med-medpoblado-mapa-24h",
-      "nombre": "Dr(a). Especialista en Monitoreo de presión arterial de 24 horas en paciente ambulatorio (Medellín)",
+      "nombre": "Dra. Natalia Agudelo Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-51764",
       "especialidadId": "esp-mapa-24h",
       "sedeId": "sede-fa3dc377",
@@ -6606,7 +6600,7 @@
     },
     {
       "id": "med-medpoblado-otorrino",
-      "nombre": "Dr(a). Especialista en Otorrinolaringología (Consulta) (Medellín)",
+      "nombre": "Dr. Fernando Ramírez Ramos",
       "registroMedico": "RM-MEDPOBLADO-91804",
       "especialidadId": "esp-otorrino",
       "sedeId": "sede-fa3dc377",
@@ -6639,7 +6633,7 @@
     },
     {
       "id": "med-medpoblado-orl-306001",
-      "nombre": "Dr(a). Especialista en Nasolaringoscopia (Medellín)",
+      "nombre": "Dra. Daniela Guzmán Molina",
       "registroMedico": "RM-MEDPOBLADO-23940",
       "especialidadId": "esp-orl-306001",
       "sedeId": "sede-fa3dc377",
@@ -6672,7 +6666,7 @@
     },
     {
       "id": "med-medpoblado-orl-965201",
-      "nombre": "Dr(a). Especialista en Lavado e irrigación de oídos (Medellín)",
+      "nombre": "Dr. Mauricio Barrientos Castro",
       "registroMedico": "RM-MEDPOBLADO-58444",
       "especialidadId": "esp-orl-965201",
       "sedeId": "sede-fa3dc377",
@@ -6705,7 +6699,7 @@
     },
     {
       "id": "med-medpoblado-orl-965202",
-      "nombre": "Dr(a). Especialista en Curación de oído (Medellín)",
+      "nombre": "Dra. Camila Villamizar Medina",
       "registroMedico": "RM-MEDPOBLADO-34330",
       "especialidadId": "esp-orl-965202",
       "sedeId": "sede-fa3dc377",
@@ -6738,7 +6732,7 @@
     },
     {
       "id": "med-medpoblado-orl-965203",
-      "nombre": "Dr(a). Especialista en Curación de oído vía endoscópica (Medellín)",
+      "nombre": "Dr. Ricardo Morales Londoño",
       "registroMedico": "RM-MEDPOBLADO-86710",
       "especialidadId": "esp-orl-965203",
       "sedeId": "sede-fa3dc377",
@@ -6771,7 +6765,7 @@
     },
     {
       "id": "med-medpoblado-orl-202401",
-      "nombre": "Dr(a). Especialista en Aspiración de oído medio o cavidad mastoidea (Medellín)",
+      "nombre": "Dra. Sofía Rojas García",
       "registroMedico": "RM-MEDPOBLADO-29748",
       "especialidadId": "esp-orl-202401",
       "sedeId": "sede-fa3dc377",
@@ -6804,7 +6798,7 @@
     },
     {
       "id": "med-medpoblado-orl-180101",
-      "nombre": "Dr(a). Especialista en Drenaje de colección de pabellón auricular (Medellín)",
+      "nombre": "Dr. Esteban Herrera Moreno",
       "registroMedico": "RM-MEDPOBLADO-66281",
       "especialidadId": "esp-orl-180101",
       "sedeId": "sede-fa3dc377",
@@ -6837,7 +6831,7 @@
     },
     {
       "id": "med-medpoblado-orl-180302",
-      "nombre": "Dr(a). Especialista en Extracción de cerumen o cuerpo extraño del conducto auditivo externo bajo visión microscópica o endoscópica (Medellín)",
+      "nombre": "Dra. Carolina Echeverri Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-19301",
       "especialidadId": "esp-orl-180302",
       "sedeId": "sede-fa3dc377",
@@ -6870,7 +6864,7 @@
     },
     {
       "id": "med-medpoblado-orl-181103",
-      "nombre": "Dr(a). Especialista en Biopsia de oído externo (Medellín)",
+      "nombre": "Dr. Alejandro Londoño Ramos",
       "registroMedico": "RM-MEDPOBLADO-55777",
       "especialidadId": "esp-orl-181103",
       "sedeId": "sede-fa3dc377",
@@ -6903,7 +6897,7 @@
     },
     {
       "id": "med-medpoblado-orl-182201",
-      "nombre": "Dr(a). Especialista en Resección de apéndice preauricular (Medellín)",
+      "nombre": "Dra. Isabella Jiménez Molina",
       "registroMedico": "RM-MEDPOBLADO-85089",
       "especialidadId": "esp-orl-182201",
       "sedeId": "sede-fa3dc377",
@@ -6936,7 +6930,7 @@
     },
     {
       "id": "med-medpoblado-orl-182301",
-      "nombre": "Dr(a). Especialista en Resección de quiste de pabellón auricular (Medellín)",
+      "nombre": "Dr. Santiago Consuegra Castro",
       "registroMedico": "RM-MEDPOBLADO-26200",
       "especialidadId": "esp-orl-182301",
       "sedeId": "sede-fa3dc377",
@@ -6969,7 +6963,7 @@
     },
     {
       "id": "med-medpoblado-orl-250002",
-      "nombre": "Dr(a). Especialista en Biopsia incisional de lengua (en cuña) (Medellín)",
+      "nombre": "Dra. Lucía Betancur Medina",
       "registroMedico": "RM-MEDPOBLADO-48970",
       "especialidadId": "esp-orl-250002",
       "sedeId": "sede-fa3dc377",
@@ -7002,7 +6996,7 @@
     },
     {
       "id": "med-medpoblado-orl-261001",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada de glándula o conducto salival (Medellín)",
+      "nombre": "Dr. David Cadavid Londoño",
       "registroMedico": "RM-MEDPOBLADO-69045",
       "especialidadId": "esp-orl-261001",
       "sedeId": "sede-fa3dc377",
@@ -7035,7 +7029,7 @@
     },
     {
       "id": "med-medpoblado-orl-272401",
-      "nombre": "Dr(a). Especialista en Biopsia por aspiración con aguja fina en cavidad oral (Medellín)",
+      "nombre": "Dra. Gabriela Lopera García",
       "registroMedico": "RM-MEDPOBLADO-45337",
       "especialidadId": "esp-orl-272401",
       "sedeId": "sede-fa3dc377",
@@ -7068,7 +7062,7 @@
     },
     {
       "id": "med-medpoblado-orl-274301",
-      "nombre": "Dr(a). Especialista en Resección de lesión benigna de la mucosa oral hasta 2 cm de diámetro (Medellín)",
+      "nombre": "Dr. Felipe Correa Moreno",
       "registroMedico": "RM-MEDPOBLADO-95270",
       "especialidadId": "esp-orl-274301",
       "sedeId": "sede-fa3dc377",
@@ -7101,7 +7095,7 @@
     },
     {
       "id": "med-medpoblado-orl-289101",
-      "nombre": "Dr(a). Especialista en Biopsia por aspiración con aguja fina de amígdalas y adenoides (Medellín)",
+      "nombre": "Dra. Tatiana Saldarriaga Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-78440",
       "especialidadId": "esp-orl-289101",
       "sedeId": "sede-fa3dc377",
@@ -7134,7 +7128,7 @@
     },
     {
       "id": "med-medpoblado-dermatologia",
-      "nombre": "Dr(a). Especialista en Dermatología (Consulta) (Medellín)",
+      "nombre": "Dr. Manuel Antonio Henao Ramos",
       "registroMedico": "RM-MEDPOBLADO-52380",
       "especialidadId": "esp-dermatologia",
       "sedeId": "sede-fa3dc377",
@@ -7167,7 +7161,7 @@
     },
     {
       "id": "med-medpoblado-derma-860101",
-      "nombre": "Dr(a). Especialista en Biopsia de piel con sacabocado y sutura simple (Medellín)",
+      "nombre": "Dra. Gloria Inés Palacio Molina",
       "registroMedico": "RM-MEDPOBLADO-36648",
       "especialidadId": "esp-derma-860101",
       "sedeId": "sede-fa3dc377",
@@ -7200,7 +7194,7 @@
     },
     {
       "id": "med-medpoblado-derma-860102",
-      "nombre": "Dr(a). Especialista en Biopsia incisional o escisional de piel, tejido celular subcutáneo o mucosa, con sutura (Medellín)",
+      "nombre": "Dr. Javier Ceballos Castro",
       "registroMedico": "RM-MEDPOBLADO-77364",
       "especialidadId": "esp-derma-860102",
       "sedeId": "sede-fa3dc377",
@@ -7233,7 +7227,7 @@
     },
     {
       "id": "med-medpoblado-derma-860103",
-      "nombre": "Dr(a). Especialista en Biopsia escisional de uña (lecho o matriz) (Medellín)",
+      "nombre": "Dra. Mónica Gutiérrez Medina",
       "registroMedico": "RM-MEDPOBLADO-53642",
       "especialidadId": "esp-derma-860103",
       "sedeId": "sede-fa3dc377",
@@ -7266,7 +7260,7 @@
     },
     {
       "id": "med-medpoblado-derma-863101",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, hasta 6 lesiones (Medellín)",
+      "nombre": "Dr. Leonardo Silva Londoño",
       "registroMedico": "RM-MEDPOBLADO-25536",
       "especialidadId": "esp-derma-863101",
       "sedeId": "sede-fa3dc377",
@@ -7299,7 +7293,7 @@
     },
     {
       "id": "med-medpoblado-derma-863102",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, más de 6 lesiones (Medellín)",
+      "nombre": "Dra. Cristina Tamayo García",
       "registroMedico": "RM-MEDPOBLADO-91263",
       "especialidadId": "esp-derma-863102",
       "sedeId": "sede-fa3dc377",
@@ -7332,7 +7326,7 @@
     },
     {
       "id": "med-medpoblado-derma-863103",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, hasta 3 lesiones (Medellín)",
+      "nombre": "Dr. Gustavo Restrepo Moreno",
       "registroMedico": "RM-MEDPOBLADO-34995",
       "especialidadId": "esp-derma-863103",
       "sedeId": "sede-fa3dc377",
@@ -7365,7 +7359,7 @@
     },
     {
       "id": "med-medpoblado-derma-863104",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones (Medellín)",
+      "nombre": "Dra. Angela María Arango Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-90745",
       "especialidadId": "esp-derma-863104",
       "sedeId": "sede-fa3dc377",
@@ -7398,7 +7392,7 @@
     },
     {
       "id": "med-medpoblado-derma-863105",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones (Medellín)",
+      "nombre": "Dr. Fabio Peña Ramos",
       "registroMedico": "RM-MEDPOBLADO-81556",
       "especialidadId": "esp-derma-863105",
       "sedeId": "sede-fa3dc377",
@@ -7431,7 +7425,7 @@
     },
     {
       "id": "med-medpoblado-derma-864101",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, hasta 3 cm (Medellín)",
+      "nombre": "Dra. Clara Inés Lozano Molina",
       "registroMedico": "RM-MEDPOBLADO-96830",
       "especialidadId": "esp-derma-864101",
       "sedeId": "sede-fa3dc377",
@@ -7464,7 +7458,7 @@
     },
     {
       "id": "med-medpoblado-derma-864102",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, entre 3 y 5 cm (Medellín)",
+      "nombre": "Dr. Víctor Hugo Pardo Castro",
       "registroMedico": "RM-MEDPOBLADO-18216",
       "especialidadId": "esp-derma-864102",
       "sedeId": "sede-fa3dc377",
@@ -7497,7 +7491,7 @@
     },
     {
       "id": "med-medpoblado-derma-864103",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, entre 5 y 10 cm (Medellín)",
+      "nombre": "Dra. Ximena Zuluaga Medina",
       "registroMedico": "RM-MEDPOBLADO-27224",
       "especialidadId": "esp-derma-864103",
       "sedeId": "sede-fa3dc377",
@@ -7530,7 +7524,7 @@
     },
     {
       "id": "med-medpoblado-derma-864104",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, de más de 10 cm (Medellín)",
+      "nombre": "Dr. Sergio Castro Londoño",
       "registroMedico": "RM-MEDPOBLADO-61594",
       "especialidadId": "esp-derma-864104",
       "sedeId": "sede-fa3dc377",
@@ -7563,7 +7557,7 @@
     },
     {
       "id": "med-medpoblado-derma-864105",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, con reparación mediante colgajo o injerto (Medellín)",
+      "nombre": "Dra. Marcela Ríos García",
       "registroMedico": "RM-MEDPOBLADO-21334",
       "especialidadId": "esp-derma-864105",
       "sedeId": "sede-fa3dc377",
@@ -7596,7 +7590,7 @@
     },
     {
       "id": "med-medpoblado-derma-864201",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, hasta 1 cm (Medellín)",
+      "nombre": "Dr. Tomás Duque Moreno",
       "registroMedico": "RM-MEDPOBLADO-22999",
       "especialidadId": "esp-derma-864201",
       "sedeId": "sede-fa3dc377",
@@ -7629,7 +7623,7 @@
     },
     {
       "id": "med-medpoblado-derma-864202",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 1 y 2 cm (Medellín)",
+      "nombre": "Dra. Andrea Catalina Hoyos Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-23202",
       "especialidadId": "esp-derma-864202",
       "sedeId": "sede-fa3dc377",
@@ -7662,7 +7656,7 @@
     },
     {
       "id": "med-medpoblado-derma-864203",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 2 y 3 cm (Medellín)",
+      "nombre": "Dr. Carlos Eduardo Giraldo Ramos",
       "registroMedico": "RM-MEDPOBLADO-17427",
       "especialidadId": "esp-derma-864203",
       "sedeId": "sede-fa3dc377",
@@ -7695,7 +7689,7 @@
     },
     {
       "id": "med-medpoblado-derma-864204",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 3 y 5 cm (Medellín)",
+      "nombre": "Dra. Claudia Patricia Jaramillo Molina",
       "registroMedico": "RM-MEDPOBLADO-90863",
       "especialidadId": "esp-derma-864204",
       "sedeId": "sede-fa3dc377",
@@ -7728,7 +7722,7 @@
     },
     {
       "id": "med-medpoblado-derma-868104",
-      "nombre": "Dr(a). Especialista en Resección de cicatriz hipertrófica o queloide en área especial (Medellín)",
+      "nombre": "Dr. Andrés Felipe Villa Castro",
       "registroMedico": "RM-MEDPOBLADO-24319",
       "especialidadId": "esp-derma-868104",
       "sedeId": "sede-fa3dc377",
@@ -7761,7 +7755,7 @@
     },
     {
       "id": "med-medpoblado-derma-861401",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, hasta 5 lesiones (Medellín)",
+      "nombre": "Dra. Juliana Uribe Medina",
       "registroMedico": "RM-MEDPOBLADO-19940",
       "especialidadId": "esp-derma-861401",
       "sedeId": "sede-fa3dc377",
@@ -7794,7 +7788,7 @@
     },
     {
       "id": "med-medpoblado-derma-861402",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, entre 5 y 10 lesiones (Medellín)",
+      "nombre": "Dr. Fernando Flórez Londoño",
       "registroMedico": "RM-MEDPOBLADO-16505",
       "especialidadId": "esp-derma-861402",
       "sedeId": "sede-fa3dc377",
@@ -7827,7 +7821,7 @@
     },
     {
       "id": "med-medpoblado-derma-861403",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, más de 10 lesiones (Medellín)",
+      "nombre": "Dra. Mariana Tabares García",
       "registroMedico": "RM-MEDPOBLADO-17328",
       "especialidadId": "esp-derma-861403",
       "sedeId": "sede-fa3dc377",
@@ -7860,7 +7854,7 @@
     },
     {
       "id": "med-medpoblado-derma-861411",
-      "nombre": "Dr(a). Especialista en Inyección de material miorrelajante (toxina botulínica) (Medellín)",
+      "nombre": "Dr. Mauricio Cardona Moreno",
       "registroMedico": "RM-MEDPOBLADO-50796",
       "especialidadId": "esp-derma-861411",
       "sedeId": "sede-fa3dc377",
@@ -7893,7 +7887,7 @@
     },
     {
       "id": "med-medpoblado-urologia",
-      "nombre": "Dr(a). Especialista en Urología (Consulta) (Medellín)",
+      "nombre": "Dra. Paola Andrea Carvajal Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-21224",
       "especialidadId": "esp-urologia",
       "sedeId": "sede-fa3dc377",
@@ -7926,7 +7920,7 @@
     },
     {
       "id": "med-medpoblado-uro-573201",
-      "nombre": "Dr(a). Especialista en Cistoscopia transuretral (Medellín)",
+      "nombre": "Dr. Ricardo Castaño Ramos",
       "registroMedico": "RM-MEDPOBLADO-14030",
       "especialidadId": "esp-uro-573201",
       "sedeId": "sede-fa3dc377",
@@ -7959,7 +7953,7 @@
     },
     {
       "id": "med-medpoblado-uro-583201",
-      "nombre": "Dr(a). Especialista en Fulguración de lesiones uretrales vía abierta (Medellín)",
+      "nombre": "Dra. Manuela Piedrahíta Molina",
       "registroMedico": "RM-MEDPOBLADO-64505",
       "especialidadId": "esp-uro-583201",
       "sedeId": "sede-fa3dc377",
@@ -7992,7 +7986,7 @@
     },
     {
       "id": "med-medpoblado-uro-601101",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada de próstata por abordaje transrectal (Medellín)",
+      "nombre": "Dr. Esteban Gómez Castro",
       "registroMedico": "RM-MEDPOBLADO-63219",
       "especialidadId": "esp-uro-601101",
       "sedeId": "sede-fa3dc377",
@@ -8025,7 +8019,7 @@
     },
     {
       "id": "med-medpoblado-uro-976203",
-      "nombre": "Dr(a). Especialista en Extracción de catéter ureteral vía endoscópica (Medellín)",
+      "nombre": "Dra. Laura Camila Ospina Medina",
       "registroMedico": "RM-MEDPOBLADO-74333",
       "especialidadId": "esp-uro-976203",
       "sedeId": "sede-fa3dc377",
@@ -8058,7 +8052,7 @@
     },
     {
       "id": "med-medpoblado-ortopedia",
-      "nombre": "Dr(a). Especialista en Ortopedia y traumatología (Consulta) (Medellín)",
+      "nombre": "Dr. Andrés Felipe Mena Consuegra",
       "registroMedico": "RM-MEDPOBLADO-99785",
       "especialidadId": "esp-ortopedia",
       "sedeId": "sede-fa3dc377",
@@ -8091,7 +8085,7 @@
     },
     {
       "id": "med-medpoblado-orto-839601",
-      "nombre": "Dr(a). Especialista en Inyección o infiltración de sustancia terapéutica dentro de bursa (Medellín)",
+      "nombre": "Dra. Catalina Suescún García",
       "registroMedico": "RM-MEDPOBLADO-46229",
       "especialidadId": "esp-orto-839601",
       "sedeId": "sede-fa3dc377",
@@ -8124,7 +8118,7 @@
     },
     {
       "id": "med-medpoblado-orto-832102",
-      "nombre": "Dr(a). Especialista en Biopsia percutánea de tejido blando: músculo, tendón, fascia y bursa (Medellín)",
+      "nombre": "Dr. Santiago Méndez Moreno",
       "registroMedico": "RM-MEDPOBLADO-18317",
       "especialidadId": "esp-orto-832102",
       "sedeId": "sede-fa3dc377",
@@ -8157,7 +8151,7 @@
     },
     {
       "id": "med-medpoblado-orto-982001",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño no intraluminal (Medellín)",
+      "nombre": "Dra. Elena Vargas Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-24011",
       "especialidadId": "esp-orto-982001",
       "sedeId": "sede-fa3dc377",
@@ -8190,7 +8184,7 @@
     },
     {
       "id": "med-medpoblado-orto-982601",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en mano (Medellín)",
+      "nombre": "Dr. David Botero Ramos",
       "registroMedico": "RM-MEDPOBLADO-20285",
       "especialidadId": "esp-orto-982601",
       "sedeId": "sede-fa3dc377",
@@ -8223,7 +8217,7 @@
     },
     {
       "id": "med-medpoblado-orto-982701",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en brazo y antebrazo (Medellín)",
+      "nombre": "Dra. Sara Mena Molina",
       "registroMedico": "RM-MEDPOBLADO-96528",
       "especialidadId": "esp-orto-982701",
       "sedeId": "sede-fa3dc377",
@@ -8256,7 +8250,7 @@
     },
     {
       "id": "med-medpoblado-orto-982801",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en pie (Medellín)",
+      "nombre": "Dr. Felipe Ortiz Castro",
       "registroMedico": "RM-MEDPOBLADO-91624",
       "especialidadId": "esp-orto-982801",
       "sedeId": "sede-fa3dc377",
@@ -8289,7 +8283,7 @@
     },
     {
       "id": "med-medpoblado-orto-982901",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en miembro inferior, excepto pie (Medellín)",
+      "nombre": "Dra. Patricia Osorio Medina",
       "registroMedico": "RM-MEDPOBLADO-85423",
       "especialidadId": "esp-orto-982901",
       "sedeId": "sede-fa3dc377",
@@ -8322,7 +8316,7 @@
     },
     {
       "id": "med-medpoblado-orto-862701",
-      "nombre": "Dr(a). Especialista en Onicectomía (Medellín)",
+      "nombre": "Dr. Manuel Antonio Vélez Londoño",
       "registroMedico": "RM-MEDPOBLADO-63118",
       "especialidadId": "esp-orto-862701",
       "sedeId": "sede-fa3dc377",
@@ -8355,7 +8349,7 @@
     },
     {
       "id": "med-medpoblado-orto-862702",
-      "nombre": "Dr(a). Especialista en Matricectomía parcial (Medellín)",
+      "nombre": "Dra. Adriana Posada García",
       "registroMedico": "RM-MEDPOBLADO-63420",
       "especialidadId": "esp-orto-862702",
       "sedeId": "sede-fa3dc377",
@@ -8388,7 +8382,7 @@
     },
     {
       "id": "med-medpoblado-orto-862703",
-      "nombre": "Dr(a). Especialista en Matricectomía total (Medellín)",
+      "nombre": "Dr. Javier Montoya Moreno",
       "registroMedico": "RM-MEDPOBLADO-82861",
       "especialidadId": "esp-orto-862703",
       "sedeId": "sede-fa3dc377",
@@ -8421,7 +8415,7 @@
     },
     {
       "id": "med-medpoblado-cirugia-general",
-      "nombre": "Dr(a). Especialista en Cirugía general (Consulta) (Medellín)",
+      "nombre": "Dra. Sandra Milena Cano Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-36803",
       "especialidadId": "esp-cirugia-general",
       "sedeId": "sede-fa3dc377",
@@ -8454,7 +8448,7 @@
     },
     {
       "id": "med-medpoblado-cir-501002",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada percutánea de hígado (Medellín)",
+      "nombre": "Dr. Leonardo Berrío Ramos",
       "registroMedico": "RM-MEDPOBLADO-59258",
       "especialidadId": "esp-cir-501002",
       "sedeId": "sede-fa3dc377",
@@ -8487,7 +8481,7 @@
     },
     {
       "id": "med-medpoblado-cir-345401",
-      "nombre": "Dr(a). Especialista en Biopsia percutánea de pleura (Medellín)",
+      "nombre": "Dra. Lorena Marín Molina",
       "registroMedico": "RM-MEDPOBLADO-17348",
       "especialidadId": "esp-cir-345401",
       "sedeId": "sede-fa3dc377",
@@ -8520,7 +8514,7 @@
     },
     {
       "id": "med-medpoblado-terapia-respiratoria",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria (Consulta) (Medellín)",
+      "nombre": "Dr. Gustavo Agudelo Castro",
       "registroMedico": "RM-MEDPOBLADO-54879",
       "especialidadId": "esp-terapia-respiratoria",
       "sedeId": "sede-fa3dc377",
@@ -8553,7 +8547,7 @@
     },
     {
       "id": "med-medpoblado-resp-893703",
-      "nombre": "Dr(a). Especialista en Espirometría (Medellín)",
+      "nombre": "Dra. Viviana Ramírez Medina",
       "registroMedico": "RM-MEDPOBLADO-79021",
       "especialidadId": "esp-resp-893703",
       "sedeId": "sede-fa3dc377",
@@ -8586,7 +8580,7 @@
     },
     {
       "id": "med-medpoblado-resp-893805",
-      "nombre": "Dr(a). Especialista en Espirometría o curva de flujo-volumen pre y post broncodilatadores (Medellín)",
+      "nombre": "Dr. Fabio Guzmán Londoño",
       "registroMedico": "RM-MEDPOBLADO-84067",
       "especialidadId": "esp-resp-893805",
       "sedeId": "sede-fa3dc377",
@@ -8619,7 +8613,7 @@
     },
     {
       "id": "med-medpoblado-resp-893808",
-      "nombre": "Dr(a). Especialista en Espirometría o curva de flujo-volumen simple (Medellín)",
+      "nombre": "Dra. Liliana Barrientos García",
       "registroMedico": "RM-MEDPOBLADO-15930",
       "especialidadId": "esp-resp-893808",
       "sedeId": "sede-fa3dc377",
@@ -8652,7 +8646,7 @@
     },
     {
       "id": "med-medpoblado-resp-894402",
-      "nombre": "Dr(a). Especialista en Prueba de caminata de 6 minutos (Medellín)",
+      "nombre": "Dr. Víctor Hugo Villamizar Moreno",
       "registroMedico": "RM-MEDPOBLADO-90826",
       "especialidadId": "esp-resp-894402",
       "sedeId": "sede-fa3dc377",
@@ -8685,7 +8679,7 @@
     },
     {
       "id": "med-medpoblado-resp-933501",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación pulmonar (Medellín)",
+      "nombre": "Dra. Silvia Morales Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-35677",
       "especialidadId": "esp-resp-933501",
       "sedeId": "sede-fa3dc377",
@@ -8718,7 +8712,7 @@
     },
     {
       "id": "med-medpoblado-resp-939403",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria integral (Medellín)",
+      "nombre": "Dr. Sergio Rojas Ramos",
       "registroMedico": "RM-MEDPOBLADO-35893",
       "especialidadId": "esp-resp-939403",
       "sedeId": "sede-fa3dc377",
@@ -8751,7 +8745,7 @@
     },
     {
       "id": "med-medpoblado-psicologia",
-      "nombre": "Dr(a). Especialista en Psicología (Consulta) (Medellín)",
+      "nombre": "Dra. Valentina Herrera Molina",
       "registroMedico": "RM-MEDPOBLADO-54269",
       "especialidadId": "esp-psicologia",
       "sedeId": "sede-fa3dc377",
@@ -8784,7 +8778,7 @@
     },
     {
       "id": "med-medpoblado-nutricion",
-      "nombre": "Dr(a). Especialista en Nutrición y dietética (Consulta) (Medellín)",
+      "nombre": "Dr. Tomás Echeverri Castro",
       "registroMedico": "RM-MEDPOBLADO-82511",
       "especialidadId": "esp-nutricion",
       "sedeId": "sede-fa3dc377",
@@ -8817,7 +8811,7 @@
     },
     {
       "id": "med-medpoblado-terapia-ocupacional",
-      "nombre": "Dr(a). Especialista en Terapia ocupacional (Consulta) (Medellín)",
+      "nombre": "Dra. Diana Sofía Londoño Medina",
       "registroMedico": "RM-MEDPOBLADO-51326",
       "especialidadId": "esp-terapia-ocupacional",
       "sedeId": "sede-fa3dc377",
@@ -8850,7 +8844,7 @@
     },
     {
       "id": "med-medpoblado-proc-interv-061002",
-      "nombre": "Dr(a). Especialista en Biopsia de glándula tiroides vía percutánea (Medellín)",
+      "nombre": "Dr. Carlos Eduardo Jiménez Londoño",
       "registroMedico": "RM-MEDPOBLADO-69382",
       "especialidadId": "esp-proc-interv-061002",
       "sedeId": "sede-fa3dc377",
@@ -8883,7 +8877,7 @@
     },
     {
       "id": "med-medpoblado-proc-interv-851102",
-      "nombre": "Dr(a). Especialista en Biopsia de mama con aguja (Trucut) (Medellín)",
+      "nombre": "Dra. Natalia Consuegra García",
       "registroMedico": "RM-MEDPOBLADO-52813",
       "especialidadId": "esp-proc-interv-851102",
       "sedeId": "sede-fa3dc377",
@@ -8916,7 +8910,7 @@
     },
     {
       "id": "med-medpoblado-rehab-933601",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación cardiovascular (Medellín)",
+      "nombre": "Dr. Andrés Felipe Betancur Moreno",
       "registroMedico": "RM-MEDPOBLADO-54048",
       "especialidadId": "esp-rehab-933601",
       "sedeId": "sede-fa3dc377",
@@ -8949,7 +8943,7 @@
     },
     {
       "id": "med-medpoblado-rehab-933501",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación pulmonar (Medellín)",
+      "nombre": "Dra. Daniela Cadavid Gutiérrez",
       "registroMedico": "RM-MEDPOBLADO-54717",
       "especialidadId": "esp-rehab-933501",
       "sedeId": "sede-fa3dc377",
@@ -8982,7 +8976,7 @@
     },
     {
       "id": "med-medpoblado-rehab-939403",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria integral (Medellín)",
+      "nombre": "Dr. Fernando Lopera Ramos",
       "registroMedico": "RM-MEDPOBLADO-50007",
       "especialidadId": "esp-rehab-939403",
       "sedeId": "sede-fa3dc377",
@@ -9015,7 +9009,7 @@
     },
     {
       "id": "med-medpoblado-rehab-894402",
-      "nombre": "Dr(a). Especialista en Prueba de caminata de 6 minutos (Medellín)",
+      "nombre": "Dra. Camila Correa Molina",
       "registroMedico": "RM-MEDPOBLADO-51335",
       "especialidadId": "esp-rehab-894402",
       "sedeId": "sede-fa3dc377",
@@ -9048,7 +9042,7 @@
     },
     {
       "id": "med-cbabolvar-medicina-general",
-      "nombre": "Dr(a). Especialista en Medicina general (Ciudad Bolívar)",
+      "nombre": "Dr. Mauricio Saldarriaga Castro",
       "registroMedico": "RM-CBABOLVAR-91425",
       "especialidadId": "esp-medicina-general",
       "sedeId": "sede-1f7df4c5",
@@ -9081,7 +9075,7 @@
     },
     {
       "id": "med-cbabolvar-medicina-interna",
-      "nombre": "Dr(a). Especialista en Medicina interna (Ciudad Bolívar)",
+      "nombre": "Dra. Sofía Henao Medina",
       "registroMedico": "RM-CBABOLVAR-42615",
       "especialidadId": "esp-medicina-interna",
       "sedeId": "sede-1f7df4c5",
@@ -9114,7 +9108,7 @@
     },
     {
       "id": "med-cbabolvar-neurologia",
-      "nombre": "Dr(a). Especialista en Neurología (Ciudad Bolívar)",
+      "nombre": "Dr. Ricardo Palacio Londoño",
       "registroMedico": "RM-CBABOLVAR-53565",
       "especialidadId": "esp-neurologia",
       "sedeId": "sede-1f7df4c5",
@@ -9147,7 +9141,7 @@
     },
     {
       "id": "med-cbabolvar-endocrinologia",
-      "nombre": "Dr(a). Especialista en Endocrinología (Ciudad Bolívar)",
+      "nombre": "Dra. Carolina Ceballos García",
       "registroMedico": "RM-CBABOLVAR-93157",
       "especialidadId": "esp-endocrinologia",
       "sedeId": "sede-1f7df4c5",
@@ -9180,7 +9174,7 @@
     },
     {
       "id": "med-cbabolvar-nefrologia",
-      "nombre": "Dr(a). Especialista en Nefrología (Ciudad Bolívar)",
+      "nombre": "Dr. Esteban Gutiérrez Moreno",
       "registroMedico": "RM-CBABOLVAR-95680",
       "especialidadId": "esp-nefrologia",
       "sedeId": "sede-1f7df4c5",
@@ -9213,7 +9207,7 @@
     },
     {
       "id": "med-cbabolvar-hematologia",
-      "nombre": "Dr(a). Especialista en Hematología (Ciudad Bolívar)",
+      "nombre": "Dra. Isabella Silva Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-65521",
       "especialidadId": "esp-hematologia",
       "sedeId": "sede-1f7df4c5",
@@ -9246,7 +9240,7 @@
     },
     {
       "id": "med-cbabolvar-reumatologia",
-      "nombre": "Dr(a). Especialista en Reumatología (Ciudad Bolívar)",
+      "nombre": "Dr. Alejandro Tamayo Ramos",
       "registroMedico": "RM-CBABOLVAR-97781",
       "especialidadId": "esp-reumatologia",
       "sedeId": "sede-1f7df4c5",
@@ -9279,7 +9273,7 @@
     },
     {
       "id": "med-cbabolvar-pediatria",
-      "nombre": "Dr(a). Especialista en Pediatría (Ciudad Bolívar)",
+      "nombre": "Dra. Lucía Restrepo Molina",
       "registroMedico": "RM-CBABOLVAR-64937",
       "especialidadId": "esp-pediatria",
       "sedeId": "sede-1f7df4c5",
@@ -9312,7 +9306,7 @@
     },
     {
       "id": "med-cbabolvar-ginecologia-obstetricia",
-      "nombre": "Dr(a). Especialista en Ginecología y obstetricia (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Santiago Arango Castro",
       "registroMedico": "RM-CBABOLVAR-84714",
       "especialidadId": "esp-ginecologia-obstetricia",
       "sedeId": "sede-1f7df4c5",
@@ -9345,7 +9339,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-eco-pelv-transvag",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica ginecológica transvaginal (Ciudad Bolívar)",
+      "nombre": "Dra. Gabriela Peña Medina",
       "registroMedico": "RM-CBABOLVAR-13519",
       "especialidadId": "esp-gyn-eco-pelv-transvag",
       "sedeId": "sede-1f7df4c5",
@@ -9378,7 +9372,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-eco-pelv-transabd",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica ginecológica transabdominal (Ciudad Bolívar)",
+      "nombre": "Dr. David Lozano Londoño",
       "registroMedico": "RM-CBABOLVAR-53544",
       "especialidadId": "esp-gyn-eco-pelv-transabd",
       "sedeId": "sede-1f7df4c5",
@@ -9411,7 +9405,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-eco-obs-transabd",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica transabdominal (Ciudad Bolívar)",
+      "nombre": "Dra. Tatiana Pardo García",
       "registroMedico": "RM-CBABOLVAR-45508",
       "especialidadId": "esp-gyn-eco-obs-transabd",
       "sedeId": "sede-1f7df4c5",
@@ -9444,7 +9438,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-eco-obs-transvag",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica transvaginal (Ciudad Bolívar)",
+      "nombre": "Dr. Felipe Zuluaga Moreno",
       "registroMedico": "RM-CBABOLVAR-73568",
       "especialidadId": "esp-gyn-eco-obs-transvag",
       "sedeId": "sede-1f7df4c5",
@@ -9477,7 +9471,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-eco-obs-transluc",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica con translucencia nucal (Ciudad Bolívar)",
+      "nombre": "Dra. Gloria Inés Castro Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-99345",
       "especialidadId": "esp-gyn-eco-obs-transluc",
       "sedeId": "sede-1f7df4c5",
@@ -9510,7 +9504,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-eco-obs-detalle",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica con detalle anatómico (Ciudad Bolívar)",
+      "nombre": "Dr. Manuel Antonio Ríos Ramos",
       "registroMedico": "RM-CBABOLVAR-42681",
       "especialidadId": "esp-gyn-eco-obs-detalle",
       "sedeId": "sede-1f7df4c5",
@@ -9543,7 +9537,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-perfil-biofisico",
-      "nombre": "Dr(a). Especialista en Perfil biofísico (Ciudad Bolívar)",
+      "nombre": "Dra. Mónica Duque Molina",
       "registroMedico": "RM-CBABOLVAR-32049",
       "especialidadId": "esp-gyn-perfil-biofisico",
       "sedeId": "sede-1f7df4c5",
@@ -9576,7 +9570,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-doppler-placentaria",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler obstétrica con evaluación de circulación placentaria (Ciudad Bolívar)",
+      "nombre": "Dr. Javier Hoyos Castro",
       "registroMedico": "RM-CBABOLVAR-69235",
       "especialidadId": "esp-gyn-doppler-placentaria",
       "sedeId": "sede-1f7df4c5",
@@ -9609,7 +9603,7 @@
     },
     {
       "id": "med-cbabolvar-gyn-pelvica-doppler",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica con análisis Doppler (Ciudad Bolívar)",
+      "nombre": "Dra. Cristina Giraldo Medina",
       "registroMedico": "RM-CBABOLVAR-20995",
       "especialidadId": "esp-gyn-pelvica-doppler",
       "sedeId": "sede-1f7df4c5",
@@ -9642,7 +9636,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881305",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen superior (Ciudad Bolívar)",
+      "nombre": "Dr. Leonardo Jaramillo Londoño",
       "registroMedico": "RM-CBABOLVAR-42410",
       "especialidadId": "esp-eco-881305",
       "sedeId": "sede-1f7df4c5",
@@ -9675,7 +9669,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881306",
-      "nombre": "Dr(a). Especialista en Ecografía de hígado, páncreas, vía biliar y vesícula (Ciudad Bolívar)",
+      "nombre": "Dra. Angela María Villa García",
       "registroMedico": "RM-CBABOLVAR-52148",
       "especialidadId": "esp-eco-881306",
       "sedeId": "sede-1f7df4c5",
@@ -9708,7 +9702,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881302",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen total (Ciudad Bolívar)",
+      "nombre": "Dr. Gustavo Uribe Moreno",
       "registroMedico": "RM-CBABOLVAR-57852",
       "especialidadId": "esp-eco-881302",
       "sedeId": "sede-1f7df4c5",
@@ -9741,7 +9735,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881332",
-      "nombre": "Dr(a). Especialista en Ecografía de vías urinarias: riñones, vejiga y próstata transabdominal (Ciudad Bolívar)",
+      "nombre": "Dra. Clara Inés Flórez Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-67919",
       "especialidadId": "esp-eco-881332",
       "sedeId": "sede-1f7df4c5",
@@ -9774,7 +9768,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881510",
-      "nombre": "Dr(a). Especialista en Ecografía testicular con transductor de 7 MHz o más (Ciudad Bolívar)",
+      "nombre": "Dr. Fabio Tabares Ramos",
       "registroMedico": "RM-CBABOLVAR-66384",
       "especialidadId": "esp-eco-881510",
       "sedeId": "sede-1f7df4c5",
@@ -9807,7 +9801,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881511",
-      "nombre": "Dr(a). Especialista en Ecografía testicular con análisis Doppler (Ciudad Bolívar)",
+      "nombre": "Dra. Ximena Cardona Molina",
       "registroMedico": "RM-CBABOLVAR-42703",
       "especialidadId": "esp-eco-881511",
       "sedeId": "sede-1f7df4c5",
@@ -9840,7 +9834,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881501",
-      "nombre": "Dr(a). Especialista en Ecografía de próstata transabdominal (Ciudad Bolívar)",
+      "nombre": "Dr. Víctor Hugo Carvajal Castro",
       "registroMedico": "RM-CBABOLVAR-98538",
       "especialidadId": "esp-eco-881501",
       "sedeId": "sede-1f7df4c5",
@@ -9873,7 +9867,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881502",
-      "nombre": "Dr(a). Especialista en Ecografía de próstata transrectal (Ciudad Bolívar)",
+      "nombre": "Dra. Marcela Castaño Medina",
       "registroMedico": "RM-CBABOLVAR-77846",
       "especialidadId": "esp-eco-881502",
       "sedeId": "sede-1f7df4c5",
@@ -9906,7 +9900,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881131",
-      "nombre": "Dr(a). Especialista en Ecografía de glándulas salivales (Ciudad Bolívar)",
+      "nombre": "Dr. Sergio Piedrahíta Londoño",
       "registroMedico": "RM-CBABOLVAR-48553",
       "especialidadId": "esp-eco-881131",
       "sedeId": "sede-1f7df4c5",
@@ -9939,7 +9933,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881132",
-      "nombre": "Dr(a). Especialista en Ecografía de cuello (Ciudad Bolívar)",
+      "nombre": "Dra. Andrea Catalina Gómez García",
       "registroMedico": "RM-CBABOLVAR-32530",
       "especialidadId": "esp-eco-881132",
       "sedeId": "sede-1f7df4c5",
@@ -9972,7 +9966,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881141",
-      "nombre": "Dr(a). Especialista en Ecografía de tiroides (Ciudad Bolívar)",
+      "nombre": "Dr. Tomás Ospina Moreno",
       "registroMedico": "RM-CBABOLVAR-80268",
       "especialidadId": "esp-eco-881141",
       "sedeId": "sede-1f7df4c5",
@@ -10005,7 +9999,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881301",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de pared abdominal y pelvis (Ciudad Bolívar)",
+      "nombre": "Dra. Claudia Patricia Quintero Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-28486",
       "especialidadId": "esp-eco-881301",
       "sedeId": "sede-1f7df4c5",
@@ -10038,7 +10032,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881112",
-      "nombre": "Dr(a). Especialista en Ecografía cerebral transfontanelar (Ciudad Bolívar)",
+      "nombre": "Dr. Carlos Eduardo Suescún Ramos",
       "registroMedico": "RM-CBABOLVAR-87892",
       "especialidadId": "esp-eco-881112",
       "sedeId": "sede-1f7df4c5",
@@ -10071,7 +10065,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881201",
-      "nombre": "Dr(a). Especialista en Ecografía de mama (Ciudad Bolívar)",
+      "nombre": "Dra. Juliana Méndez Molina",
       "registroMedico": "RM-CBABOLVAR-95211",
       "especialidadId": "esp-eco-881201",
       "sedeId": "sede-1f7df4c5",
@@ -10104,7 +10098,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881211",
-      "nombre": "Dr(a). Especialista en Ecografía de tórax: pericardio o pleura (Ciudad Bolívar)",
+      "nombre": "Dr. Andrés Felipe Vargas Castro",
       "registroMedico": "RM-CBABOLVAR-85406",
       "especialidadId": "esp-eco-881211",
       "sedeId": "sede-1f7df4c5",
@@ -10137,7 +10131,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881601",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de extremidades superiores (Ciudad Bolívar)",
+      "nombre": "Dra. Mariana Botero Medina",
       "registroMedico": "RM-CBABOLVAR-85830",
       "especialidadId": "esp-eco-881601",
       "sedeId": "sede-1f7df4c5",
@@ -10170,7 +10164,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881602",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de extremidades inferiores (Ciudad Bolívar)",
+      "nombre": "Dr. Fernando Mena Londoño",
       "registroMedico": "RM-CBABOLVAR-16892",
       "especialidadId": "esp-eco-881602",
       "sedeId": "sede-1f7df4c5",
@@ -10203,7 +10197,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881610",
-      "nombre": "Dr(a). Especialista en Ecografía articular de hombro (Ciudad Bolívar)",
+      "nombre": "Dra. Paola Andrea Ortiz García",
       "registroMedico": "RM-CBABOLVAR-10575",
       "especialidadId": "esp-eco-881610",
       "sedeId": "sede-1f7df4c5",
@@ -10236,7 +10230,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881611",
-      "nombre": "Dr(a). Especialista en Ecografía articular de codo (Ciudad Bolívar)",
+      "nombre": "Dr. Mauricio Osorio Moreno",
       "registroMedico": "RM-CBABOLVAR-38980",
       "especialidadId": "esp-eco-881611",
       "sedeId": "sede-1f7df4c5",
@@ -10269,7 +10263,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881612",
-      "nombre": "Dr(a). Especialista en Ecografía articular de puño o muñeca (Ciudad Bolívar)",
+      "nombre": "Dra. Manuela Vélez Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-29058",
       "especialidadId": "esp-eco-881612",
       "sedeId": "sede-1f7df4c5",
@@ -10302,7 +10296,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881613",
-      "nombre": "Dr(a). Especialista en Ecografía articular de mano (Ciudad Bolívar)",
+      "nombre": "Dr. Ricardo Posada Ramos",
       "registroMedico": "RM-CBABOLVAR-47130",
       "especialidadId": "esp-eco-881613",
       "sedeId": "sede-1f7df4c5",
@@ -10335,7 +10329,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881620",
-      "nombre": "Dr(a). Especialista en Ecografía articular de rodilla (Ciudad Bolívar)",
+      "nombre": "Dra. Laura Camila Montoya Molina",
       "registroMedico": "RM-CBABOLVAR-19375",
       "especialidadId": "esp-eco-881620",
       "sedeId": "sede-1f7df4c5",
@@ -10368,7 +10362,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881621",
-      "nombre": "Dr(a). Especialista en Ecografía articular de tobillo (Ciudad Bolívar)",
+      "nombre": "Dr. Esteban Cano Castro",
       "registroMedico": "RM-CBABOLVAR-27554",
       "especialidadId": "esp-eco-881621",
       "sedeId": "sede-1f7df4c5",
@@ -10401,7 +10395,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881622",
-      "nombre": "Dr(a). Especialista en Ecografía articular de pie (Ciudad Bolívar)",
+      "nombre": "Dra. Catalina Berrío Medina",
       "registroMedico": "RM-CBABOLVAR-33450",
       "especialidadId": "esp-eco-881622",
       "sedeId": "sede-1f7df4c5",
@@ -10434,7 +10428,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881630",
-      "nombre": "Dr(a). Especialista en Ecografía articular de cadera (Ciudad Bolívar)",
+      "nombre": "Dr. Alejandro Marín Londoño",
       "registroMedico": "RM-CBABOLVAR-86610",
       "especialidadId": "esp-eco-881630",
       "sedeId": "sede-1f7df4c5",
@@ -10467,7 +10461,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881640",
-      "nombre": "Dr(a). Especialista en Ecografía de calcáneo (Ciudad Bolívar)",
+      "nombre": "Dra. Elena Agudelo García",
       "registroMedico": "RM-CBABOLVAR-67814",
       "especialidadId": "esp-eco-881640",
       "sedeId": "sede-1f7df4c5",
@@ -10500,7 +10494,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881362",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de abdomen con análisis Doppler (Ciudad Bolívar)",
+      "nombre": "Dr. Santiago Ramírez Moreno",
       "registroMedico": "RM-CBABOLVAR-53758",
       "especialidadId": "esp-eco-881362",
       "sedeId": "sede-1f7df4c5",
@@ -10533,7 +10527,7 @@
     },
     {
       "id": "med-cbabolvar-eco-881390",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen y pelvis como guía de procedimiento quirúrgico o intervencionista (Ciudad Bolívar)",
+      "nombre": "Dra. Sara Guzmán Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-72926",
       "especialidadId": "esp-eco-881390",
       "sedeId": "sede-1f7df4c5",
@@ -10566,7 +10560,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882112",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos del cuello (Ciudad Bolívar)",
+      "nombre": "Dr. David Barrientos Ramos",
       "registroMedico": "RM-CBABOLVAR-79727",
       "especialidadId": "esp-dop-882112",
       "sedeId": "sede-1f7df4c5",
@@ -10599,7 +10593,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882132",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de otros vasos periféricos del cuello (Ciudad Bolívar)",
+      "nombre": "Dra. Patricia Villamizar Molina",
       "registroMedico": "RM-CBABOLVAR-84102",
       "especialidadId": "esp-dop-882132",
       "sedeId": "sede-1f7df4c5",
@@ -10632,7 +10626,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882203",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos abdominales o pélvicos (Ciudad Bolívar)",
+      "nombre": "Dr. Felipe Morales Castro",
       "registroMedico": "RM-CBABOLVAR-84333",
       "especialidadId": "esp-dop-882203",
       "sedeId": "sede-1f7df4c5",
@@ -10665,7 +10659,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882212",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de aorta abdominal (Ciudad Bolívar)",
+      "nombre": "Dra. Adriana Rojas Medina",
       "registroMedico": "RM-CBABOLVAR-49615",
       "especialidadId": "esp-dop-882212",
       "sedeId": "sede-1f7df4c5",
@@ -10698,7 +10692,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882222",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias renales (Ciudad Bolívar)",
+      "nombre": "Dr. Manuel Antonio Herrera Londoño",
       "registroMedico": "RM-CBABOLVAR-12037",
       "especialidadId": "esp-dop-882222",
       "sedeId": "sede-1f7df4c5",
@@ -10731,7 +10725,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882232",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias mesentéricas (Ciudad Bolívar)",
+      "nombre": "Dra. Sandra Milena Echeverri García",
       "registroMedico": "RM-CBABOLVAR-33397",
       "especialidadId": "esp-dop-882232",
       "sedeId": "sede-1f7df4c5",
@@ -10764,7 +10758,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882242",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de tronco celíaco (Ciudad Bolívar)",
+      "nombre": "Dr. Javier Londoño Moreno",
       "registroMedico": "RM-CBABOLVAR-38652",
       "especialidadId": "esp-dop-882242",
       "sedeId": "sede-1f7df4c5",
@@ -10797,7 +10791,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882252",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vena cava (Ciudad Bolívar)",
+      "nombre": "Dra. Lorena Jiménez Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-41588",
       "especialidadId": "esp-dop-882252",
       "sedeId": "sede-1f7df4c5",
@@ -10830,7 +10824,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882262",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias ilíacas (Ciudad Bolívar)",
+      "nombre": "Dr. Leonardo Consuegra Ramos",
       "registroMedico": "RM-CBABOLVAR-82877",
       "especialidadId": "esp-dop-882262",
       "sedeId": "sede-1f7df4c5",
@@ -10863,7 +10857,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882282",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos escrotales (Ciudad Bolívar)",
+      "nombre": "Dra. Viviana Betancur Molina",
       "registroMedico": "RM-CBABOLVAR-25108",
       "especialidadId": "esp-dop-882282",
       "sedeId": "sede-1f7df4c5",
@@ -10896,7 +10890,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882292",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en masas abdominales (Ciudad Bolívar)",
+      "nombre": "Dr. Gustavo Cadavid Castro",
       "registroMedico": "RM-CBABOLVAR-22421",
       "especialidadId": "esp-dop-882292",
       "sedeId": "sede-1f7df4c5",
@@ -10929,7 +10923,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882294",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en masas pélvicas (Ciudad Bolívar)",
+      "nombre": "Dra. Liliana Lopera Medina",
       "registroMedico": "RM-CBABOLVAR-92845",
       "especialidadId": "esp-dop-882294",
       "sedeId": "sede-1f7df4c5",
@@ -10962,7 +10956,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882296",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en hipertensión portal (Ciudad Bolívar)",
+      "nombre": "Dr. Fabio Correa Londoño",
       "registroMedico": "RM-CBABOLVAR-12089",
       "especialidadId": "esp-dop-882296",
       "sedeId": "sede-1f7df4c5",
@@ -10995,7 +10989,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882307",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos arteriales de miembros superiores (Ciudad Bolívar)",
+      "nombre": "Dra. Silvia Saldarriaga García",
       "registroMedico": "RM-CBABOLVAR-24663",
       "especialidadId": "esp-dop-882307",
       "sedeId": "sede-1f7df4c5",
@@ -11028,7 +11022,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882308",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos arteriales de miembros inferiores (Ciudad Bolívar)",
+      "nombre": "Dr. Víctor Hugo Henao Moreno",
       "registroMedico": "RM-CBABOLVAR-80417",
       "especialidadId": "esp-dop-882308",
       "sedeId": "sede-1f7df4c5",
@@ -11061,7 +11055,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882309",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembros superiores (Ciudad Bolívar)",
+      "nombre": "Dra. Valentina Palacio Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-41909",
       "especialidadId": "esp-dop-882309",
       "sedeId": "sede-1f7df4c5",
@@ -11094,7 +11088,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882316",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembro superior (Ciudad Bolívar)",
+      "nombre": "Dr. Sergio Ceballos Ramos",
       "registroMedico": "RM-CBABOLVAR-52790",
       "especialidadId": "esp-dop-882316",
       "sedeId": "sede-1f7df4c5",
@@ -11127,7 +11121,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882317",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembros inferiores (Ciudad Bolívar)",
+      "nombre": "Dra. Diana Sofía Gutiérrez Molina",
       "registroMedico": "RM-CBABOLVAR-65417",
       "especialidadId": "esp-dop-882317",
       "sedeId": "sede-1f7df4c5",
@@ -11160,7 +11154,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882318",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembro inferior (Ciudad Bolívar)",
+      "nombre": "Dr. Tomás Silva Castro",
       "registroMedico": "RM-CBABOLVAR-70684",
       "especialidadId": "esp-dop-882318",
       "sedeId": "sede-1f7df4c5",
@@ -11193,7 +11187,7 @@
     },
     {
       "id": "med-cbabolvar-dop-882603",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de riñón trasplantado (Ciudad Bolívar)",
+      "nombre": "Dra. Natalia Tamayo Medina",
       "registroMedico": "RM-CBABOLVAR-88454",
       "especialidadId": "esp-dop-882603",
       "sedeId": "sede-1f7df4c5",
@@ -11226,7 +11220,7 @@
     },
     {
       "id": "med-cbabolvar-cirugia-vascular",
-      "nombre": "Dr(a). Especialista en Cirugía vascular (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Carlos Eduardo Restrepo Londoño",
       "registroMedico": "RM-CBABOLVAR-73376",
       "especialidadId": "esp-cirugia-vascular",
       "sedeId": "sede-1f7df4c5",
@@ -11259,7 +11253,7 @@
     },
     {
       "id": "med-cbabolvar-rehab-cardiovasc-dep6",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación cardiovascular (Ciudad Bolívar)",
+      "nombre": "Dra. Daniela Arango García",
       "registroMedico": "RM-CBABOLVAR-14330",
       "especialidadId": "esp-rehab-cardiovasc-dep6",
       "sedeId": "sede-1f7df4c5",
@@ -11292,7 +11286,7 @@
     },
     {
       "id": "med-cbabolvar-cardiologia",
-      "nombre": "Dr(a). Especialista en Cardiología (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Andrés Felipe Peña Moreno",
       "registroMedico": "RM-CBABOLVAR-40987",
       "especialidadId": "esp-cardiologia",
       "sedeId": "sede-1f7df4c5",
@@ -11325,7 +11319,7 @@
     },
     {
       "id": "med-cbabolvar-ecocardiograma-transtoracico",
-      "nombre": "Dr(a). Especialista en Ecocardiograma transtorácico (Ciudad Bolívar)",
+      "nombre": "Dra. Camila Lozano Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-37252",
       "especialidadId": "esp-ecocardiograma-transtoracico",
       "sedeId": "sede-1f7df4c5",
@@ -11358,7 +11352,7 @@
     },
     {
       "id": "med-cbabolvar-ecocardiograma-estres",
-      "nombre": "Dr(a). Especialista en Ecocardiograma de estrés con prueba de esfuerzo o farmacológica (Ciudad Bolívar)",
+      "nombre": "Dr. Fernando Pardo Ramos",
       "registroMedico": "RM-CBABOLVAR-27785",
       "especialidadId": "esp-ecocardiograma-estres",
       "sedeId": "sede-1f7df4c5",
@@ -11391,7 +11385,7 @@
     },
     {
       "id": "med-cbabolvar-prueba-esfuerzo",
-      "nombre": "Dr(a). Especialista en Prueba de esfuerzo cardiovascular (Ciudad Bolívar)",
+      "nombre": "Dra. Sofía Zuluaga Molina",
       "registroMedico": "RM-CBABOLVAR-28799",
       "especialidadId": "esp-prueba-esfuerzo",
       "sedeId": "sede-1f7df4c5",
@@ -11424,7 +11418,7 @@
     },
     {
       "id": "med-cbabolvar-electrocardiograma",
-      "nombre": "Dr(a). Especialista en Electrocardiograma de ritmo o de superficie (Ciudad Bolívar)",
+      "nombre": "Dr. Mauricio Castro Castro",
       "registroMedico": "RM-CBABOLVAR-17761",
       "especialidadId": "esp-electrocardiograma",
       "sedeId": "sede-1f7df4c5",
@@ -11457,7 +11451,7 @@
     },
     {
       "id": "med-cbabolvar-holter-24h",
-      "nombre": "Dr(a). Especialista en Monitoreo electrocardiográfico continuo (Holter) (Ciudad Bolívar)",
+      "nombre": "Dra. Carolina Ríos Medina",
       "registroMedico": "RM-CBABOLVAR-14077",
       "especialidadId": "esp-holter-24h",
       "sedeId": "sede-1f7df4c5",
@@ -11490,7 +11484,7 @@
     },
     {
       "id": "med-cbabolvar-telemetria-presion",
-      "nombre": "Dr(a). Especialista en Monitoreo de presión arterial sistémica (telemetría) (Ciudad Bolívar)",
+      "nombre": "Dr. Ricardo Duque Londoño",
       "registroMedico": "RM-CBABOLVAR-75527",
       "especialidadId": "esp-telemetria-presion",
       "sedeId": "sede-1f7df4c5",
@@ -11523,7 +11517,7 @@
     },
     {
       "id": "med-cbabolvar-mapa-24h",
-      "nombre": "Dr(a). Especialista en Monitoreo de presión arterial de 24 horas en paciente ambulatorio (Ciudad Bolívar)",
+      "nombre": "Dra. Isabella Hoyos García",
       "registroMedico": "RM-CBABOLVAR-70677",
       "especialidadId": "esp-mapa-24h",
       "sedeId": "sede-1f7df4c5",
@@ -11556,7 +11550,7 @@
     },
     {
       "id": "med-cbabolvar-otorrino",
-      "nombre": "Dr(a). Especialista en Otorrinolaringología (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Esteban Giraldo Moreno",
       "registroMedico": "RM-CBABOLVAR-90725",
       "especialidadId": "esp-otorrino",
       "sedeId": "sede-1f7df4c5",
@@ -11589,7 +11583,7 @@
     },
     {
       "id": "med-cbabolvar-orl-306001",
-      "nombre": "Dr(a). Especialista en Nasolaringoscopia (Ciudad Bolívar)",
+      "nombre": "Dra. Lucía Jaramillo Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-14080",
       "especialidadId": "esp-orl-306001",
       "sedeId": "sede-1f7df4c5",
@@ -11622,7 +11616,7 @@
     },
     {
       "id": "med-cbabolvar-orl-965201",
-      "nombre": "Dr(a). Especialista en Lavado e irrigación de oídos (Ciudad Bolívar)",
+      "nombre": "Dr. Alejandro Villa Ramos",
       "registroMedico": "RM-CBABOLVAR-62652",
       "especialidadId": "esp-orl-965201",
       "sedeId": "sede-1f7df4c5",
@@ -11655,7 +11649,7 @@
     },
     {
       "id": "med-cbabolvar-orl-965202",
-      "nombre": "Dr(a). Especialista en Curación de oído (Ciudad Bolívar)",
+      "nombre": "Dra. Gabriela Uribe Molina",
       "registroMedico": "RM-CBABOLVAR-16945",
       "especialidadId": "esp-orl-965202",
       "sedeId": "sede-1f7df4c5",
@@ -11688,7 +11682,7 @@
     },
     {
       "id": "med-cbabolvar-orl-965203",
-      "nombre": "Dr(a). Especialista en Curación de oído vía endoscópica (Ciudad Bolívar)",
+      "nombre": "Dr. Santiago Flórez Castro",
       "registroMedico": "RM-CBABOLVAR-92345",
       "especialidadId": "esp-orl-965203",
       "sedeId": "sede-1f7df4c5",
@@ -11721,7 +11715,7 @@
     },
     {
       "id": "med-cbabolvar-orl-202401",
-      "nombre": "Dr(a). Especialista en Aspiración de oído medio o cavidad mastoidea (Ciudad Bolívar)",
+      "nombre": "Dra. Tatiana Tabares Medina",
       "registroMedico": "RM-CBABOLVAR-17746",
       "especialidadId": "esp-orl-202401",
       "sedeId": "sede-1f7df4c5",
@@ -11754,7 +11748,7 @@
     },
     {
       "id": "med-cbabolvar-orl-180101",
-      "nombre": "Dr(a). Especialista en Drenaje de colección de pabellón auricular (Ciudad Bolívar)",
+      "nombre": "Dr. David Cardona Londoño",
       "registroMedico": "RM-CBABOLVAR-26847",
       "especialidadId": "esp-orl-180101",
       "sedeId": "sede-1f7df4c5",
@@ -11787,7 +11781,7 @@
     },
     {
       "id": "med-cbabolvar-orl-180302",
-      "nombre": "Dr(a). Especialista en Extracción de cerumen o cuerpo extraño del conducto auditivo externo bajo visión microscópica o endoscópica (Ciudad Bolívar)",
+      "nombre": "Dra. Gloria Inés Carvajal García",
       "registroMedico": "RM-CBABOLVAR-13645",
       "especialidadId": "esp-orl-180302",
       "sedeId": "sede-1f7df4c5",
@@ -11820,7 +11814,7 @@
     },
     {
       "id": "med-cbabolvar-orl-181103",
-      "nombre": "Dr(a). Especialista en Biopsia de oído externo (Ciudad Bolívar)",
+      "nombre": "Dr. Felipe Castaño Moreno",
       "registroMedico": "RM-CBABOLVAR-84120",
       "especialidadId": "esp-orl-181103",
       "sedeId": "sede-1f7df4c5",
@@ -11853,7 +11847,7 @@
     },
     {
       "id": "med-cbabolvar-orl-182201",
-      "nombre": "Dr(a). Especialista en Resección de apéndice preauricular (Ciudad Bolívar)",
+      "nombre": "Dra. Mónica Piedrahíta Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-22272",
       "especialidadId": "esp-orl-182201",
       "sedeId": "sede-1f7df4c5",
@@ -11886,7 +11880,7 @@
     },
     {
       "id": "med-cbabolvar-orl-182301",
-      "nombre": "Dr(a). Especialista en Resección de quiste de pabellón auricular (Ciudad Bolívar)",
+      "nombre": "Dr. Manuel Antonio Gómez Ramos",
       "registroMedico": "RM-CBABOLVAR-76443",
       "especialidadId": "esp-orl-182301",
       "sedeId": "sede-1f7df4c5",
@@ -11919,7 +11913,7 @@
     },
     {
       "id": "med-cbabolvar-orl-250002",
-      "nombre": "Dr(a). Especialista en Biopsia incisional de lengua (en cuña) (Ciudad Bolívar)",
+      "nombre": "Dra. Cristina Ospina Molina",
       "registroMedico": "RM-CBABOLVAR-95529",
       "especialidadId": "esp-orl-250002",
       "sedeId": "sede-1f7df4c5",
@@ -11952,7 +11946,7 @@
     },
     {
       "id": "med-cbabolvar-orl-261001",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada de glándula o conducto salival (Ciudad Bolívar)",
+      "nombre": "Dr. Javier Quintero Castro",
       "registroMedico": "RM-CBABOLVAR-91525",
       "especialidadId": "esp-orl-261001",
       "sedeId": "sede-1f7df4c5",
@@ -11985,7 +11979,7 @@
     },
     {
       "id": "med-cbabolvar-orl-272401",
-      "nombre": "Dr(a). Especialista en Biopsia por aspiración con aguja fina en cavidad oral (Ciudad Bolívar)",
+      "nombre": "Dra. Angela María Suescún Medina",
       "registroMedico": "RM-CBABOLVAR-26751",
       "especialidadId": "esp-orl-272401",
       "sedeId": "sede-1f7df4c5",
@@ -12018,7 +12012,7 @@
     },
     {
       "id": "med-cbabolvar-orl-274301",
-      "nombre": "Dr(a). Especialista en Resección de lesión benigna de la mucosa oral hasta 2 cm de diámetro (Ciudad Bolívar)",
+      "nombre": "Dr. Leonardo Méndez Londoño",
       "registroMedico": "RM-CBABOLVAR-10191",
       "especialidadId": "esp-orl-274301",
       "sedeId": "sede-1f7df4c5",
@@ -12051,7 +12045,7 @@
     },
     {
       "id": "med-cbabolvar-orl-289101",
-      "nombre": "Dr(a). Especialista en Biopsia por aspiración con aguja fina de amígdalas y adenoides (Ciudad Bolívar)",
+      "nombre": "Dra. Clara Inés Vargas García",
       "registroMedico": "RM-CBABOLVAR-12645",
       "especialidadId": "esp-orl-289101",
       "sedeId": "sede-1f7df4c5",
@@ -12084,7 +12078,7 @@
     },
     {
       "id": "med-cbabolvar-dermatologia",
-      "nombre": "Dr(a). Especialista en Dermatología (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Gustavo Botero Moreno",
       "registroMedico": "RM-CBABOLVAR-34918",
       "especialidadId": "esp-dermatologia",
       "sedeId": "sede-1f7df4c5",
@@ -12117,7 +12111,7 @@
     },
     {
       "id": "med-cbabolvar-derma-860101",
-      "nombre": "Dr(a). Especialista en Biopsia de piel con sacabocado y sutura simple (Ciudad Bolívar)",
+      "nombre": "Dra. Ximena Mena Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-36826",
       "especialidadId": "esp-derma-860101",
       "sedeId": "sede-1f7df4c5",
@@ -12150,7 +12144,7 @@
     },
     {
       "id": "med-cbabolvar-derma-860102",
-      "nombre": "Dr(a). Especialista en Biopsia incisional o escisional de piel, tejido celular subcutáneo o mucosa, con sutura (Ciudad Bolívar)",
+      "nombre": "Dr. Fabio Ortiz Ramos",
       "registroMedico": "RM-CBABOLVAR-92273",
       "especialidadId": "esp-derma-860102",
       "sedeId": "sede-1f7df4c5",
@@ -12183,7 +12177,7 @@
     },
     {
       "id": "med-cbabolvar-derma-860103",
-      "nombre": "Dr(a). Especialista en Biopsia escisional de uña (lecho o matriz) (Ciudad Bolívar)",
+      "nombre": "Dra. Marcela Osorio Molina",
       "registroMedico": "RM-CBABOLVAR-22825",
       "especialidadId": "esp-derma-860103",
       "sedeId": "sede-1f7df4c5",
@@ -12216,7 +12210,7 @@
     },
     {
       "id": "med-cbabolvar-derma-863101",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, hasta 6 lesiones (Ciudad Bolívar)",
+      "nombre": "Dr. Víctor Hugo Vélez Castro",
       "registroMedico": "RM-CBABOLVAR-14006",
       "especialidadId": "esp-derma-863101",
       "sedeId": "sede-1f7df4c5",
@@ -12249,7 +12243,7 @@
     },
     {
       "id": "med-cbabolvar-derma-863102",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, más de 6 lesiones (Ciudad Bolívar)",
+      "nombre": "Dra. Andrea Catalina Posada Medina",
       "registroMedico": "RM-CBABOLVAR-21243",
       "especialidadId": "esp-derma-863102",
       "sedeId": "sede-1f7df4c5",
@@ -12282,7 +12276,7 @@
     },
     {
       "id": "med-cbabolvar-derma-863103",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, hasta 3 lesiones (Ciudad Bolívar)",
+      "nombre": "Dr. Sergio Montoya Londoño",
       "registroMedico": "RM-CBABOLVAR-27666",
       "especialidadId": "esp-derma-863103",
       "sedeId": "sede-1f7df4c5",
@@ -12315,7 +12309,7 @@
     },
     {
       "id": "med-cbabolvar-derma-863104",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones (Ciudad Bolívar)",
+      "nombre": "Dra. Claudia Patricia Cano García",
       "registroMedico": "RM-CBABOLVAR-23895",
       "especialidadId": "esp-derma-863104",
       "sedeId": "sede-1f7df4c5",
@@ -12348,7 +12342,7 @@
     },
     {
       "id": "med-cbabolvar-derma-863105",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones (Ciudad Bolívar)",
+      "nombre": "Dr. Tomás Berrío Moreno",
       "registroMedico": "RM-CBABOLVAR-81886",
       "especialidadId": "esp-derma-863105",
       "sedeId": "sede-1f7df4c5",
@@ -12381,7 +12375,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864101",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, hasta 3 cm (Ciudad Bolívar)",
+      "nombre": "Dra. Juliana Marín Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-18327",
       "especialidadId": "esp-derma-864101",
       "sedeId": "sede-1f7df4c5",
@@ -12414,7 +12408,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864102",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, entre 3 y 5 cm (Ciudad Bolívar)",
+      "nombre": "Dr. Carlos Eduardo Agudelo Ramos",
       "registroMedico": "RM-CBABOLVAR-56815",
       "especialidadId": "esp-derma-864102",
       "sedeId": "sede-1f7df4c5",
@@ -12447,7 +12441,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864103",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, entre 5 y 10 cm (Ciudad Bolívar)",
+      "nombre": "Dra. Mariana Ramírez Molina",
       "registroMedico": "RM-CBABOLVAR-16826",
       "especialidadId": "esp-derma-864103",
       "sedeId": "sede-1f7df4c5",
@@ -12480,7 +12474,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864104",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, de más de 10 cm (Ciudad Bolívar)",
+      "nombre": "Dr. Andrés Felipe Guzmán Castro",
       "registroMedico": "RM-CBABOLVAR-23816",
       "especialidadId": "esp-derma-864104",
       "sedeId": "sede-1f7df4c5",
@@ -12513,7 +12507,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864105",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, con reparación mediante colgajo o injerto (Ciudad Bolívar)",
+      "nombre": "Dra. Paola Andrea Barrientos Medina",
       "registroMedico": "RM-CBABOLVAR-85318",
       "especialidadId": "esp-derma-864105",
       "sedeId": "sede-1f7df4c5",
@@ -12546,7 +12540,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864201",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, hasta 1 cm (Ciudad Bolívar)",
+      "nombre": "Dr. Fernando Villamizar Londoño",
       "registroMedico": "RM-CBABOLVAR-78756",
       "especialidadId": "esp-derma-864201",
       "sedeId": "sede-1f7df4c5",
@@ -12579,7 +12573,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864202",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 1 y 2 cm (Ciudad Bolívar)",
+      "nombre": "Dra. Manuela Morales García",
       "registroMedico": "RM-CBABOLVAR-64315",
       "especialidadId": "esp-derma-864202",
       "sedeId": "sede-1f7df4c5",
@@ -12612,7 +12606,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864203",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 2 y 3 cm (Ciudad Bolívar)",
+      "nombre": "Dr. Mauricio Rojas Moreno",
       "registroMedico": "RM-CBABOLVAR-88924",
       "especialidadId": "esp-derma-864203",
       "sedeId": "sede-1f7df4c5",
@@ -12645,7 +12639,7 @@
     },
     {
       "id": "med-cbabolvar-derma-864204",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 3 y 5 cm (Ciudad Bolívar)",
+      "nombre": "Dra. Laura Camila Herrera Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-62884",
       "especialidadId": "esp-derma-864204",
       "sedeId": "sede-1f7df4c5",
@@ -12678,7 +12672,7 @@
     },
     {
       "id": "med-cbabolvar-derma-868104",
-      "nombre": "Dr(a). Especialista en Resección de cicatriz hipertrófica o queloide en área especial (Ciudad Bolívar)",
+      "nombre": "Dr. Ricardo Echeverri Ramos",
       "registroMedico": "RM-CBABOLVAR-24318",
       "especialidadId": "esp-derma-868104",
       "sedeId": "sede-1f7df4c5",
@@ -12711,7 +12705,7 @@
     },
     {
       "id": "med-cbabolvar-derma-861401",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, hasta 5 lesiones (Ciudad Bolívar)",
+      "nombre": "Dra. Catalina Londoño Molina",
       "registroMedico": "RM-CBABOLVAR-36247",
       "especialidadId": "esp-derma-861401",
       "sedeId": "sede-1f7df4c5",
@@ -12744,7 +12738,7 @@
     },
     {
       "id": "med-cbabolvar-derma-861402",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, entre 5 y 10 lesiones (Ciudad Bolívar)",
+      "nombre": "Dr. Esteban Jiménez Castro",
       "registroMedico": "RM-CBABOLVAR-77243",
       "especialidadId": "esp-derma-861402",
       "sedeId": "sede-1f7df4c5",
@@ -12777,7 +12771,7 @@
     },
     {
       "id": "med-cbabolvar-derma-861403",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, más de 10 lesiones (Ciudad Bolívar)",
+      "nombre": "Dra. Elena Consuegra Medina",
       "registroMedico": "RM-CBABOLVAR-93676",
       "especialidadId": "esp-derma-861403",
       "sedeId": "sede-1f7df4c5",
@@ -12810,7 +12804,7 @@
     },
     {
       "id": "med-cbabolvar-derma-861411",
-      "nombre": "Dr(a). Especialista en Inyección de material miorrelajante (toxina botulínica) (Ciudad Bolívar)",
+      "nombre": "Dr. Alejandro Betancur Londoño",
       "registroMedico": "RM-CBABOLVAR-81762",
       "especialidadId": "esp-derma-861411",
       "sedeId": "sede-1f7df4c5",
@@ -12843,7 +12837,7 @@
     },
     {
       "id": "med-cbabolvar-urologia",
-      "nombre": "Dr(a). Especialista en Urología (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dra. Sara Cadavid García",
       "registroMedico": "RM-CBABOLVAR-37892",
       "especialidadId": "esp-urologia",
       "sedeId": "sede-1f7df4c5",
@@ -12876,7 +12870,7 @@
     },
     {
       "id": "med-cbabolvar-uro-573201",
-      "nombre": "Dr(a). Especialista en Cistoscopia transuretral (Ciudad Bolívar)",
+      "nombre": "Dr. Santiago Lopera Moreno",
       "registroMedico": "RM-CBABOLVAR-94032",
       "especialidadId": "esp-uro-573201",
       "sedeId": "sede-1f7df4c5",
@@ -12909,7 +12903,7 @@
     },
     {
       "id": "med-cbabolvar-uro-583201",
-      "nombre": "Dr(a). Especialista en Fulguración de lesiones uretrales vía abierta (Ciudad Bolívar)",
+      "nombre": "Dra. Patricia Correa Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-34943",
       "especialidadId": "esp-uro-583201",
       "sedeId": "sede-1f7df4c5",
@@ -12942,7 +12936,7 @@
     },
     {
       "id": "med-cbabolvar-uro-601101",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada de próstata por abordaje transrectal (Ciudad Bolívar)",
+      "nombre": "Dr. David Saldarriaga Ramos",
       "registroMedico": "RM-CBABOLVAR-31032",
       "especialidadId": "esp-uro-601101",
       "sedeId": "sede-1f7df4c5",
@@ -12975,7 +12969,7 @@
     },
     {
       "id": "med-cbabolvar-uro-976203",
-      "nombre": "Dr(a). Especialista en Extracción de catéter ureteral vía endoscópica (Ciudad Bolívar)",
+      "nombre": "Dra. Adriana Henao Molina",
       "registroMedico": "RM-CBABOLVAR-91731",
       "especialidadId": "esp-uro-976203",
       "sedeId": "sede-1f7df4c5",
@@ -13008,7 +13002,7 @@
     },
     {
       "id": "med-cbabolvar-ortopedia",
-      "nombre": "Dr(a). Especialista en Ortopedia y traumatología (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Felipe Palacio Castro",
       "registroMedico": "RM-CBABOLVAR-61397",
       "especialidadId": "esp-ortopedia",
       "sedeId": "sede-1f7df4c5",
@@ -13041,7 +13035,7 @@
     },
     {
       "id": "med-cbabolvar-orto-839601",
-      "nombre": "Dr(a). Especialista en Inyección o infiltración de sustancia terapéutica dentro de bursa (Ciudad Bolívar)",
+      "nombre": "Dra. Sandra Milena Ceballos Medina",
       "registroMedico": "RM-CBABOLVAR-21074",
       "especialidadId": "esp-orto-839601",
       "sedeId": "sede-1f7df4c5",
@@ -13074,7 +13068,7 @@
     },
     {
       "id": "med-cbabolvar-orto-832102",
-      "nombre": "Dr(a). Especialista en Biopsia percutánea de tejido blando: músculo, tendón, fascia y bursa (Ciudad Bolívar)",
+      "nombre": "Dr. Manuel Antonio Gutiérrez Londoño",
       "registroMedico": "RM-CBABOLVAR-90886",
       "especialidadId": "esp-orto-832102",
       "sedeId": "sede-1f7df4c5",
@@ -13107,7 +13101,7 @@
     },
     {
       "id": "med-cbabolvar-orto-982001",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño no intraluminal (Ciudad Bolívar)",
+      "nombre": "Dra. Lorena Silva García",
       "registroMedico": "RM-CBABOLVAR-69961",
       "especialidadId": "esp-orto-982001",
       "sedeId": "sede-1f7df4c5",
@@ -13140,7 +13134,7 @@
     },
     {
       "id": "med-cbabolvar-orto-982601",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en mano (Ciudad Bolívar)",
+      "nombre": "Dr. Javier Tamayo Moreno",
       "registroMedico": "RM-CBABOLVAR-67781",
       "especialidadId": "esp-orto-982601",
       "sedeId": "sede-1f7df4c5",
@@ -13173,7 +13167,7 @@
     },
     {
       "id": "med-cbabolvar-orto-982701",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en brazo y antebrazo (Ciudad Bolívar)",
+      "nombre": "Dra. Viviana Restrepo Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-46156",
       "especialidadId": "esp-orto-982701",
       "sedeId": "sede-1f7df4c5",
@@ -13206,7 +13200,7 @@
     },
     {
       "id": "med-cbabolvar-orto-982801",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en pie (Ciudad Bolívar)",
+      "nombre": "Dr. Leonardo Arango Ramos",
       "registroMedico": "RM-CBABOLVAR-91112",
       "especialidadId": "esp-orto-982801",
       "sedeId": "sede-1f7df4c5",
@@ -13239,7 +13233,7 @@
     },
     {
       "id": "med-cbabolvar-orto-982901",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en miembro inferior, excepto pie (Ciudad Bolívar)",
+      "nombre": "Dra. Liliana Peña Molina",
       "registroMedico": "RM-CBABOLVAR-10194",
       "especialidadId": "esp-orto-982901",
       "sedeId": "sede-1f7df4c5",
@@ -13272,7 +13266,7 @@
     },
     {
       "id": "med-cbabolvar-orto-862701",
-      "nombre": "Dr(a). Especialista en Onicectomía (Ciudad Bolívar)",
+      "nombre": "Dr. Gustavo Lozano Castro",
       "registroMedico": "RM-CBABOLVAR-63078",
       "especialidadId": "esp-orto-862701",
       "sedeId": "sede-1f7df4c5",
@@ -13305,7 +13299,7 @@
     },
     {
       "id": "med-cbabolvar-orto-862702",
-      "nombre": "Dr(a). Especialista en Matricectomía parcial (Ciudad Bolívar)",
+      "nombre": "Dra. Silvia Pardo Medina",
       "registroMedico": "RM-CBABOLVAR-71917",
       "especialidadId": "esp-orto-862702",
       "sedeId": "sede-1f7df4c5",
@@ -13338,7 +13332,7 @@
     },
     {
       "id": "med-cbabolvar-orto-862703",
-      "nombre": "Dr(a). Especialista en Matricectomía total (Ciudad Bolívar)",
+      "nombre": "Dr. Fabio Zuluaga Londoño",
       "registroMedico": "RM-CBABOLVAR-93167",
       "especialidadId": "esp-orto-862703",
       "sedeId": "sede-1f7df4c5",
@@ -13371,7 +13365,7 @@
     },
     {
       "id": "med-cbabolvar-cirugia-general",
-      "nombre": "Dr(a). Especialista en Cirugía general (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dra. Valentina Castro García",
       "registroMedico": "RM-CBABOLVAR-10483",
       "especialidadId": "esp-cirugia-general",
       "sedeId": "sede-1f7df4c5",
@@ -13404,7 +13398,7 @@
     },
     {
       "id": "med-cbabolvar-cir-501002",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada percutánea de hígado (Ciudad Bolívar)",
+      "nombre": "Dr. Víctor Hugo Ríos Moreno",
       "registroMedico": "RM-CBABOLVAR-82393",
       "especialidadId": "esp-cir-501002",
       "sedeId": "sede-1f7df4c5",
@@ -13437,7 +13431,7 @@
     },
     {
       "id": "med-cbabolvar-cir-345401",
-      "nombre": "Dr(a). Especialista en Biopsia percutánea de pleura (Ciudad Bolívar)",
+      "nombre": "Dra. Diana Sofía Duque Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-74126",
       "especialidadId": "esp-cir-345401",
       "sedeId": "sede-1f7df4c5",
@@ -13470,7 +13464,7 @@
     },
     {
       "id": "med-cbabolvar-terapia-respiratoria",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Sergio Hoyos Ramos",
       "registroMedico": "RM-CBABOLVAR-71298",
       "especialidadId": "esp-terapia-respiratoria",
       "sedeId": "sede-1f7df4c5",
@@ -13503,7 +13497,7 @@
     },
     {
       "id": "med-cbabolvar-resp-893703",
-      "nombre": "Dr(a). Especialista en Espirometría (Ciudad Bolívar)",
+      "nombre": "Dra. Natalia Giraldo Molina",
       "registroMedico": "RM-CBABOLVAR-36616",
       "especialidadId": "esp-resp-893703",
       "sedeId": "sede-1f7df4c5",
@@ -13536,7 +13530,7 @@
     },
     {
       "id": "med-cbabolvar-resp-893805",
-      "nombre": "Dr(a). Especialista en Espirometría o curva de flujo-volumen pre y post broncodilatadores (Ciudad Bolívar)",
+      "nombre": "Dr. Tomás Jaramillo Castro",
       "registroMedico": "RM-CBABOLVAR-66719",
       "especialidadId": "esp-resp-893805",
       "sedeId": "sede-1f7df4c5",
@@ -13569,7 +13563,7 @@
     },
     {
       "id": "med-cbabolvar-resp-893808",
-      "nombre": "Dr(a). Especialista en Espirometría o curva de flujo-volumen simple (Ciudad Bolívar)",
+      "nombre": "Dra. Daniela Villa Medina",
       "registroMedico": "RM-CBABOLVAR-22212",
       "especialidadId": "esp-resp-893808",
       "sedeId": "sede-1f7df4c5",
@@ -13602,7 +13596,7 @@
     },
     {
       "id": "med-cbabolvar-resp-894402",
-      "nombre": "Dr(a). Especialista en Prueba de caminata de 6 minutos (Ciudad Bolívar)",
+      "nombre": "Dr. Carlos Eduardo Uribe Londoño",
       "registroMedico": "RM-CBABOLVAR-72136",
       "especialidadId": "esp-resp-894402",
       "sedeId": "sede-1f7df4c5",
@@ -13635,7 +13629,7 @@
     },
     {
       "id": "med-cbabolvar-resp-933501",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación pulmonar (Ciudad Bolívar)",
+      "nombre": "Dra. Camila Flórez García",
       "registroMedico": "RM-CBABOLVAR-13598",
       "especialidadId": "esp-resp-933501",
       "sedeId": "sede-1f7df4c5",
@@ -13668,7 +13662,7 @@
     },
     {
       "id": "med-cbabolvar-resp-939403",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria integral (Ciudad Bolívar)",
+      "nombre": "Dr. Andrés Felipe Tabares Moreno",
       "registroMedico": "RM-CBABOLVAR-17859",
       "especialidadId": "esp-resp-939403",
       "sedeId": "sede-1f7df4c5",
@@ -13701,7 +13695,7 @@
     },
     {
       "id": "med-cbabolvar-psicologia",
-      "nombre": "Dr(a). Especialista en Psicología (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dra. Sofía Cardona Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-14253",
       "especialidadId": "esp-psicologia",
       "sedeId": "sede-1f7df4c5",
@@ -13734,7 +13728,7 @@
     },
     {
       "id": "med-cbabolvar-nutricion",
-      "nombre": "Dr(a). Especialista en Nutrición y dietética (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dr. Fernando Carvajal Ramos",
       "registroMedico": "RM-CBABOLVAR-10883",
       "especialidadId": "esp-nutricion",
       "sedeId": "sede-1f7df4c5",
@@ -13767,7 +13761,7 @@
     },
     {
       "id": "med-cbabolvar-terapia-ocupacional",
-      "nombre": "Dr(a). Especialista en Terapia ocupacional (Consulta) (Ciudad Bolívar)",
+      "nombre": "Dra. Carolina Castaño Molina",
       "registroMedico": "RM-CBABOLVAR-96733",
       "especialidadId": "esp-terapia-ocupacional",
       "sedeId": "sede-1f7df4c5",
@@ -13800,7 +13794,7 @@
     },
     {
       "id": "med-cbabolvar-proc-interv-061002",
-      "nombre": "Dr(a). Especialista en Biopsia de glándula tiroides vía percutánea (Ciudad Bolívar)",
+      "nombre": "Dr. Mauricio Piedrahíta Castro",
       "registroMedico": "RM-CBABOLVAR-32241",
       "especialidadId": "esp-proc-interv-061002",
       "sedeId": "sede-1f7df4c5",
@@ -13833,7 +13827,7 @@
     },
     {
       "id": "med-cbabolvar-proc-interv-851102",
-      "nombre": "Dr(a). Especialista en Biopsia de mama con aguja (Trucut) (Ciudad Bolívar)",
+      "nombre": "Dra. Isabella Gómez Medina",
       "registroMedico": "RM-CBABOLVAR-31019",
       "especialidadId": "esp-proc-interv-851102",
       "sedeId": "sede-1f7df4c5",
@@ -13866,7 +13860,7 @@
     },
     {
       "id": "med-cbabolvar-rehab-933601",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación cardiovascular (Ciudad Bolívar)",
+      "nombre": "Dr. Ricardo Ospina Londoño",
       "registroMedico": "RM-CBABOLVAR-59550",
       "especialidadId": "esp-rehab-933601",
       "sedeId": "sede-1f7df4c5",
@@ -13899,7 +13893,7 @@
     },
     {
       "id": "med-cbabolvar-rehab-933501",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación pulmonar (Ciudad Bolívar)",
+      "nombre": "Dra. Lucía Quintero García",
       "registroMedico": "RM-CBABOLVAR-21039",
       "especialidadId": "esp-rehab-933501",
       "sedeId": "sede-1f7df4c5",
@@ -13932,7 +13926,7 @@
     },
     {
       "id": "med-cbabolvar-rehab-939403",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria integral (Ciudad Bolívar)",
+      "nombre": "Dr. Esteban Suescún Moreno",
       "registroMedico": "RM-CBABOLVAR-18487",
       "especialidadId": "esp-rehab-939403",
       "sedeId": "sede-1f7df4c5",
@@ -13965,7 +13959,7 @@
     },
     {
       "id": "med-cbabolvar-rehab-894402",
-      "nombre": "Dr(a). Especialista en Prueba de caminata de 6 minutos (Ciudad Bolívar)",
+      "nombre": "Dra. Gabriela Méndez Gutiérrez",
       "registroMedico": "RM-CBABOLVAR-61103",
       "especialidadId": "esp-rehab-894402",
       "sedeId": "sede-1f7df4c5",
@@ -13998,7 +13992,7 @@
     },
     {
       "id": "med-sedapartad-medicina-general",
-      "nombre": "Dr(a). Especialista en Medicina general (Apartadó)",
+      "nombre": "Dr. Alejandro Vargas Ramos",
       "registroMedico": "RM-SEDAPARTAD-15163",
       "especialidadId": "esp-medicina-general",
       "sedeId": "sede-7e12b259",
@@ -14031,7 +14025,7 @@
     },
     {
       "id": "med-sedapartad-medicina-interna",
-      "nombre": "Dr(a). Especialista en Medicina interna (Apartadó)",
+      "nombre": "Dra. Tatiana Botero Molina",
       "registroMedico": "RM-SEDAPARTAD-79086",
       "especialidadId": "esp-medicina-interna",
       "sedeId": "sede-7e12b259",
@@ -14064,7 +14058,7 @@
     },
     {
       "id": "med-sedapartad-neurologia",
-      "nombre": "Dr(a). Especialista en Neurología (Apartadó)",
+      "nombre": "Dr. Santiago Mena Castro",
       "registroMedico": "RM-SEDAPARTAD-69987",
       "especialidadId": "esp-neurologia",
       "sedeId": "sede-7e12b259",
@@ -14097,7 +14091,7 @@
     },
     {
       "id": "med-sedapartad-endocrinologia",
-      "nombre": "Dr(a). Especialista en Endocrinología (Apartadó)",
+      "nombre": "Dra. Gloria Inés Ortiz Medina",
       "registroMedico": "RM-SEDAPARTAD-30516",
       "especialidadId": "esp-endocrinologia",
       "sedeId": "sede-7e12b259",
@@ -14130,7 +14124,7 @@
     },
     {
       "id": "med-sedapartad-nefrologia",
-      "nombre": "Dr(a). Especialista en Nefrología (Apartadó)",
+      "nombre": "Dr. David Osorio Londoño",
       "registroMedico": "RM-SEDAPARTAD-43900",
       "especialidadId": "esp-nefrologia",
       "sedeId": "sede-7e12b259",
@@ -14163,7 +14157,7 @@
     },
     {
       "id": "med-sedapartad-hematologia",
-      "nombre": "Dr(a). Especialista en Hematología (Apartadó)",
+      "nombre": "Dra. Mónica Vélez García",
       "registroMedico": "RM-SEDAPARTAD-64263",
       "especialidadId": "esp-hematologia",
       "sedeId": "sede-7e12b259",
@@ -14196,7 +14190,7 @@
     },
     {
       "id": "med-sedapartad-reumatologia",
-      "nombre": "Dr(a). Especialista en Reumatología (Apartadó)",
+      "nombre": "Dr. Felipe Posada Moreno",
       "registroMedico": "RM-SEDAPARTAD-49389",
       "especialidadId": "esp-reumatologia",
       "sedeId": "sede-7e12b259",
@@ -14229,7 +14223,7 @@
     },
     {
       "id": "med-sedapartad-pediatria",
-      "nombre": "Dr(a). Especialista en Pediatría (Apartadó)",
+      "nombre": "Dra. Cristina Montoya Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-89431",
       "especialidadId": "esp-pediatria",
       "sedeId": "sede-7e12b259",
@@ -14262,7 +14256,7 @@
     },
     {
       "id": "med-sedapartad-ginecologia-obstetricia",
-      "nombre": "Dr(a). Especialista en Ginecología y obstetricia (Consulta) (Apartadó)",
+      "nombre": "Dr. Manuel Antonio Cano Ramos",
       "registroMedico": "RM-SEDAPARTAD-93619",
       "especialidadId": "esp-ginecologia-obstetricia",
       "sedeId": "sede-7e12b259",
@@ -14295,7 +14289,7 @@
     },
     {
       "id": "med-sedapartad-gyn-eco-pelv-transvag",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica ginecológica transvaginal (Apartadó)",
+      "nombre": "Dra. Angela María Berrío Molina",
       "registroMedico": "RM-SEDAPARTAD-63882",
       "especialidadId": "esp-gyn-eco-pelv-transvag",
       "sedeId": "sede-7e12b259",
@@ -14328,7 +14322,7 @@
     },
     {
       "id": "med-sedapartad-gyn-eco-pelv-transabd",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica ginecológica transabdominal (Apartadó)",
+      "nombre": "Dr. Javier Marín Castro",
       "registroMedico": "RM-SEDAPARTAD-26902",
       "especialidadId": "esp-gyn-eco-pelv-transabd",
       "sedeId": "sede-7e12b259",
@@ -14361,7 +14355,7 @@
     },
     {
       "id": "med-sedapartad-gyn-eco-obs-transabd",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica transabdominal (Apartadó)",
+      "nombre": "Dra. Clara Inés Agudelo Medina",
       "registroMedico": "RM-SEDAPARTAD-83382",
       "especialidadId": "esp-gyn-eco-obs-transabd",
       "sedeId": "sede-7e12b259",
@@ -14394,7 +14388,7 @@
     },
     {
       "id": "med-sedapartad-gyn-eco-obs-transvag",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica transvaginal (Apartadó)",
+      "nombre": "Dr. Leonardo Ramírez Londoño",
       "registroMedico": "RM-SEDAPARTAD-26571",
       "especialidadId": "esp-gyn-eco-obs-transvag",
       "sedeId": "sede-7e12b259",
@@ -14427,7 +14421,7 @@
     },
     {
       "id": "med-sedapartad-gyn-eco-obs-transluc",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica con translucencia nucal (Apartadó)",
+      "nombre": "Dra. Ximena Guzmán García",
       "registroMedico": "RM-SEDAPARTAD-17951",
       "especialidadId": "esp-gyn-eco-obs-transluc",
       "sedeId": "sede-7e12b259",
@@ -14460,7 +14454,7 @@
     },
     {
       "id": "med-sedapartad-gyn-eco-obs-detalle",
-      "nombre": "Dr(a). Especialista en Ecografía obstétrica con detalle anatómico (Apartadó)",
+      "nombre": "Dr. Gustavo Barrientos Moreno",
       "registroMedico": "RM-SEDAPARTAD-17245",
       "especialidadId": "esp-gyn-eco-obs-detalle",
       "sedeId": "sede-7e12b259",
@@ -14493,7 +14487,7 @@
     },
     {
       "id": "med-sedapartad-gyn-perfil-biofisico",
-      "nombre": "Dr(a). Especialista en Perfil biofísico (Apartadó)",
+      "nombre": "Dra. Marcela Villamizar Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-17600",
       "especialidadId": "esp-gyn-perfil-biofisico",
       "sedeId": "sede-7e12b259",
@@ -14526,7 +14520,7 @@
     },
     {
       "id": "med-sedapartad-gyn-doppler-placentaria",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler obstétrica con evaluación de circulación placentaria (Apartadó)",
+      "nombre": "Dr. Fabio Morales Ramos",
       "registroMedico": "RM-SEDAPARTAD-75641",
       "especialidadId": "esp-gyn-doppler-placentaria",
       "sedeId": "sede-7e12b259",
@@ -14559,7 +14553,7 @@
     },
     {
       "id": "med-sedapartad-gyn-pelvica-doppler",
-      "nombre": "Dr(a). Especialista en Ecografía pélvica con análisis Doppler (Apartadó)",
+      "nombre": "Dra. Andrea Catalina Rojas Molina",
       "registroMedico": "RM-SEDAPARTAD-77888",
       "especialidadId": "esp-gyn-pelvica-doppler",
       "sedeId": "sede-7e12b259",
@@ -14592,7 +14586,7 @@
     },
     {
       "id": "med-sedapartad-eco-881305",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen superior (Apartadó)",
+      "nombre": "Dr. Víctor Hugo Herrera Castro",
       "registroMedico": "RM-SEDAPARTAD-88802",
       "especialidadId": "esp-eco-881305",
       "sedeId": "sede-7e12b259",
@@ -14625,7 +14619,7 @@
     },
     {
       "id": "med-sedapartad-eco-881306",
-      "nombre": "Dr(a). Especialista en Ecografía de hígado, páncreas, vía biliar y vesícula (Apartadó)",
+      "nombre": "Dra. Claudia Patricia Echeverri Medina",
       "registroMedico": "RM-SEDAPARTAD-29280",
       "especialidadId": "esp-eco-881306",
       "sedeId": "sede-7e12b259",
@@ -14658,7 +14652,7 @@
     },
     {
       "id": "med-sedapartad-eco-881302",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen total (Apartadó)",
+      "nombre": "Dr. Sergio Londoño Londoño",
       "registroMedico": "RM-SEDAPARTAD-29990",
       "especialidadId": "esp-eco-881302",
       "sedeId": "sede-7e12b259",
@@ -14691,7 +14685,7 @@
     },
     {
       "id": "med-sedapartad-eco-881332",
-      "nombre": "Dr(a). Especialista en Ecografía de vías urinarias: riñones, vejiga y próstata transabdominal (Apartadó)",
+      "nombre": "Dra. Juliana Jiménez García",
       "registroMedico": "RM-SEDAPARTAD-75917",
       "especialidadId": "esp-eco-881332",
       "sedeId": "sede-7e12b259",
@@ -14724,7 +14718,7 @@
     },
     {
       "id": "med-sedapartad-eco-881510",
-      "nombre": "Dr(a). Especialista en Ecografía testicular con transductor de 7 MHz o más (Apartadó)",
+      "nombre": "Dr. Tomás Consuegra Moreno",
       "registroMedico": "RM-SEDAPARTAD-98118",
       "especialidadId": "esp-eco-881510",
       "sedeId": "sede-7e12b259",
@@ -14757,7 +14751,7 @@
     },
     {
       "id": "med-sedapartad-eco-881511",
-      "nombre": "Dr(a). Especialista en Ecografía testicular con análisis Doppler (Apartadó)",
+      "nombre": "Dra. Mariana Betancur Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-68067",
       "especialidadId": "esp-eco-881511",
       "sedeId": "sede-7e12b259",
@@ -14790,7 +14784,7 @@
     },
     {
       "id": "med-sedapartad-eco-881501",
-      "nombre": "Dr(a). Especialista en Ecografía de próstata transabdominal (Apartadó)",
+      "nombre": "Dr. Carlos Eduardo Cadavid Ramos",
       "registroMedico": "RM-SEDAPARTAD-25369",
       "especialidadId": "esp-eco-881501",
       "sedeId": "sede-7e12b259",
@@ -14823,7 +14817,7 @@
     },
     {
       "id": "med-sedapartad-eco-881502",
-      "nombre": "Dr(a). Especialista en Ecografía de próstata transrectal (Apartadó)",
+      "nombre": "Dra. Paola Andrea Lopera Molina",
       "registroMedico": "RM-SEDAPARTAD-65600",
       "especialidadId": "esp-eco-881502",
       "sedeId": "sede-7e12b259",
@@ -14856,7 +14850,7 @@
     },
     {
       "id": "med-sedapartad-eco-881131",
-      "nombre": "Dr(a). Especialista en Ecografía de glándulas salivales (Apartadó)",
+      "nombre": "Dr. Andrés Felipe Correa Castro",
       "registroMedico": "RM-SEDAPARTAD-22837",
       "especialidadId": "esp-eco-881131",
       "sedeId": "sede-7e12b259",
@@ -14889,7 +14883,7 @@
     },
     {
       "id": "med-sedapartad-eco-881132",
-      "nombre": "Dr(a). Especialista en Ecografía de cuello (Apartadó)",
+      "nombre": "Dra. Manuela Saldarriaga Medina",
       "registroMedico": "RM-SEDAPARTAD-32896",
       "especialidadId": "esp-eco-881132",
       "sedeId": "sede-7e12b259",
@@ -14922,7 +14916,7 @@
     },
     {
       "id": "med-sedapartad-eco-881141",
-      "nombre": "Dr(a). Especialista en Ecografía de tiroides (Apartadó)",
+      "nombre": "Dr. Fernando Henao Londoño",
       "registroMedico": "RM-SEDAPARTAD-30129",
       "especialidadId": "esp-eco-881141",
       "sedeId": "sede-7e12b259",
@@ -14955,7 +14949,7 @@
     },
     {
       "id": "med-sedapartad-eco-881301",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de pared abdominal y pelvis (Apartadó)",
+      "nombre": "Dra. Laura Camila Palacio García",
       "registroMedico": "RM-SEDAPARTAD-48730",
       "especialidadId": "esp-eco-881301",
       "sedeId": "sede-7e12b259",
@@ -14988,7 +14982,7 @@
     },
     {
       "id": "med-sedapartad-eco-881112",
-      "nombre": "Dr(a). Especialista en Ecografía cerebral transfontanelar (Apartadó)",
+      "nombre": "Dr. Mauricio Ceballos Moreno",
       "registroMedico": "RM-SEDAPARTAD-40695",
       "especialidadId": "esp-eco-881112",
       "sedeId": "sede-7e12b259",
@@ -15021,7 +15015,7 @@
     },
     {
       "id": "med-sedapartad-eco-881201",
-      "nombre": "Dr(a). Especialista en Ecografía de mama (Apartadó)",
+      "nombre": "Dra. Catalina Gutiérrez Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-91862",
       "especialidadId": "esp-eco-881201",
       "sedeId": "sede-7e12b259",
@@ -15054,7 +15048,7 @@
     },
     {
       "id": "med-sedapartad-eco-881211",
-      "nombre": "Dr(a). Especialista en Ecografía de tórax: pericardio o pleura (Apartadó)",
+      "nombre": "Dr. Ricardo Silva Ramos",
       "registroMedico": "RM-SEDAPARTAD-14691",
       "especialidadId": "esp-eco-881211",
       "sedeId": "sede-7e12b259",
@@ -15087,7 +15081,7 @@
     },
     {
       "id": "med-sedapartad-eco-881601",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de extremidades superiores (Apartadó)",
+      "nombre": "Dra. Elena Tamayo Molina",
       "registroMedico": "RM-SEDAPARTAD-98777",
       "especialidadId": "esp-eco-881601",
       "sedeId": "sede-7e12b259",
@@ -15120,7 +15114,7 @@
     },
     {
       "id": "med-sedapartad-eco-881602",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de extremidades inferiores (Apartadó)",
+      "nombre": "Dr. Esteban Restrepo Castro",
       "registroMedico": "RM-SEDAPARTAD-44142",
       "especialidadId": "esp-eco-881602",
       "sedeId": "sede-7e12b259",
@@ -15153,7 +15147,7 @@
     },
     {
       "id": "med-sedapartad-eco-881610",
-      "nombre": "Dr(a). Especialista en Ecografía articular de hombro (Apartadó)",
+      "nombre": "Dra. Sara Arango Medina",
       "registroMedico": "RM-SEDAPARTAD-20220",
       "especialidadId": "esp-eco-881610",
       "sedeId": "sede-7e12b259",
@@ -15186,7 +15180,7 @@
     },
     {
       "id": "med-sedapartad-eco-881611",
-      "nombre": "Dr(a). Especialista en Ecografía articular de codo (Apartadó)",
+      "nombre": "Dr. Alejandro Peña Londoño",
       "registroMedico": "RM-SEDAPARTAD-68102",
       "especialidadId": "esp-eco-881611",
       "sedeId": "sede-7e12b259",
@@ -15219,7 +15213,7 @@
     },
     {
       "id": "med-sedapartad-eco-881612",
-      "nombre": "Dr(a). Especialista en Ecografía articular de puño o muñeca (Apartadó)",
+      "nombre": "Dra. Patricia Lozano García",
       "registroMedico": "RM-SEDAPARTAD-60674",
       "especialidadId": "esp-eco-881612",
       "sedeId": "sede-7e12b259",
@@ -15252,7 +15246,7 @@
     },
     {
       "id": "med-sedapartad-eco-881613",
-      "nombre": "Dr(a). Especialista en Ecografía articular de mano (Apartadó)",
+      "nombre": "Dr. Santiago Pardo Moreno",
       "registroMedico": "RM-SEDAPARTAD-17797",
       "especialidadId": "esp-eco-881613",
       "sedeId": "sede-7e12b259",
@@ -15285,7 +15279,7 @@
     },
     {
       "id": "med-sedapartad-eco-881620",
-      "nombre": "Dr(a). Especialista en Ecografía articular de rodilla (Apartadó)",
+      "nombre": "Dra. Adriana Zuluaga Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-88262",
       "especialidadId": "esp-eco-881620",
       "sedeId": "sede-7e12b259",
@@ -15318,7 +15312,7 @@
     },
     {
       "id": "med-sedapartad-eco-881621",
-      "nombre": "Dr(a). Especialista en Ecografía articular de tobillo (Apartadó)",
+      "nombre": "Dr. David Castro Ramos",
       "registroMedico": "RM-SEDAPARTAD-83351",
       "especialidadId": "esp-eco-881621",
       "sedeId": "sede-7e12b259",
@@ -15351,7 +15345,7 @@
     },
     {
       "id": "med-sedapartad-eco-881622",
-      "nombre": "Dr(a). Especialista en Ecografía articular de pie (Apartadó)",
+      "nombre": "Dra. Sandra Milena Ríos Molina",
       "registroMedico": "RM-SEDAPARTAD-89823",
       "especialidadId": "esp-eco-881622",
       "sedeId": "sede-7e12b259",
@@ -15384,7 +15378,7 @@
     },
     {
       "id": "med-sedapartad-eco-881630",
-      "nombre": "Dr(a). Especialista en Ecografía articular de cadera (Apartadó)",
+      "nombre": "Dr. Felipe Duque Castro",
       "registroMedico": "RM-SEDAPARTAD-88000",
       "especialidadId": "esp-eco-881630",
       "sedeId": "sede-7e12b259",
@@ -15417,7 +15411,7 @@
     },
     {
       "id": "med-sedapartad-eco-881640",
-      "nombre": "Dr(a). Especialista en Ecografía de calcáneo (Apartadó)",
+      "nombre": "Dra. Lorena Hoyos Medina",
       "registroMedico": "RM-SEDAPARTAD-30862",
       "especialidadId": "esp-eco-881640",
       "sedeId": "sede-7e12b259",
@@ -15450,7 +15444,7 @@
     },
     {
       "id": "med-sedapartad-eco-881362",
-      "nombre": "Dr(a). Especialista en Ecografía de tejidos blandos de abdomen con análisis Doppler (Apartadó)",
+      "nombre": "Dr. Manuel Antonio Giraldo Londoño",
       "registroMedico": "RM-SEDAPARTAD-52236",
       "especialidadId": "esp-eco-881362",
       "sedeId": "sede-7e12b259",
@@ -15483,7 +15477,7 @@
     },
     {
       "id": "med-sedapartad-eco-881390",
-      "nombre": "Dr(a). Especialista en Ecografía de abdomen y pelvis como guía de procedimiento quirúrgico o intervencionista (Apartadó)",
+      "nombre": "Dra. Viviana Jaramillo García",
       "registroMedico": "RM-SEDAPARTAD-31668",
       "especialidadId": "esp-eco-881390",
       "sedeId": "sede-7e12b259",
@@ -15516,7 +15510,7 @@
     },
     {
       "id": "med-sedapartad-dop-882112",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos del cuello (Apartadó)",
+      "nombre": "Dr. Javier Villa Moreno",
       "registroMedico": "RM-SEDAPARTAD-40568",
       "especialidadId": "esp-dop-882112",
       "sedeId": "sede-7e12b259",
@@ -15549,7 +15543,7 @@
     },
     {
       "id": "med-sedapartad-dop-882132",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de otros vasos periféricos del cuello (Apartadó)",
+      "nombre": "Dra. Liliana Uribe Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-19325",
       "especialidadId": "esp-dop-882132",
       "sedeId": "sede-7e12b259",
@@ -15582,7 +15576,7 @@
     },
     {
       "id": "med-sedapartad-dop-882203",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos abdominales o pélvicos (Apartadó)",
+      "nombre": "Dr. Leonardo Flórez Ramos",
       "registroMedico": "RM-SEDAPARTAD-25556",
       "especialidadId": "esp-dop-882203",
       "sedeId": "sede-7e12b259",
@@ -15615,7 +15609,7 @@
     },
     {
       "id": "med-sedapartad-dop-882212",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de aorta abdominal (Apartadó)",
+      "nombre": "Dra. Silvia Tabares Molina",
       "registroMedico": "RM-SEDAPARTAD-82973",
       "especialidadId": "esp-dop-882212",
       "sedeId": "sede-7e12b259",
@@ -15648,7 +15642,7 @@
     },
     {
       "id": "med-sedapartad-dop-882222",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias renales (Apartadó)",
+      "nombre": "Dr. Gustavo Cardona Castro",
       "registroMedico": "RM-SEDAPARTAD-26585",
       "especialidadId": "esp-dop-882222",
       "sedeId": "sede-7e12b259",
@@ -15681,7 +15675,7 @@
     },
     {
       "id": "med-sedapartad-dop-882232",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias mesentéricas (Apartadó)",
+      "nombre": "Dra. Valentina Carvajal Medina",
       "registroMedico": "RM-SEDAPARTAD-64959",
       "especialidadId": "esp-dop-882232",
       "sedeId": "sede-7e12b259",
@@ -15714,7 +15708,7 @@
     },
     {
       "id": "med-sedapartad-dop-882242",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de tronco celíaco (Apartadó)",
+      "nombre": "Dr. Fabio Castaño Londoño",
       "registroMedico": "RM-SEDAPARTAD-35632",
       "especialidadId": "esp-dop-882242",
       "sedeId": "sede-7e12b259",
@@ -15747,7 +15741,7 @@
     },
     {
       "id": "med-sedapartad-dop-882252",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vena cava (Apartadó)",
+      "nombre": "Dra. Diana Sofía Piedrahíta García",
       "registroMedico": "RM-SEDAPARTAD-79512",
       "especialidadId": "esp-dop-882252",
       "sedeId": "sede-7e12b259",
@@ -15780,7 +15774,7 @@
     },
     {
       "id": "med-sedapartad-dop-882262",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de arterias ilíacas (Apartadó)",
+      "nombre": "Dr. Víctor Hugo Gómez Moreno",
       "registroMedico": "RM-SEDAPARTAD-31898",
       "especialidadId": "esp-dop-882262",
       "sedeId": "sede-7e12b259",
@@ -15813,7 +15807,7 @@
     },
     {
       "id": "med-sedapartad-dop-882282",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos escrotales (Apartadó)",
+      "nombre": "Dra. Natalia Ospina Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-41722",
       "especialidadId": "esp-dop-882282",
       "sedeId": "sede-7e12b259",
@@ -15846,7 +15840,7 @@
     },
     {
       "id": "med-sedapartad-dop-882292",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en masas abdominales (Apartadó)",
+      "nombre": "Dr. Sergio Quintero Ramos",
       "registroMedico": "RM-SEDAPARTAD-66701",
       "especialidadId": "esp-dop-882292",
       "sedeId": "sede-7e12b259",
@@ -15879,7 +15873,7 @@
     },
     {
       "id": "med-sedapartad-dop-882294",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en masas pélvicas (Apartadó)",
+      "nombre": "Dra. Daniela Suescún Molina",
       "registroMedico": "RM-SEDAPARTAD-29053",
       "especialidadId": "esp-dop-882294",
       "sedeId": "sede-7e12b259",
@@ -15912,7 +15906,7 @@
     },
     {
       "id": "med-sedapartad-dop-882296",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler con evaluación de flujo sanguíneo en hipertensión portal (Apartadó)",
+      "nombre": "Dr. Tomás Méndez Castro",
       "registroMedico": "RM-SEDAPARTAD-72717",
       "especialidadId": "esp-dop-882296",
       "sedeId": "sede-7e12b259",
@@ -15945,7 +15939,7 @@
     },
     {
       "id": "med-sedapartad-dop-882307",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos arteriales de miembros superiores (Apartadó)",
+      "nombre": "Dra. Camila Vargas Medina",
       "registroMedico": "RM-SEDAPARTAD-69849",
       "especialidadId": "esp-dop-882307",
       "sedeId": "sede-7e12b259",
@@ -15978,7 +15972,7 @@
     },
     {
       "id": "med-sedapartad-dop-882308",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos arteriales de miembros inferiores (Apartadó)",
+      "nombre": "Dr. Carlos Eduardo Botero Londoño",
       "registroMedico": "RM-SEDAPARTAD-66412",
       "especialidadId": "esp-dop-882308",
       "sedeId": "sede-7e12b259",
@@ -16011,7 +16005,7 @@
     },
     {
       "id": "med-sedapartad-dop-882309",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembros superiores (Apartadó)",
+      "nombre": "Dra. Sofía Mena García",
       "registroMedico": "RM-SEDAPARTAD-17854",
       "especialidadId": "esp-dop-882309",
       "sedeId": "sede-7e12b259",
@@ -16044,7 +16038,7 @@
     },
     {
       "id": "med-sedapartad-dop-882316",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembro superior (Apartadó)",
+      "nombre": "Dr. Andrés Felipe Ortiz Moreno",
       "registroMedico": "RM-SEDAPARTAD-36937",
       "especialidadId": "esp-dop-882316",
       "sedeId": "sede-7e12b259",
@@ -16077,7 +16071,7 @@
     },
     {
       "id": "med-sedapartad-dop-882317",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembros inferiores (Apartadó)",
+      "nombre": "Dra. Carolina Osorio Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-10622",
       "especialidadId": "esp-dop-882317",
       "sedeId": "sede-7e12b259",
@@ -16110,7 +16104,7 @@
     },
     {
       "id": "med-sedapartad-dop-882318",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de vasos venosos de miembro inferior (Apartadó)",
+      "nombre": "Dr. Fernando Vélez Ramos",
       "registroMedico": "RM-SEDAPARTAD-89572",
       "especialidadId": "esp-dop-882318",
       "sedeId": "sede-7e12b259",
@@ -16143,7 +16137,7 @@
     },
     {
       "id": "med-sedapartad-dop-882603",
-      "nombre": "Dr(a). Especialista en Ecografía Doppler de riñón trasplantado (Apartadó)",
+      "nombre": "Dra. Isabella Posada Molina",
       "registroMedico": "RM-SEDAPARTAD-13482",
       "especialidadId": "esp-dop-882603",
       "sedeId": "sede-7e12b259",
@@ -16176,7 +16170,7 @@
     },
     {
       "id": "med-sedapartad-cirugia-vascular",
-      "nombre": "Dr(a). Especialista en Cirugía vascular (Consulta) (Apartadó)",
+      "nombre": "Dr. Mauricio Montoya Castro",
       "registroMedico": "RM-SEDAPARTAD-75088",
       "especialidadId": "esp-cirugia-vascular",
       "sedeId": "sede-7e12b259",
@@ -16209,7 +16203,7 @@
     },
     {
       "id": "med-sedapartad-rehab-cardiovasc-dep6",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación cardiovascular (Apartadó)",
+      "nombre": "Dra. Lucía Cano Medina",
       "registroMedico": "RM-SEDAPARTAD-49329",
       "especialidadId": "esp-rehab-cardiovasc-dep6",
       "sedeId": "sede-7e12b259",
@@ -16242,7 +16236,7 @@
     },
     {
       "id": "med-sedapartad-cardiologia",
-      "nombre": "Dr(a). Especialista en Cardiología (Consulta) (Apartadó)",
+      "nombre": "Dr. Ricardo Berrío Londoño",
       "registroMedico": "RM-SEDAPARTAD-53512",
       "especialidadId": "esp-cardiologia",
       "sedeId": "sede-7e12b259",
@@ -16275,7 +16269,7 @@
     },
     {
       "id": "med-sedapartad-ecocardiograma-transtoracico",
-      "nombre": "Dr(a). Especialista en Ecocardiograma transtorácico (Apartadó)",
+      "nombre": "Dra. Gabriela Marín García",
       "registroMedico": "RM-SEDAPARTAD-52308",
       "especialidadId": "esp-ecocardiograma-transtoracico",
       "sedeId": "sede-7e12b259",
@@ -16308,7 +16302,7 @@
     },
     {
       "id": "med-sedapartad-ecocardiograma-estres",
-      "nombre": "Dr(a). Especialista en Ecocardiograma de estrés con prueba de esfuerzo o farmacológica (Apartadó)",
+      "nombre": "Dr. Esteban Agudelo Moreno",
       "registroMedico": "RM-SEDAPARTAD-26914",
       "especialidadId": "esp-ecocardiograma-estres",
       "sedeId": "sede-7e12b259",
@@ -16341,7 +16335,7 @@
     },
     {
       "id": "med-sedapartad-prueba-esfuerzo",
-      "nombre": "Dr(a). Especialista en Prueba de esfuerzo cardiovascular (Apartadó)",
+      "nombre": "Dra. Tatiana Ramírez Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-40259",
       "especialidadId": "esp-prueba-esfuerzo",
       "sedeId": "sede-7e12b259",
@@ -16374,7 +16368,7 @@
     },
     {
       "id": "med-sedapartad-electrocardiograma",
-      "nombre": "Dr(a). Especialista en Electrocardiograma de ritmo o de superficie (Apartadó)",
+      "nombre": "Dr. Alejandro Guzmán Ramos",
       "registroMedico": "RM-SEDAPARTAD-78591",
       "especialidadId": "esp-electrocardiograma",
       "sedeId": "sede-7e12b259",
@@ -16407,7 +16401,7 @@
     },
     {
       "id": "med-sedapartad-holter-24h",
-      "nombre": "Dr(a). Especialista en Monitoreo electrocardiográfico continuo (Holter) (Apartadó)",
+      "nombre": "Dra. Gloria Inés Barrientos Molina",
       "registroMedico": "RM-SEDAPARTAD-95259",
       "especialidadId": "esp-holter-24h",
       "sedeId": "sede-7e12b259",
@@ -16440,7 +16434,7 @@
     },
     {
       "id": "med-sedapartad-telemetria-presion",
-      "nombre": "Dr(a). Especialista en Monitoreo de presión arterial sistémica (telemetría) (Apartadó)",
+      "nombre": "Dr. Santiago Villamizar Castro",
       "registroMedico": "RM-SEDAPARTAD-19835",
       "especialidadId": "esp-telemetria-presion",
       "sedeId": "sede-7e12b259",
@@ -16473,7 +16467,7 @@
     },
     {
       "id": "med-sedapartad-mapa-24h",
-      "nombre": "Dr(a). Especialista en Monitoreo de presión arterial de 24 horas en paciente ambulatorio (Apartadó)",
+      "nombre": "Dra. Mónica Morales Medina",
       "registroMedico": "RM-SEDAPARTAD-27698",
       "especialidadId": "esp-mapa-24h",
       "sedeId": "sede-7e12b259",
@@ -16506,7 +16500,7 @@
     },
     {
       "id": "med-sedapartad-otorrino",
-      "nombre": "Dr(a). Especialista en Otorrinolaringología (Consulta) (Apartadó)",
+      "nombre": "Dr. David Rojas Londoño",
       "registroMedico": "RM-SEDAPARTAD-38860",
       "especialidadId": "esp-otorrino",
       "sedeId": "sede-7e12b259",
@@ -16539,7 +16533,7 @@
     },
     {
       "id": "med-sedapartad-orl-306001",
-      "nombre": "Dr(a). Especialista en Nasolaringoscopia (Apartadó)",
+      "nombre": "Dra. Cristina Herrera García",
       "registroMedico": "RM-SEDAPARTAD-23234",
       "especialidadId": "esp-orl-306001",
       "sedeId": "sede-7e12b259",
@@ -16572,7 +16566,7 @@
     },
     {
       "id": "med-sedapartad-orl-965201",
-      "nombre": "Dr(a). Especialista en Lavado e irrigación de oídos (Apartadó)",
+      "nombre": "Dr. Felipe Echeverri Moreno",
       "registroMedico": "RM-SEDAPARTAD-83295",
       "especialidadId": "esp-orl-965201",
       "sedeId": "sede-7e12b259",
@@ -16605,7 +16599,7 @@
     },
     {
       "id": "med-sedapartad-orl-965202",
-      "nombre": "Dr(a). Especialista en Curación de oído (Apartadó)",
+      "nombre": "Dra. Angela María Londoño Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-56178",
       "especialidadId": "esp-orl-965202",
       "sedeId": "sede-7e12b259",
@@ -16638,7 +16632,7 @@
     },
     {
       "id": "med-sedapartad-orl-965203",
-      "nombre": "Dr(a). Especialista en Curación de oído vía endoscópica (Apartadó)",
+      "nombre": "Dr. Manuel Antonio Jiménez Ramos",
       "registroMedico": "RM-SEDAPARTAD-17395",
       "especialidadId": "esp-orl-965203",
       "sedeId": "sede-7e12b259",
@@ -16671,7 +16665,7 @@
     },
     {
       "id": "med-sedapartad-orl-202401",
-      "nombre": "Dr(a). Especialista en Aspiración de oído medio o cavidad mastoidea (Apartadó)",
+      "nombre": "Dra. Clara Inés Consuegra Molina",
       "registroMedico": "RM-SEDAPARTAD-88347",
       "especialidadId": "esp-orl-202401",
       "sedeId": "sede-7e12b259",
@@ -16704,7 +16698,7 @@
     },
     {
       "id": "med-sedapartad-orl-180101",
-      "nombre": "Dr(a). Especialista en Drenaje de colección de pabellón auricular (Apartadó)",
+      "nombre": "Dr. Javier Betancur Castro",
       "registroMedico": "RM-SEDAPARTAD-10222",
       "especialidadId": "esp-orl-180101",
       "sedeId": "sede-7e12b259",
@@ -16737,7 +16731,7 @@
     },
     {
       "id": "med-sedapartad-orl-180302",
-      "nombre": "Dr(a). Especialista en Extracción de cerumen o cuerpo extraño del conducto auditivo externo bajo visión microscópica o endoscópica (Apartadó)",
+      "nombre": "Dra. Ximena Cadavid Medina",
       "registroMedico": "RM-SEDAPARTAD-12848",
       "especialidadId": "esp-orl-180302",
       "sedeId": "sede-7e12b259",
@@ -16770,7 +16764,7 @@
     },
     {
       "id": "med-sedapartad-orl-181103",
-      "nombre": "Dr(a). Especialista en Biopsia de oído externo (Apartadó)",
+      "nombre": "Dr. Leonardo Lopera Londoño",
       "registroMedico": "RM-SEDAPARTAD-66070",
       "especialidadId": "esp-orl-181103",
       "sedeId": "sede-7e12b259",
@@ -16803,7 +16797,7 @@
     },
     {
       "id": "med-sedapartad-orl-182201",
-      "nombre": "Dr(a). Especialista en Resección de apéndice preauricular (Apartadó)",
+      "nombre": "Dra. Marcela Correa García",
       "registroMedico": "RM-SEDAPARTAD-32056",
       "especialidadId": "esp-orl-182201",
       "sedeId": "sede-7e12b259",
@@ -16836,7 +16830,7 @@
     },
     {
       "id": "med-sedapartad-orl-182301",
-      "nombre": "Dr(a). Especialista en Resección de quiste de pabellón auricular (Apartadó)",
+      "nombre": "Dr. Gustavo Saldarriaga Moreno",
       "registroMedico": "RM-SEDAPARTAD-86594",
       "especialidadId": "esp-orl-182301",
       "sedeId": "sede-7e12b259",
@@ -16869,7 +16863,7 @@
     },
     {
       "id": "med-sedapartad-orl-250002",
-      "nombre": "Dr(a). Especialista en Biopsia incisional de lengua (en cuña) (Apartadó)",
+      "nombre": "Dra. Andrea Catalina Henao Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-31669",
       "especialidadId": "esp-orl-250002",
       "sedeId": "sede-7e12b259",
@@ -16902,7 +16896,7 @@
     },
     {
       "id": "med-sedapartad-orl-261001",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada de glándula o conducto salival (Apartadó)",
+      "nombre": "Dr. Fabio Palacio Ramos",
       "registroMedico": "RM-SEDAPARTAD-28268",
       "especialidadId": "esp-orl-261001",
       "sedeId": "sede-7e12b259",
@@ -16935,7 +16929,7 @@
     },
     {
       "id": "med-sedapartad-orl-272401",
-      "nombre": "Dr(a). Especialista en Biopsia por aspiración con aguja fina en cavidad oral (Apartadó)",
+      "nombre": "Dra. Claudia Patricia Ceballos Molina",
       "registroMedico": "RM-SEDAPARTAD-30842",
       "especialidadId": "esp-orl-272401",
       "sedeId": "sede-7e12b259",
@@ -16968,7 +16962,7 @@
     },
     {
       "id": "med-sedapartad-orl-274301",
-      "nombre": "Dr(a). Especialista en Resección de lesión benigna de la mucosa oral hasta 2 cm de diámetro (Apartadó)",
+      "nombre": "Dr. Víctor Hugo Gutiérrez Castro",
       "registroMedico": "RM-SEDAPARTAD-17279",
       "especialidadId": "esp-orl-274301",
       "sedeId": "sede-7e12b259",
@@ -17001,7 +16995,7 @@
     },
     {
       "id": "med-sedapartad-orl-289101",
-      "nombre": "Dr(a). Especialista en Biopsia por aspiración con aguja fina de amígdalas y adenoides (Apartadó)",
+      "nombre": "Dra. Juliana Silva Medina",
       "registroMedico": "RM-SEDAPARTAD-64611",
       "especialidadId": "esp-orl-289101",
       "sedeId": "sede-7e12b259",
@@ -17034,7 +17028,7 @@
     },
     {
       "id": "med-sedapartad-dermatologia",
-      "nombre": "Dr(a). Especialista en Dermatología (Consulta) (Apartadó)",
+      "nombre": "Dr. Sergio Tamayo Londoño",
       "registroMedico": "RM-SEDAPARTAD-19541",
       "especialidadId": "esp-dermatologia",
       "sedeId": "sede-7e12b259",
@@ -17067,7 +17061,7 @@
     },
     {
       "id": "med-sedapartad-derma-860101",
-      "nombre": "Dr(a). Especialista en Biopsia de piel con sacabocado y sutura simple (Apartadó)",
+      "nombre": "Dra. Mariana Restrepo García",
       "registroMedico": "RM-SEDAPARTAD-95445",
       "especialidadId": "esp-derma-860101",
       "sedeId": "sede-7e12b259",
@@ -17100,7 +17094,7 @@
     },
     {
       "id": "med-sedapartad-derma-860102",
-      "nombre": "Dr(a). Especialista en Biopsia incisional o escisional de piel, tejido celular subcutáneo o mucosa, con sutura (Apartadó)",
+      "nombre": "Dr. Tomás Arango Moreno",
       "registroMedico": "RM-SEDAPARTAD-42958",
       "especialidadId": "esp-derma-860102",
       "sedeId": "sede-7e12b259",
@@ -17133,7 +17127,7 @@
     },
     {
       "id": "med-sedapartad-derma-860103",
-      "nombre": "Dr(a). Especialista en Biopsia escisional de uña (lecho o matriz) (Apartadó)",
+      "nombre": "Dra. Paola Andrea Peña Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-56940",
       "especialidadId": "esp-derma-860103",
       "sedeId": "sede-7e12b259",
@@ -17166,7 +17160,7 @@
     },
     {
       "id": "med-sedapartad-derma-863101",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, hasta 6 lesiones (Apartadó)",
+      "nombre": "Dr. Carlos Eduardo Lozano Ramos",
       "registroMedico": "RM-SEDAPARTAD-90598",
       "especialidadId": "esp-derma-863101",
       "sedeId": "sede-7e12b259",
@@ -17199,7 +17193,7 @@
     },
     {
       "id": "med-sedapartad-derma-863102",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, más de 6 lesiones (Apartadó)",
+      "nombre": "Dra. Manuela Pardo Molina",
       "registroMedico": "RM-SEDAPARTAD-45568",
       "especialidadId": "esp-derma-863102",
       "sedeId": "sede-7e12b259",
@@ -17232,7 +17226,7 @@
     },
     {
       "id": "med-sedapartad-derma-863103",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, hasta 3 lesiones (Apartadó)",
+      "nombre": "Dr. Andrés Felipe Zuluaga Castro",
       "registroMedico": "RM-SEDAPARTAD-43207",
       "especialidadId": "esp-derma-863103",
       "sedeId": "sede-7e12b259",
@@ -17265,7 +17259,7 @@
     },
     {
       "id": "med-sedapartad-derma-863104",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones (Apartadó)",
+      "nombre": "Dra. Laura Camila Castro Medina",
       "registroMedico": "RM-SEDAPARTAD-73828",
       "especialidadId": "esp-derma-863104",
       "sedeId": "sede-7e12b259",
@@ -17298,7 +17292,7 @@
     },
     {
       "id": "med-sedapartad-derma-863105",
-      "nombre": "Dr(a). Especialista en Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones (Apartadó)",
+      "nombre": "Dr. Fernando Ríos Londoño",
       "registroMedico": "RM-SEDAPARTAD-63043",
       "especialidadId": "esp-derma-863105",
       "sedeId": "sede-7e12b259",
@@ -17331,7 +17325,7 @@
     },
     {
       "id": "med-sedapartad-derma-864101",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, hasta 3 cm (Apartadó)",
+      "nombre": "Dra. Catalina Duque García",
       "registroMedico": "RM-SEDAPARTAD-74539",
       "especialidadId": "esp-derma-864101",
       "sedeId": "sede-7e12b259",
@@ -17364,7 +17358,7 @@
     },
     {
       "id": "med-sedapartad-derma-864102",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, entre 3 y 5 cm (Apartadó)",
+      "nombre": "Dr. Mauricio Hoyos Moreno",
       "registroMedico": "RM-SEDAPARTAD-86337",
       "especialidadId": "esp-derma-864102",
       "sedeId": "sede-7e12b259",
@@ -17397,7 +17391,7 @@
     },
     {
       "id": "med-sedapartad-derma-864103",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, entre 5 y 10 cm (Apartadó)",
+      "nombre": "Dra. Elena Giraldo Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-10559",
       "especialidadId": "esp-derma-864103",
       "sedeId": "sede-7e12b259",
@@ -17430,7 +17424,7 @@
     },
     {
       "id": "med-sedapartad-derma-864104",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, de más de 10 cm (Apartadó)",
+      "nombre": "Dr. Ricardo Jaramillo Ramos",
       "registroMedico": "RM-SEDAPARTAD-53652",
       "especialidadId": "esp-derma-864104",
       "sedeId": "sede-7e12b259",
@@ -17463,7 +17457,7 @@
     },
     {
       "id": "med-sedapartad-derma-864105",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área general, con reparación mediante colgajo o injerto (Apartadó)",
+      "nombre": "Dra. Sara Villa Molina",
       "registroMedico": "RM-SEDAPARTAD-88682",
       "especialidadId": "esp-derma-864105",
       "sedeId": "sede-7e12b259",
@@ -17496,7 +17490,7 @@
     },
     {
       "id": "med-sedapartad-derma-864201",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, hasta 1 cm (Apartadó)",
+      "nombre": "Dr. Esteban Uribe Castro",
       "registroMedico": "RM-SEDAPARTAD-47993",
       "especialidadId": "esp-derma-864201",
       "sedeId": "sede-7e12b259",
@@ -17529,7 +17523,7 @@
     },
     {
       "id": "med-sedapartad-derma-864202",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 1 y 2 cm (Apartadó)",
+      "nombre": "Dra. Patricia Flórez Medina",
       "registroMedico": "RM-SEDAPARTAD-63078",
       "especialidadId": "esp-derma-864202",
       "sedeId": "sede-7e12b259",
@@ -17562,7 +17556,7 @@
     },
     {
       "id": "med-sedapartad-derma-864203",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 2 y 3 cm (Apartadó)",
+      "nombre": "Dr. Alejandro Tabares Londoño",
       "registroMedico": "RM-SEDAPARTAD-46217",
       "especialidadId": "esp-derma-864203",
       "sedeId": "sede-7e12b259",
@@ -17595,7 +17589,7 @@
     },
     {
       "id": "med-sedapartad-derma-864204",
-      "nombre": "Dr(a). Especialista en Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 3 y 5 cm (Apartadó)",
+      "nombre": "Dra. Adriana Cardona García",
       "registroMedico": "RM-SEDAPARTAD-42747",
       "especialidadId": "esp-derma-864204",
       "sedeId": "sede-7e12b259",
@@ -17628,7 +17622,7 @@
     },
     {
       "id": "med-sedapartad-derma-868104",
-      "nombre": "Dr(a). Especialista en Resección de cicatriz hipertrófica o queloide en área especial (Apartadó)",
+      "nombre": "Dr. Santiago Carvajal Moreno",
       "registroMedico": "RM-SEDAPARTAD-92363",
       "especialidadId": "esp-derma-868104",
       "sedeId": "sede-7e12b259",
@@ -17661,7 +17655,7 @@
     },
     {
       "id": "med-sedapartad-derma-861401",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, hasta 5 lesiones (Apartadó)",
+      "nombre": "Dra. Sandra Milena Castaño Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-68543",
       "especialidadId": "esp-derma-861401",
       "sedeId": "sede-7e12b259",
@@ -17694,7 +17688,7 @@
     },
     {
       "id": "med-sedapartad-derma-861402",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, entre 5 y 10 lesiones (Apartadó)",
+      "nombre": "Dr. David Piedrahíta Ramos",
       "registroMedico": "RM-SEDAPARTAD-31382",
       "especialidadId": "esp-derma-861402",
       "sedeId": "sede-7e12b259",
@@ -17727,7 +17721,7 @@
     },
     {
       "id": "med-sedapartad-derma-861403",
-      "nombre": "Dr(a). Especialista en Infiltración intralesional con medicamento, más de 10 lesiones (Apartadó)",
+      "nombre": "Dra. Lorena Gómez Molina",
       "registroMedico": "RM-SEDAPARTAD-42679",
       "especialidadId": "esp-derma-861403",
       "sedeId": "sede-7e12b259",
@@ -17760,7 +17754,7 @@
     },
     {
       "id": "med-sedapartad-derma-861411",
-      "nombre": "Dr(a). Especialista en Inyección de material miorrelajante (toxina botulínica) (Apartadó)",
+      "nombre": "Dr. Felipe Ospina Castro",
       "registroMedico": "RM-SEDAPARTAD-49085",
       "especialidadId": "esp-derma-861411",
       "sedeId": "sede-7e12b259",
@@ -17793,7 +17787,7 @@
     },
     {
       "id": "med-sedapartad-urologia",
-      "nombre": "Dr(a). Especialista en Urología (Consulta) (Apartadó)",
+      "nombre": "Dra. Viviana Quintero Medina",
       "registroMedico": "RM-SEDAPARTAD-56346",
       "especialidadId": "esp-urologia",
       "sedeId": "sede-7e12b259",
@@ -17826,7 +17820,7 @@
     },
     {
       "id": "med-sedapartad-uro-573201",
-      "nombre": "Dr(a). Especialista en Cistoscopia transuretral (Apartadó)",
+      "nombre": "Dr. Manuel Antonio Suescún Londoño",
       "registroMedico": "RM-SEDAPARTAD-76816",
       "especialidadId": "esp-uro-573201",
       "sedeId": "sede-7e12b259",
@@ -17859,7 +17853,7 @@
     },
     {
       "id": "med-sedapartad-uro-583201",
-      "nombre": "Dr(a). Especialista en Fulguración de lesiones uretrales vía abierta (Apartadó)",
+      "nombre": "Dra. Liliana Méndez García",
       "registroMedico": "RM-SEDAPARTAD-98840",
       "especialidadId": "esp-uro-583201",
       "sedeId": "sede-7e12b259",
@@ -17892,7 +17886,7 @@
     },
     {
       "id": "med-sedapartad-uro-601101",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada de próstata por abordaje transrectal (Apartadó)",
+      "nombre": "Dr. Javier Vargas Moreno",
       "registroMedico": "RM-SEDAPARTAD-56959",
       "especialidadId": "esp-uro-601101",
       "sedeId": "sede-7e12b259",
@@ -17925,7 +17919,7 @@
     },
     {
       "id": "med-sedapartad-uro-976203",
-      "nombre": "Dr(a). Especialista en Extracción de catéter ureteral vía endoscópica (Apartadó)",
+      "nombre": "Dra. Silvia Botero Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-36664",
       "especialidadId": "esp-uro-976203",
       "sedeId": "sede-7e12b259",
@@ -17958,7 +17952,7 @@
     },
     {
       "id": "med-sedapartad-ortopedia",
-      "nombre": "Dr(a). Especialista en Ortopedia y traumatología (Consulta) (Apartadó)",
+      "nombre": "Dr. Leonardo Mena Ramos",
       "registroMedico": "RM-SEDAPARTAD-49560",
       "especialidadId": "esp-ortopedia",
       "sedeId": "sede-7e12b259",
@@ -17991,7 +17985,7 @@
     },
     {
       "id": "med-sedapartad-orto-839601",
-      "nombre": "Dr(a). Especialista en Inyección o infiltración de sustancia terapéutica dentro de bursa (Apartadó)",
+      "nombre": "Dra. Valentina Ortiz Molina",
       "registroMedico": "RM-SEDAPARTAD-64790",
       "especialidadId": "esp-orto-839601",
       "sedeId": "sede-7e12b259",
@@ -18024,7 +18018,7 @@
     },
     {
       "id": "med-sedapartad-orto-832102",
-      "nombre": "Dr(a). Especialista en Biopsia percutánea de tejido blando: músculo, tendón, fascia y bursa (Apartadó)",
+      "nombre": "Dr. Gustavo Osorio Castro",
       "registroMedico": "RM-SEDAPARTAD-69437",
       "especialidadId": "esp-orto-832102",
       "sedeId": "sede-7e12b259",
@@ -18057,7 +18051,7 @@
     },
     {
       "id": "med-sedapartad-orto-982001",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño no intraluminal (Apartadó)",
+      "nombre": "Dra. Diana Sofía Vélez Medina",
       "registroMedico": "RM-SEDAPARTAD-94090",
       "especialidadId": "esp-orto-982001",
       "sedeId": "sede-7e12b259",
@@ -18090,7 +18084,7 @@
     },
     {
       "id": "med-sedapartad-orto-982601",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en mano (Apartadó)",
+      "nombre": "Dr. Fabio Posada Londoño",
       "registroMedico": "RM-SEDAPARTAD-19600",
       "especialidadId": "esp-orto-982601",
       "sedeId": "sede-7e12b259",
@@ -18123,7 +18117,7 @@
     },
     {
       "id": "med-sedapartad-orto-982701",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en brazo y antebrazo (Apartadó)",
+      "nombre": "Dra. Natalia Montoya García",
       "registroMedico": "RM-SEDAPARTAD-85400",
       "especialidadId": "esp-orto-982701",
       "sedeId": "sede-7e12b259",
@@ -18156,7 +18150,7 @@
     },
     {
       "id": "med-sedapartad-orto-982801",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en pie (Apartadó)",
+      "nombre": "Dr. Víctor Hugo Cano Moreno",
       "registroMedico": "RM-SEDAPARTAD-21166",
       "especialidadId": "esp-orto-982801",
       "sedeId": "sede-7e12b259",
@@ -18189,7 +18183,7 @@
     },
     {
       "id": "med-sedapartad-orto-982901",
-      "nombre": "Dr(a). Especialista en Extracción sin incisión de cuerpo extraño en miembro inferior, excepto pie (Apartadó)",
+      "nombre": "Dra. Daniela Berrío Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-12620",
       "especialidadId": "esp-orto-982901",
       "sedeId": "sede-7e12b259",
@@ -18222,7 +18216,7 @@
     },
     {
       "id": "med-sedapartad-orto-862701",
-      "nombre": "Dr(a). Especialista en Onicectomía (Apartadó)",
+      "nombre": "Dr. Sergio Marín Ramos",
       "registroMedico": "RM-SEDAPARTAD-13759",
       "especialidadId": "esp-orto-862701",
       "sedeId": "sede-7e12b259",
@@ -18255,7 +18249,7 @@
     },
     {
       "id": "med-sedapartad-orto-862702",
-      "nombre": "Dr(a). Especialista en Matricectomía parcial (Apartadó)",
+      "nombre": "Dra. Camila Agudelo Molina",
       "registroMedico": "RM-SEDAPARTAD-31779",
       "especialidadId": "esp-orto-862702",
       "sedeId": "sede-7e12b259",
@@ -18288,7 +18282,7 @@
     },
     {
       "id": "med-sedapartad-orto-862703",
-      "nombre": "Dr(a). Especialista en Matricectomía total (Apartadó)",
+      "nombre": "Dr. Tomás Ramírez Castro",
       "registroMedico": "RM-SEDAPARTAD-98931",
       "especialidadId": "esp-orto-862703",
       "sedeId": "sede-7e12b259",
@@ -18321,7 +18315,7 @@
     },
     {
       "id": "med-sedapartad-cirugia-general",
-      "nombre": "Dr(a). Especialista en Cirugía general (Consulta) (Apartadó)",
+      "nombre": "Dra. Sofía Guzmán Medina",
       "registroMedico": "RM-SEDAPARTAD-71744",
       "especialidadId": "esp-cirugia-general",
       "sedeId": "sede-7e12b259",
@@ -18354,7 +18348,7 @@
     },
     {
       "id": "med-sedapartad-cir-501002",
-      "nombre": "Dr(a). Especialista en Biopsia cerrada percutánea de hígado (Apartadó)",
+      "nombre": "Dr. Carlos Eduardo Barrientos Londoño",
       "registroMedico": "RM-SEDAPARTAD-52410",
       "especialidadId": "esp-cir-501002",
       "sedeId": "sede-7e12b259",
@@ -18387,7 +18381,7 @@
     },
     {
       "id": "med-sedapartad-cir-345401",
-      "nombre": "Dr(a). Especialista en Biopsia percutánea de pleura (Apartadó)",
+      "nombre": "Dra. Carolina Villamizar García",
       "registroMedico": "RM-SEDAPARTAD-23904",
       "especialidadId": "esp-cir-345401",
       "sedeId": "sede-7e12b259",
@@ -18420,7 +18414,7 @@
     },
     {
       "id": "med-sedapartad-terapia-respiratoria",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria (Consulta) (Apartadó)",
+      "nombre": "Dr. Andrés Felipe Morales Moreno",
       "registroMedico": "RM-SEDAPARTAD-35491",
       "especialidadId": "esp-terapia-respiratoria",
       "sedeId": "sede-7e12b259",
@@ -18453,7 +18447,7 @@
     },
     {
       "id": "med-sedapartad-resp-893703",
-      "nombre": "Dr(a). Especialista en Espirometría (Apartadó)",
+      "nombre": "Dra. Isabella Rojas Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-19578",
       "especialidadId": "esp-resp-893703",
       "sedeId": "sede-7e12b259",
@@ -18486,7 +18480,7 @@
     },
     {
       "id": "med-sedapartad-resp-893805",
-      "nombre": "Dr(a). Especialista en Espirometría o curva de flujo-volumen pre y post broncodilatadores (Apartadó)",
+      "nombre": "Dr. Fernando Herrera Ramos",
       "registroMedico": "RM-SEDAPARTAD-19023",
       "especialidadId": "esp-resp-893805",
       "sedeId": "sede-7e12b259",
@@ -18519,7 +18513,7 @@
     },
     {
       "id": "med-sedapartad-resp-893808",
-      "nombre": "Dr(a). Especialista en Espirometría o curva de flujo-volumen simple (Apartadó)",
+      "nombre": "Dra. Lucía Echeverri Molina",
       "registroMedico": "RM-SEDAPARTAD-23769",
       "especialidadId": "esp-resp-893808",
       "sedeId": "sede-7e12b259",
@@ -18552,7 +18546,7 @@
     },
     {
       "id": "med-sedapartad-resp-894402",
-      "nombre": "Dr(a). Especialista en Prueba de caminata de 6 minutos (Apartadó)",
+      "nombre": "Dr. Mauricio Londoño Castro",
       "registroMedico": "RM-SEDAPARTAD-94400",
       "especialidadId": "esp-resp-894402",
       "sedeId": "sede-7e12b259",
@@ -18585,7 +18579,7 @@
     },
     {
       "id": "med-sedapartad-resp-933501",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación pulmonar (Apartadó)",
+      "nombre": "Dra. Gabriela Jiménez Medina",
       "registroMedico": "RM-SEDAPARTAD-45462",
       "especialidadId": "esp-resp-933501",
       "sedeId": "sede-7e12b259",
@@ -18618,7 +18612,7 @@
     },
     {
       "id": "med-sedapartad-resp-939403",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria integral (Apartadó)",
+      "nombre": "Dr. Ricardo Consuegra Londoño",
       "registroMedico": "RM-SEDAPARTAD-59058",
       "especialidadId": "esp-resp-939403",
       "sedeId": "sede-7e12b259",
@@ -18651,7 +18645,7 @@
     },
     {
       "id": "med-sedapartad-psicologia",
-      "nombre": "Dr(a). Especialista en Psicología (Consulta) (Apartadó)",
+      "nombre": "Lic. Andrea Catalina Peña Lozano",
       "registroMedico": "RM-SEDAPARTAD-36148",
       "especialidadId": "esp-psicologia",
       "sedeId": "sede-7e12b259",
@@ -18684,7 +18678,7 @@
     },
     {
       "id": "med-sedapartad-nutricion",
-      "nombre": "Dr(a). Especialista en Nutrición y dietética (Consulta) (Apartadó)",
+      "nombre": "Dr. Esteban Cadavid Moreno",
       "registroMedico": "RM-SEDAPARTAD-14910",
       "especialidadId": "esp-nutricion",
       "sedeId": "sede-7e12b259",
@@ -18717,7 +18711,7 @@
     },
     {
       "id": "med-sedapartad-terapia-ocupacional",
-      "nombre": "Dr(a). Especialista en Terapia ocupacional (Consulta) (Apartadó)",
+      "nombre": "Dra. Gloria Inés Lopera Gutiérrez",
       "registroMedico": "RM-SEDAPARTAD-15761",
       "especialidadId": "esp-terapia-ocupacional",
       "sedeId": "sede-7e12b259",
@@ -18750,7 +18744,7 @@
     },
     {
       "id": "med-sedapartad-proc-interv-061002",
-      "nombre": "Dr(a). Especialista en Biopsia de glándula tiroides vía percutánea (Apartadó)",
+      "nombre": "Dr. Alejandro Correa Ramos",
       "registroMedico": "RM-SEDAPARTAD-23109",
       "especialidadId": "esp-proc-interv-061002",
       "sedeId": "sede-7e12b259",
@@ -18783,7 +18777,7 @@
     },
     {
       "id": "med-sedapartad-proc-interv-851102",
-      "nombre": "Dr(a). Especialista en Biopsia de mama con aguja (Trucut) (Apartadó)",
+      "nombre": "Dra. Mónica Saldarriaga Molina",
       "registroMedico": "RM-SEDAPARTAD-57074",
       "especialidadId": "esp-proc-interv-851102",
       "sedeId": "sede-7e12b259",
@@ -18816,7 +18810,7 @@
     },
     {
       "id": "med-sedapartad-rehab-933601",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación cardiovascular (Apartadó)",
+      "nombre": "Dr. Santiago Henao Castro",
       "registroMedico": "RM-SEDAPARTAD-58726",
       "especialidadId": "esp-rehab-933601",
       "sedeId": "sede-7e12b259",
@@ -18849,7 +18843,7 @@
     },
     {
       "id": "med-sedapartad-rehab-933501",
-      "nombre": "Dr(a). Especialista en Terapia de rehabilitación pulmonar (Apartadó)",
+      "nombre": "Dra. Cristina Palacio Medina",
       "registroMedico": "RM-SEDAPARTAD-25646",
       "especialidadId": "esp-rehab-933501",
       "sedeId": "sede-7e12b259",
@@ -18882,7 +18876,7 @@
     },
     {
       "id": "med-sedapartad-rehab-939403",
-      "nombre": "Dr(a). Especialista en Terapia respiratoria integral (Apartadó)",
+      "nombre": "Dr. David Ceballos Londoño",
       "registroMedico": "RM-SEDAPARTAD-13094",
       "especialidadId": "esp-rehab-939403",
       "sedeId": "sede-7e12b259",
@@ -18915,7 +18909,7 @@
     },
     {
       "id": "med-sedapartad-rehab-894402",
-      "nombre": "Dr(a). Especialista en Prueba de caminata de 6 minutos (Apartadó)",
+      "nombre": "Dra. Angela María Gutiérrez García",
       "registroMedico": "RM-SEDAPARTAD-40410",
       "especialidadId": "esp-rehab-894402",
       "sedeId": "sede-7e12b259",
@@ -18944,6 +18938,133 @@
           "motivo": "Descanso médico"
         }
       ],
+      "activo": true
+    },
+    {
+      "id": "med-1",
+      "nombre": "Dr. Carlos Eduardo Restrepo",
+      "registroMedico": "RM-102948-BOG",
+      "especialidadId": "esp-urologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 402-A",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [
+        {
+          "id": "pausa-demo-1",
+          "horaInicio": "09:00",
+          "horaFin": "09:30",
+          "motivo": "Descanso médico y pausa activa"
+        }
+      ],
+      "activo": true
+    },
+    {
+      "id": "med-4",
+      "nombre": "Dr. Jorge Ignacio Morales",
+      "registroMedico": "RM-993215-BOG",
+      "especialidadId": "esp-medicina-interna",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 404",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [],
+      "activo": true
+    },
+    {
+      "id": "med-6",
+      "nombre": "Dr. Fernando Quintero Rojas",
+      "registroMedico": "RM-612450-BOG",
+      "especialidadId": "esp-cardiologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 301",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [],
+      "activo": true
+    },
+    {
+      "id": "med-8",
+      "nombre": "Dra. Claudia Patricia Herrera",
+      "registroMedico": "RM-441290-BOG",
+      "especialidadId": "esp-dermatologia",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 205",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [],
+      "activo": true
+    },
+    {
+      "id": "med-23070185",
+      "nombre": "Dr. Alejandro Restrepo Botero",
+      "registroMedico": "RM-23070185-MED",
+      "especialidadId": "esp-medicina-general",
+      "sedeId": "sede-fa3dc377",
+      "consultorio": "Cons. 101",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [],
+      "activo": true
+    },
+    {
+      "id": "med-cbabolvar-cardio",
+      "nombre": "Dra. Mariana Duque Ortiz",
+      "registroMedico": "RM-667120-MED",
+      "especialidadId": "esp-cardiologia",
+      "sedeId": "sede-1f7df4c5",
+      "consultorio": "Cons. 208",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [],
       "activo": true
     }
   ],
@@ -19244,6 +19365,54 @@
       "estado": "confirmada",
       "creadaEn": "2026-10-25T06:55:42.126Z",
       "actualizadaEn": "2026-10-25T06:57:03.286Z"
+    },
+    {
+      "id": "cita-c5e97e7b-5e38-4b47-862f-e34e85d7cb68",
+      "codigoCita": "ARC-2026-1238",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1002086964",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3243552344",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Savia Salud",
+      "motivoConsulta": "Valoración ",
+      "sedeId": "sede-7e12b259",
+      "especialidadId": "esp-psicologia",
+      "departamento": "Psicología, nutrición y terapias de apoyo",
+      "tipoCita": "primera_vez",
+      "codigoCups": "890208",
+      "nombreCups": "Consulta de primera vez por psicología",
+      "medicoId": "med-sedapartad-psicologia",
+      "fecha": "2026-10-27",
+      "hora": "09:45",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-26T21:33:47.292Z"
+    },
+    {
+      "id": "cita-03cc234f-a6ea-40ef-b225-805b066496ae",
+      "codigoCita": "ARC-2026-1753",
+      "pacienteTipoDoc": "CC",
+      "pacienteNumDoc": "1028005718",
+      "pacienteNombres": "Andres",
+      "pacienteApellidos": "Consuegra",
+      "pacienteTelefono": "3116458308",
+      "pacienteEmail": "felipemena2002@gmail.com",
+      "pacienteAseguradora": "Savia Salud",
+      "motivoConsulta": "Me duele el pecho ",
+      "sedeId": "sede-7e12b259",
+      "especialidadId": "esp-medicina-interna",
+      "departamento": "Medicina interna y especialidades médicas",
+      "tipoCita": "control",
+      "codigoCups": "890366",
+      "nombreCups": "Consulta de control o seguimiento por medicina interna",
+      "medicoId": "med-sedapartad-medicina-interna",
+      "fecha": "2026-10-27",
+      "hora": "08:00",
+      "tipoAgendamiento": "web",
+      "estado": "confirmada",
+      "creadaEn": "2026-10-27T01:47:39.789Z"
     }
   ],
   "historialAuditoria": [
@@ -19804,6 +19973,36 @@
       "fecha": "2026-10-25T06:57:03.286Z",
       "accion": "ACTUALIZAR_CITA",
       "descripcion": "Cita ARC-2026-1586 editada/actualizada para paciente Andres Consuegra"
+    },
+    {
+      "id": "log-1793050427292",
+      "fecha": "2026-10-26T21:33:47.292Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1238 agendada vía web [CUPS: 890208 - primera_vez] para paciente Andres Consuegra en 2026-10-27 a las 09:45"
+    },
+    {
+      "id": "log-1793050583348",
+      "fecha": "2026-10-26T21:36:23.348Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1793065418630",
+      "fecha": "2026-10-27T01:43:38.630Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Sebastián Vargas Londoño actualizado. Duración de cita: 20 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1793065659789",
+      "fecha": "2026-10-27T01:47:39.789Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1753 agendada vía web [CUPS: 890366 - control] para paciente Andres Consuegra en 2026-10-27 a las 08:00"
+    },
+    {
+      "id": "log-1793065909876",
+      "fecha": "2026-10-27T01:51:49.876Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
     }
   ],
   "usuarios": [

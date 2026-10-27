@@ -66,7 +66,12 @@ export default function App() {
         {activeTab === 'institucional' && (
           <InstitutionalSection onAgendarClick={() => setActiveTab('web')} />
         )}
-        {activeTab === 'consulta' && <AppointmentLookup />}
+        {activeTab === 'consulta' && (
+          <AppointmentLookup
+            usuarioActual={usuarioActual}
+            onAgendarClick={() => setActiveTab('web')}
+          />
+        )}
         {activeTab === 'presencial' && (
           <PresencialBooking usuarioActual={usuarioActual} onOpenLogin={() => setLoginModalOpen(true)} />
         )}

@@ -64,7 +64,10 @@ export const api = {
     const query = new URLSearchParams(params).toString();
     return request(`/citas${query ? `?${query}` : ''}`);
   },
-  getCitaById: (identificador) => request(`/citas/${identificador}`),
+  getCitaById: (identificador, params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/citas/${identificador}${query ? `?${query}` : ''}`);
+  },
   createCita: (data) => request('/citas', { method: 'POST', body: JSON.stringify(data) }),
   updateCita: (id, data) => request(`/citas/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   updateEstadoCita: (id, estado, motivoCancelacion = '') =>

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Building2, Stethoscope, Users, Calendar, Settings, Plus,
   Edit2, Trash2, Check, X, FileDown, Activity, RefreshCw, AlertCircle,
   UserCheck, ShieldAlert, Lock, KeyRound, CheckCircle2,
-  FileSpreadsheet, Download, Copy, Crown, Clock, Coffee, Sliders, Filter
+  FileSpreadsheet, Download, Copy, Crown, Clock, Coffee, Sliders, Filter,
+  Search, User
 } from 'lucide-react';
 import { api } from '../services/api';
 import { generarComprobantePDF } from '../utils/pdfGenerator';
@@ -89,12 +90,27 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   const [filtroFechaTipo, setFiltroFechaTipo] = useState('todas'); // 'todas' | 'hoy' | 'manana' | 'semana' | 'especifica'
   const [fechaFiltro, setFechaFiltro] = useState(() => new Date().toISOString().split('T')[0]);
   const [filtroMedico, setFiltroMedico] = useState('');
+  const [busquedaMedicoTexto, setBusquedaMedicoTexto] = useState('');
+  const [mostrarDropdownMedicos, setMostrarDropdownMedicos] = useState(false);
+  const [filtroEspecialidadCitas, setFiltroEspecialidadCitas] = useState('');
+  const doctorSearchRef = useRef(null);
+
   const [filtroSede, setFiltroSede] = useState('');
   const [filtroCanal, setFiltroCanal] = useState('');
   const [filtroEstado, setFiltroEstado] = useState('');
   const [busquedaDoc, setBusquedaDoc] = useState('');
   const [vistaModoCitas, setVistaModoCitas] = useState('agenda'); // 'agenda' | 'tabla'
   const [copiadoExitoso, setCopiadoExitoso] = useState(false);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (doctorSearchRef.current && !doctorSearchRef.current.contains(event.target)) {
+        setMostrarDropdownMedicos(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     cargarTodo();
@@ -409,11 +425,34 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   // ==========================================
   const hoyStr = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 
+  // Lista de médicos filtrados para el buscador inteligente por nombre
+  const medicosFiltradosPorBusqueda = medicos.filter(m => {
+    if (filtroSede && m.sedeId !== filtroSede) return false;
+    if (filtroEspecialidadCitas && m.especialidadId !== filtroEspecialidadCitas) return false;
+    if (!busquedaMedicoTexto.trim()) return true;
+    const q = busquedaMedicoTexto.toLowerCase().trim();
+    return (
+      (m.nombre && m.nombre.toLowerCase().includes(q)) ||
+      (m.especialidadNombre && m.especialidadNombre.toLowerCase().includes(q)) ||
+      (m.registroMedico && m.registroMedico.toLowerCase().includes(q))
+    );
+  });
+
   const citasFiltradas = citas.filter(c => {
     if (filtroSede && c.sedeId !== filtroSede) return false;
     if (filtroCanal && c.tipoAgendamiento !== filtroCanal) return false;
     if (filtroEstado && c.estado !== filtroEstado) return false;
+    if (filtroEspecialidadCitas && c.especialidadId !== filtroEspecialidadCitas) return false;
+    
+    // Filtro por médico específico seleccionado
     if (filtroMedico && c.medicoId !== filtroMedico) return false;
+
+    // Búsqueda por nombre de médico si el usuario escribió en el buscador pero no seleccionó un ID exacto
+    if (!filtroMedico && busquedaMedicoTexto.trim()) {
+      const qMed = busquedaMedicoTexto.toLowerCase().trim();
+      const medNom = (c.medico?.nombre || '').toLowerCase();
+      if (!medNom.includes(qMed)) return false;
+    }
 
     // Filtro por Días
     if (filtroFechaTipo === 'hoy') {
@@ -432,13 +471,15 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
       if (fechaFiltro && c.fecha !== fechaFiltro) return false;
     }
 
+    // Búsqueda por documento, nombre paciente, radicado o nombre del médico
     if (busquedaDoc) {
       const term = busquedaDoc.toLowerCase().trim();
       const numDoc = (c.pacienteNumDoc || '').toLowerCase();
       const nom = (c.pacienteNombres || '').toLowerCase();
       const ape = (c.pacienteApellidos || '').toLowerCase();
       const rad = (c.codigoCita || '').toLowerCase();
-      if (!numDoc.includes(term) && !nom.includes(term) && !ape.includes(term) && !rad.includes(term)) {
+      const medNom = (c.medico?.nombre || '').toLowerCase();
+      if (!numDoc.includes(term) && !nom.includes(term) && !ape.includes(term) && !rad.includes(term) && !medNom.includes(term)) {
         return false;
       }
     }
@@ -457,7 +498,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
     const fechaDesc = filtroFechaTipo === 'especifica' ? fechaFiltro : filtroFechaTipo;
 
     exportarCitasAExcel(citasFiltradas, {
-      nombreEspecialista: med ? med.nombre : 'Todos',
+      nombreEspecialista: med ? med.nombre : (busquedaMedicoTexto ? busquedaMedicoTexto : 'Todos'),
       fechaFiltro: fechaDesc,
       sedeFiltro: sedeObj ? sedeObj.nombre : 'Todas'
     });
@@ -1432,27 +1473,189 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
               </div>
             </div>
 
-            {/* Filtros Secundarios: Especialista, Sede, Canal, Estado y Documento */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.6rem' }}>
+            {/* Filtros Secundarios: Especialista Médico (Buscador por Nombre), Especialidad, Sede, Canal, Estado y Búsqueda */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: '0.6rem' }}>
+              
+              {/* FILTRO 1: ESPECIALISTA MÉDICO (Buscador interactivo por Nombre del Médico) */}
+              <div ref={doctorSearchRef} style={{ position: 'relative' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.2rem' }}>
+                  <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                    <User size={13} color="#028090" />
+                    <span>Especialista Médico:</span>
+                  </label>
+                  {(filtroMedico || busquedaMedicoTexto) && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFiltroMedico('');
+                        setBusquedaMedicoTexto('');
+                        setMostrarDropdownMedicos(false);
+                      }}
+                      style={{ fontSize: '0.7rem', color: '#DC2626', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontWeight: 700 }}
+                      title="Quitar filtro de médico"
+                    >
+                      ✕ Quitar
+                    </button>
+                  )}
+                </div>
+
+                <div style={{ position: 'relative' }}>
+                  <input
+                    type="text"
+                    className="form-input"
+                    style={{
+                      width: '100%',
+                      fontSize: '0.82rem',
+                      padding: '0.45rem 1.8rem 0.45rem 2rem',
+                      borderColor: filtroMedico ? 'var(--brand-cyan)' : '#CBD5E1',
+                      background: filtroMedico ? '#F0FDFA' : '#FFFFFF',
+                      fontWeight: filtroMedico ? 700 : 500,
+                      color: filtroMedico ? 'var(--brand-cyan-dark)' : '#0F172A'
+                    }}
+                    placeholder="Buscar médico por nombre..."
+                    value={busquedaMedicoTexto}
+                    onChange={e => {
+                      setBusquedaMedicoTexto(e.target.value);
+                      setMostrarDropdownMedicos(true);
+                      if (!e.target.value.trim()) {
+                        setFiltroMedico('');
+                      }
+                    }}
+                    onFocus={() => setMostrarDropdownMedicos(true)}
+                  />
+                  <Search size={14} color="#64748B" style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }} />
+                  {busquedaMedicoTexto && (
+                    <button
+                      type="button"
+                      style={{ position: 'absolute', right: '6px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#94A3B8' }}
+                      onClick={() => {
+                        setBusquedaMedicoTexto('');
+                        setFiltroMedico('');
+                        setMostrarDropdownMedicos(false);
+                      }}
+                      title="Limpiar búsqueda"
+                    >
+                      <X size={14} />
+                    </button>
+                  )}
+                </div>
+
+                {/* Dropdown flotante con lista de médicos filtrados en tiempo real por nombre */}
+                {mostrarDropdownMedicos && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '100%',
+                      left: 0,
+                      right: 0,
+                      maxHeight: '270px',
+                      overflowY: 'auto',
+                      background: '#FFFFFF',
+                      border: '1.5px solid var(--brand-cyan)',
+                      borderRadius: '8px',
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+                      zIndex: 1000,
+                      marginTop: '4px'
+                    }}
+                  >
+                    <div
+                      onClick={() => {
+                        setFiltroMedico('');
+                        setBusquedaMedicoTexto('');
+                        setMostrarDropdownMedicos(false);
+                      }}
+                      style={{
+                        padding: '0.5rem 0.75rem',
+                        cursor: 'pointer',
+                        fontSize: '0.78rem',
+                        color: '#64748B',
+                        borderBottom: '1px solid #E2E8F0',
+                        fontWeight: !filtroMedico ? 700 : 500,
+                        background: !filtroMedico ? '#F1F5F9' : '#FFFFFF'
+                      }}
+                    >
+                      ● Todos los Médicos (Sin filtro específico)
+                    </div>
+
+                    {medicosFiltradosPorBusqueda.length === 0 ? (
+                      <div style={{ padding: '0.8rem', fontSize: '0.78rem', color: '#94A3B8', textAlign: 'center' }}>
+                        No se encontró ningún médico con ese nombre
+                      </div>
+                    ) : (
+                      medicosFiltradosPorBusqueda.slice(0, 50).map(m => {
+                        const isSelected = filtroMedico === m.id;
+                        return (
+                          <div
+                            key={m.id}
+                            onClick={() => {
+                              setFiltroMedico(m.id);
+                              setBusquedaMedicoTexto(m.nombre);
+                              setMostrarDropdownMedicos(false);
+                            }}
+                            style={{
+                              padding: '0.45rem 0.75rem',
+                              cursor: 'pointer',
+                              borderBottom: '1px solid #F8FAFC',
+                              background: isSelected ? '#ECFDF5' : '#FFFFFF',
+                              fontSize: '0.8rem',
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center'
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.background = isSelected ? '#D1FAE5' : '#F8FAFC'}
+                            onMouseLeave={e => e.currentTarget.style.background = isSelected ? '#ECFDF5' : '#FFFFFF'}
+                          >
+                            <div>
+                              <div style={{ fontWeight: 800, color: '#0F172A' }}>{m.nombre}</div>
+                              <div style={{ fontSize: '0.7rem', color: '#64748B' }}>
+                                {m.especialidadNombre} • {m.sedeNombre} ({m.consultorio})
+                              </div>
+                            </div>
+                            <span style={{ fontSize: '0.68rem', background: '#E0F2FE', color: '#0369A1', padding: '0.12rem 0.4rem', borderRadius: '4px', fontWeight: 700 }}>
+                              {m.duracionCitaMinutos || 30}m
+                            </span>
+                          </div>
+                        );
+                      })
+                    )}
+                    {medicosFiltradosPorBusqueda.length > 50 && (
+                      <div style={{ padding: '0.4rem', fontSize: '0.7rem', color: '#64748B', textAlign: 'center', background: '#F8FAFC' }}>
+                        Mostrando primeros 50 resultados. Escriba para filtrar con mayor precisión.
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* FILTRO 2: ESPECIALIDAD MÉDICA */}
               <div>
                 <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', display: 'block', marginBottom: '0.2rem' }}>
-                  Especialista Médico:
+                  Especialidad Médica:
                 </label>
                 <select
                   className="form-select"
                   style={{ width: '100%', fontSize: '0.82rem', padding: '0.45rem' }}
-                  value={filtroMedico}
-                  onChange={e => setFiltroMedico(e.target.value)}
+                  value={filtroEspecialidadCitas}
+                  onChange={e => {
+                    const nuevaEsp = e.target.value;
+                    setFiltroEspecialidadCitas(nuevaEsp);
+                    if (nuevaEsp && filtroMedico) {
+                      const medAct = medicos.find(m => m.id === filtroMedico);
+                      if (medAct && medAct.especialidadId !== nuevaEsp) {
+                        setFiltroMedico('');
+                        setBusquedaMedicoTexto('');
+                      }
+                    }
+                  }}
                 >
-                  <option value="">Todos los Especialistas</option>
-                  {medicos.map(m => (
-                    <option key={m.id} value={m.id}>
-                      {m.nombre} — {m.especialidadNombre} ({m.duracionCitaMinutos || 30} min)
-                    </option>
+                  <option value="">Todas las Especialidades</option>
+                  {especialidades.map(esp => (
+                    <option key={esp.id} value={esp.id}>{esp.nombre}</option>
                   ))}
                 </select>
               </div>
 
+              {/* FILTRO 3: SEDE IPS */}
               <div>
                 <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', display: 'block', marginBottom: '0.2rem' }}>
                   Sede IPS:
@@ -1470,6 +1673,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 </select>
               </div>
 
+              {/* FILTRO 4: CANAL DE RESERVA */}
               <div>
                 <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', display: 'block', marginBottom: '0.2rem' }}>
                   Canal de Reserva:
@@ -1486,6 +1690,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 </select>
               </div>
 
+              {/* FILTRO 5: ESTADO DE LA CITA */}
               <div>
                 <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', display: 'block', marginBottom: '0.2rem' }}>
                   Estado de la Cita:
@@ -1506,14 +1711,15 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 </select>
               </div>
 
+              {/* FILTRO 6: BÚSQUEDA GENERAL */}
               <div>
                 <label style={{ fontSize: '0.72rem', fontWeight: 700, color: '#475569', display: 'block', marginBottom: '0.2rem' }}>
-                  Búsqueda Paciente / Radicado:
+                  Búsqueda Paciente / Radicado / Médico:
                 </label>
                 <input
                   type="text"
                   className="form-input"
-                  placeholder="Doc, nombre o radicado..."
+                  placeholder="Doc, paciente, radicado o médico..."
                   style={{ width: '100%', fontSize: '0.82rem', padding: '0.45rem' }}
                   value={busquedaDoc}
                   onChange={e => setBusquedaDoc(e.target.value)}
