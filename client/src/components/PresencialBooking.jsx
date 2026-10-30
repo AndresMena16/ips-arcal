@@ -844,7 +844,7 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
                     onChange={e => setSelectedMedicoId(e.target.value)}
                   >
                     {medicos.map(med => (
-                      <option key={med.id} value={med.id}>{med.nombre} ({med.consultorio})</option>
+                      <option key={med.id} value={med.id}>{med.nombre} — {med.departamento || med.especialidadNombre} ({med.consultorio})</option>
                     ))}
                   </select>
                 </div>

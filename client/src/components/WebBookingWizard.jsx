@@ -139,7 +139,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
     if (!especialidadesDeLaSede || especialidadesDeLaSede.length === 0) return [];
     const deps = [];
     especialidadesDeLaSede.forEach(esp => {
-      const dep = esp.departamento || 'Medicina general';
+      const dep = esp.departamento || 'Medicina General';
       if (!deps.includes(dep)) {
         deps.push(dep);
       }
@@ -166,7 +166,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
   // Especialidades filtradas por el departamento seleccionado
   const especialidadesFiltradasPorDepartamento = useMemo(() => {
     if (!selectedDepartamento) return especialidadesDeLaSede;
-    return especialidadesDeLaSede.filter(esp => (esp.departamento || 'Medicina general') === selectedDepartamento);
+    return especialidadesDeLaSede.filter(esp => (esp.departamento || 'Medicina General') === selectedDepartamento);
   }, [especialidadesDeLaSede, selectedDepartamento]);
 
   // Especialidad seleccionada actualmente
@@ -203,7 +203,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
   // Manejar cambio de departamento (Nivel 1 del select anidado)
   function handleDepartamentoChange(nuevoDep) {
     setSelectedDepartamento(nuevoDep);
-    const esps = especialidadesDeLaSede.filter(e => (e.departamento || 'Medicina general') === nuevoDep);
+    const esps = especialidadesDeLaSede.filter(e => (e.departamento || 'Medicina General') === nuevoDep);
     if (esps.length > 0) {
       const sigueValida = esps.some(e => e.id === selectedEspecialidadId);
       if (!sigueValida) {
@@ -577,7 +577,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
                     <option value="">Sin departamentos disponibles</option>
                   ) : (
                     departamentosDisponibles.map(dep => {
-                      const count = especialidadesDeLaSede.filter(e => (e.departamento || 'Medicina general') === dep).length;
+                      const count = especialidadesDeLaSede.filter(e => (e.departamento || 'Medicina General') === dep).length;
                       return (
                         <option key={dep} value={dep}>
                           {dep} ({count} {count === 1 ? 'servicio' : 'servicios'})
@@ -719,7 +719,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
                <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
                 {departamentosDisponibles.map(dep => {
                   const isSelected = selectedDepartamento === dep;
-                  const count = especialidadesDeLaSede.filter(e => (e.departamento || 'Departamento 1. Medicina general') === dep).length;
+                  const count = especialidadesDeLaSede.filter(e => (e.departamento || 'Medicina General') === dep).length;
                   return (
                     <button
                       key={dep}
@@ -880,7 +880,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
                       <div>
                         <h4>{med.nombre}</h4>
                         <span style={{ fontSize: '0.75rem', color: '#028090', fontWeight: 700 }}>
-                          {med.registroMedico}
+                          {med.registroMedico} • {med.departamento || med.especialidadNombre}
                         </span>
                       </div>
                     </div>

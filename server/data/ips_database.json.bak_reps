@@ -1,0 +1,4868 @@
+{
+  "sedes": [
+    {
+      "id": "sede-fa3dc377",
+      "codigo": "MED-POBLADO",
+      "nombre": "Sede Poblado Medellin",
+      "ciudad": "Medellín, Antioquia",
+      "direccion": "Calle 19a Nro. 44-25 - B/ Poblado Medellín - Antioquia  Torre Medica Salud y Servicio piso 22 Consultorio 2209",
+      "telefono": "323 230 74 53",
+      "email": "[EMAIL_ADDRESS]",
+      "horarioAtencion": "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 1:00 PM",
+      "consultorios": 1,
+      "activa": true,
+      "especialidadesHabilitadas": [
+        "esp-medicina-general",
+        "esp-medicina-interna",
+        "esp-neurologia",
+        "esp-endocrinologia",
+        "esp-nefrologia",
+        "esp-hematologia",
+        "esp-reumatologia",
+        "esp-pediatria",
+        "esp-ginecologia-obstetricia",
+        "esp-gyn-eco-pelv-transvag",
+        "esp-gyn-eco-pelv-transabd",
+        "esp-gyn-eco-obs-transabd",
+        "esp-gyn-eco-obs-transvag",
+        "esp-gyn-eco-obs-transluc",
+        "esp-gyn-eco-obs-detalle",
+        "esp-gyn-perfil-biofisico",
+        "esp-gyn-doppler-placentaria",
+        "esp-gyn-pelvica-doppler",
+        "esp-eco-881305",
+        "esp-eco-881306",
+        "esp-eco-881302",
+        "esp-eco-881332",
+        "esp-eco-881510",
+        "esp-eco-881511",
+        "esp-eco-881501",
+        "esp-eco-881502",
+        "esp-eco-881131",
+        "esp-eco-881132",
+        "esp-eco-881141",
+        "esp-eco-881301",
+        "esp-eco-881112",
+        "esp-eco-881201",
+        "esp-eco-881211",
+        "esp-eco-881601",
+        "esp-eco-881602",
+        "esp-eco-881610",
+        "esp-eco-881611",
+        "esp-eco-881612",
+        "esp-eco-881613",
+        "esp-eco-881620",
+        "esp-eco-881621",
+        "esp-eco-881622",
+        "esp-eco-881630",
+        "esp-eco-881640",
+        "esp-eco-881362",
+        "esp-eco-881390",
+        "esp-dop-882112",
+        "esp-dop-882132",
+        "esp-dop-882203",
+        "esp-dop-882212",
+        "esp-dop-882222",
+        "esp-dop-882232",
+        "esp-dop-882242",
+        "esp-dop-882252",
+        "esp-dop-882262",
+        "esp-dop-882282",
+        "esp-dop-882292",
+        "esp-dop-882294",
+        "esp-dop-882296",
+        "esp-dop-882307",
+        "esp-dop-882308",
+        "esp-dop-882309",
+        "esp-dop-882316",
+        "esp-dop-882317",
+        "esp-dop-882318",
+        "esp-dop-882603",
+        "esp-cirugia-vascular",
+        "esp-rehab-cardiovasc-dep6",
+        "esp-cardiologia",
+        "esp-ecocardiograma-transtoracico",
+        "esp-ecocardiograma-estres",
+        "esp-prueba-esfuerzo",
+        "esp-electrocardiograma",
+        "esp-holter-24h",
+        "esp-telemetria-presion",
+        "esp-mapa-24h",
+        "esp-otorrino",
+        "esp-orl-306001",
+        "esp-orl-965201",
+        "esp-orl-965202",
+        "esp-orl-965203",
+        "esp-orl-202401",
+        "esp-orl-180101",
+        "esp-orl-180302",
+        "esp-orl-181103",
+        "esp-orl-182201",
+        "esp-orl-182301",
+        "esp-orl-250002",
+        "esp-orl-261001",
+        "esp-orl-272401",
+        "esp-orl-274301",
+        "esp-orl-289101",
+        "esp-dermatologia",
+        "esp-derma-860101",
+        "esp-derma-860102",
+        "esp-derma-860103",
+        "esp-derma-863101",
+        "esp-derma-863102",
+        "esp-derma-863103",
+        "esp-derma-863104",
+        "esp-derma-863105",
+        "esp-derma-864101",
+        "esp-derma-864102",
+        "esp-derma-864103",
+        "esp-derma-864104",
+        "esp-derma-864105",
+        "esp-derma-864201",
+        "esp-derma-864202",
+        "esp-derma-864203",
+        "esp-derma-864204",
+        "esp-derma-868104",
+        "esp-derma-861401",
+        "esp-derma-861402",
+        "esp-derma-861403",
+        "esp-derma-861411",
+        "esp-urologia",
+        "esp-uro-573201",
+        "esp-uro-583201",
+        "esp-uro-601101",
+        "esp-uro-976203",
+        "esp-ortopedia",
+        "esp-orto-839601",
+        "esp-orto-832102",
+        "esp-orto-982001",
+        "esp-orto-982601",
+        "esp-orto-982701",
+        "esp-orto-982801",
+        "esp-orto-982901",
+        "esp-orto-862701",
+        "esp-orto-862702",
+        "esp-orto-862703",
+        "esp-cirugia-general",
+        "esp-cir-501002",
+        "esp-cir-345401",
+        "esp-terapia-respiratoria",
+        "esp-resp-893703",
+        "esp-resp-893805",
+        "esp-resp-893808",
+        "esp-resp-894402",
+        "esp-resp-933501",
+        "esp-resp-939403",
+        "esp-psicologia",
+        "esp-nutricion",
+        "esp-terapia-ocupacional",
+        "esp-proc-interv-061002",
+        "esp-proc-interv-851102",
+        "esp-rehab-933601",
+        "esp-rehab-933501",
+        "esp-rehab-939403",
+        "esp-rehab-894402"
+      ]
+    },
+    {
+      "id": "sede-1f7df4c5",
+      "codigo": "CBA - BOLÍVAR",
+      "nombre": "Sede Ciudad Bolívar ",
+      "ciudad": "Ciudad Bolívar, Antioquia",
+      "direccion": "Calle 48 #48-01 Local 208 Ciudad Bolívar Antioquia - Centro empresarial privilegio ",
+      "telefono": "311 601 08 95",
+      "email": "",
+      "horarioAtencion": "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 1:00 PM",
+      "consultorios": "1",
+      "activa": true,
+      "especialidadesHabilitadas": [
+        "esp-medicina-general",
+        "esp-medicina-interna",
+        "esp-neurologia",
+        "esp-endocrinologia",
+        "esp-nefrologia",
+        "esp-hematologia",
+        "esp-reumatologia",
+        "esp-pediatria",
+        "esp-ginecologia-obstetricia",
+        "esp-gyn-eco-pelv-transvag",
+        "esp-gyn-eco-pelv-transabd",
+        "esp-gyn-eco-obs-transabd",
+        "esp-gyn-eco-obs-transvag",
+        "esp-gyn-eco-obs-transluc",
+        "esp-gyn-eco-obs-detalle",
+        "esp-gyn-perfil-biofisico",
+        "esp-gyn-doppler-placentaria",
+        "esp-gyn-pelvica-doppler",
+        "esp-eco-881305",
+        "esp-eco-881306",
+        "esp-eco-881302",
+        "esp-eco-881332",
+        "esp-eco-881510",
+        "esp-eco-881511",
+        "esp-eco-881501",
+        "esp-eco-881502",
+        "esp-eco-881131",
+        "esp-eco-881132",
+        "esp-eco-881141",
+        "esp-eco-881301",
+        "esp-eco-881112",
+        "esp-eco-881201",
+        "esp-eco-881211",
+        "esp-eco-881601",
+        "esp-eco-881602",
+        "esp-eco-881610",
+        "esp-eco-881611",
+        "esp-eco-881612",
+        "esp-eco-881613",
+        "esp-eco-881620",
+        "esp-eco-881621",
+        "esp-eco-881622",
+        "esp-eco-881630",
+        "esp-eco-881640",
+        "esp-eco-881362",
+        "esp-eco-881390",
+        "esp-dop-882112",
+        "esp-dop-882132",
+        "esp-dop-882203",
+        "esp-dop-882212",
+        "esp-dop-882222",
+        "esp-dop-882232",
+        "esp-dop-882242",
+        "esp-dop-882252",
+        "esp-dop-882262",
+        "esp-dop-882282",
+        "esp-dop-882292",
+        "esp-dop-882294",
+        "esp-dop-882296",
+        "esp-dop-882307",
+        "esp-dop-882308",
+        "esp-dop-882309",
+        "esp-dop-882316",
+        "esp-dop-882317",
+        "esp-dop-882318",
+        "esp-dop-882603",
+        "esp-cirugia-vascular",
+        "esp-rehab-cardiovasc-dep6",
+        "esp-cardiologia",
+        "esp-ecocardiograma-transtoracico",
+        "esp-ecocardiograma-estres",
+        "esp-prueba-esfuerzo",
+        "esp-electrocardiograma",
+        "esp-holter-24h",
+        "esp-telemetria-presion",
+        "esp-mapa-24h",
+        "esp-otorrino",
+        "esp-orl-306001",
+        "esp-orl-965201",
+        "esp-orl-965202",
+        "esp-orl-965203",
+        "esp-orl-202401",
+        "esp-orl-180101",
+        "esp-orl-180302",
+        "esp-orl-181103",
+        "esp-orl-182201",
+        "esp-orl-182301",
+        "esp-orl-250002",
+        "esp-orl-261001",
+        "esp-orl-272401",
+        "esp-orl-274301",
+        "esp-orl-289101",
+        "esp-dermatologia",
+        "esp-derma-860101",
+        "esp-derma-860102",
+        "esp-derma-860103",
+        "esp-derma-863101",
+        "esp-derma-863102",
+        "esp-derma-863103",
+        "esp-derma-863104",
+        "esp-derma-863105",
+        "esp-derma-864101",
+        "esp-derma-864102",
+        "esp-derma-864103",
+        "esp-derma-864104",
+        "esp-derma-864105",
+        "esp-derma-864201",
+        "esp-derma-864202",
+        "esp-derma-864203",
+        "esp-derma-864204",
+        "esp-derma-868104",
+        "esp-derma-861401",
+        "esp-derma-861402",
+        "esp-derma-861403",
+        "esp-derma-861411",
+        "esp-urologia",
+        "esp-uro-573201",
+        "esp-uro-583201",
+        "esp-uro-601101",
+        "esp-uro-976203",
+        "esp-ortopedia",
+        "esp-orto-839601",
+        "esp-orto-832102",
+        "esp-orto-982001",
+        "esp-orto-982601",
+        "esp-orto-982701",
+        "esp-orto-982801",
+        "esp-orto-982901",
+        "esp-orto-862701",
+        "esp-orto-862702",
+        "esp-orto-862703",
+        "esp-cirugia-general",
+        "esp-cir-501002",
+        "esp-cir-345401",
+        "esp-terapia-respiratoria",
+        "esp-resp-893703",
+        "esp-resp-893805",
+        "esp-resp-893808",
+        "esp-resp-894402",
+        "esp-resp-933501",
+        "esp-resp-939403",
+        "esp-psicologia",
+        "esp-nutricion",
+        "esp-terapia-ocupacional",
+        "esp-proc-interv-061002",
+        "esp-proc-interv-851102",
+        "esp-rehab-933601",
+        "esp-rehab-933501",
+        "esp-rehab-939403",
+        "esp-rehab-894402"
+      ]
+    },
+    {
+      "id": "sede-7e12b259",
+      "codigo": "SED-APARTADÓ",
+      "nombre": "Sede Apartadó",
+      "ciudad": "Apartadó, Antioquia",
+      "direccion": "Cll 99 # 105-44 piso 1 Barrio Ortiz / Apartadó - Antioquia",
+      "telefono": "314 826 53 257",
+      "email": "",
+      "horarioAtencion": "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 1:00 PM",
+      "consultorios": 1,
+      "activa": true,
+      "especialidadesHabilitadas": [
+        "esp-medicina-general",
+        "esp-medicina-interna",
+        "esp-neurologia",
+        "esp-endocrinologia",
+        "esp-nefrologia",
+        "esp-hematologia",
+        "esp-reumatologia",
+        "esp-pediatria",
+        "esp-ginecologia-obstetricia",
+        "esp-gyn-eco-pelv-transvag",
+        "esp-gyn-eco-pelv-transabd",
+        "esp-gyn-eco-obs-transabd",
+        "esp-gyn-eco-obs-transvag",
+        "esp-gyn-eco-obs-transluc",
+        "esp-gyn-eco-obs-detalle",
+        "esp-gyn-perfil-biofisico",
+        "esp-gyn-doppler-placentaria",
+        "esp-gyn-pelvica-doppler",
+        "esp-eco-881305",
+        "esp-eco-881306",
+        "esp-eco-881302",
+        "esp-eco-881332",
+        "esp-eco-881510",
+        "esp-eco-881511",
+        "esp-eco-881501",
+        "esp-eco-881502",
+        "esp-eco-881131",
+        "esp-eco-881132",
+        "esp-eco-881141",
+        "esp-eco-881301",
+        "esp-eco-881112",
+        "esp-eco-881201",
+        "esp-eco-881211",
+        "esp-eco-881601",
+        "esp-eco-881602",
+        "esp-eco-881610",
+        "esp-eco-881611",
+        "esp-eco-881612",
+        "esp-eco-881613",
+        "esp-eco-881620",
+        "esp-eco-881621",
+        "esp-eco-881622",
+        "esp-eco-881630",
+        "esp-eco-881640",
+        "esp-eco-881362",
+        "esp-eco-881390",
+        "esp-dop-882112",
+        "esp-dop-882132",
+        "esp-dop-882203",
+        "esp-dop-882212",
+        "esp-dop-882222",
+        "esp-dop-882232",
+        "esp-dop-882242",
+        "esp-dop-882252",
+        "esp-dop-882262",
+        "esp-dop-882282",
+        "esp-dop-882292",
+        "esp-dop-882294",
+        "esp-dop-882296",
+        "esp-dop-882307",
+        "esp-dop-882308",
+        "esp-dop-882309",
+        "esp-dop-882316",
+        "esp-dop-882317",
+        "esp-dop-882318",
+        "esp-dop-882603",
+        "esp-cirugia-vascular",
+        "esp-rehab-cardiovasc-dep6",
+        "esp-cardiologia",
+        "esp-ecocardiograma-transtoracico",
+        "esp-ecocardiograma-estres",
+        "esp-prueba-esfuerzo",
+        "esp-electrocardiograma",
+        "esp-holter-24h",
+        "esp-telemetria-presion",
+        "esp-mapa-24h",
+        "esp-otorrino",
+        "esp-orl-306001",
+        "esp-orl-965201",
+        "esp-orl-965202",
+        "esp-orl-965203",
+        "esp-orl-202401",
+        "esp-orl-180101",
+        "esp-orl-180302",
+        "esp-orl-181103",
+        "esp-orl-182201",
+        "esp-orl-182301",
+        "esp-orl-250002",
+        "esp-orl-261001",
+        "esp-orl-272401",
+        "esp-orl-274301",
+        "esp-orl-289101",
+        "esp-dermatologia",
+        "esp-derma-860101",
+        "esp-derma-860102",
+        "esp-derma-860103",
+        "esp-derma-863101",
+        "esp-derma-863102",
+        "esp-derma-863103",
+        "esp-derma-863104",
+        "esp-derma-863105",
+        "esp-derma-864101",
+        "esp-derma-864102",
+        "esp-derma-864103",
+        "esp-derma-864104",
+        "esp-derma-864105",
+        "esp-derma-864201",
+        "esp-derma-864202",
+        "esp-derma-864203",
+        "esp-derma-864204",
+        "esp-derma-868104",
+        "esp-derma-861401",
+        "esp-derma-861402",
+        "esp-derma-861403",
+        "esp-derma-861411",
+        "esp-urologia",
+        "esp-uro-573201",
+        "esp-uro-583201",
+        "esp-uro-601101",
+        "esp-uro-976203",
+        "esp-ortopedia",
+        "esp-orto-839601",
+        "esp-orto-832102",
+        "esp-orto-982001",
+        "esp-orto-982601",
+        "esp-orto-982701",
+        "esp-orto-982801",
+        "esp-orto-982901",
+        "esp-orto-862701",
+        "esp-orto-862702",
+        "esp-orto-862703",
+        "esp-cirugia-general",
+        "esp-cir-501002",
+        "esp-cir-345401",
+        "esp-terapia-respiratoria",
+        "esp-resp-893703",
+        "esp-resp-893805",
+        "esp-resp-893808",
+        "esp-resp-894402",
+        "esp-resp-933501",
+        "esp-resp-939403",
+        "esp-psicologia",
+        "esp-nutricion",
+        "esp-terapia-ocupacional",
+        "esp-proc-interv-061002",
+        "esp-proc-interv-851102",
+        "esp-rehab-933601",
+        "esp-rehab-933501",
+        "esp-rehab-939403",
+        "esp-rehab-894402"
+      ]
+    }
+  ],
+  "especialidades": [
+    {
+      "id": "esp-medicina-general",
+      "nombre": "Medicina general",
+      "codigo": "MED-GEN",
+      "departamento": "Medicina general",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Stethoscope",
+      "descripcion": "Consulta médica general ambulatoria de primer nivel para valoración de salud integral, chequeos preventivos y seguimiento de patologías.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890201",
+          "descripcionCups": "Consulta de primera vez por medicina general"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890301",
+          "descripcionCups": "Consulta de control o seguimiento por medicina general"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar documento de identidad original y comprobante de afiliación a Savia Salud o particular.",
+        "Llevar fórmulas médicas y tratamientos farmacológicos que consume habitualmente.",
+        "Llegar 15 minutos antes de la hora fijada para la toma de signos vitales."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-medicina-interna",
+      "nombre": "Medicina interna",
+      "codigo": "MED-INT",
+      "departamento": "Medicina interna y especialidades médicas",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Stethoscope",
+      "descripcion": "Atención médica especializada del adulto para el diagnóstico y tratamiento integral de enfermedades crónicas, sistémicas y metabólicas complejas.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890266",
+          "descripcionCups": "Consulta de primera vez por medicina interna"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890366",
+          "descripcionCups": "Consulta de control o seguimiento por medicina interna"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar historial clínico y resultados de laboratorio recientes (últimos 6 meses).",
+        "Llevar registro de automonitoreo de presión arterial o glucometrías si padece HTA o diabetes.",
+        "Presentar lista detallada de medicamentos con sus dosis diarias exactas."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-neurologia",
+      "nombre": "Neurología",
+      "codigo": "NEURO",
+      "departamento": "Medicina interna y especialidades médicas",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Brain",
+      "descripcion": "Diagnóstico y tratamiento de trastornos del sistema nervioso central y periférico: cefaleas, epilepsia, mareos, neuropatías y alteraciones cognitivas.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890274",
+          "descripcionCups": "Consulta de primera vez por neurología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890374",
+          "descripcionCups": "Consulta de control o seguimiento por neurología"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar neuroimágenes previas (TAC o Resonancia Magnética de cerebro o columna) en CD o placas.",
+        "Llevar resultados de electroencefalograma o electromiografía si dispone de ellos.",
+        "Acudir con un acompañante adulto si presenta episodios de pérdida de conciencia o fallas de memoria."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-endocrinologia",
+      "nombre": "Endocrinología",
+      "codigo": "ENDOCR",
+      "departamento": "Medicina interna y especialidades médicas",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Manejo especializado de trastornos hormonales, tiroides, diabetes mellitus, metabolismo lipídico y alteraciones de glándulas endocrinas.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890244",
+          "descripcionCups": "Consulta de primera vez por endocrinología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890344",
+          "descripcionCups": "Consulta de control o seguimiento por endocrinología"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar resultados recientes de perfil tiroideo (TSH, T4 libre), glicemia y hemoglobina glicosilada.",
+        "Si tiene ecografía de tiroides o gammagrafía previa, llevar imágenes e informes impresos.",
+        "Llevar glucómetro o libreta de registros de azúcar si es paciente diabético."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-nefrologia",
+      "nombre": "Nefrología",
+      "codigo": "NEFRO",
+      "departamento": "Medicina interna y especialidades médicas",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Prevención, diagnóstico y tratamiento de enfermedades renales agudas y crónicas, proteinuria, litiasis y control de hipertensión refractaria.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890268",
+          "descripcionCups": "Consulta de primera vez por nefrología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890368",
+          "descripcionCups": "Consulta de control o seguimiento por nefrología"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar exámenes de creatinina, nitrógeno ureico, uroanálisis y depuración de creatinina o microalbuminuria.",
+        "Llevar ecografía renal y de vías urinarias previa si la tiene.",
+        "Llevar reporte de medicación antihipertensiva y protectores renales."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-hematologia",
+      "nombre": "Hematología",
+      "codigo": "HEMATO",
+      "departamento": "Medicina interna y especialidades médicas",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Evaluación y tratamiento de patologías de la sangre y órganos hematopoyéticos: anemias, leucocitosis, trombocitopenia y trastornos de la coagulación.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890251",
+          "descripcionCups": "Consulta de primera vez por hematología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890351",
+          "descripcionCups": "Consulta de control o seguimiento por hematología"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar hemograma completo reciente con frotis de sangre periférica.",
+        "Llevar ferritina, vitamina B12, ácido fólico y tiempos de coagulación si dispone de ellos.",
+        "Llevar reportes de biopsia de médula ósea o electroforesis de proteínas si aplican."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-reumatologia",
+      "nombre": "Reumatología",
+      "codigo": "REUMATO",
+      "departamento": "Medicina interna y especialidades médicas",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Diagnóstico y manejo de enfermedades autoinmunes y del tejido conectivo: artritis reumatoide, lupus eritematoso, fibromialgia, artrosis y osteoporosis.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890288",
+          "descripcionCups": "Consulta de primera vez por reumatología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890388",
+          "descripcionCups": "Consulta de control o seguimiento por reumatología"
+        }
+      ],
+      "recomendaciones": [
+        "Traer resultados inmunológicos (ANA, factor reumatoide, anti-CCP, VSG y PCR).",
+        "Traer radiografías de articulaciones afectadas y densitometría ósea si las tiene.",
+        "Llevar relación de analgésicos, corticoides e inmunomoduladores que esté recibiendo."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-pediatria",
+      "nombre": "Pediatría",
+      "codigo": "PED",
+      "departamento": "Medicina interna y especialidades médicas",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Baby",
+      "descripcion": "Atención médica integral de la salud, crecimiento físico y desarrollo psicomotor en recién nacidos, niños y adolescentes.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890283",
+          "descripcionCups": "Consulta de primera vez por pediatría"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890383",
+          "descripcionCups": "Consulta de control o seguimiento por pediatría"
+        }
+      ],
+      "recomendaciones": [
+        "El menor de edad debe asistir obligatoriamente en compañía de su padre, madre o tutor legal.",
+        "Llevar carné de vacunación físico actualizado y carné de control de crecimiento y desarrollo.",
+        "Llevar ropa cómoda de dos piezas para la valoración física y antropométrica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-ginecologia-obstetricia",
+      "nombre": "Ginecología y obstetricia (Consulta)",
+      "codigo": "GIN-OBS",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "UserCheck",
+      "descripcion": "Cuidado especializado de la salud reproductiva femenina, control prenatal de alto y bajo riesgo y manejo de patologías ginecológicas.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890250",
+          "descripcionCups": "Consulta de primera vez por ginecología y obstetricia"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890350",
+          "descripcionCups": "Consulta de control o seguimiento por ginecología y obstetricia"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar fecha de última menstruación (FUM) y carné perinatal en caso de embarazo.",
+        "Llevar citologías cervicouterinas y mamografías recientes.",
+        "Llevar ecografías ginecológicas u obstétricas previas."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-eco-pelv-transvag",
+      "nombre": "Ecografía pélvica ginecológica transvaginal",
+      "codigo": "CUPS-881401",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Examen ultrasonográfico de alta resolución vía transvaginal para evaluación de útero, endometrio y ovarios.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ecográfico",
+          "codigoCups": "881401",
+          "descripcionCups": "Ecografía pélvica ginecológica transvaginal"
+        }
+      ],
+      "recomendaciones": [
+        "Vaciar la vejiga antes de ingresar a la toma del examen.",
+        "No requiere ayuno previo.",
+        "Informar si presenta sangrado vaginal activo o dolor pélvico agudo."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-eco-pelv-transabd",
+      "nombre": "Ecografía pélvica ginecológica transabdominal",
+      "codigo": "CUPS-881402",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ultrasonográfico transabdominal de la pelvis femenina para visualización de órganos reproductivos.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ecográfico",
+          "codigoCups": "881402",
+          "descripcionCups": "Ecografía pélvica ginecológica transabdominal"
+        }
+      ],
+      "recomendaciones": [
+        "Tomar 4 vasos de agua 1 hora antes de la cita y no orinar (vejiga llena requerida).",
+        "Llevar ecografías anteriores para comparación."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-eco-obs-transabd",
+      "nombre": "Ecografía obstétrica transabdominal",
+      "codigo": "CUPS-881431",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Baby",
+      "descripcion": "Evaluación obstétrica transabdominal para seguimiento fetal, crecimiento, placenta y líquido amniótico.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ecográfico",
+          "codigoCups": "881431",
+          "descripcionCups": "Ecografía obstétrica transabdominal"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar carné de control prenatal y ecografías del trimestre anterior.",
+        "En embarazos menores a 14 semanas tomar 2 vasos de agua antes del estudio."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-eco-obs-transvag",
+      "nombre": "Ecografía obstétrica transvaginal",
+      "codigo": "CUPS-881432",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Baby",
+      "descripcion": "Estudio ecográfico temprano del embarazo vía transvaginal para confirmación de saco gestacional y vitalidad embrionaria.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ecográfico",
+          "codigoCups": "881432",
+          "descripcionCups": "Ecografía obstétrica transvaginal"
+        }
+      ],
+      "recomendaciones": [
+        "Vejiga vacía antes del examen.",
+        "Presentar prueba de embarazo o beta-hCG cuantitativa si dispone de ella."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-eco-obs-transluc",
+      "nombre": "Ecografía obstétrica con translucencia nucal",
+      "codigo": "CUPS-881436",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Baby",
+      "descripcion": "Tamizaje genético fetal del primer trimestre (semanas 11 a 13.6) para medir translucencia nucal y hueso nasal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ecográfico",
+          "codigoCups": "881436",
+          "descripcionCups": "Ecografía obstétrica con translucencia nucal"
+        }
+      ],
+      "recomendaciones": [
+        "Verificar que la edad gestacional esté estrictamente entre la semana 11+0 y la semana 13+6.",
+        "Llevar ecografía del primer trimestre o FUM confirmada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-eco-obs-detalle",
+      "nombre": "Ecografía obstétrica con detalle anatómico",
+      "codigo": "CUPS-881437",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 40,
+      "icono": "Baby",
+      "descripcion": "Estudio anatómico morfológico detallado de segundo trimestre (semanas 18 a 24) para descartar anomalías estructurales.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ecográfico",
+          "codigoCups": "881437",
+          "descripcionCups": "Ecografía obstétrica con detalle anatómico"
+        }
+      ],
+      "recomendaciones": [
+        "Realizarse idealmente entre las semanas 20 a 24 de gestación.",
+        "Ingerir una comida ligera o snack dulce 20 minutos antes para favorecer el movimiento fetal."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-perfil-biofisico",
+      "nombre": "Perfil biofísico",
+      "codigo": "CUPS-881434",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Evaluación integral del bienestar fetal: movimientos corporales, tono, movimientos respiratorios y volumen de líquido amniótico.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento diagnóstico",
+          "codigoCups": "881434",
+          "descripcionCups": "Perfil biofísico"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir bien hidratada y habiendo consumido alimentos recientemente.",
+        "Llevar carné de control prenatal actualizado."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-doppler-placentaria",
+      "nombre": "Ecografía Doppler obstétrica con evaluación de circulación placentaria",
+      "codigo": "CUPS-882298",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Medición hemodinámica de las arterias uterinas, arteria umbilical y arteria cerebral media fetal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento Doppler",
+          "codigoCups": "882298",
+          "descripcionCups": "Ecografía Doppler obstétrica con evaluación de circulación placentaria"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar ecografías previas e indicación clínica (preeclampsia, RCIU o sospecha de alteración placentaria)."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-gyn-pelvica-doppler",
+      "nombre": "Ecografía pélvica con análisis Doppler",
+      "codigo": "CUPS-881360",
+      "departamento": "Ginecología y obstetricia",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Evaluación ecográfica y vascular de la vascularización en masas anexiales, miomas uterinos o patología endometrial.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento Doppler",
+          "codigoCups": "881360",
+          "descripcionCups": "Ecografía pélvica con análisis Doppler"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar ecografía ginecológica previa que motivó la solicitud del estudio Doppler."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881305",
+      "nombre": "Ecografía de abdomen superior",
+      "codigo": "CUPS-881305",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de abdomen superior.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881305",
+          "descripcionCups": "Ecografía de abdomen superior"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno estricto de 6 a 8 horas.",
+        "Tomar 3 vasos de agua 1 hora antes si incluye vejiga o riñón."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881306",
+      "nombre": "Ecografía de hígado, páncreas, vía biliar y vesícula",
+      "codigo": "CUPS-881306",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de hígado, páncreas, vía biliar y vesícula.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881306",
+          "descripcionCups": "Ecografía de hígado, páncreas, vía biliar y vesícula"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno estricto de 6 a 8 horas.",
+        "Tomar 3 vasos de agua 1 hora antes si incluye vejiga o riñón."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881302",
+      "nombre": "Ecografía de abdomen total",
+      "codigo": "CUPS-881302",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de abdomen total.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881302",
+          "descripcionCups": "Ecografía de abdomen total"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno estricto de 6 a 8 horas.",
+        "Tomar 3 vasos de agua 1 hora antes si incluye vejiga o riñón."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881332",
+      "nombre": "Ecografía de vías urinarias: riñones, vejiga y próstata transabdominal",
+      "codigo": "CUPS-881332",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de vías urinarias: riñones, vejiga y próstata transabdominal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881332",
+          "descripcionCups": "Ecografía de vías urinarias: riñones, vejiga y próstata transabdominal"
+        }
+      ],
+      "recomendaciones": [
+        "Tomar 4 vasos de agua 1 hora antes del examen y retener la orina para vejiga llena."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881510",
+      "nombre": "Ecografía testicular con transductor de 7 MHz o más",
+      "codigo": "CUPS-881510",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía testicular con transductor de 7 MHz o más.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881510",
+          "descripcionCups": "Ecografía testicular con transductor de 7 MHz o más"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881511",
+      "nombre": "Ecografía testicular con análisis Doppler",
+      "codigo": "CUPS-881511",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía testicular con análisis Doppler.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881511",
+          "descripcionCups": "Ecografía testicular con análisis Doppler"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881501",
+      "nombre": "Ecografía de próstata transabdominal",
+      "codigo": "CUPS-881501",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de próstata transabdominal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881501",
+          "descripcionCups": "Ecografía de próstata transabdominal"
+        }
+      ],
+      "recomendaciones": [
+        "Tomar 4 vasos de agua 1 hora antes del examen y retener la orina para vejiga llena."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881502",
+      "nombre": "Ecografía de próstata transrectal",
+      "codigo": "CUPS-881502",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de próstata transrectal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881502",
+          "descripcionCups": "Ecografía de próstata transrectal"
+        }
+      ],
+      "recomendaciones": [
+        "Tomar 4 vasos de agua 1 hora antes del examen y retener la orina para vejiga llena."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881131",
+      "nombre": "Ecografía de glándulas salivales",
+      "codigo": "CUPS-881131",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de glándulas salivales.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881131",
+          "descripcionCups": "Ecografía de glándulas salivales"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881132",
+      "nombre": "Ecografía de cuello",
+      "codigo": "CUPS-881132",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de cuello.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881132",
+          "descripcionCups": "Ecografía de cuello"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881141",
+      "nombre": "Ecografía de tiroides",
+      "codigo": "CUPS-881141",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de tiroides.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881141",
+          "descripcionCups": "Ecografía de tiroides"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881301",
+      "nombre": "Ecografía de tejidos blandos de pared abdominal y pelvis",
+      "codigo": "CUPS-881301",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de tejidos blandos de pared abdominal y pelvis.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881301",
+          "descripcionCups": "Ecografía de tejidos blandos de pared abdominal y pelvis"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881112",
+      "nombre": "Ecografía cerebral transfontanelar",
+      "codigo": "CUPS-881112",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía cerebral transfontanelar.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881112",
+          "descripcionCups": "Ecografía cerebral transfontanelar"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881201",
+      "nombre": "Ecografía de mama",
+      "codigo": "CUPS-881201",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de mama.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881201",
+          "descripcionCups": "Ecografía de mama"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881211",
+      "nombre": "Ecografía de tórax: pericardio o pleura",
+      "codigo": "CUPS-881211",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de tórax: pericardio o pleura.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881211",
+          "descripcionCups": "Ecografía de tórax: pericardio o pleura"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881601",
+      "nombre": "Ecografía de tejidos blandos de extremidades superiores",
+      "codigo": "CUPS-881601",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de tejidos blandos de extremidades superiores.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881601",
+          "descripcionCups": "Ecografía de tejidos blandos de extremidades superiores"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881602",
+      "nombre": "Ecografía de tejidos blandos de extremidades inferiores",
+      "codigo": "CUPS-881602",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de tejidos blandos de extremidades inferiores.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881602",
+          "descripcionCups": "Ecografía de tejidos blandos de extremidades inferiores"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881610",
+      "nombre": "Ecografía articular de hombro",
+      "codigo": "CUPS-881610",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de hombro.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881610",
+          "descripcionCups": "Ecografía articular de hombro"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881611",
+      "nombre": "Ecografía articular de codo",
+      "codigo": "CUPS-881611",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de codo.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881611",
+          "descripcionCups": "Ecografía articular de codo"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881612",
+      "nombre": "Ecografía articular de puño o muñeca",
+      "codigo": "CUPS-881612",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de puño o muñeca.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881612",
+          "descripcionCups": "Ecografía articular de puño o muñeca"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881613",
+      "nombre": "Ecografía articular de mano",
+      "codigo": "CUPS-881613",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de mano.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881613",
+          "descripcionCups": "Ecografía articular de mano"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881620",
+      "nombre": "Ecografía articular de rodilla",
+      "codigo": "CUPS-881620",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de rodilla.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881620",
+          "descripcionCups": "Ecografía articular de rodilla"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881621",
+      "nombre": "Ecografía articular de tobillo",
+      "codigo": "CUPS-881621",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de tobillo.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881621",
+          "descripcionCups": "Ecografía articular de tobillo"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881622",
+      "nombre": "Ecografía articular de pie",
+      "codigo": "CUPS-881622",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de pie.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881622",
+          "descripcionCups": "Ecografía articular de pie"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881630",
+      "nombre": "Ecografía articular de cadera",
+      "codigo": "CUPS-881630",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía articular de cadera.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881630",
+          "descripcionCups": "Ecografía articular de cadera"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881640",
+      "nombre": "Ecografía de calcáneo",
+      "codigo": "CUPS-881640",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de calcáneo.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881640",
+          "descripcionCups": "Ecografía de calcáneo"
+        }
+      ],
+      "recomendaciones": [
+        "No requiere ayuno ni preparación especial.",
+        "Presentar orden médica autorizada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881362",
+      "nombre": "Ecografía de tejidos blandos de abdomen con análisis Doppler",
+      "codigo": "CUPS-881362",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de tejidos blandos de abdomen con análisis Doppler.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881362",
+          "descripcionCups": "Ecografía de tejidos blandos de abdomen con análisis Doppler"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno estricto de 6 a 8 horas.",
+        "Tomar 3 vasos de agua 1 hora antes si incluye vejiga o riñón."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-eco-881390",
+      "nombre": "Ecografía de abdomen y pelvis como guía de procedimiento quirúrgico o intervencionista",
+      "codigo": "CUPS-881390",
+      "departamento": "Imágenes diagnósticas — Ecografía general",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio ecográfico especializado institucional para: Ecografía de abdomen y pelvis como guía de procedimiento quirúrgico o intervencionista.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio ecográfico",
+          "codigoCups": "881390",
+          "descripcionCups": "Ecografía de abdomen y pelvis como guía de procedimiento quirúrgico o intervencionista"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno estricto de 6 a 8 horas.",
+        "Tomar 3 vasos de agua 1 hora antes si incluye vejiga o riñón."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882112",
+      "nombre": "Ecografía Doppler de vasos del cuello",
+      "codigo": "CUPS-882112",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos del cuello.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882112",
+          "descripcionCups": "Ecografía Doppler de vasos del cuello"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882132",
+      "nombre": "Ecografía Doppler de otros vasos periféricos del cuello",
+      "codigo": "CUPS-882132",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de otros vasos periféricos del cuello.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882132",
+          "descripcionCups": "Ecografía Doppler de otros vasos periféricos del cuello"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882203",
+      "nombre": "Ecografía Doppler de vasos abdominales o pélvicos",
+      "codigo": "CUPS-882203",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos abdominales o pélvicos.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882203",
+          "descripcionCups": "Ecografía Doppler de vasos abdominales o pélvicos"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno de 6 a 8 horas para evitar gases intestinales que interfieran con la visualización vascular."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882212",
+      "nombre": "Ecografía Doppler de aorta abdominal",
+      "codigo": "CUPS-882212",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de aorta abdominal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882212",
+          "descripcionCups": "Ecografía Doppler de aorta abdominal"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno de 6 a 8 horas para evitar gases intestinales que interfieran con la visualización vascular."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882222",
+      "nombre": "Ecografía Doppler de arterias renales",
+      "codigo": "CUPS-882222",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de arterias renales.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882222",
+          "descripcionCups": "Ecografía Doppler de arterias renales"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno de 6 a 8 horas para evitar gases intestinales que interfieran con la visualización vascular."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882232",
+      "nombre": "Ecografía Doppler de arterias mesentéricas",
+      "codigo": "CUPS-882232",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de arterias mesentéricas.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882232",
+          "descripcionCups": "Ecografía Doppler de arterias mesentéricas"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882242",
+      "nombre": "Ecografía Doppler de tronco celíaco",
+      "codigo": "CUPS-882242",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de tronco celíaco.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882242",
+          "descripcionCups": "Ecografía Doppler de tronco celíaco"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882252",
+      "nombre": "Ecografía Doppler de vena cava",
+      "codigo": "CUPS-882252",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vena cava.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882252",
+          "descripcionCups": "Ecografía Doppler de vena cava"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882262",
+      "nombre": "Ecografía Doppler de arterias ilíacas",
+      "codigo": "CUPS-882262",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de arterias ilíacas.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882262",
+          "descripcionCups": "Ecografía Doppler de arterias ilíacas"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882282",
+      "nombre": "Ecografía Doppler de vasos escrotales",
+      "codigo": "CUPS-882282",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos escrotales.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882282",
+          "descripcionCups": "Ecografía Doppler de vasos escrotales"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882292",
+      "nombre": "Ecografía Doppler con evaluación de flujo sanguíneo en masas abdominales",
+      "codigo": "CUPS-882292",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler con evaluación de flujo sanguíneo en masas abdominales.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882292",
+          "descripcionCups": "Ecografía Doppler con evaluación de flujo sanguíneo en masas abdominales"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno de 6 a 8 horas para evitar gases intestinales que interfieran con la visualización vascular."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882294",
+      "nombre": "Ecografía Doppler con evaluación de flujo sanguíneo en masas pélvicas",
+      "codigo": "CUPS-882294",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler con evaluación de flujo sanguíneo en masas pélvicas.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882294",
+          "descripcionCups": "Ecografía Doppler con evaluación de flujo sanguíneo en masas pélvicas"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882296",
+      "nombre": "Ecografía Doppler con evaluación de flujo sanguíneo en hipertensión portal",
+      "codigo": "CUPS-882296",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler con evaluación de flujo sanguíneo en hipertensión portal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882296",
+          "descripcionCups": "Ecografía Doppler con evaluación de flujo sanguíneo en hipertensión portal"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882307",
+      "nombre": "Ecografía Doppler de vasos arteriales de miembros superiores",
+      "codigo": "CUPS-882307",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos arteriales de miembros superiores.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882307",
+          "descripcionCups": "Ecografía Doppler de vasos arteriales de miembros superiores"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882308",
+      "nombre": "Ecografía Doppler de vasos arteriales de miembros inferiores",
+      "codigo": "CUPS-882308",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos arteriales de miembros inferiores.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882308",
+          "descripcionCups": "Ecografía Doppler de vasos arteriales de miembros inferiores"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882309",
+      "nombre": "Ecografía Doppler de vasos venosos de miembros superiores",
+      "codigo": "CUPS-882309",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos venosos de miembros superiores.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882309",
+          "descripcionCups": "Ecografía Doppler de vasos venosos de miembros superiores"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882316",
+      "nombre": "Ecografía Doppler de vasos venosos de miembro superior",
+      "codigo": "CUPS-882316",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos venosos de miembro superior.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882316",
+          "descripcionCups": "Ecografía Doppler de vasos venosos de miembro superior"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882317",
+      "nombre": "Ecografía Doppler de vasos venosos de miembros inferiores",
+      "codigo": "CUPS-882317",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos venosos de miembros inferiores.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882317",
+          "descripcionCups": "Ecografía Doppler de vasos venosos de miembros inferiores"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882318",
+      "nombre": "Ecografía Doppler de vasos venosos de miembro inferior",
+      "codigo": "CUPS-882318",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de vasos venosos de miembro inferior.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882318",
+          "descripcionCups": "Ecografía Doppler de vasos venosos de miembro inferior"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dop-882603",
+      "nombre": "Ecografía Doppler de riñón trasplantado",
+      "codigo": "CUPS-882603",
+      "departamento": "Diagnóstico vascular y Doppler arterial y venoso",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Estudio hemodinámico y ecografía Doppler institucional: Ecografía Doppler de riñón trasplantado.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio Doppler vascular",
+          "codigoCups": "882603",
+          "descripcionCups": "Ecografía Doppler de riñón trasplantado"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda y amplia para el acceso a las extremidades o cuello.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-cirugia-vascular",
+      "nombre": "Cirugía vascular (Consulta)",
+      "codigo": "CIR-VASC",
+      "departamento": "Cirugía vascular y cardiovascular",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Consulta médica especializada para evaluación diagnóstica y terapéutica de patología venosa, arterial y linfática quirúrgica.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890240",
+          "descripcionCups": "Consulta de primera vez por cirugía vascular"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890340",
+          "descripcionCups": "Consulta de control o seguimiento por cirugía vascular"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar estudios Doppler venosos o arteriales previos.",
+        "Llevar lista de medicamentos anticoagulantes o antiagregantes."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-rehab-cardiovasc-dep6",
+      "nombre": "Terapia de rehabilitación cardiovascular",
+      "codigo": "CUPS-933601",
+      "departamento": "Cirugía vascular y cardiovascular",
+      "esConsulta": false,
+      "duracionMinutos": 45,
+      "icono": "Activity",
+      "descripcion": "Programa terapéutico y ejercicio supervisado para acondicionamiento físico de pacientes con cardiopatía o intervención vascular previa.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Sesión de terapia",
+          "codigoCups": "933601",
+          "descripcionCups": "Terapia de rehabilitación cardiovascular"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa deportiva cómoda y tenis de suela antideslizante.",
+        "Haber consumido alimentos ligeros 1 hora antes de la sesión.",
+        "Llevar toalla personal y botella con agua para hidratación."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-cardiologia",
+      "nombre": "Cardiología (Consulta)",
+      "codigo": "CARDIO",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Prevención, diagnóstico y tratamiento integral de hipertensión arterial, enfermedad coronaria, insuficiencia cardíaca y arritmias.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890228",
+          "descripcionCups": "Consulta de primera vez por cardiología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890328",
+          "descripcionCups": "Consulta de control o seguimiento por cardiología"
+        }
+      ],
+      "recomendaciones": [
+        "No fumar ni tomar bebidas energizantes o café 6 horas antes de la cita.",
+        "Llevar electrocardiogramas, ecocardiogramas o pruebas de esfuerzo previas.",
+        "Llevar lista con dosis de medicamentos antihipertensivos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-ecocardiograma-transtoracico",
+      "nombre": "Ecocardiograma transtorácico",
+      "codigo": "CUPS-881202",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "HeartPulse",
+      "descripcion": "Ultrasonido del corazón para evaluar dimensiones cavitarias, función sistólica/diastólica y anatomía de las válvulas cardíacas.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio diagnóstico",
+          "codigoCups": "881202",
+          "descripcionCups": "Ecocardiograma transtorácico"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa cómoda de dos piezas para descubrir el pecho.",
+        "No requiere ayuno."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-ecocardiograma-estres",
+      "nombre": "Ecocardiograma de estrés con prueba de esfuerzo o farmacológica",
+      "codigo": "CUPS-881210",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": false,
+      "duracionMinutos": 45,
+      "icono": "HeartPulse",
+      "descripcion": "Evaluación ecográfica dinámica del músculo cardíaco sometido a estrés físico o farmacológico para detectar isquemia miocárdica.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio especializado",
+          "codigoCups": "881210",
+          "descripcionCups": "Ecocardiograma de estrés con prueba de esfuerzo o farmacológica"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno de 4 horas antes del examen.",
+        "Consultar con su cardiólogo si debe suspender betabloqueadores 24 horas antes.",
+        "Venir acompañado por un adulto."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-prueba-esfuerzo",
+      "nombre": "Prueba de esfuerzo cardiovascular",
+      "codigo": "CUPS-894102",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": false,
+      "duracionMinutos": 40,
+      "icono": "Activity",
+      "descripcion": "Test ergométrico en banda sin fin con monitoreo continuo de electrocardiograma y presión arterial.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Prueba diagnóstica",
+          "codigoCups": "894102",
+          "descripcionCups": "Prueba de esfuerzo cardiovascular"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa deportiva, pantaloneta o sudadera y tenis para trote.",
+        "No haber consumido café ni alimentos pesados en las 3 horas previas."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-electrocardiograma",
+      "nombre": "Electrocardiograma de ritmo o de superficie",
+      "codigo": "CUPS-895101",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": false,
+      "duracionMinutos": 20,
+      "icono": "HeartPulse",
+      "descripcion": "Registro de la actividad eléctrica cardíaca en 12 derivaciones estándar para detección de arritmias, bloqueos e hipertrofias.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Estudio diagnóstico",
+          "codigoCups": "895101",
+          "descripcionCups": "Electrocardiograma de ritmo o de superficie"
+        }
+      ],
+      "recomendaciones": [
+        "No aplicarse cremas ni aceites en el pecho el día del examen.",
+        "Vestir ropa cómoda fácil de desabotonar."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-holter-24h",
+      "nombre": "Monitoreo electrocardiográfico continuo (Holter)",
+      "codigo": "CUPS-895001",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Instalación de dispositivo portátil grabador de ECG continuo durante 24 horas para estudio de palpitaciones o síncope.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Instalación de dispositivo",
+          "codigoCups": "895001",
+          "descripcionCups": "Monitoreo electrocardiográfico continuo (Holter)"
+        }
+      ],
+      "recomendaciones": [
+        "Bañarse previamente; el paciente no podrá ducharse durante las 24 horas que porte la grabadora.",
+        "Llevar ropa holgada con botones frontales."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-telemetria-presion",
+      "nombre": "Monitoreo de presión arterial sistémica (telemetría)",
+      "codigo": "CUPS-896101",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Seguimiento y telemetría de presión arterial sistémica protocolizada.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Monitoreo ambulatorio",
+          "codigoCups": "896101",
+          "descripcionCups": "Monitoreo de presión arterial sistémica (telemetría)"
+        }
+      ],
+      "recomendaciones": [
+        "Vestir camisa de manga ancha que permita la colocación adecuada del brazalete."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-mapa-24h",
+      "nombre": "Monitoreo de presión arterial de 24 horas en paciente ambulatorio",
+      "codigo": "CUPS-895004",
+      "departamento": "Cardiología y ayudas diagnósticas cardiovasculares",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Activity",
+      "descripcion": "Estudio MAPA de 24 horas para diagnóstico de hipertensión de bata blanca, HTA oculta y evaluación de perfil dipper nocturno.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Instalación MAPA 24h",
+          "codigoCups": "895004",
+          "descripcionCups": "Monitoreo de presión arterial de 24 horas en paciente ambulatorio"
+        }
+      ],
+      "recomendaciones": [
+        "Bañarse antes de la cita; no podrá mojarse el equipo durante las 24 horas del monitoreo.",
+        "Llevar cinturón para ajustar el estuche del monitor a la cintura."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-otorrino",
+      "nombre": "Otorrinolaringología (Consulta)",
+      "codigo": "ORL",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Ear",
+      "descripcion": "Atención médica y quirúrgica de patologías de oído, nariz, senos paranasales, faringe, laringe y cavidad oral.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890282",
+          "descripcionCups": "Consulta de primera vez por otorrinolaringología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890382",
+          "descripcionCups": "Consulta de control o seguimiento por otorrinolaringología"
+        }
+      ],
+      "recomendaciones": [
+        "No aplicar gotas óticas ni realizar lavados caseros 24 horas antes.",
+        "Llevar audiometrías, impedanciometrías o TAC de senos paranasales previos si dispone de ellos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-306001",
+      "nombre": "Nasolaringoscopia",
+      "codigo": "CUPS-306001",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Nasolaringoscopia.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "306001",
+          "descripcionCups": "Nasolaringoscopia"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-965201",
+      "nombre": "Lavado e irrigación de oídos",
+      "codigo": "CUPS-965201",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Lavado e irrigación de oídos.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "965201",
+          "descripcionCups": "Lavado e irrigación de oídos"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-965202",
+      "nombre": "Curación de oído",
+      "codigo": "CUPS-965202",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Curación de oído.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "965202",
+          "descripcionCups": "Curación de oído"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-965203",
+      "nombre": "Curación de oído vía endoscópica",
+      "codigo": "CUPS-965203",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Curación de oído vía endoscópica.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "965203",
+          "descripcionCups": "Curación de oído vía endoscópica"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-202401",
+      "nombre": "Aspiración de oído medio o cavidad mastoidea",
+      "codigo": "CUPS-202401",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Aspiración de oído medio o cavidad mastoidea.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "202401",
+          "descripcionCups": "Aspiración de oído medio o cavidad mastoidea"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-180101",
+      "nombre": "Drenaje de colección de pabellón auricular",
+      "codigo": "CUPS-180101",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Drenaje de colección de pabellón auricular.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "180101",
+          "descripcionCups": "Drenaje de colección de pabellón auricular"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-180302",
+      "nombre": "Extracción de cerumen o cuerpo extraño del conducto auditivo externo bajo visión microscópica o endoscópica",
+      "codigo": "CUPS-180302",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Extracción de cerumen o cuerpo extraño del conducto auditivo externo bajo visión microscópica o endoscópica.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "180302",
+          "descripcionCups": "Extracción de cerumen o cuerpo extraño del conducto auditivo externo bajo visión microscópica o endoscópica"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-181103",
+      "nombre": "Biopsia de oído externo",
+      "codigo": "CUPS-181103",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Biopsia de oído externo.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "181103",
+          "descripcionCups": "Biopsia de oído externo"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-182201",
+      "nombre": "Resección de apéndice preauricular",
+      "codigo": "CUPS-182201",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Resección de apéndice preauricular.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "182201",
+          "descripcionCups": "Resección de apéndice preauricular"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-182301",
+      "nombre": "Resección de quiste de pabellón auricular",
+      "codigo": "CUPS-182301",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Resección de quiste de pabellón auricular.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "182301",
+          "descripcionCups": "Resección de quiste de pabellón auricular"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-250002",
+      "nombre": "Biopsia incisional de lengua (en cuña)",
+      "codigo": "CUPS-250002",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Biopsia incisional de lengua (en cuña).",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "250002",
+          "descripcionCups": "Biopsia incisional de lengua (en cuña)"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-261001",
+      "nombre": "Biopsia cerrada de glándula o conducto salival",
+      "codigo": "CUPS-261001",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Biopsia cerrada de glándula o conducto salival.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "261001",
+          "descripcionCups": "Biopsia cerrada de glándula o conducto salival"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-272401",
+      "nombre": "Biopsia por aspiración con aguja fina en cavidad oral",
+      "codigo": "CUPS-272401",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Biopsia por aspiración con aguja fina en cavidad oral.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "272401",
+          "descripcionCups": "Biopsia por aspiración con aguja fina en cavidad oral"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-274301",
+      "nombre": "Resección de lesión benigna de la mucosa oral hasta 2 cm de diámetro",
+      "codigo": "CUPS-274301",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Resección de lesión benigna de la mucosa oral hasta 2 cm de diámetro.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "274301",
+          "descripcionCups": "Resección de lesión benigna de la mucosa oral hasta 2 cm de diámetro"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orl-289101",
+      "nombre": "Biopsia por aspiración con aguja fina de amígdalas y adenoides",
+      "codigo": "CUPS-289101",
+      "departamento": "Otorrinolaringología",
+      "esConsulta": false,
+      "duracionMinutos": 25,
+      "icono": "Ear",
+      "descripcion": "Procedimiento de otorrinolaringología institucional: Biopsia por aspiración con aguja fina de amígdalas y adenoides.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento de otorrinolaringología",
+          "codigoCups": "289101",
+          "descripcionCups": "Biopsia por aspiración con aguja fina de amígdalas y adenoides"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar orden médica autorizada y autorización de Savia Salud.",
+        "Asistir en compañía de un adulto si es menor de edad o se requiere sedación tópica."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-dermatologia",
+      "nombre": "Dermatología (Consulta)",
+      "codigo": "DERMA",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Evaluación diagnóstica y tratamiento de enfermedades de la piel, cuero cabelludo, mucosas y uñas.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890242",
+          "descripcionCups": "Consulta de primera vez por dermatología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890342",
+          "descripcionCups": "Consulta de control o seguimiento por dermatología"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con la piel limpia, sin maquillaje, cremas ni esmaltes de uñas si la consulta es ungueal.",
+        "Llevar los nombres exactos de los protectores solares o medicamentos tópicos que utiliza."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-860101",
+      "nombre": "Biopsia de piel con sacabocado y sutura simple",
+      "codigo": "CUPS-860101",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Biopsia de piel con sacabocado y sutura simple.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "860101",
+          "descripcionCups": "Biopsia de piel con sacabocado y sutura simple"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-860102",
+      "nombre": "Biopsia incisional o escisional de piel, tejido celular subcutáneo o mucosa, con sutura",
+      "codigo": "CUPS-860102",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Biopsia incisional o escisional de piel, tejido celular subcutáneo o mucosa, con sutura.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "860102",
+          "descripcionCups": "Biopsia incisional o escisional de piel, tejido celular subcutáneo o mucosa, con sutura"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-860103",
+      "nombre": "Biopsia escisional de uña (lecho o matriz)",
+      "codigo": "CUPS-860103",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Biopsia escisional de uña (lecho o matriz).",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "860103",
+          "descripcionCups": "Biopsia escisional de uña (lecho o matriz)"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-863101",
+      "nombre": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, hasta 6 lesiones",
+      "codigo": "CUPS-863101",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, hasta 6 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "863101",
+          "descripcionCups": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, hasta 6 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-863102",
+      "nombre": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, más de 6 lesiones",
+      "codigo": "CUPS-863102",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, más de 6 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "863102",
+          "descripcionCups": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área general, más de 6 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-863103",
+      "nombre": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, hasta 3 lesiones",
+      "codigo": "CUPS-863103",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, hasta 3 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "863103",
+          "descripcionCups": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, hasta 3 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-863104",
+      "nombre": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones",
+      "codigo": "CUPS-863104",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "863104",
+          "descripcionCups": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-863105",
+      "nombre": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones",
+      "codigo": "CUPS-863105",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "863105",
+          "descripcionCups": "Resección de lesiones cutáneas por cauterización, fulguración o crioterapia en área especial, entre 3 y 10 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864101",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área general, hasta 3 cm",
+      "codigo": "CUPS-864101",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área general, hasta 3 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864101",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área general, hasta 3 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864102",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área general, entre 3 y 5 cm",
+      "codigo": "CUPS-864102",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área general, entre 3 y 5 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864102",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área general, entre 3 y 5 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864103",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área general, entre 5 y 10 cm",
+      "codigo": "CUPS-864103",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área general, entre 5 y 10 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864103",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área general, entre 5 y 10 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864104",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área general, de más de 10 cm",
+      "codigo": "CUPS-864104",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área general, de más de 10 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864104",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área general, de más de 10 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864105",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área general, con reparación mediante colgajo o injerto",
+      "codigo": "CUPS-864105",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área general, con reparación mediante colgajo o injerto.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864105",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área general, con reparación mediante colgajo o injerto"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864201",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área especial, hasta 1 cm",
+      "codigo": "CUPS-864201",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área especial, hasta 1 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864201",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área especial, hasta 1 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864202",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 1 y 2 cm",
+      "codigo": "CUPS-864202",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 1 y 2 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864202",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 1 y 2 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864203",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 2 y 3 cm",
+      "codigo": "CUPS-864203",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 2 y 3 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864203",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 2 y 3 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-864204",
+      "nombre": "Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 3 y 5 cm",
+      "codigo": "CUPS-864204",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 3 y 5 cm.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "864204",
+          "descripcionCups": "Resección de tumor de piel o tejido celular subcutáneo, área especial, entre 3 y 5 cm"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-868104",
+      "nombre": "Resección de cicatriz hipertrófica o queloide en área especial",
+      "codigo": "CUPS-868104",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Resección de cicatriz hipertrófica o queloide en área especial.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "868104",
+          "descripcionCups": "Resección de cicatriz hipertrófica o queloide en área especial"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-861401",
+      "nombre": "Infiltración intralesional con medicamento, hasta 5 lesiones",
+      "codigo": "CUPS-861401",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Infiltración intralesional con medicamento, hasta 5 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "861401",
+          "descripcionCups": "Infiltración intralesional con medicamento, hasta 5 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-861402",
+      "nombre": "Infiltración intralesional con medicamento, entre 5 y 10 lesiones",
+      "codigo": "CUPS-861402",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Infiltración intralesional con medicamento, entre 5 y 10 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "861402",
+          "descripcionCups": "Infiltración intralesional con medicamento, entre 5 y 10 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-861403",
+      "nombre": "Infiltración intralesional con medicamento, más de 10 lesiones",
+      "codigo": "CUPS-861403",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Infiltración intralesional con medicamento, más de 10 lesiones.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "861403",
+          "descripcionCups": "Infiltración intralesional con medicamento, más de 10 lesiones"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-derma-861411",
+      "nombre": "Inyección de material miorrelajante (toxina botulínica)",
+      "codigo": "CUPS-861411",
+      "departamento": "Dermatología y procedimientos dermatológicos menores",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Sparkles",
+      "descripcion": "Procedimiento dermatológico ambulatorio: Inyección de material miorrelajante (toxina botulínica).",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento dermatológico",
+          "codigoCups": "861411",
+          "descripcionCups": "Inyección de material miorrelajante (toxina botulínica)"
+        }
+      ],
+      "recomendaciones": [
+        "El área a intervenir debe estar aseada y libre de cremas.",
+        "Informar si consume anticoagulantes o aspirina.",
+        "Firmar consentimiento informado previo al procedimiento."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-urologia",
+      "nombre": "Urología (Consulta)",
+      "codigo": "URO",
+      "departamento": "Urología",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Diagnóstico y tratamiento de patologías del aparato urinario en ambos sexos y del sistema reproductor masculino.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890294",
+          "descripcionCups": "Consulta de primera vez por urología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890394",
+          "descripcionCups": "Consulta de control o seguimiento por urología"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar Antígeno Prostático Específico (PSA) reciente si es hombre mayor de 45 años.",
+        "Llevar ecografía renal y de vías urinarias previa si la tiene.",
+        "Llevar parcial de orina (uroanálisis) reciente."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-uro-573201",
+      "nombre": "Cistoscopia transuretral",
+      "codigo": "CUPS-573201",
+      "departamento": "Urología",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Procedimiento urológico ambulatorio: Cistoscopia transuretral.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento urológico",
+          "codigoCups": "573201",
+          "descripcionCups": "Cistoscopia transuretral"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar urocultivo negativo reciente si se realiza procedimiento endoscópico.",
+        "Asistir con un acompañante adulto y en ayuno si así lo indicó su urólogo."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-uro-583201",
+      "nombre": "Fulguración de lesiones uretrales vía abierta",
+      "codigo": "CUPS-583201",
+      "departamento": "Urología",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Procedimiento urológico ambulatorio: Fulguración de lesiones uretrales vía abierta.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento urológico",
+          "codigoCups": "583201",
+          "descripcionCups": "Fulguración de lesiones uretrales vía abierta"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar urocultivo negativo reciente si se realiza procedimiento endoscópico.",
+        "Asistir con un acompañante adulto y en ayuno si así lo indicó su urólogo."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-uro-601101",
+      "nombre": "Biopsia cerrada de próstata por abordaje transrectal",
+      "codigo": "CUPS-601101",
+      "departamento": "Urología",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Procedimiento urológico ambulatorio: Biopsia cerrada de próstata por abordaje transrectal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento urológico",
+          "codigoCups": "601101",
+          "descripcionCups": "Biopsia cerrada de próstata por abordaje transrectal"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar urocultivo negativo reciente si se realiza procedimiento endoscópico.",
+        "Asistir con un acompañante adulto y en ayuno si así lo indicó su urólogo."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-uro-976203",
+      "nombre": "Extracción de catéter ureteral vía endoscópica",
+      "codigo": "CUPS-976203",
+      "departamento": "Urología",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Procedimiento urológico ambulatorio: Extracción de catéter ureteral vía endoscópica.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento urológico",
+          "codigoCups": "976203",
+          "descripcionCups": "Extracción de catéter ureteral vía endoscópica"
+        }
+      ],
+      "recomendaciones": [
+        "Presentar urocultivo negativo reciente si se realiza procedimiento endoscópico.",
+        "Asistir con un acompañante adulto y en ayuno si así lo indicó su urólogo."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-ortopedia",
+      "nombre": "Ortopedia y traumatología (Consulta)",
+      "codigo": "ORTO",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Atención especializada de patologías y lesiones del sistema musculoesquelético: huesos, articulaciones, ligamentos y tendones.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890280",
+          "descripcionCups": "Consulta de primera vez por ortopedia y traumatología"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890380",
+          "descripcionCups": "Consulta de control o seguimiento por ortopedia y traumatología"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar radiografías, resonancias magnéticas o tomografías previas con sus informes.",
+        "Llevar ropa cómoda que permita examinar la extremidad afectada."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-839601",
+      "nombre": "Inyección o infiltración de sustancia terapéutica dentro de bursa",
+      "codigo": "CUPS-839601",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Inyección o infiltración de sustancia terapéutica dentro de bursa.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "839601",
+          "descripcionCups": "Inyección o infiltración de sustancia terapéutica dentro de bursa"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-832102",
+      "nombre": "Biopsia percutánea de tejido blando: músculo, tendón, fascia y bursa",
+      "codigo": "CUPS-832102",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Biopsia percutánea de tejido blando: músculo, tendón, fascia y bursa.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "832102",
+          "descripcionCups": "Biopsia percutánea de tejido blando: músculo, tendón, fascia y bursa"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-982001",
+      "nombre": "Extracción sin incisión de cuerpo extraño no intraluminal",
+      "codigo": "CUPS-982001",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Extracción sin incisión de cuerpo extraño no intraluminal.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "982001",
+          "descripcionCups": "Extracción sin incisión de cuerpo extraño no intraluminal"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-982601",
+      "nombre": "Extracción sin incisión de cuerpo extraño en mano",
+      "codigo": "CUPS-982601",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Extracción sin incisión de cuerpo extraño en mano.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "982601",
+          "descripcionCups": "Extracción sin incisión de cuerpo extraño en mano"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-982701",
+      "nombre": "Extracción sin incisión de cuerpo extraño en brazo y antebrazo",
+      "codigo": "CUPS-982701",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Extracción sin incisión de cuerpo extraño en brazo y antebrazo.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "982701",
+          "descripcionCups": "Extracción sin incisión de cuerpo extraño en brazo y antebrazo"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-982801",
+      "nombre": "Extracción sin incisión de cuerpo extraño en pie",
+      "codigo": "CUPS-982801",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Extracción sin incisión de cuerpo extraño en pie.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "982801",
+          "descripcionCups": "Extracción sin incisión de cuerpo extraño en pie"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-982901",
+      "nombre": "Extracción sin incisión de cuerpo extraño en miembro inferior, excepto pie",
+      "codigo": "CUPS-982901",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Extracción sin incisión de cuerpo extraño en miembro inferior, excepto pie.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "982901",
+          "descripcionCups": "Extracción sin incisión de cuerpo extraño en miembro inferior, excepto pie"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-862701",
+      "nombre": "Onicectomía",
+      "codigo": "CUPS-862701",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Onicectomía.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "862701",
+          "descripcionCups": "Onicectomía"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-862702",
+      "nombre": "Matricectomía parcial",
+      "codigo": "CUPS-862702",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Matricectomía parcial.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "862702",
+          "descripcionCups": "Matricectomía parcial"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-orto-862703",
+      "nombre": "Matricectomía total",
+      "codigo": "CUPS-862703",
+      "departamento": "Ortopedia y traumatología",
+      "esConsulta": false,
+      "duracionMinutos": 30,
+      "icono": "Bone",
+      "descripcion": "Procedimiento ortopédico / procedimiento menor: Matricectomía total.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Procedimiento ortopédico",
+          "codigoCups": "862703",
+          "descripcionCups": "Matricectomía total"
+        }
+      ],
+      "recomendaciones": [
+        "Zona de la intervención limpia.",
+        "Asistir con calzado abierto o cómodo si la intervención es en pie o dedos."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-cirugia-general",
+      "nombre": "Cirugía general (Consulta)",
+      "codigo": "CIR-GEN",
+      "departamento": "Cirugía general y procedimientos menores",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Scissors",
+      "descripcion": "Valoración prequirúrgica y control postoperatorio de hernias, patología biliar, masas de tejidos blandos y patología digestiva.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890235",
+          "descripcionCups": "Consulta de primera vez por cirugía general"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890335",
+          "descripcionCups": "Consulta de control o seguimiento por cirugía general"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar ecografías de abdomen, endoscopias o exámenes prequirúrgicos que tenga disponibles.",
+        "Llevar historia clínica y reporte quirúrgico anterior si se trata de un control posquirúrgico."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-cir-501002",
+      "nombre": "Biopsia cerrada percutánea de hígado",
+      "codigo": "CUPS-501002",
+      "departamento": "Cirugía general y procedimientos menores",
+      "esConsulta": false,
+      "duracionMinutos": 40,
+      "icono": "Scissors",
+      "descripcion": "Procedimiento intervencionista: Biopsia cerrada percutánea de hígado.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Biopsia percutánea",
+          "codigoCups": "501002",
+          "descripcionCups": "Biopsia cerrada percutánea de hígado"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno de 8 horas.",
+        "Tiempos de coagulación (TP, TPT, INR) y recuento plaquetario recientes obligatorios.",
+        "Venir acompañado de un adulto."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-cir-345401",
+      "nombre": "Biopsia percutánea de pleura",
+      "codigo": "CUPS-345401",
+      "departamento": "Cirugía general y procedimientos menores",
+      "esConsulta": false,
+      "duracionMinutos": 40,
+      "icono": "Scissors",
+      "descripcion": "Procedimiento intervencionista: Biopsia percutánea de pleura.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Biopsia percutánea",
+          "codigoCups": "345401",
+          "descripcionCups": "Biopsia percutánea de pleura"
+        }
+      ],
+      "recomendaciones": [
+        "Ayuno de 8 horas.",
+        "Tiempos de coagulación (TP, TPT, INR) y recuento plaquetario recientes obligatorios.",
+        "Venir acompañado de un adulto."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-terapia-respiratoria",
+      "nombre": "Terapia respiratoria (Consulta)",
+      "codigo": "TER-RESP",
+      "departamento": "Neumología y terapia respiratoria",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Valoración clínica por profesional en terapia respiratoria para manejo de enfermedades obstructivas, asma y EPOC.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890212",
+          "descripcionCups": "Consulta de primera vez por terapia respiratoria"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890312",
+          "descripcionCups": "Consulta de control o seguimiento por terapia respiratoria"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar inhaladores que utiliza habitualmente con sus respectivas aerocámaras.",
+        "No fumar 4 horas antes de la consulta."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-resp-893703",
+      "nombre": "Espirometría",
+      "codigo": "CUPS-893703",
+      "departamento": "Neumología y terapia respiratoria",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Prueba o terapia respiratoria institucional: Espirometría.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Prueba / Terapia respiratoria",
+          "codigoCups": "893703",
+          "descripcionCups": "Espirometría"
+        }
+      ],
+      "recomendaciones": [
+        "No consumir bebidas con cafeína 4 horas antes.",
+        "Consultar con su médico la suspensión previa de broncodilatadores.",
+        "No haber realizado ejercicio vigoroso antes."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-resp-893805",
+      "nombre": "Espirometría o curva de flujo-volumen pre y post broncodilatadores",
+      "codigo": "CUPS-893805",
+      "departamento": "Neumología y terapia respiratoria",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Prueba o terapia respiratoria institucional: Espirometría o curva de flujo-volumen pre y post broncodilatadores.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Prueba / Terapia respiratoria",
+          "codigoCups": "893805",
+          "descripcionCups": "Espirometría o curva de flujo-volumen pre y post broncodilatadores"
+        }
+      ],
+      "recomendaciones": [
+        "No consumir bebidas con cafeína 4 horas antes.",
+        "Consultar con su médico la suspensión previa de broncodilatadores.",
+        "No haber realizado ejercicio vigoroso antes."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-resp-893808",
+      "nombre": "Espirometría o curva de flujo-volumen simple",
+      "codigo": "CUPS-893808",
+      "departamento": "Neumología y terapia respiratoria",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Prueba o terapia respiratoria institucional: Espirometría o curva de flujo-volumen simple.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Prueba / Terapia respiratoria",
+          "codigoCups": "893808",
+          "descripcionCups": "Espirometría o curva de flujo-volumen simple"
+        }
+      ],
+      "recomendaciones": [
+        "No consumir bebidas con cafeína 4 horas antes.",
+        "Consultar con su médico la suspensión previa de broncodilatadores.",
+        "No haber realizado ejercicio vigoroso antes."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-resp-894402",
+      "nombre": "Prueba de caminata de 6 minutos",
+      "codigo": "CUPS-894402",
+      "departamento": "Neumología y terapia respiratoria",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Prueba o terapia respiratoria institucional: Prueba de caminata de 6 minutos.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Prueba / Terapia respiratoria",
+          "codigoCups": "894402",
+          "descripcionCups": "Prueba de caminata de 6 minutos"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa deportiva y tenis cómodos para caminata.",
+        "Haber consumido alimento ligero 2 horas antes."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-resp-933501",
+      "nombre": "Terapia de rehabilitación pulmonar",
+      "codigo": "CUPS-933501",
+      "departamento": "Neumología y terapia respiratoria",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Prueba o terapia respiratoria institucional: Terapia de rehabilitación pulmonar.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Prueba / Terapia respiratoria",
+          "codigoCups": "933501",
+          "descripcionCups": "Terapia de rehabilitación pulmonar"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa deportiva y tenis cómodos para caminata.",
+        "Haber consumido alimento ligero 2 horas antes."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-resp-939403",
+      "nombre": "Terapia respiratoria integral",
+      "codigo": "CUPS-939403",
+      "departamento": "Neumología y terapia respiratoria",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Prueba o terapia respiratoria institucional: Terapia respiratoria integral.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Prueba / Terapia respiratoria",
+          "codigoCups": "939403",
+          "descripcionCups": "Terapia respiratoria integral"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir con ropa deportiva y tenis cómodos para caminata.",
+        "Haber consumido alimento ligero 2 horas antes."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-psicologia",
+      "nombre": "Psicología (Consulta)",
+      "codigo": "PSI",
+      "departamento": "Psicología, nutrición y terapias de apoyo",
+      "esConsulta": true,
+      "duracionMinutos": 45,
+      "icono": "Brain",
+      "descripcion": "Evaluación clínica y acompañamiento psicológico para el bienestar emocional, mental y afrontamiento terapéutico.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890208",
+          "descripcionCups": "Consulta de primera vez por psicología"
+        }
+      ],
+      "recomendaciones": [
+        "Sesión confidencial de 45 minutos. Llegar con 10 minutos de antelación.",
+        "Para pacientes menores de 18 años es obligatoria la presencia inicial de los padres o tutor legal."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-nutricion",
+      "nombre": "Nutrición y dietética (Consulta)",
+      "codigo": "NUTRI",
+      "departamento": "Psicología, nutrición y terapias de apoyo",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Salad",
+      "descripcion": "Asesoría y prescripción nutricional clínica individualizada para manejo de peso, diabetes, dislipidemias y salud digestiva.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890206",
+          "descripcionCups": "Consulta de primera vez por nutrición y dietética"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890306",
+          "descripcionCups": "Consulta de control o seguimiento por nutrición y dietética"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar exámenes de laboratorio recientes (perfil lipídico, glucosa, función hepática).",
+        "Llevar un registro escrito de lo consumido en las últimas 24 horas."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-terapia-ocupacional",
+      "nombre": "Terapia ocupacional (Consulta)",
+      "codigo": "TER-OCUP",
+      "departamento": "Psicología, nutrición y terapias de apoyo",
+      "esConsulta": true,
+      "duracionMinutos": 30,
+      "icono": "Activity",
+      "descripcion": "Evaluación funcional y rehabilitación de habilidades para la vida diaria, destrezas motoras y reintegración ocupacional.",
+      "modalidades": [
+        {
+          "tipo": "primera_vez",
+          "etiqueta": "Primera vez",
+          "codigoCups": "890213",
+          "descripcionCups": "Consulta de primera vez por terapia ocupacional"
+        },
+        {
+          "tipo": "control",
+          "etiqueta": "Control o seguimiento (Segunda vez)",
+          "codigoCups": "890313",
+          "descripcionCups": "Consulta de control o seguimiento por terapia ocupacional"
+        }
+      ],
+      "recomendaciones": [
+        "Ropa cómoda que permita la movilidad articular y ejercicios de desempeño funcional."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-proc-interv-061002",
+      "nombre": "Biopsia de glándula tiroides vía percutánea",
+      "codigo": "CUPS-061002",
+      "departamento": "Otros procedimientos diagnósticos e intervencionistas",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Procedimiento de biopsia guiada especializada: Biopsia de glándula tiroides vía percutánea.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Biopsia guiada por imagen",
+          "codigoCups": "061002",
+          "descripcionCups": "Biopsia de glándula tiroides vía percutánea"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar ecografía o mamografía previa que indique la lesión a biopsiar.",
+        "Presentar tiempos de coagulación recientes.",
+        "Asistir con un acompañante adulto."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-proc-interv-851102",
+      "nombre": "Biopsia de mama con aguja (Trucut)",
+      "codigo": "CUPS-851102",
+      "departamento": "Otros procedimientos diagnósticos e intervencionistas",
+      "esConsulta": false,
+      "duracionMinutos": 35,
+      "icono": "Activity",
+      "descripcion": "Procedimiento de biopsia guiada especializada: Biopsia de mama con aguja (Trucut).",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Biopsia guiada por imagen",
+          "codigoCups": "851102",
+          "descripcionCups": "Biopsia de mama con aguja (Trucut)"
+        }
+      ],
+      "recomendaciones": [
+        "Llevar ecografía o mamografía previa que indique la lesión a biopsiar.",
+        "Presentar tiempos de coagulación recientes.",
+        "Asistir con un acompañante adulto."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-rehab-933601",
+      "nombre": "Terapia de rehabilitación cardiovascular",
+      "codigo": "CUPS-933601",
+      "departamento": "Rehabilitación cardiovascular y pulmonar",
+      "esConsulta": false,
+      "duracionMinutos": 45,
+      "icono": "Activity",
+      "descripcion": "Programa de rehabilitación y reacondicionamiento cardiopulmonar: Terapia de rehabilitación cardiovascular.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Sesión de rehabilitación",
+          "codigoCups": "933601",
+          "descripcionCups": "Terapia de rehabilitación cardiovascular"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir en ropa y calzado deportivo.",
+        "Llevar toalla y termo con agua.",
+        "Tomar sus medicamentos habituales para la presión o el corazón a la hora de siempre."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-rehab-933501",
+      "nombre": "Terapia de rehabilitación pulmonar",
+      "codigo": "CUPS-933501",
+      "departamento": "Rehabilitación cardiovascular y pulmonar",
+      "esConsulta": false,
+      "duracionMinutos": 45,
+      "icono": "Activity",
+      "descripcion": "Programa de rehabilitación y reacondicionamiento cardiopulmonar: Terapia de rehabilitación pulmonar.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Sesión de rehabilitación",
+          "codigoCups": "933501",
+          "descripcionCups": "Terapia de rehabilitación pulmonar"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir en ropa y calzado deportivo.",
+        "Llevar toalla y termo con agua.",
+        "Tomar sus medicamentos habituales para la presión o el corazón a la hora de siempre."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-rehab-939403",
+      "nombre": "Terapia respiratoria integral",
+      "codigo": "CUPS-939403",
+      "departamento": "Rehabilitación cardiovascular y pulmonar",
+      "esConsulta": false,
+      "duracionMinutos": 45,
+      "icono": "Activity",
+      "descripcion": "Programa de rehabilitación y reacondicionamiento cardiopulmonar: Terapia respiratoria integral.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Sesión de rehabilitación",
+          "codigoCups": "939403",
+          "descripcionCups": "Terapia respiratoria integral"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir en ropa y calzado deportivo.",
+        "Llevar toalla y termo con agua.",
+        "Tomar sus medicamentos habituales para la presión o el corazón a la hora de siempre."
+      ],
+      "activa": true
+    },
+    {
+      "id": "esp-rehab-894402",
+      "nombre": "Prueba de caminata de 6 minutos",
+      "codigo": "CUPS-894402",
+      "departamento": "Rehabilitación cardiovascular y pulmonar",
+      "esConsulta": false,
+      "duracionMinutos": 45,
+      "icono": "Activity",
+      "descripcion": "Programa de rehabilitación y reacondicionamiento cardiopulmonar: Prueba de caminata de 6 minutos.",
+      "modalidades": [
+        {
+          "tipo": "procedimiento",
+          "etiqueta": "Sesión de rehabilitación",
+          "codigoCups": "894402",
+          "descripcionCups": "Prueba de caminata de 6 minutos"
+        }
+      ],
+      "recomendaciones": [
+        "Asistir en ropa y calzado deportivo.",
+        "Llevar toalla y termo con agua.",
+        "Tomar sus medicamentos habituales para la presión o el corazón a la hora de siempre."
+      ],
+      "activa": true
+    }
+  ],
+  "medicos": [
+    {
+      "id": "med-c23a5e92",
+      "nombre": "OCHOA PARDO LILIANA DEL SOCORRO",
+      "registroMedico": "53911069",
+      "especialidadId": "esp-ginecologia-obstetricia",
+      "sedeId": "sede-7e12b259",
+      "consultorio": "000",
+      "diasAtencion": [
+        "Lunes",
+        "Martes",
+        "Miércoles",
+        "Jueves",
+        "Viernes"
+      ],
+      "horaInicio": "08:00",
+      "horaFin": "17:00",
+      "duracionCitaMinutos": 30,
+      "pausas": [],
+      "activo": true
+    }
+  ],
+  "citas": [],
+  "historialAuditoria": [
+    {
+      "id": "log-1",
+      "fecha": "2026-10-08T05:08:59.206Z",
+      "accion": "INICIALIZACION",
+      "descripcion": "Sistema de citas IPS ARCAL configurado con 4 sedes y 9 especialidades habilitadas."
+    },
+    {
+      "id": "log-1791436739686",
+      "fecha": "2026-10-08T05:18:59.686Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-5884 agendada vía web para paciente Mariana Duque Silva en 2026-10-15 a las 08:30"
+    },
+    {
+      "id": "log-1791476069219",
+      "fecha": "2026-10-08T16:14:29.219Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-6941 agendada vía web para paciente Andres Mena en 2026-10-24 a las 08:00"
+    },
+    {
+      "id": "log-1791476552333",
+      "fecha": "2026-10-08T16:22:32.333Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-6941 cambió a estado: en_sala"
+    },
+    {
+      "id": "log-1791476622104",
+      "fecha": "2026-10-08T16:23:42.104Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-6941 cambió a estado: atendida"
+    },
+    {
+      "id": "log-1791476918815",
+      "fecha": "2026-10-08T16:28:38.815Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: Dr. Test Verificación (RM-999888-TEST)"
+    },
+    {
+      "id": "log-1791477152755",
+      "fecha": "2026-10-08T16:32:32.755Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: ARCAL - TURBO en Turbo, Antioquia."
+    },
+    {
+      "id": "log-1791477261130",
+      "fecha": "2026-10-08T16:34:21.130Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: Luis Fernando (RM-243527-TUR)"
+    },
+    {
+      "id": "log-1791477343437",
+      "fecha": "2026-10-08T16:35:43.437Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477345134",
+      "fecha": "2026-10-08T16:35:45.134Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477347652",
+      "fecha": "2026-10-08T16:35:47.652Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Chapinero Radiología & Consultas"
+    },
+    {
+      "id": "log-1791477633525",
+      "fecha": "2026-10-08T16:40:33.525Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3518 agendada vía presencial para paciente Andres Mena en 2026-10-08 a las 13:00"
+    },
+    {
+      "id": "log-1791477823374",
+      "fecha": "2026-10-08T16:43:43.374Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-2984 agendada vía web para paciente Andres Consuegra en 2026-10-08 a las 13:30"
+    },
+    {
+      "id": "log-1791487276075",
+      "fecha": "2026-10-08T19:21:16.075Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3518 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1791487276089",
+      "fecha": "2026-10-08T19:21:16.089Z",
+      "accion": "REASIGNAR_CITA",
+      "descripcion": "Cita ARC-2026-3518 reasignada de 2026-10-08 13:00 a 2026-10-08 14:30. Motivo: Reasignación por llegada tarde a cita previa"
+    },
+    {
+      "id": "log-1791487457421",
+      "fecha": "2026-10-08T19:24:17.421Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3518 cambió a estado: cancelada"
+    },
+    {
+      "id": "log-1791488613242",
+      "fecha": "2026-10-08T19:43:33.242Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488613270",
+      "fecha": "2026-10-08T19:43:33.270Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488613311",
+      "fecha": "2026-10-08T19:43:33.311Z",
+      "accion": "CREAR_USUARIO",
+      "descripcion": "Nuevo agente creado: Pedro Test Silva (agente.test.1791488613301) con 2 sedes asignadas."
+    },
+    {
+      "id": "log-1791488613323",
+      "fecha": "2026-10-08T19:43:33.323Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario agente.test.1791488613301 DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791488613335",
+      "fecha": "2026-10-08T19:43:33.335Z",
+      "accion": "ELIMINAR_USUARIO",
+      "descripcion": "Usuario agente.test.1791488613301 eliminado del sistema."
+    },
+    {
+      "id": "log-1791488899407",
+      "fecha": "2026-10-08T19:48:19.407Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791488918650",
+      "fecha": "2026-10-08T19:48:38.650Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario laura.gomez DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791488920730",
+      "fecha": "2026-10-08T19:48:40.730Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario andres.ruiz DESHABILITADO por la administración."
+    },
+    {
+      "id": "log-1791489625947",
+      "fecha": "2026-10-08T20:00:25.947Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1873 agendada vía web para paciente Juan Mena en 2026-10-09 a las 11:30"
+    },
+    {
+      "id": "log-1791490650775",
+      "fecha": "2026-10-08T20:17:30.775Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9003 agendada vía web para paciente Carlos Pérez en 2026-10-09 a las 09:00"
+    },
+    {
+      "id": "log-1791490650806",
+      "fecha": "2026-10-08T20:17:30.806Z",
+      "accion": "ACTUALIZAR_CITA",
+      "descripcion": "Cita ARC-2026-9003 editada/actualizada para paciente Carlos Alberto Corregido Pérez Gómez"
+    },
+    {
+      "id": "log-1791491304383",
+      "fecha": "2026-10-08T20:28:24.383Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491354542",
+      "fecha": "2026-10-08T20:29:14.542Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-2984 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1791491420643",
+      "fecha": "2026-10-08T20:30:20.643Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491434987",
+      "fecha": "2026-10-08T20:30:34.987Z",
+      "accion": "ESTADO_USUARIO",
+      "descripcion": "Usuario laura.gomez HABILITADO por la administración."
+    },
+    {
+      "id": "log-1791491456432",
+      "fecha": "2026-10-08T20:30:56.432Z",
+      "accion": "MODIFICAR_USUARIO",
+      "descripcion": "Usuario laura.gomez actualizado (Sedes asignadas: 1)"
+    },
+    {
+      "id": "log-1791491475146",
+      "fecha": "2026-10-08T20:31:15.146Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791491875587",
+      "fecha": "2026-10-08T20:37:55.587Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791495041768",
+      "fecha": "2026-10-08T21:30:41.768Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497061398",
+      "fecha": "2026-10-08T22:04:21.398Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497261641",
+      "fecha": "2026-10-08T22:07:41.641Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1791497294249",
+      "fecha": "2026-10-08T22:08:14.249Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-1873 cambió a estado: en_sala"
+    },
+    {
+      "id": "log-1791497383747",
+      "fecha": "2026-10-08T22:09:43.747Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-1873 cambió a estado: atendida"
+    },
+    {
+      "id": "log-1791506492977",
+      "fecha": "2026-10-09T00:41:32.977Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: ARCAL - TURBO"
+    },
+    {
+      "id": "log-1791506493008",
+      "fecha": "2026-10-09T00:41:33.008Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: ARCAL - TURBO"
+    },
+    {
+      "id": "log-1792456592273",
+      "fecha": "2026-10-20T00:36:32.273Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3944 agendada vía web para paciente Andres Consuegra en 2026-10-21 a las 10:00"
+    },
+    {
+      "id": "log-1792456707872",
+      "fecha": "2026-10-20T00:38:27.872Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792456925361",
+      "fecha": "2026-10-20T00:42:05.361Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792457005193",
+      "fecha": "2026-10-20T00:43:25.193Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-5137 agendada vía presencial para paciente Andres Consuegra en 2026-10-20 a las 10:00"
+    },
+    {
+      "id": "log-1792459337973",
+      "fecha": "2026-10-20T01:22:17.973Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9827 agendada vía web para paciente Andres Consuegra en 2026-10-23 a las 09:30"
+    },
+    {
+      "id": "log-1792460228001",
+      "fecha": "2026-10-20T01:37:08.001Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario laura.gomez (AGENTE) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792460371939",
+      "fecha": "2026-10-20T01:39:31.939Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-5137 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1792460946546",
+      "fecha": "2026-10-20T01:49:06.546Z",
+      "accion": "CAMBIO_ESTADO_CITA",
+      "descripcion": "Cita ARC-2026-3944 cambió a estado: no_asistio"
+    },
+    {
+      "id": "log-1792461048290",
+      "fecha": "2026-10-20T01:50:48.290Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792561660102",
+      "fecha": "2026-10-21T05:47:40.102Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792611305107",
+      "fecha": "2026-10-21T19:35:05.107Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dra. Marcela Gómez Villamizar actualizado. Duración de cita: 45 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792611325471",
+      "fecha": "2026-10-21T19:35:25.471Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dra. Marcela Gómez Villamizar actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792623299071",
+      "fecha": "2026-10-21T22:54:59.071Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623501852",
+      "fecha": "2026-10-21T22:58:21.852Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-3374 agendada vía presencial para paciente Andres Consuegra en 2026-10-22 a las 10:30"
+    },
+    {
+      "id": "log-1792623769515",
+      "fecha": "2026-10-21T23:02:49.515Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623812220",
+      "fecha": "2026-10-21T23:03:32.220Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792623918215",
+      "fecha": "2026-10-21T23:05:18.215Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792623967588",
+      "fecha": "2026-10-21T23:06:07.588Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792624131157",
+      "fecha": "2026-10-21T23:08:51.157Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792624146630",
+      "fecha": "2026-10-21T23:09:06.630Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 30 min. Pausas activas: 0."
+    },
+    {
+      "id": "log-1792624155408",
+      "fecha": "2026-10-21T23:09:15.408Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Carlos Eduardo Restrepo actualizado. Duración de cita: 20 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1792721154889",
+      "fecha": "2026-10-23T02:05:54.889Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792721482183",
+      "fecha": "2026-10-23T02:11:22.183Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792721593414",
+      "fecha": "2026-10-23T02:13:13.414Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario admin (ADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792721780252",
+      "fecha": "2026-10-23T02:16:20.252Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792723538841",
+      "fecha": "2026-10-23T02:45:38.841Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792725388938",
+      "fecha": "2026-10-23T03:16:28.938Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792725588197",
+      "fecha": "2026-10-23T03:19:48.197Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Principal Medellín (El Poblado)"
+    },
+    {
+      "id": "log-1792725590905",
+      "fecha": "2026-10-23T03:19:50.905Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Urabá (Turbo - Apartadó)"
+    },
+    {
+      "id": "log-1792725594210",
+      "fecha": "2026-10-23T03:19:54.210Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Bogotá Santa Bárbara"
+    },
+    {
+      "id": "log-1792725596304",
+      "fecha": "2026-10-23T03:19:56.304Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Cali Tequendama Especializada"
+    },
+    {
+      "id": "log-1792725807347",
+      "fecha": "2026-10-23T03:23:27.347Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: Sede Poblado Medellin en Medellín, Antioquia"
+    },
+    {
+      "id": "log-1792726122643",
+      "fecha": "2026-10-23T03:28:42.643Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Poblado Medellin"
+    },
+    {
+      "id": "log-1792726123603",
+      "fecha": "2026-10-23T03:28:43.603Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Poblado Medellin"
+    },
+    {
+      "id": "log-1792726835028",
+      "fecha": "2026-10-23T03:40:35.028Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: Sede Ciudad Bolívar Antioquia en Ciudad Bolívar, Antioquia"
+    },
+    {
+      "id": "log-1792726898645",
+      "fecha": "2026-10-23T03:41:38.645Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Ciudad Bolívar "
+    },
+    {
+      "id": "log-1792727278577",
+      "fecha": "2026-10-23T03:47:58.577Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Ciudad Bolívar "
+    },
+    {
+      "id": "log-1792727556887",
+      "fecha": "2026-10-23T03:52:36.887Z",
+      "accion": "CREAR_SEDE",
+      "descripcion": "Nueva sede creada: Sede Apartadó en Apartadó, Antioquia"
+    },
+    {
+      "id": "log-1792730896919",
+      "fecha": "2026-10-23T04:48:16.919Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792730945490",
+      "fecha": "2026-10-23T04:49:05.490Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario superadmin (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731172843",
+      "fecha": "2026-10-23T04:52:52.843Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (INGENIERO DE SISTEMAS) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731239303",
+      "fecha": "2026-10-23T04:53:59.303Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (INGENIERO DE SISTEMAS) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731278409",
+      "fecha": "2026-10-23T04:54:38.409Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792731539099",
+      "fecha": "2026-10-23T04:58:59.099Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792732858149",
+      "fecha": "2026-10-23T05:20:58.149Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792889209409",
+      "fecha": "2026-10-25T00:46:49.409Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792890881703",
+      "fecha": "2026-10-25T01:14:41.703Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1792890937108",
+      "fecha": "2026-10-25T01:15:37.108Z",
+      "accion": "MODIFICAR_SEDE",
+      "descripcion": "Sede actualizada: Sede Poblado Medellin"
+    },
+    {
+      "id": "log-1792905744291",
+      "fecha": "2026-10-25T05:22:24.291Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-9851 agendada vía web para paciente Andres Consuegra en 2026-10-26 a las 08:30"
+    },
+    {
+      "id": "log-1792908053145",
+      "fecha": "2026-10-25T06:00:53.145Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-8542 agendada vía web [CUPS: 890374 - control] para paciente Prueba Savia Salud en 2026-10-30 a las 09:00"
+    },
+    {
+      "id": "log-1792911342126",
+      "fecha": "2026-10-25T06:55:42.126Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1586 agendada vía web [CUPS: 890280 - primera_vez] para paciente Andres Consuegra en 2026-10-26 a las 07:30"
+    },
+    {
+      "id": "log-1792911423286",
+      "fecha": "2026-10-25T06:57:03.286Z",
+      "accion": "ACTUALIZAR_CITA",
+      "descripcion": "Cita ARC-2026-1586 editada/actualizada para paciente Andres Consuegra"
+    },
+    {
+      "id": "log-1793050427292",
+      "fecha": "2026-10-26T21:33:47.292Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1238 agendada vía web [CUPS: 890208 - primera_vez] para paciente Andres Consuegra en 2026-10-27 a las 09:45"
+    },
+    {
+      "id": "log-1793050583348",
+      "fecha": "2026-10-26T21:36:23.348Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1793065418630",
+      "fecha": "2026-10-27T01:43:38.630Z",
+      "accion": "ACTUALIZAR_MEDICO",
+      "descripcion": "Médico Dr. Sebastián Vargas Londoño actualizado. Duración de cita: 20 min. Pausas activas: 1."
+    },
+    {
+      "id": "log-1793065659789",
+      "fecha": "2026-10-27T01:47:39.789Z",
+      "accion": "AGENDAR_CITA",
+      "descripcion": "Cita ARC-2026-1753 agendada vía web [CUPS: 890366 - control] para paciente Andres Consuegra en 2026-10-27 a las 08:00"
+    },
+    {
+      "id": "log-1793065909876",
+      "fecha": "2026-10-27T01:51:49.876Z",
+      "accion": "LOGIN_USUARIO",
+      "descripcion": "Usuario AndresMena (SUPERADMIN) inició sesión en el sistema."
+    },
+    {
+      "id": "log-1793325466769",
+      "fecha": "2026-10-30T01:57:46.769Z",
+      "accion": "LIMPIEZA_DATOS",
+      "descripcion": "Eliminados 456 médicos y 16 citas de prueba para inicio de registro de datos reales."
+    },
+    {
+      "id": "log-1793326243119",
+      "fecha": "2026-10-30T02:10:43.119Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: Dr. Prueba Verificacion (RM-123456) con citas de 30 min."
+    },
+    {
+      "id": "log-1793326243138",
+      "fecha": "2026-10-30T02:10:43.139Z",
+      "accion": "ELIMINAR_MEDICO",
+      "descripcion": "Médico Dr. Prueba Verificacion (RM-123456) eliminado permanentemente del sistema."
+    },
+    {
+      "id": "log-1793327979243",
+      "fecha": "2026-10-30T02:39:39.243Z",
+      "accion": "CREAR_MEDICO",
+      "descripcion": "Nuevo médico creado: OCHOA PARDO LILIANA DEL SOCORRO (53911069) con citas de 30 min."
+    },
+    {
+      "id": "log-1793328708003",
+      "fecha": "2026-10-30T02:51:48.003Z",
+      "accion": "CREAR_ESPECIALIDAD",
+      "descripcion": "Nueva especialidad creada: Prueba Especialidad Test (TEST-01) en [Medicina general]."
+    },
+    {
+      "id": "log-1793328708023",
+      "fecha": "2026-10-30T02:51:48.023Z",
+      "accion": "MODIFICAR_ESPECIALIDAD",
+      "descripcion": "Especialidad Prueba Especialidad Test actualizada."
+    },
+    {
+      "id": "log-1793328708034",
+      "fecha": "2026-10-30T02:51:48.034Z",
+      "accion": "ELIMINAR_ESPECIALIDAD",
+      "descripcion": "Especialidad Prueba Especialidad Test (TEST-01) eliminada del sistema."
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "usr-superadmin",
+      "nombre": "Ingeniero Andres Felipe",
+      "username": "AndresMena",
+      "password": "Mena20021.",
+      "rol": "superadmin",
+      "email": "felipemena2002@gmail.com",
+      "cargo": "Ingeniero de sistemas",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4",
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-21T14:57:16.418Z"
+    },
+    {
+      "id": "usr-superadmin",
+      "nombre": "Dirección General IPS (Super Admin)",
+      "username": "superadmin",
+      "password": "superadmin123",
+      "rol": "superadmin",
+      "email": "superadmin@ipsarcal.com",
+      "cargo": "Super Administrador del Sistema",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4",
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-21T14:57:16.418Z"
+    },
+    {
+      "id": "usr-admin",
+      "nombre": "Administrador Central IPS",
+      "username": "admin",
+      "password": "admin123",
+      "rol": "admin",
+      "email": "admin@ipsarcal.com",
+      "cargo": "Director de Operaciones & Admisiones",
+      "sedesAsignadas": [
+        "sede-1",
+        "sede-2",
+        "sede-3",
+        "sede-4"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-1",
+      "nombre": "Laura Camila Gómez",
+      "username": "laura.gomez",
+      "password": "123",
+      "rol": "agente",
+      "email": "laura.gomez@ipsarcal.com",
+      "cargo": "Agente de Admisiones y Recepción",
+      "sedesAsignadas": [
+        "sede-f66d9955"
+      ],
+      "activo": true,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-2",
+      "nombre": "Andrés Felipe Ruiz",
+      "username": "andres.ruiz",
+      "password": "123",
+      "rol": "agente",
+      "email": "andres.ruiz@ipsarcal.com",
+      "cargo": "Agente de Atención al Cliente",
+      "sedesAsignadas": [
+        "sede-3"
+      ],
+      "activo": false,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    },
+    {
+      "id": "usr-agente-3",
+      "nombre": "Carolina Morales Vega",
+      "username": "carolina.morales",
+      "password": "123",
+      "rol": "agente",
+      "email": "carolina.morales@ipsarcal.com",
+      "cargo": "Agente de Ventanilla y Recepción",
+      "sedesAsignadas": [
+        "sede-4"
+      ],
+      "activo": false,
+      "creadoEn": "2026-10-08T19:35:50.378Z"
+    }
+  ],
+  "departamentos": [
+    "Medicina general",
+    "Medicina interna y especialidades médicas",
+    "Ginecología y obstetricia",
+    "Imágenes diagnósticas — Ecografía general",
+    "Diagnóstico vascular y Doppler arterial y venoso",
+    "Cirugía vascular y cardiovascular",
+    "Cardiología y ayudas diagnósticas cardiovasculares",
+    "Otorrinolaringología",
+    "Dermatología y procedimientos dermatológicos menores",
+    "Urología",
+    "Ortopedia y traumatología",
+    "Cirugía general y procedimientos menores",
+    "Neumología y terapia respiratoria",
+    "Psicología, nutrición y terapias de apoyo",
+    "Otros procedimientos diagnósticos e intervencionistas",
+    "Rehabilitación cardiovascular y pulmonar"
+  ]
+}

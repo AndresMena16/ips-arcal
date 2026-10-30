@@ -40,7 +40,7 @@ export function generarComprobantePDF(cita) {
   try {
     doc.addImage(ARCAL_LOGO_BASE64, 'PNG', 14, currentY, 48, 13.3);
   } catch (e) {
-    // Fallback si la imagen no carga
+    // Si la imagen no carga
     doc.setFillColor(...primaryColor);
     doc.roundedRect(14, currentY, 14, 14, 3, 3, 'F');
     doc.setTextColor(255, 255, 255);
@@ -58,7 +58,7 @@ export function generarComprobantePDF(cita) {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(7.8);
   doc.setTextColor(...mutedText);
-  doc.text('NIT: 901.365.419-8  |  Código de Habilitación MinSalud: 0500109842-01', 66, currentY + 8.5);
+  doc.text('NIT: 901.358.461-8  |  Código de Habilitación MinSalud: 0500121425-01', 66, currentY + 8.5);
   doc.text('Sede Medellín: (604) 604-8956  |  Urabá & Nacional  |  WhatsApp: +57 310 854 9210', 66, currentY + 12.5);
 
   // Línea divisoria

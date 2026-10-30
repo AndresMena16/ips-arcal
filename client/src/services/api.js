@@ -35,7 +35,12 @@ export const api = {
     const query = new URLSearchParams(params).toString();
     return request(`/especialidades${query ? `?${query}` : ''}`);
   },
+  createEspecialidad: (data) => request('/especialidades', { method: 'POST', body: JSON.stringify(data) }),
   updateEspecialidad: (id, data) => request(`/especialidades/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteEspecialidad: (id, params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return request(`/especialidades/${id}${query ? `?${query}` : ''}`, { method: 'DELETE' });
+  },
 
   // Médicos
   getMedicos: (params = {}) => {
@@ -44,7 +49,7 @@ export const api = {
   },
   createMedico: (data) => request('/medicos', { method: 'POST', body: JSON.stringify(data) }),
   updateMedico: (id, data) => request(`/medicos/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
-  deleteMedico: (id) => request(`/medicos/${id}`, { method: 'DELETE' }),
+  deleteMedico: (id, permanente = false) => request(`/medicos/${id}${permanente ? '?permanente=true' : ''}`, { method: 'DELETE' }),
 
   // Disponibilidad en tiempo real
   getDisponibilidad: (medicoId, fecha, sedeId, excluirCitaId = '') => {

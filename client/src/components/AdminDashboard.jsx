@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Building2, Stethoscope, Users, Calendar, Settings, Plus,
   Edit2, Trash2, Check, X, FileDown, Activity, RefreshCw, AlertCircle,
@@ -40,9 +40,14 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   // Modales y Edición de Médicos
   const [modalMedicoAbierto, setModalMedicoAbierto] = useState(false);
   const [medicoEnEdicion, setMedicoEnEdicion] = useState(null);
+  const departamentosUnicos = useMemo(() => {
+    return [...new Set(especialidades.map(e => e.departamento).filter(Boolean))].sort();
+  }, [especialidades]);
+
   const [formMedico, setFormMedico] = useState({
     nombre: '',
     registroMedico: '',
+    departamento: 'Medicina General',
     especialidadId: '',
     sedeId: '',
     consultorio: 'Consultorio 101',
@@ -81,10 +86,22 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
     activo: true
   });
 
-  // Edición de Recomendaciones en Especialidad
+  // Modales y Edición Completa de Especialidades
+  const [modalEspecialidadAbierto, setModalEspecialidadAbierto] = useState(false);
   const [especialidadEnEdicion, setEspecialidadEnEdicion] = useState(null);
-  const [recomendacionesTexto, setRecomendacionesTexto] = useState('');
   const [filtroDepartamentoEsp, setFiltroDepartamentoEsp] = useState('todos');
+  const [busquedaEspecialidadTexto, setBusquedaEspecialidadTexto] = useState('');
+  const [formEspecialidad, setFormEspecialidad] = useState({
+    nombre: '',
+    codigo: '',
+    departamento: 'Medicina general',
+    duracionMinutos: 30,
+    descripcion: '',
+    icono: 'Stethoscope',
+    esConsulta: true,
+    activa: true,
+    recomendaciones: ''
+  });
 
   // Filtros Avanzados de Citas & Agenda Especialista (Info Salud)
   const [filtroFechaTipo, setFiltroFechaTipo] = useState('todas'); // 'todas' | 'hoy' | 'manana' | 'semana' | 'especifica'
@@ -204,10 +221,12 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   // ==========================================
   function abrirModalNuevoMedico() {
     setMedicoEnEdicion(null);
+    const deptInicial = departamentosUnicos[0] || 'Medicina General';
     setFormMedico({
       nombre: '',
       registroMedico: '',
-      especialidadId: especialidades.length > 0 ? especialidades[0].id : '',
+      departamento: deptInicial,
+      especialidadId: '',
       sedeId: sedes.length > 0 ? sedes[0].id : '',
       consultorio: 'Cons. 101',
       diasAtencion: ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
@@ -224,7 +243,8 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
     setFormMedico({
       nombre: medico.nombre,
       registroMedico: medico.registroMedico,
-      especialidadId: medico.especialidadId,
+      departamento: medico.departamento || medico.especialidadNombre || (departamentosUnicos[0] || 'Medicina General'),
+      especialidadId: medico.especialidadId || '',
       sedeId: medico.sedeId,
       consultorio: medico.consultorio,
       diasAtencion: medico.diasAtencion || ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
@@ -299,8 +319,8 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
 
   async function guardarMedico(e) {
     e.preventDefault();
-    if (!formMedico.nombre || !formMedico.especialidadId || !formMedico.sedeId) {
-      alert('Por favor complete el nombre, especialidad y sede del profesional.');
+    if (!formMedico.nombre || !formMedico.departamento || !formMedico.sedeId) {
+      alert('Por favor complete el nombre, Departamento Clínico (REPS) y sede del profesional.');
       return;
     }
     try {
@@ -325,29 +345,107 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
     }
   }
 
-  // ==========================================
-  // GESTIÓN DE RECOMENDACIONES DE ESPECIALIDADES
-  // ==========================================
-  function abrirEdicionEspecialidad(esp) {
-    setEspecialidadEnEdicion(esp);
-    setRecomendacionesTexto((esp.recomendaciones || []).join('\n'));
-  }
-
-  async function guardarRecomendacionesEspecialidad() {
-    if (!especialidadEnEdicion) return;
+  async function eliminarMedicoDefinitivo(medico) {
+    if (!window.confirm(`¿Estás seguro de que deseas eliminar permanentemente al Dr(a). ${medico.nombre}? Esta acción no se puede deshacer.`)) {
+      return;
+    }
     try {
-      const arrayRecs = recomendacionesTexto
-        .split('\n')
-        .map(l => l.trim())
-        .filter(l => l.length > 0);
-
-      await api.updateEspecialidad(especialidadEnEdicion.id, {
-        recomendaciones: arrayRecs
-      });
-      setEspecialidadEnEdicion(null);
+      await api.deleteMedico(medico.id, true);
       cargarTodo();
     } catch (err) {
-      alert('Error al actualizar recomendaciones: ' + err.message);
+      alert('Error al eliminar médico: ' + err.message);
+    }
+  }
+
+  // ==========================================
+  // GESTIÓN DE ESPECIALIDADES & PROCEDIMIENTOS (CRUD)
+  // ==========================================
+  function abrirModalNuevaEspecialidad() {
+    setEspecialidadEnEdicion(null);
+    setFormEspecialidad({
+      nombre: '',
+      codigo: '',
+      departamento: filtroDepartamentoEsp !== 'todos' ? filtroDepartamentoEsp : 'Medicina general',
+      duracionMinutos: 30,
+      descripcion: '',
+      icono: 'Stethoscope',
+      esConsulta: true,
+      activa: true,
+      recomendaciones: ''
+    });
+    setModalEspecialidadAbierto(true);
+  }
+
+  function abrirModalEditarEspecialidad(esp) {
+    setEspecialidadEnEdicion(esp);
+    setFormEspecialidad({
+      nombre: esp.nombre || '',
+      codigo: esp.codigo || '',
+      departamento: esp.departamento || 'Especialidades Médicas',
+      duracionMinutos: esp.duracionMinutos || 30,
+      descripcion: esp.descripcion || '',
+      icono: esp.icono || (esp.esConsulta !== false ? 'Stethoscope' : 'Activity'),
+      esConsulta: esp.esConsulta !== false,
+      activa: esp.activa !== false,
+      recomendaciones: Array.isArray(esp.recomendaciones) ? esp.recomendaciones.join('\n') : (esp.recomendaciones || '')
+    });
+    setModalEspecialidadAbierto(true);
+  }
+
+  async function guardarEspecialidad(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (!formEspecialidad.nombre || !formEspecialidad.nombre.trim()) {
+      alert('El nombre de la especialidad o procedimiento es obligatorio.');
+      return;
+    }
+
+    try {
+      const arrayRecs = (formEspecialidad.recomendaciones || '')
+        .split('\n')
+        .map(l => l.trim())
+        .filter(Boolean);
+
+      const payload = {
+        ...formEspecialidad,
+        nombre: formEspecialidad.nombre.trim(),
+        codigo: (formEspecialidad.codigo || '').trim(),
+        departamento: (formEspecialidad.departamento || '').trim() || 'Especialidades Médicas',
+        duracionMinutos: parseInt(formEspecialidad.duracionMinutos, 10) || 30,
+        recomendaciones: arrayRecs
+      };
+
+      if (especialidadEnEdicion) {
+        await api.updateEspecialidad(especialidadEnEdicion.id, payload);
+      } else {
+        await api.createEspecialidad(payload);
+      }
+
+      setModalEspecialidadAbierto(false);
+      setEspecialidadEnEdicion(null);
+      await cargarTodo();
+    } catch (err) {
+      alert('Error al guardar especialidad: ' + err.message);
+    }
+  }
+
+  async function eliminarEspecialidad(esp) {
+    if (!window.confirm(`¿Estás seguro de que deseas eliminar permanentemente la especialidad "${esp.nombre}" (${esp.codigo})? Esta acción no se puede deshacer.`)) {
+      return;
+    }
+    try {
+      await api.deleteEspecialidad(esp.id);
+      await cargarTodo();
+    } catch (err) {
+      alert('Error al eliminar especialidad: ' + err.message);
+    }
+  }
+
+  async function toggleEstadoEspecialidad(esp) {
+    try {
+      await api.updateEspecialidad(esp.id, { activa: esp.activa === false ? true : false });
+      await cargarTodo();
+    } catch (err) {
+      alert('Error al cambiar estado de la especialidad: ' + err.message);
     }
   }
 
@@ -428,11 +526,16 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   // Lista de médicos filtrados para el buscador inteligente por nombre
   const medicosFiltradosPorBusqueda = medicos.filter(m => {
     if (filtroSede && m.sedeId !== filtroSede) return false;
-    if (filtroEspecialidadCitas && m.especialidadId !== filtroEspecialidadCitas) return false;
+    if (filtroEspecialidadCitas) {
+      const esp = especialidades.find(e => e.id === filtroEspecialidadCitas);
+      const depMatch = esp && (m.departamento === esp.departamento);
+      if (m.especialidadId !== filtroEspecialidadCitas && !depMatch) return false;
+    }
     if (!busquedaMedicoTexto.trim()) return true;
     const q = busquedaMedicoTexto.toLowerCase().trim();
     return (
       (m.nombre && m.nombre.toLowerCase().includes(q)) ||
+      (m.departamento && m.departamento.toLowerCase().includes(q)) ||
       (m.especialidadNombre && m.especialidadNombre.toLowerCase().includes(q)) ||
       (m.registroMedico && m.registroMedico.toLowerCase().includes(q))
     );
@@ -903,12 +1006,50 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 {especialidades.length} Especialidades & Procedimientos Médicos Habilitados
               </h3>
               <p className="panel-subtitle">
-                Especialidades distribuidas en 6 departamentos clínicos. Configure las recomendaciones preparatorias oficiales que se imprimen en el comprobante PDF.
+                Gestione los servicios clínicos ofertados, configure su duración, código CUPS y las recomendaciones oficiales para el paciente.
               </p>
             </div>
+            <button className="btn btn-accent" onClick={abrirModalNuevaEspecialidad}>
+              <Plus size={18} /> Agregar Especialidad
+            </button>
           </div>
 
-          {/* Filtros por Departamento */}
+          {/* Buscador inteligente y Filtros por Departamento */}
+          <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginBottom: '1.2rem', alignItems: 'center' }}>
+            <div style={{ position: 'relative', flex: '1 1 300px', minWidth: '240px' }}>
+              <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
+              <input
+                type="text"
+                className="form-input"
+                style={{ paddingLeft: '2.4rem' }}
+                placeholder="Buscar especialidad por nombre, código CUPS o departamento..."
+                value={busquedaEspecialidadTexto}
+                onChange={e => setBusquedaEspecialidadTexto(e.target.value)}
+              />
+              {busquedaEspecialidadTexto && (
+                <button
+                  type="button"
+                  onClick={() => setBusquedaEspecialidadTexto('')}
+                  style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#94A3B8' }}
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
+
+            {filtroDepartamentoEsp !== 'todos' && (
+              <button
+                type="button"
+                className="btn btn-secondary"
+                style={{ fontSize: '0.78rem', padding: '0.45rem 0.75rem', display: 'flex', alignItems: 'center', gap: '4px' }}
+                onClick={() => setFiltroDepartamentoEsp('todos')}
+              >
+                Limpiar filtro ({filtroDepartamentoEsp}) <X size={12} />
+              </button>
+            )}
+          </div>
+
+          {/* Botones por Departamento */}
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem', background: '#F8FAFC', padding: '0.8rem', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
             <button
               type="button"
@@ -934,65 +1075,137 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
             })}
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '1.5rem' }}>
-            {especialidades
-              .filter(esp => filtroDepartamentoEsp === 'todos' || esp.departamento === filtroDepartamentoEsp)
-              .map(esp => (
-                <div
-                  key={esp.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1.5px solid #E2E8F0',
-                    borderRadius: '16px',
-                    padding: '1.5rem',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.4rem' }}>
-                      <span className="badge badge-web">{esp.codigo}</span>
-                      <span style={{
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        padding: '0.2rem 0.5rem',
-                        borderRadius: '6px',
-                        background: 'var(--brand-cyan-light)',
-                        color: 'var(--brand-cyan-dark)'
-                      }}>
-                        {esp.departamento || 'Especialidad'}
-                      </span>
-                      <span style={{ fontSize: '0.75rem', color: '#64748B' }}>{esp.duracionMinutos} minutos</span>
-                    </div>
+          {/* Grid de Especialidades */}
+          {(() => {
+            const filtradas = especialidades.filter(esp => {
+              if (filtroDepartamentoEsp !== 'todos' && esp.departamento !== filtroDepartamentoEsp) {
+                return false;
+              }
+              if (busquedaEspecialidadTexto.trim()) {
+                const q = busquedaEspecialidadTexto.toLowerCase().trim();
+                const matchNom = (esp.nombre || '').toLowerCase().includes(q);
+                const matchCod = (esp.codigo || '').toLowerCase().includes(q);
+                const matchDep = (esp.departamento || '').toLowerCase().includes(q);
+                const matchDesc = (esp.descripcion || '').toLowerCase().includes(q);
+                return matchNom || matchCod || matchDep || matchDesc;
+              }
+              return true;
+            });
 
-                    <h4 style={{ fontSize: '1.2rem', color: '#0F172A', marginBottom: '0.4rem' }}>{esp.nombre}</h4>
-                    <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '1rem' }}>{esp.descripcion}</p>
-
-                    <div style={{ background: '#FEF3C7', border: '1px solid #FDE68A', padding: '0.8rem', borderRadius: '10px' }}>
-                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#92400E', marginBottom: '0.4rem' }}>
-                        Recomendaciones para el PDF:
-                      </div>
-                      <ul style={{ paddingLeft: '1.2rem', fontSize: '0.76rem', color: '#78350F', lineHeight: '1.4' }}>
-                        {esp.recomendaciones?.map((r, i) => (
-                          <li key={i} style={{ marginBottom: '0.3rem' }}>{r}</li>
-                        ))}
-                      </ul>
-                    </div>
+            if (filtradas.length === 0) {
+              return (
+                <div style={{ textAlign: 'center', padding: '3.5rem 1rem', background: '#F8FAFC', borderRadius: '16px', border: '1.5px dashed #CBD5E1' }}>
+                  <Stethoscope size={44} style={{ opacity: 0.35, margin: '0 auto 0.75rem', display: 'block', color: 'var(--brand-cyan)' }} />
+                  <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#1E293B' }}>No se encontraron especialidades</div>
+                  <div style={{ fontSize: '0.85rem', marginTop: '0.35rem', color: '#64748B' }}>
+                    {busquedaEspecialidadTexto ? 'No hay resultados que coincidan con la búsqueda.' : 'No hay especialidades registradas en este departamento.'}
                   </div>
-
-                  <div style={{ marginTop: '1rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.8rem' }}>
-                    <button
-                      className="btn btn-secondary"
-                      style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem' }}
-                      onClick={() => abrirEdicionEspecialidad(esp)}
-                    >
-                      <Edit2 size={14} /> Editar Recomendaciones del PDF
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    className="btn btn-accent"
+                    style={{ marginTop: '1rem', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                    onClick={abrirModalNuevaEspecialidad}
+                  >
+                    <Plus size={16} /> Agregar Nueva Especialidad
+                  </button>
                 </div>
-              ))}
-          </div>
+              );
+            }
+
+            return (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '1.5rem' }}>
+                {filtradas.map(esp => (
+                  <div
+                    key={esp.id}
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1.5px solid #E2E8F0',
+                      borderRadius: '16px',
+                      padding: '1.5rem',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      opacity: esp.activa === false ? 0.75 : 1,
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.4rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
+                          <span className="badge badge-web">{esp.codigo}</span>
+                          <span style={{
+                            fontSize: '0.72rem',
+                            fontWeight: 700,
+                            padding: '0.2rem 0.5rem',
+                            borderRadius: '6px',
+                            background: 'var(--brand-cyan-light)',
+                            color: 'var(--brand-cyan-dark)'
+                          }}>
+                            {esp.departamento || 'Especialidad'}
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                          <span style={{ fontSize: '0.75rem', color: '#64748B' }}>{esp.duracionMinutos} min</span>
+                          <span className={`badge ${esp.activa !== false ? 'badge-confirmada' : 'badge-cancelada'}`}>
+                            {esp.activa !== false ? 'Activa' : 'Inactiva'}
+                          </span>
+                        </div>
+                      </div>
+
+                      <h4 style={{ fontSize: '1.15rem', color: '#0F172A', marginBottom: '0.4rem', fontWeight: 800 }}>{esp.nombre}</h4>
+                      <p style={{ fontSize: '0.84rem', color: '#64748B', marginBottom: '1rem', lineHeight: '1.45' }}>
+                        {esp.descripcion || 'Sin descripción detallada.'}
+                      </p>
+
+                      <div style={{ background: '#FEF3C7', border: '1px solid #FDE68A', padding: '0.8rem', borderRadius: '10px' }}>
+                        <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#92400E', marginBottom: '0.4rem' }}>
+                          Recomendaciones para el PDF:
+                        </div>
+                        {Array.isArray(esp.recomendaciones) && esp.recomendaciones.length > 0 ? (
+                          <ul style={{ paddingLeft: '1.2rem', fontSize: '0.76rem', color: '#78350F', lineHeight: '1.4' }}>
+                            {esp.recomendaciones.map((r, i) => (
+                              <li key={i} style={{ marginBottom: '0.25rem' }}>{r}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <span style={{ fontSize: '0.75rem', color: '#B45309', fontStyle: 'italic' }}>
+                            Sin recomendaciones específicas registradas.
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div style={{ marginTop: '1.2rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.8rem', display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                      <button
+                        className="btn btn-secondary"
+                        style={{ flex: '1 1 auto', fontSize: '0.78rem', padding: '0.45rem 0.65rem' }}
+                        onClick={() => abrirModalEditarEspecialidad(esp)}
+                        title="Editar datos y recomendaciones de esta especialidad"
+                      >
+                        <Edit2 size={13} /> Editar
+                      </button>
+                      <button
+                        className={`btn ${esp.activa !== false ? 'btn-secondary' : 'btn-primary'}`}
+                        style={{ fontSize: '0.78rem', padding: '0.45rem 0.65rem' }}
+                        onClick={() => toggleEstadoEspecialidad(esp)}
+                        title={esp.activa !== false ? 'Desactivar especialidad' : 'Activar especialidad'}
+                      >
+                        {esp.activa !== false ? 'Desactivar' : 'Activar'}
+                      </button>
+                      <button
+                        className="btn btn-danger"
+                        style={{ padding: '0.45rem 0.65rem', fontSize: '0.78rem', background: '#FEE2E2', color: '#DC2626', borderColor: '#FCA5A5' }}
+                        onClick={() => eliminarEspecialidad(esp)}
+                        title="Eliminar especialidad definitivamente"
+                      >
+                        <Trash2 size={13} />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
         </div>
       )}
 
@@ -1020,7 +1233,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 <tr>
                   <th>Nombre del Profesional</th>
                   <th>Registro Médico</th>
-                  <th>Especialidad</th>
+                  <th>Departamento Clínico (REPS)</th>
                   <th>Sede & Consultorio</th>
                   <th>Horario Jornada</th>
                   <th>Duración Cita</th>
@@ -1030,7 +1243,18 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 </tr>
               </thead>
               <tbody>
-                {medicos.map(med => {
+                {medicos.length === 0 ? (
+                  <tr>
+                    <td colSpan="9" style={{ textAlign: 'center', padding: '3.5rem 1rem', color: '#64748B' }}>
+                      <Users size={44} style={{ opacity: 0.35, margin: '0 auto 0.75rem', display: 'block', color: 'var(--brand-blue)' }} />
+                      <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#1E293B' }}>No hay médicos registrados</div>
+                      <div style={{ fontSize: '0.85rem', marginTop: '0.35rem', color: '#64748B' }}>
+                        Empieza a registrar los profesionales especialistas de la IPS haciendo clic en <b>"Registrar Especialista"</b>.
+                      </div>
+                    </td>
+                  </tr>
+                ) : (
+                  medicos.map(med => {
                   const duracion = med.duracionCitaMinutos || 30;
                   const pausas = Array.isArray(med.pausas) ? med.pausas : [];
                   return (
@@ -1040,7 +1264,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                         <div style={{ fontSize: '0.72rem', color: '#64748B' }}>Días: {(med.diasAtencion || []).join(', ') || 'Lun - Vie'}</div>
                       </td>
                       <td><span className="badge badge-web">{med.registroMedico}</span></td>
-                      <td><b>{med.especialidadNombre}</b></td>
+                      <td><span className="badge" style={{ background: '#E0F2FE', color: '#0369A1', border: '1px solid #BAE6FD', fontWeight: 700 }}>{med.departamento || med.especialidadNombre}</span></td>
                       <td>
                         <div>{med.sedeNombre}</div>
                         <div style={{ fontSize: '0.75rem', color: '#64748B' }}>{med.consultorio}</div>
@@ -1132,12 +1356,23 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                           >
                             {med.activo !== false ? 'Desactivar' : 'Activar'}
                           </button>
+                          {isSuperAdmin && (
+                            <button
+                              className="btn btn-danger"
+                              style={{ padding: '0.35rem 0.65rem', fontSize: '0.75rem', background: '#FEE2E2', color: '#DC2626', borderColor: '#FCA5A5' }}
+                              onClick={() => eliminarMedicoDefinitivo(med)}
+                              title="Eliminar médico definitivamente del sistema"
+                            >
+                              <Trash2 size={13} />
+                            </button>
+                          )}
                         </div>
                       </td>
                     </tr>
                   );
-                })}
-              </tbody>
+                })
+              )}
+            </tbody>
             </table>
           </div>
         </div>
@@ -1608,7 +1843,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                             <div>
                               <div style={{ fontWeight: 800, color: '#0F172A' }}>{m.nombre}</div>
                               <div style={{ fontSize: '0.7rem', color: '#64748B' }}>
-                                {m.especialidadNombre} • {m.sedeNombre} ({m.consultorio})
+                                {m.departamento || m.especialidadNombre} • {m.sedeNombre} ({m.consultorio})
                               </div>
                             </div>
                             <span style={{ fontSize: '0.68rem', background: '#E0F2FE', color: '#0369A1', padding: '0.12rem 0.4rem', borderRadius: '4px', fontWeight: 700 }}>
@@ -1760,7 +1995,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                     </span>
                   </div>
                   <h4 style={{ fontSize: '1.15rem', color: '#134E4A', margin: '0.2rem 0' }}>
-                    {medSel.nombre} <span style={{ fontSize: '0.9rem', color: '#047857', fontWeight: 600 }}>({medSel.especialidadNombre})</span>
+                    {medSel.nombre} <span style={{ fontSize: '0.9rem', color: '#047857', fontWeight: 600 }}>({medSel.departamento || medSel.especialidadNombre})</span>
                   </h4>
                   <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', fontSize: '0.78rem', color: '#115E59', marginTop: '0.4rem' }}>
                     <span><b>Jornada:</b> {medSel.horaInicio} - {medSel.horaFin}</span>
@@ -2186,45 +2421,168 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
       )}
 
       {/* ======================================================== */}
-      {/* MODAL: EDITAR RECOMENDACIONES DE ESPECIALIDAD */}
+      {/* MODAL: REGISTRAR / EDITAR ESPECIALIDAD O PROCEDIMIENTO */}
       {/* ======================================================== */}
-      {especialidadEnEdicion && (
+      {modalEspecialidadAbierto && (
         <div className="modal-backdrop">
-          <div className="modal-content">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
-              <h3 style={{ fontSize: '1.2rem', color: '#0F172A' }}>
-                Recomendaciones para: {especialidadEnEdicion.nombre}
-              </h3>
+          <div className="modal-content" style={{ maxWidth: '640px', maxHeight: '90vh', overflowY: 'auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '0.8rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ background: '#E0F2FE', color: '#028090', padding: '0.5rem', borderRadius: '10px' }}>
+                  <Stethoscope size={22} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.15rem', color: '#0F172A', fontWeight: 800, margin: 0 }}>
+                    {especialidadEnEdicion ? 'Editar Especialidad / Procedimiento' : 'Registrar Nueva Especialidad o Procedimiento'}
+                  </h3>
+                  <p style={{ fontSize: '0.78rem', color: '#64748B', margin: 0 }}>
+                    {especialidadEnEdicion ? `Actualice los datos y recomendaciones de ${especialidadEnEdicion.nombre}` : 'Ingrese los datos del nuevo servicio médico habilitado'}
+                  </p>
+                </div>
+              </div>
               <button
+                type="button"
                 style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#64748B' }}
-                onClick={() => setEspecialidadEnEdicion(null)}
+                onClick={() => {
+                  setModalEspecialidadAbierto(false);
+                  setEspecialidadEnEdicion(null);
+                }}
               >
                 <X size={20} />
               </button>
             </div>
 
-            <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '1rem' }}>
-              Escriba una recomendación por línea. Estas instrucciones aparecerán impresas en el comprobante oficial en PDF que recibe el paciente al agendar su cita.
-            </p>
+            <form onSubmit={guardarEspecialidad}>
+              <div className="form-group" style={{ marginBottom: '1rem' }}>
+                <label className="form-label">Nombre del Servicio / Especialidad *</label>
+                <input
+                  type="text"
+                  required
+                  className="form-input"
+                  placeholder="Ej: Ginecología, Ecografía Obstétrica, Medicina Interna..."
+                  value={formEspecialidad.nombre}
+                  onChange={e => setFormEspecialidad({ ...formEspecialidad, nombre: e.target.value })}
+                />
+              </div>
 
-            <div className="form-group">
-              <label className="form-label">Instrucciones Preparatorias (Una por línea):</label>
-              <textarea
-                className="form-textarea"
-                rows="7"
-                value={recomendacionesTexto}
-                onChange={e => setRecomendacionesTexto(e.target.value)}
-              />
-            </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div className="form-group">
+                  <label className="form-label">Código o CUPS</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Ej: GIN, 881112, ECO-01..."
+                    value={formEspecialidad.codigo}
+                    onChange={e => setFormEspecialidad({ ...formEspecialidad, codigo: e.target.value })}
+                  />
+                </div>
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.8rem', marginTop: '1.5rem' }}>
-              <button type="button" className="btn btn-secondary" onClick={() => setEspecialidadEnEdicion(null)}>
-                Cancelar
-              </button>
-              <button type="button" className="btn btn-accent" onClick={guardarRecomendacionesEspecialidad}>
-                Actualizar Recomendaciones
-              </button>
-            </div>
+                <div className="form-group">
+                  <label className="form-label">Duración Cita (Minutos) *</label>
+                  <select
+                    className="form-select"
+                    value={formEspecialidad.duracionMinutos}
+                    onChange={e => setFormEspecialidad({ ...formEspecialidad, duracionMinutos: parseInt(e.target.value, 10) })}
+                  >
+                    <option value={15}>15 minutos</option>
+                    <option value={20}>20 minutos</option>
+                    <option value={30}>30 minutos (Estándar)</option>
+                    <option value={40}>40 minutos</option>
+                    <option value={45}>45 minutos</option>
+                    <option value={60}>60 minutos (1 hora)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                <div className="form-group">
+                  <label className="form-label">Departamento Clínico *</label>
+                  <input
+                    type="text"
+                    list="departamentos-lista-especialidades"
+                    required
+                    className="form-input"
+                    placeholder="Seleccione o escriba un departamento..."
+                    value={formEspecialidad.departamento}
+                    onChange={e => setFormEspecialidad({ ...formEspecialidad, departamento: e.target.value })}
+                  />
+                  <datalist id="departamentos-lista-especialidades">
+                    {[...new Set(especialidades.map(e => e.departamento).filter(Boolean))].map(dep => (
+                      <option key={dep} value={dep} />
+                    ))}
+                  </datalist>
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Tipo de Servicio</label>
+                  <select
+                    className="form-select"
+                    value={formEspecialidad.esConsulta ? 'consulta' : 'procedimiento'}
+                    onChange={e => setFormEspecialidad({ ...formEspecialidad, esConsulta: e.target.value === 'consulta' })}
+                  >
+                    <option value="consulta">Consulta Médica</option>
+                    <option value="procedimiento">Procedimiento / Imagen</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group" style={{ marginBottom: '1rem' }}>
+                <label className="form-label">Descripción Informativa</label>
+                <textarea
+                  className="form-textarea"
+                  rows="2"
+                  placeholder="Breve resumen del servicio médico para conocimiento del paciente..."
+                  value={formEspecialidad.descripcion}
+                  onChange={e => setFormEspecialidad({ ...formEspecialidad, descripcion: e.target.value })}
+                />
+              </div>
+
+              <div className="form-group" style={{ marginBottom: '1rem' }}>
+                <label className="form-label" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span>Recomendaciones Preparatorias (PDF)</span>
+                  <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 'normal' }}>Una instrucción por línea</span>
+                </label>
+                <textarea
+                  className="form-textarea"
+                  rows="4"
+                  placeholder="Ej:&#10;Presentarse con 8 horas de ayuno.&#10;Traer orden médica autorizada y documento de identidad.&#10;Llegar 15 minutos antes de la hora fijada."
+                  value={formEspecialidad.recomendaciones}
+                  onChange={e => setFormEspecialidad({ ...formEspecialidad, recomendaciones: e.target.value })}
+                />
+                <p style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '0.3rem' }}>
+                  Estas pautas se imprimirán en el comprobante oficial en PDF que recibe el paciente al agendar su cita.
+                </p>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.2rem', padding: '0.65rem 0.8rem', background: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <input
+                  type="checkbox"
+                  id="especialidadActivaCheckbox"
+                  checked={formEspecialidad.activa}
+                  onChange={e => setFormEspecialidad({ ...formEspecialidad, activa: e.target.checked })}
+                  style={{ width: '16px', height: '16px', cursor: 'pointer' }}
+                />
+                <label htmlFor="especialidadActivaCheckbox" style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155', cursor: 'pointer' }}>
+                  Especialidad Activa (habilitada para agendamiento de citas)
+                </label>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.8rem', borderTop: '1px solid #E2E8F0', paddingTop: '1rem' }}>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => {
+                    setModalEspecialidadAbierto(false);
+                    setEspecialidadEnEdicion(null);
+                  }}
+                >
+                  Cancelar
+                </button>
+                <button type="submit" className="btn btn-accent" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <Check size={16} /> {especialidadEnEdicion ? 'Actualizar Especialidad' : 'Guardar Especialidad'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
@@ -2288,16 +2646,16 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Especialidad Habilitada *</label>
+                  <label className="form-label">Departamento Clínico (REPS) *</label>
                   <select
                     className="form-select"
-                    value={formMedico.especialidadId}
-                    onChange={e => setFormMedico({ ...formMedico, especialidadId: e.target.value })}
+                    value={formMedico.departamento}
+                    onChange={e => setFormMedico({ ...formMedico, departamento: e.target.value })}
                     required
                   >
-                    <option value="">Seleccione Especialidad...</option>
-                    {especialidades.map(esp => (
-                      <option key={esp.id} value={esp.id}>{esp.nombre}</option>
+                    <option value="">Seleccione Departamento Clínico (REPS)...</option>
+                    {departamentosUnicos.map(dep => (
+                      <option key={dep} value={dep}>{dep}</option>
                     ))}
                   </select>
                 </div>
@@ -2587,7 +2945,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
             <div style={{ background: '#F8FAFC', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #E2E8F0', marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#0F172A' }}>
-                  {medicoParaPausas.especialidadNombre} • {medicoParaPausas.consultorio}
+                  {medicoParaPausas.departamento || medicoParaPausas.especialidadNombre} • {medicoParaPausas.consultorio}
                 </div>
                 <div style={{ fontSize: '0.75rem', color: '#64748B' }}>
                   Sede: {medicoParaPausas.sedeNombre} | Jornada: {medicoParaPausas.horaInicio} - {medicoParaPausas.horaFin}

@@ -181,6 +181,69 @@ app.get('/api/especialidades', (req, res) => {
   res.json({ success: true, data: currentDb.especialidades });
 });
 
+app.post('/api/especialidades', (req, res) => {
+  const currentDb = db.get();
+  const {
+    nombre,
+    codigo,
+    departamento,
+    descripcion,
+    duracionMinutos,
+    icono,
+    recomendaciones,
+    esConsulta,
+    activa,
+    modalidades
+  } = req.body;
+
+  if (!nombre || !nombre.trim()) {
+    return res.status(400).json({ success: false, error: "El nombre de la especialidad es obligatorio" });
+  }
+
+  const slug = nombre
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+    .substring(0, 30);
+  const uniqueSuffix = uuidv4().substring(0, 6);
+  const id = `esp-${slug || 'servicio'}-${uniqueSuffix}`;
+
+  let recs = [];
+  if (Array.isArray(recomendaciones)) {
+    recs = recomendaciones.filter(r => r && typeof r === 'string' && r.trim());
+  } else if (typeof recomendaciones === 'string') {
+    recs = recomendaciones.split('\n').map(r => r.trim()).filter(Boolean);
+  }
+
+  const nuevaEspecialidad = {
+    id,
+    nombre: nombre.trim(),
+    codigo: (codigo || slug.toUpperCase().substring(0, 8) || 'ESP').trim(),
+    departamento: (departamento || 'Especialidades Médicas').trim(),
+    descripcion: (descripcion || '').trim(),
+    duracionMinutos: parseInt(duracionMinutos, 10) || 30,
+    icono: icono || (esConsulta !== false ? 'Stethoscope' : 'Activity'),
+    esConsulta: esConsulta !== false,
+    activa: activa !== false,
+    modalidades: Array.isArray(modalidades) ? modalidades : [],
+    recomendaciones: recs
+  };
+
+  currentDb.especialidades.push(nuevaEspecialidad);
+
+  currentDb.historialAuditoria.push({
+    id: `log-${Date.now()}`,
+    fecha: new Date().toISOString(),
+    accion: "CREAR_ESPECIALIDAD",
+    descripcion: `Nueva especialidad creada: ${nuevaEspecialidad.nombre} (${nuevaEspecialidad.codigo}) en [${nuevaEspecialidad.departamento}].`
+  });
+
+  db.save(currentDb);
+  res.status(201).json({ success: true, data: nuevaEspecialidad });
+});
+
 app.put('/api/especialidades/:id', (req, res) => {
   const currentDb = db.get();
   const { id } = req.params;
@@ -190,14 +253,71 @@ app.put('/api/especialidades/:id', (req, res) => {
     return res.status(404).json({ success: false, error: "Especialidad no encontrada" });
   }
 
+  const espPrev = currentDb.especialidades[index];
+  const body = req.body;
+
+  let recs = espPrev.recomendaciones || [];
+  if (body.recomendaciones !== undefined) {
+    if (Array.isArray(body.recomendaciones)) {
+      recs = body.recomendaciones.filter(r => r && typeof r === 'string' && r.trim());
+    } else if (typeof body.recomendaciones === 'string') {
+      recs = body.recomendaciones.split('\n').map(r => r.trim()).filter(Boolean);
+    }
+  }
+
   currentDb.especialidades[index] = {
-    ...currentDb.especialidades[index],
-    ...req.body,
-    id
+    ...espPrev,
+    ...body,
+    id,
+    duracionMinutos: body.duracionMinutos !== undefined ? (parseInt(body.duracionMinutos, 10) || 30) : espPrev.duracionMinutos,
+    recomendaciones: recs
   };
+
+  currentDb.historialAuditoria.push({
+    id: `log-${Date.now()}`,
+    fecha: new Date().toISOString(),
+    accion: "MODIFICAR_ESPECIALIDAD",
+    descripcion: `Especialidad ${currentDb.especialidades[index].nombre} actualizada.`
+  });
 
   db.save(currentDb);
   res.json({ success: true, data: currentDb.especialidades[index] });
+});
+
+app.delete('/api/especialidades/:id', (req, res) => {
+  const currentDb = db.get();
+  const { id } = req.params;
+  const index = currentDb.especialidades.findIndex(e => e.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, error: "Especialidad no encontrada" });
+  }
+
+  const medicosAsociados = (currentDb.medicos || []).filter(m => m.especialidadId === id);
+  if (medicosAsociados.length > 0 && req.query.forzar !== 'true') {
+    return res.status(400).json({
+      success: false,
+      error: `No se puede eliminar la especialidad porque tiene ${medicosAsociados.length} médico(s) asignado(s). Reasigne o elimine los médicos primero.`
+    });
+  }
+
+  const especialidadEliminada = currentDb.especialidades.splice(index, 1)[0];
+
+  (currentDb.sedes || []).forEach(sede => {
+    if (Array.isArray(sede.especialidadesHabilitadas)) {
+      sede.especialidadesHabilitadas = sede.especialidadesHabilitadas.filter(espId => espId !== id);
+    }
+  });
+
+  currentDb.historialAuditoria.push({
+    id: `log-${Date.now()}`,
+    fecha: new Date().toISOString(),
+    accion: "ELIMINAR_ESPECIALIDAD",
+    descripcion: `Especialidad ${especialidadEliminada.nombre} (${especialidadEliminada.codigo}) eliminada del sistema.`
+  });
+
+  db.save(currentDb);
+  res.json({ success: true, message: `Especialidad "${especialidadEliminada.nombre}" eliminada exitosamente` });
 });
 
 // ==========================================
@@ -205,7 +325,7 @@ app.put('/api/especialidades/:id', (req, res) => {
 // ==========================================
 app.get('/api/medicos', (req, res) => {
   const currentDb = db.get();
-  const { sedeId, especialidadId } = req.query;
+  const { sedeId, departamento, especialidadId } = req.query;
 
   let filtrados = req.query.incluirInactivos === 'true'
     ? [...currentDb.medicos]
@@ -214,18 +334,28 @@ app.get('/api/medicos', (req, res) => {
   if (sedeId) {
     filtrados = filtrados.filter(m => m.sedeId === sedeId);
   }
+  if (departamento) {
+    filtrados = filtrados.filter(m => m.departamento === departamento);
+  }
   if (especialidadId) {
-    filtrados = filtrados.filter(m => m.especialidadId === especialidadId);
+    const esp = currentDb.especialidades.find(e => e.id === especialidadId);
+    if (esp && esp.departamento) {
+      filtrados = filtrados.filter(m => m.departamento === esp.departamento || m.especialidadId === especialidadId);
+    } else {
+      filtrados = filtrados.filter(m => m.especialidadId === especialidadId);
+    }
   }
 
-  // Enriquecer con nombres de sede y especialidad
+  // Enriquecer con nombres de sede y departamento clínico
   const medicosEnriquecidos = filtrados.map(medico => {
     const sede = currentDb.sedes.find(s => s.id === medico.sedeId);
     const esp = currentDb.especialidades.find(e => e.id === medico.especialidadId);
+    const depNombre = medico.departamento || (esp ? esp.departamento : 'General');
     return {
       ...medico,
+      departamento: depNombre,
       sedeNombre: sede ? sede.nombre : 'No asignada',
-      especialidadNombre: esp ? esp.nombre : 'No asignada'
+      especialidadNombre: depNombre
     };
   });
 
@@ -234,17 +364,20 @@ app.get('/api/medicos', (req, res) => {
 
 app.post('/api/medicos', (req, res) => {
   const currentDb = db.get();
-  const { nombre, registroMedico, especialidadId, sedeId, consultorio, diasAtencion, horaInicio, horaFin, duracionCitaMinutos, pausas } = req.body;
+  const { nombre, registroMedico, departamento, especialidadId, sedeId, consultorio, diasAtencion, horaInicio, horaFin, duracionCitaMinutos, pausas } = req.body;
 
-  if (!nombre || !especialidadId || !sedeId) {
-    return res.status(400).json({ success: false, error: "Nombre, especialidad y sede son obligatorios" });
+  const depFinal = (departamento || '').trim() || (especialidadId ? currentDb.especialidades.find(e => e.id === especialidadId)?.departamento : '');
+
+  if (!nombre || !depFinal || !sedeId) {
+    return res.status(400).json({ success: false, error: "Nombre, Departamento Clínico (REPS) y sede son obligatorios" });
   }
 
   const nuevoMedico = {
     id: `med-${uuidv4().substring(0, 8)}`,
-    nombre,
+    nombre: nombre.trim(),
     registroMedico: registroMedico || `RM-${Math.floor(100000 + Math.random() * 900000)}`,
-    especialidadId,
+    departamento: depFinal,
+    especialidadId: especialidadId || null,
     sedeId,
     consultorio: consultorio || "Cons. General",
     diasAtencion: diasAtencion || ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"],
@@ -257,22 +390,25 @@ app.post('/api/medicos', (req, res) => {
 
   currentDb.medicos.push(nuevoMedico);
 
-  // Asegurar que la especialidad quede habilitada en la sede del médico
+  // Asegurar que las especialidades del departamento queden habilitadas en la sede del médico
   const sedeAsociada = currentDb.sedes.find(s => s.id === sedeId);
   if (sedeAsociada) {
     if (!Array.isArray(sedeAsociada.especialidadesHabilitadas)) {
-      sedeAsociada.especialidadesHabilitadas = obtenerEspecialidadesHabilitadasParaSede(sedeAsociada, currentDb);
+      sedeAsociada.especialidadesHabilitadas = [];
     }
-    if (!sedeAsociada.especialidadesHabilitadas.includes(especialidadId)) {
-      sedeAsociada.especialidadesHabilitadas.push(especialidadId);
-    }
+    const espsDelDepto = currentDb.especialidades.filter(e => e.departamento === depFinal).map(e => e.id);
+    espsDelDepto.forEach(espId => {
+      if (!sedeAsociada.especialidadesHabilitadas.includes(espId)) {
+        sedeAsociada.especialidadesHabilitadas.push(espId);
+      }
+    });
   }
 
   currentDb.historialAuditoria.push({
     id: `log-${Date.now()}`,
     fecha: new Date().toISOString(),
     accion: "CREAR_MEDICO",
-    descripcion: `Nuevo médico creado: ${nuevoMedico.nombre} (${nuevoMedico.registroMedico}) con citas de ${nuevoMedico.duracionCitaMinutos} min.`
+    descripcion: `Nuevo médico creado: ${nuevoMedico.nombre} (${nuevoMedico.registroMedico}) asignado a departamento [${nuevoMedico.departamento}] con citas de ${nuevoMedico.duracionCitaMinutos} min.`
   });
 
   db.save(currentDb);
@@ -289,11 +425,12 @@ app.put('/api/medicos/:id', (req, res) => {
   }
 
   const medicoPrevio = currentDb.medicos[index];
-  const { duracionCitaMinutos, pausas, ...restoCampos } = req.body;
+  const { duracionCitaMinutos, pausas, departamento, ...restoCampos } = req.body;
 
   currentDb.medicos[index] = {
     ...medicoPrevio,
     ...restoCampos,
+    ...(departamento ? { departamento: departamento.trim() } : {}),
     ...(duracionCitaMinutos !== undefined ? { duracionCitaMinutos: parseInt(duracionCitaMinutos, 10) || 30 } : {}),
     ...(pausas !== undefined ? { pausas: Array.isArray(pausas) ? pausas : [] } : {}),
     id
@@ -301,20 +438,23 @@ app.put('/api/medicos/:id', (req, res) => {
 
   const medActualizado = currentDb.medicos[index];
   const sedeAsociada = currentDb.sedes.find(s => s.id === medActualizado.sedeId);
-  if (sedeAsociada && medActualizado.especialidadId) {
+  if (sedeAsociada && medActualizado.departamento) {
     if (!Array.isArray(sedeAsociada.especialidadesHabilitadas)) {
-      sedeAsociada.especialidadesHabilitadas = obtenerEspecialidadesHabilitadasParaSede(sedeAsociada, currentDb);
+      sedeAsociada.especialidadesHabilitadas = [];
     }
-    if (!sedeAsociada.especialidadesHabilitadas.includes(medActualizado.especialidadId)) {
-      sedeAsociada.especialidadesHabilitadas.push(medActualizado.especialidadId);
-    }
+    const espsDelDepto = currentDb.especialidades.filter(e => e.departamento === medActualizado.departamento).map(e => e.id);
+    espsDelDepto.forEach(espId => {
+      if (!sedeAsociada.especialidadesHabilitadas.includes(espId)) {
+        sedeAsociada.especialidadesHabilitadas.push(espId);
+      }
+    });
   }
 
   currentDb.historialAuditoria.push({
     id: `log-${Date.now()}`,
     fecha: new Date().toISOString(),
     accion: "ACTUALIZAR_MEDICO",
-    descripcion: `Médico ${medActualizado.nombre} actualizado. Duración de cita: ${medActualizado.duracionCitaMinutos || 30} min. Pausas activas: ${(medActualizado.pausas || []).length}.`
+    descripcion: `Médico ${medActualizado.nombre} actualizado en departamento [${medActualizado.departamento || 'General'}]. Duración de cita: ${medActualizado.duracionCitaMinutos || 30} min. Pausas activas: ${(medActualizado.pausas || []).length}.`
   });
 
   db.save(currentDb);
@@ -324,10 +464,25 @@ app.put('/api/medicos/:id', (req, res) => {
 app.delete('/api/medicos/:id', (req, res) => {
   const currentDb = db.get();
   const { id } = req.params;
-  const medico = currentDb.medicos.find(m => m.id === id);
+  const { permanente } = req.query;
 
-  if (!medico) {
+  const index = currentDb.medicos.findIndex(m => m.id === id);
+  if (index === -1) {
     return res.status(404).json({ success: false, error: "Médico no encontrado" });
+  }
+
+  const medico = currentDb.medicos[index];
+
+  if (permanente === 'true') {
+    currentDb.medicos.splice(index, 1);
+    currentDb.historialAuditoria.push({
+      id: `log-${Date.now()}`,
+      fecha: new Date().toISOString(),
+      accion: "ELIMINAR_MEDICO",
+      descripcion: `Médico ${medico.nombre} (${medico.registroMedico}) eliminado permanentemente del sistema.`
+    });
+    db.save(currentDb);
+    return res.json({ success: true, message: `Médico ${medico.nombre} eliminado permanentemente`, data: medico });
   }
 
   medico.activo = !medico.activo;
@@ -664,6 +819,7 @@ app.get('/api/disponibilidad', (req, res) => {
   }
 
   const especialidad = currentDb.especialidades.find(e => e.id === medico.especialidadId);
+  const depNombre = medico.departamento || (especialidad ? especialidad.departamento : 'General');
   const slots = calcularSlotsParaMedico(medico, fecha, currentDb, excluirCitaId);
 
   res.json({
@@ -672,7 +828,8 @@ app.get('/api/disponibilidad', (req, res) => {
       fecha,
       medicoId,
       medicoNombre: medico.nombre,
-      especialidad: especialidad?.nombre,
+      departamento: depNombre,
+      especialidad: depNombre,
       duracionCitaMinutos: parseInt(medico.duracionCitaMinutos, 10) || 30,
       pausas: medico.pausas || [],
       sedeId: medico.sedeId,
@@ -684,14 +841,21 @@ app.get('/api/disponibilidad', (req, res) => {
 // ESCANEAR DISPONIBILIDAD MÁS CERCANA EN LOS SIGUIENTES 5 DÍAS HÁBILES
 app.get('/api/disponibilidad/proximos-dias', (req, res) => {
   const currentDb = db.get();
-  const { especialidadId, sedeId, dias = 5 } = req.query;
+  const { especialidadId, departamento, sedeId, dias = 5 } = req.query;
 
-  if (!especialidadId) {
-    return res.status(400).json({ success: false, error: "especialidadId es requerido" });
+  if (!especialidadId && !departamento) {
+    return res.status(400).json({ success: false, error: "especialidadId o departamento es requerido" });
   }
 
-  // Filtrar médicos activos
-  let medicosDisponibles = currentDb.medicos.filter(m => m.activo !== false && m.especialidadId === especialidadId);
+  const targetDept = departamento || (especialidadId ? currentDb.especialidades.find(e => e.id === especialidadId)?.departamento : null);
+
+  // Filtrar médicos activos por departamento clínico
+  let medicosDisponibles = currentDb.medicos.filter(m => {
+    if (m.activo === false) return false;
+    if (targetDept && m.departamento === targetDept) return true;
+    if (especialidadId && m.especialidadId === especialidadId) return true;
+    return false;
+  });
   if (sedeId) {
     medicosDisponibles = medicosDisponibles.filter(m => m.sedeId === sedeId);
   }
@@ -1363,10 +1527,12 @@ function enrichCita(cita, database) {
 }
 
 app.listen(PORT, () => {
+  const currentDb = db.get();
   console.log(`====================================================`);
   console.log(` Servidor IPS ARCAL iniciado con éxito en http://localhost:${PORT}`);
-  console.log(` Especialidades habilitadas: 9`);
-  console.log(` Sedes operativas: 4`);
+  console.log(` Especialidades habilitadas: ${(currentDb.especialidades || []).length}`);
+  console.log(` Sedes operativas: ${(currentDb.sedes || []).length}`);
+  console.log(` Médicos activos: ${(currentDb.medicos || []).length}`);
   console.log(` Sincronización Web <-> Presencial: ACTIVA`);
   console.log(`====================================================`);
 });

@@ -11,7 +11,7 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
       <div className="top-notice-bar">
         <div className="top-notice-item">
           <ShieldCheck size={14} color="var(--primary-700)" />
-          <span><b>ARCAL Protección Radiológica S.A.S. (IPS)</b> — NIT: 901.365.419-8 | Habilitación MinSalud: 0500109842-01</span>
+          <span><b>ARCAL Protección Radiológica S.A.S. (IPS)</b> — NIT: 901.358.461-8 | Habilitación MinSalud: 0500121425-01</span>
         </div>
         <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
           <div className="top-notice-item">
