@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:3001/api';
+// Configuración de URL dinámica compatible con desarrollo local y despliegue en Hostinger
+const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:3001/api');
 
 async function request(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
@@ -93,6 +94,25 @@ export const api = {
 
   // Métricas
   getMetricas: () => request('/metricas'),
+
+  // Módulo Portal Web: Datos Curiosos
+  getDatosCuriosos: (admin = false) => request(`/datos-curiosos${admin ? '?admin=true' : ''}`),
+  createDatoCurioso: (data) => request('/datos-curiosos', { method: 'POST', body: JSON.stringify(data) }),
+  updateDatoCurioso: (id, data) => request(`/datos-curiosos/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteDatoCurioso: (id) => request(`/datos-curiosos/${id}`, { method: 'DELETE' }),
+
+  // Módulo Portal Web: Galería Multimedia (Fotos y Videos Cortos)
+  getGaleria: (admin = false) => request(`/galeria${admin ? '?admin=true' : ''}`),
+  createGaleriaItem: (data) => request('/galeria', { method: 'POST', body: JSON.stringify(data) }),
+  updateGaleriaItem: (id, data) => request(`/galeria/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteGaleriaItem: (id) => request(`/galeria/${id}`, { method: 'DELETE' }),
+
+  // Módulo Portal Web: Atención al Usuario & PQRS
+  getPqrs: () => request('/pqrs'),
+  consultarPqrs: (termino) => request(`/pqrs/consultar/${encodeURIComponent(termino)}`),
+  radicarPqrs: (data) => request('/pqrs', { method: 'POST', body: JSON.stringify(data) }),
+  responderPqrs: (id, data) => request(`/pqrs/${id}/responder`, { method: 'PUT', body: JSON.stringify(data) }),
+  deletePqrs: (id) => request(`/pqrs/${id}`, { method: 'DELETE' }),
 
   // Reiniciar
   resetDatabase: () => request('/reset', { method: 'POST' })

@@ -4,7 +4,7 @@ import {
   Edit2, Trash2, Check, X, FileDown, Activity, RefreshCw, AlertCircle,
   UserCheck, ShieldAlert, Lock, KeyRound, CheckCircle2,
   FileSpreadsheet, Download, Copy, Crown, Clock, Coffee, Sliders, Filter,
-  Search, User
+  Search, User, BookOpen, Video, Image as ImageIcon, MessageSquare, Send, Eye, FileText
 } from 'lucide-react';
 import { api } from '../services/api';
 import { generarComprobantePDF } from '../utils/pdfGenerator';
@@ -22,6 +22,48 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   const [medicos, setMedicos] = useState([]);
   const [citas, setCitas] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
+
+  // Datos del Portal Web (Alimentados por Admin y Super Admin)
+  const [datosCuriosos, setDatosCuriosos] = useState([]);
+  const [galeriaItems, setGaleriaItems] = useState([]);
+  const [pqrsList, setPqrsList] = useState([]);
+
+  // Modales y Formularios del Portal Web
+  const [modalCuriosoAbierto, setModalCuriosoAbierto] = useState(false);
+  const [curiosoEnEdicion, setCuriosoEnEdicion] = useState(null);
+  const [formCurioso, setFormCurioso] = useState({
+    titulo: '',
+    descripcion: '',
+    categoria: 'Protección Radiológica',
+    tipoMedia: 'video',
+    urlMedia: '',
+    fuente: 'Comité Científico IPS ARCAL',
+    destacado: true,
+    activo: true
+  });
+
+  const [modalGaleriaAbierto, setModalGaleriaAbierto] = useState(false);
+  const [galeriaEnEdicion, setGaleriaEnEdicion] = useState(null);
+  const [formGaleria, setFormGaleria] = useState({
+    titulo: '',
+    descripcion: '',
+    categoria: 'Equipos de Alta Tecnología',
+    tipoMedia: 'imagen',
+    urlMedia: '',
+    duracion: '',
+    activo: true
+  });
+
+  const [modalResponderPqrsAbierto, setModalResponderPqrsAbierto] = useState(false);
+  const [pqrsEnGestion, setPqrsEnGestion] = useState(null);
+  const [formResponderPqrs, setFormResponderPqrs] = useState({
+    estado: 'Respondido',
+    respuestaOficial: '',
+    atendidoPor: usuarioActual?.nombre || 'Dirección de Calidad'
+  });
+
+  const [filtroEstadoPqrs, setFiltroEstadoPqrs] = useState('todos');
+  const [busquedaPqrsAdmin, setBusquedaPqrsAdmin] = useState('');
 
   // Modales y Edición
   const [modalSedeAbierto, setModalSedeAbierto] = useState(false);
@@ -136,13 +178,16 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   async function cargarTodo() {
     try {
       setLoading(true);
-      const [sedesRes, espRes, medRes, metricasRes, citasRes, usuariosRes] = await Promise.all([
+      const [sedesRes, espRes, medRes, metricasRes, citasRes, usuariosRes, curiososRes, galeriaRes, pqrsRes] = await Promise.all([
         api.getSedes(),
         api.getEspecialidades(),
         api.getMedicos(),
         api.getMetricas(),
         api.getCitas(),
-        api.getUsuarios()
+        api.getUsuarios(),
+        api.getDatosCuriosos(true).catch(() => ({ data: [] })),
+        api.getGaleria(true).catch(() => ({ data: [] })),
+        api.getPqrs().catch(() => ({ data: [] }))
       ]);
       setSedes(sedesRes.data || []);
       setEspecialidades(espRes.data || []);
@@ -150,10 +195,162 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
       setMetricas(metricasRes.data || null);
       setCitas(citasRes.data || []);
       setUsuarios(usuariosRes.data || []);
+      setDatosCuriosos(curiososRes.data || []);
+      setGaleriaItems(galeriaRes.data || []);
+      setPqrsList(pqrsRes.data || []);
     } catch (err) {
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  }
+
+  // ==========================================
+  // GESTIÓN PORTAL WEB: DATOS CURIOSOS
+  // ==========================================
+  function abrirModalNuevoCurioso() {
+    setCuriosoEnEdicion(null);
+    setFormCurioso({
+      titulo: '',
+      descripcion: '',
+      categoria: 'Protección Radiológica',
+      tipoMedia: 'video',
+      urlMedia: '',
+      fuente: 'Comité Científico IPS ARCAL',
+      destacado: true,
+      activo: true
+    });
+    setModalCuriosoAbierto(true);
+  }
+
+  function abrirModalEditarCurioso(item) {
+    setCuriosoEnEdicion(item);
+    setFormCurioso({
+      titulo: item.titulo,
+      descripcion: item.descripcion,
+      categoria: item.categoria || 'Protección Radiológica',
+      tipoMedia: item.tipoMedia || 'video',
+      urlMedia: item.urlMedia || '',
+      fuente: item.fuente || 'Comité Científico IPS ARCAL',
+      destacado: Boolean(item.destacado),
+      activo: item.activo !== false
+    });
+    setModalCuriosoAbierto(true);
+  }
+
+  async function guardarCurioso(e) {
+    e.preventDefault();
+    try {
+      if (curiosoEnEdicion) {
+        await api.updateDatoCurioso(curiosoEnEdicion.id, formCurioso);
+      } else {
+        await api.createDatoCurioso(formCurioso);
+      }
+      setModalCuriosoAbierto(false);
+      cargarTodo();
+    } catch (err) {
+      alert('Error al guardar dato curioso: ' + err.message);
+    }
+  }
+
+  async function eliminarCurioso(item) {
+    if (!window.confirm(`¿Está seguro de eliminar el dato curioso "${item.titulo}"?`)) return;
+    try {
+      await api.deleteDatoCurioso(item.id);
+      cargarTodo();
+    } catch (err) {
+      alert('Error al eliminar dato curioso: ' + err.message);
+    }
+  }
+
+  // ==========================================
+  // GESTIÓN PORTAL WEB: GALERÍA MULTIMEDIA
+  // ==========================================
+  function abrirModalNuevaGaleria() {
+    setGaleriaEnEdicion(null);
+    setFormGaleria({
+      titulo: '',
+      descripcion: '',
+      categoria: 'Equipos de Alta Tecnología',
+      tipoMedia: 'imagen',
+      urlMedia: '',
+      duracion: '',
+      activo: true
+    });
+    setModalGaleriaAbierto(true);
+  }
+
+  function abrirModalEditarGaleria(item) {
+    setGaleriaEnEdicion(item);
+    setFormGaleria({
+      titulo: item.titulo,
+      descripcion: item.descripcion || '',
+      categoria: item.categoria || 'Equipos de Alta Tecnología',
+      tipoMedia: item.tipoMedia || 'imagen',
+      urlMedia: item.urlMedia || '',
+      duracion: item.duracion || '',
+      activo: item.activo !== false
+    });
+    setModalGaleriaAbierto(true);
+  }
+
+  async function guardarGaleria(e) {
+    e.preventDefault();
+    try {
+      if (galeriaEnEdicion) {
+        await api.updateGaleriaItem(galeriaEnEdicion.id, formGaleria);
+      } else {
+        await api.createGaleriaItem(formGaleria);
+      }
+      setModalGaleriaAbierto(false);
+      cargarTodo();
+    } catch (err) {
+      alert('Error al guardar elemento de galería: ' + err.message);
+    }
+  }
+
+  async function eliminarGaleria(item) {
+    if (!window.confirm(`¿Está seguro de eliminar "${item.titulo}" de la galería?`)) return;
+    try {
+      await api.deleteGaleriaItem(item.id);
+      cargarTodo();
+    } catch (err) {
+      alert('Error al eliminar elemento: ' + err.message);
+    }
+  }
+
+  // ==========================================
+  // GESTIÓN PORTAL WEB: BANDEJA DE PQRS
+  // ==========================================
+  function abrirModalResponderPqrs(pqrs) {
+    setPqrsEnGestion(pqrs);
+    setFormResponderPqrs({
+      estado: pqrs.estado === 'Radicado' ? 'En trámite' : pqrs.estado,
+      respuestaOficial: pqrs.respuestaOficial || '',
+      atendidoPor: usuarioActual?.nombre || 'Dirección de Calidad y Auditoría'
+    });
+    setModalResponderPqrsAbierto(true);
+  }
+
+  async function guardarRespuestaPqrs(e) {
+    e.preventDefault();
+    if (!pqrsEnGestion) return;
+    try {
+      await api.responderPqrs(pqrsEnGestion.id, formResponderPqrs);
+      setModalResponderPqrsAbierto(false);
+      cargarTodo();
+    } catch (err) {
+      alert('Error al guardar respuesta de PQRS: ' + err.message);
+    }
+  }
+
+  async function eliminarPqrs(pqrs) {
+    if (!window.confirm(`¿Está seguro de eliminar el registro de PQRS ${pqrs.radicado}?`)) return;
+    try {
+      await api.deletePqrs(pqrs.id);
+      cargarTodo();
+    } catch (err) {
+      alert('Error al eliminar PQRS: ' + err.message);
     }
   }
 
@@ -763,6 +960,16 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 <FileSpreadsheet size={16} /> Exportar Excel
               </button>
             )}
+            {subTab === 'curiosos' && (
+              <button className="btn btn-accent" onClick={abrirModalNuevoCurioso} style={{ background: 'var(--brand-green-dark)', borderColor: 'var(--brand-green)', color: 'white' }}>
+                <Plus size={18} /> Nuevo Dato Curioso
+              </button>
+            )}
+            {subTab === 'galeria' && (
+              <button className="btn btn-accent" onClick={abrirModalNuevaGaleria} style={{ background: '#EF5E95', borderColor: '#EF5E95', color: 'white' }}>
+                <Plus size={18} /> Agregar a Galería
+              </button>
+            )}
           </div>
         </div>
 
@@ -803,6 +1010,27 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
             style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}
           >
             <Stethoscope size={16} /> Especialidades & Recomendaciones ({especialidades.length})
+          </button>
+          <button
+            className={`btn ${subTab === 'curiosos' ? 'btn-primary' : 'btn-secondary'}`}
+            onClick={() => setSubTab('curiosos')}
+            style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}
+          >
+            <BookOpen size={16} /> Datos Curiosos ({datosCuriosos.length})
+          </button>
+          <button
+            className={`btn ${subTab === 'galeria' ? 'btn-primary' : 'btn-secondary'}`}
+            onClick={() => setSubTab('galeria')}
+            style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}
+          >
+            <ImageIcon size={16} /> Galería Multimedia ({galeriaItems.length})
+          </button>
+          <button
+            className={`btn ${subTab === 'pqrs' ? 'btn-primary' : 'btn-secondary'}`}
+            onClick={() => setSubTab('pqrs')}
+            style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}
+          >
+            <FileText size={16} /> Atención PQRS ({pqrsList.filter(p => p.estado !== 'Cerrado' && p.estado !== 'Respondido').length} pendientes)
           </button>
           <button
             className={`btn ${subTab === 'metricas' ? 'btn-primary' : 'btn-secondary'}`}
@@ -2245,6 +2473,423 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
       )}
 
       {/* ======================================================== */}
+      {/* SUBPESTAÑA: GESTIÓN DE DATOS CURIOSOS (PORTAL WEB) */}
+      {/* ======================================================== */}
+      {subTab === 'curiosos' && (
+        <div>
+          <div className="card-panel" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+              <div>
+                <h3 style={{ fontSize: '1.25rem', color: '#0F172A', margin: 0, fontWeight: 800 }}>
+                  Gestor de Datos Curiosos & Cápsulas de Salud
+                </h3>
+                <p style={{ color: '#64748B', fontSize: '0.85rem', margin: '0.2rem 0 0 0' }}>
+                  Publique infografías médicas y videos educativos (YouTube, Shorts o videos directos) que alimentan la portada de la web.
+                </p>
+              </div>
+
+              <button
+                className="btn btn-accent"
+                onClick={abrirModalNuevoCurioso}
+                style={{ background: 'var(--brand-green-dark)', borderColor: 'var(--brand-green)', color: 'white', fontWeight: 700 }}
+              >
+                <Plus size={16} /> Publicar Nuevo Dato Curioso
+              </button>
+            </div>
+          </div>
+
+          {datosCuriosos.length === 0 ? (
+            <div className="card-panel" style={{ padding: '3rem', textAlign: 'center', color: '#64748B' }}>
+              <BookOpen size={40} color="var(--brand-cyan)" style={{ margin: '0 auto 1rem auto' }} />
+              <h4>No hay datos curiosos registrados</h4>
+              <p style={{ fontSize: '0.85rem' }}>Haga clic en "Publicar Nuevo Dato Curioso" para agregar el primero.</p>
+            </div>
+          ) : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.2rem' }}>
+              {datosCuriosos.map(item => (
+                <div
+                  key={item.id}
+                  className="card-panel"
+                  style={{
+                    padding: '1.2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    borderLeft: `4px solid ${item.tipoMedia === 'video' ? 'var(--brand-green)' : 'var(--brand-cyan)'}`,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.6rem' }}>
+                      <span
+                        style={{
+                          fontSize: '0.72rem',
+                          fontWeight: 800,
+                          padding: '0.2rem 0.55rem',
+                          borderRadius: '4px',
+                          background: item.tipoMedia === 'video' ? '#F0F9E6' : '#EBF7F9',
+                          color: item.tipoMedia === 'video' ? 'var(--brand-green-dark)' : 'var(--brand-cyan-dark)',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.3rem'
+                        }}
+                      >
+                        {item.tipoMedia === 'video' ? <Video size={12} /> : <ImageIcon size={12} />}
+                        <span>{item.tipoMedia === 'video' ? 'Video' : 'Imagen'}</span>
+                      </span>
+
+                      <div style={{ display: 'flex', gap: '0.3rem' }}>
+                        {item.destacado && (
+                          <span style={{ fontSize: '0.68rem', fontWeight: 800, background: '#FEF3C7', color: '#92400E', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
+                            Destacado
+                          </span>
+                        )}
+                        <span style={{ fontSize: '0.68rem', fontWeight: 800, background: item.activo !== false ? '#DCFCE7' : '#FEE2E2', color: item.activo !== false ? '#166534' : '#991B1B', padding: '0.15rem 0.45rem', borderRadius: '4px' }}>
+                          {item.activo !== false ? 'Activo' : 'Inactivo'}
+                        </span>
+                      </div>
+                    </div>
+
+                    <h4 style={{ fontSize: '1rem', color: '#0F172A', fontWeight: 700, marginBottom: '0.4rem', lineHeight: 1.4 }}>
+                      {item.titulo}
+                    </h4>
+
+                    <div style={{ fontSize: '0.75rem', color: 'var(--brand-cyan-dark)', fontWeight: 700, marginBottom: '0.5rem' }}>
+                      Categoría: {item.categoria}
+                    </div>
+
+                    <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.5, marginBottom: '0.8rem', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                      {item.descripcion}
+                    </p>
+
+                    <div style={{ fontSize: '0.72rem', color: '#94A3B8', marginBottom: '0.8rem' }}>
+                      <b>URL Medio:</b> <span style={{ wordBreak: 'break-all' }}>{item.urlMedia}</span>
+                    </div>
+                  </div>
+
+                  <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '0.8rem', display: 'flex', justifyContent: 'flex-end', gap: '0.5rem' }}>
+                    <button
+                      className="btn btn-secondary"
+                      style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem' }}
+                      onClick={() => abrirModalEditarCurioso(item)}
+                    >
+                      <Edit2 size={13} /> Editar
+                    </button>
+                    <button
+                      className="btn btn-secondary"
+                      style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', color: '#DC2626', borderColor: '#FECACA' }}
+                      onClick={() => eliminarCurioso(item)}
+                    >
+                      <Trash2 size={13} /> Eliminar
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* SUBPESTAÑA: GESTIÓN DE GALERÍA MULTIMEDIA (PORTAL WEB) */}
+      {/* ======================================================== */}
+      {subTab === 'galeria' && (
+        <div>
+          <div className="card-panel" style={{ padding: '1.5rem', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+              <div>
+                <h3 style={{ fontSize: '1.25rem', color: '#0F172A', margin: 0, fontWeight: 800 }}>
+                  Gestor de Galería Multimedia
+                </h3>
+                <p style={{ color: '#64748B', fontSize: '0.85rem', margin: '0.2rem 0 0 0' }}>
+                  Administre las fotografías y videos cortos (cápsulas de 30-60 segundos) que se exhiben en el portal institucional.
+                </p>
+              </div>
+
+              <button
+                className="btn btn-accent"
+                onClick={abrirModalNuevaGaleria}
+                style={{ background: '#EF5E95', borderColor: '#EF5E95', color: 'white', fontWeight: 700 }}
+              >
+                <Plus size={16} /> Agregar Elemento a Galería
+              </button>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.2rem' }}>
+            {galeriaItems.map(item => (
+              <div
+                key={item.id}
+                className="card-panel"
+                style={{
+                  padding: 0,
+                  overflow: 'hidden',
+                  borderRadius: '14px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.06)',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', background: '#0F172A' }}>
+                  {item.tipoMedia === 'video' ? (
+                    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF', flexDirection: 'column', gap: '0.4rem' }}>
+                      <Video size={36} color="#EF5E95" />
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700 }}>Video Corto {item.duracion ? `(${item.duracion})` : ''}</span>
+                    </div>
+                  ) : (
+                    <img
+                      src={item.urlMedia}
+                      alt={item.titulo}
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  )}
+
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: '10px',
+                      left: '10px',
+                      background: 'rgba(15, 23, 42, 0.85)',
+                      color: '#FFFFFF',
+                      fontSize: '0.7rem',
+                      fontWeight: 800,
+                      padding: '0.2rem 0.5rem',
+                      borderRadius: '4px'
+                    }}
+                  >
+                    {item.categoria}
+                  </span>
+                </div>
+
+                <div style={{ padding: '1.2rem', display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div>
+                    <h4 style={{ fontSize: '0.95rem', color: '#0F172A', fontWeight: 700, margin: '0 0 0.4rem 0' }}>
+                      {item.titulo}
+                    </h4>
+                    {item.descripcion && (
+                      <p style={{ fontSize: '0.8rem', color: '#64748B', lineHeight: 1.5, margin: '0 0 0.6rem 0' }}>
+                        {item.descripcion}
+                      </p>
+                    )}
+                  </div>
+
+                  <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '0.6rem', display: 'flex', justifyContent: 'flex-end', gap: '0.4rem' }}>
+                    <button
+                      className="btn btn-secondary"
+                      style={{ padding: '0.3rem 0.6rem', fontSize: '0.72rem' }}
+                      onClick={() => abrirModalEditarGaleria(item)}
+                    >
+                      <Edit2 size={12} /> Editar
+                    </button>
+                    <button
+                      className="btn btn-secondary"
+                      style={{ padding: '0.3rem 0.6rem', fontSize: '0.72rem', color: '#DC2626', borderColor: '#FECACA' }}
+                      onClick={() => eliminarGaleria(item)}
+                    >
+                      <Trash2 size={12} /> Eliminar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* SUBPESTAÑA: GESTIÓN DE BANDEJA DE PQRS (PORTAL WEB) */}
+      {/* ======================================================== */}
+      {subTab === 'pqrs' && (
+        <div>
+          {/* Métricas Rápidas de PQRS */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div className="card-panel" style={{ padding: '1.2rem', borderLeft: '4px solid #D97706' }}>
+              <div style={{ fontSize: '0.78rem', color: '#64748B', fontWeight: 700 }}>Total Solicitudes</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0F172A' }}>{pqrsList.length}</div>
+            </div>
+
+            <div className="card-panel" style={{ padding: '1.2rem', borderLeft: '4px solid #F59E0B' }}>
+              <div style={{ fontSize: '0.78rem', color: '#64748B', fontWeight: 700 }}>Radicadas (Nuevas)</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#D97706' }}>
+                {pqrsList.filter(p => p.estado === 'Radicado').length}
+              </div>
+            </div>
+
+            <div className="card-panel" style={{ padding: '1.2rem', borderLeft: '4px solid #0284C7' }}>
+              <div style={{ fontSize: '0.78rem', color: '#64748B', fontWeight: 700 }}>En Trámite de Auditoría</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0284C7' }}>
+                {pqrsList.filter(p => p.estado === 'En trámite').length}
+              </div>
+            </div>
+
+            <div className="card-panel" style={{ padding: '1.2rem', borderLeft: '4px solid #10B981' }}>
+              <div style={{ fontSize: '0.78rem', color: '#64748B', fontWeight: 700 }}>Respondidas Formalmente</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#10B981' }}>
+                {pqrsList.filter(p => p.estado === 'Respondido').length}
+              </div>
+            </div>
+          </div>
+
+          {/* Barra de Filtros y Búsqueda */}
+          <div className="card-panel" style={{ padding: '1.2rem', marginBottom: '1.2rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flex: 1, minWidth: '260px' }}>
+                <Search size={16} color="#64748B" />
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Buscar por radicado, documento o nombre del solicitante..."
+                  value={busquedaPqrsAdmin}
+                  onChange={e => setBusquedaPqrsAdmin(e.target.value)}
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                {['todos', 'Radicado', 'En trámite', 'Respondido', 'Cerrado'].map(st => (
+                  <button
+                    key={st}
+                    onClick={() => setFiltroEstadoPqrs(st)}
+                    style={{
+                      padding: '0.4rem 0.8rem',
+                      fontSize: '0.75rem',
+                      borderRadius: '8px',
+                      border: filtroEstadoPqrs === st ? '1px solid var(--brand-cyan)' : '1px solid #CBD5E1',
+                      background: filtroEstadoPqrs === st ? 'var(--brand-cyan-light)' : '#FFFFFF',
+                      color: filtroEstadoPqrs === st ? 'var(--brand-cyan-dark)' : '#475569',
+                      fontWeight: 700,
+                      cursor: 'pointer'
+                    }}
+                  >
+                    {st === 'todos' ? 'Todos los Estados' : st}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Listado de PQRS */}
+          {pqrsList.length === 0 ? (
+            <div className="card-panel" style={{ padding: '3rem', textAlign: 'center', color: '#64748B' }}>
+              <FileText size={40} color="#D97706" style={{ margin: '0 auto 1rem auto' }} />
+              <p>No se han radicado solicitudes de PQRS en el sistema.</p>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {pqrsList
+                .filter(p => {
+                  if (filtroEstadoPqrs !== 'todos' && p.estado !== filtroEstadoPqrs) return false;
+                  if (!busquedaPqrsAdmin.trim()) return true;
+                  const q = busquedaPqrsAdmin.toLowerCase();
+                  return (
+                    (p.radicado && p.radicado.toLowerCase().includes(q)) ||
+                    (p.numeroDocumento && p.numeroDocumento.toLowerCase().includes(q)) ||
+                    (p.nombreCompleto && p.nombreCompleto.toLowerCase().includes(q)) ||
+                    (p.asunto && p.asunto.toLowerCase().includes(q))
+                  );
+                })
+                .map(pqrs => {
+                  const colorEstado =
+                    pqrs.estado === 'Respondido' ? '#10B981' :
+                    pqrs.estado === 'En trámite' ? '#0284C7' :
+                    pqrs.estado === 'Cerrado' ? '#64748B' : '#D97706';
+
+                  return (
+                    <div
+                      key={pqrs.id}
+                      className="card-panel"
+                      style={{
+                        padding: '1.4rem',
+                        borderLeft: `5px solid ${colorEstado}`,
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.04)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.8rem', marginBottom: '0.8rem' }}>
+                        <div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.2rem' }}>
+                            <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--brand-cyan-dark)' }}>
+                              {pqrs.radicado}
+                            </span>
+                            <span style={{ fontSize: '0.72rem', fontWeight: 800, background: '#F1F5F9', color: '#334155', padding: '0.15rem 0.5rem', borderRadius: '4px' }}>
+                              {pqrs.tipo}
+                            </span>
+                            <span style={{ fontSize: '0.72rem', color: '#94A3B8' }}>
+                              Radicado el {new Date(pqrs.fechaRadicado).toLocaleDateString()}
+                            </span>
+                          </div>
+                          <h4 style={{ fontSize: '1.05rem', color: '#0F172A', margin: 0, fontWeight: 700 }}>
+                            {pqrs.asunto}
+                          </h4>
+                        </div>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                          <span
+                            style={{
+                              background: `${colorEstado}15`,
+                              color: colorEstado,
+                              border: `1px solid ${colorEstado}`,
+                              padding: '0.25rem 0.75rem',
+                              borderRadius: '9999px',
+                              fontSize: '0.75rem',
+                              fontWeight: 800
+                            }}
+                          >
+                            {pqrs.estado}
+                          </span>
+
+                          <button
+                            className="btn btn-primary"
+                            style={{ padding: '0.4rem 0.9rem', fontSize: '0.78rem', background: '#D97706', borderColor: '#D97706' }}
+                            onClick={() => abrirModalResponderPqrs(pqrs)}
+                          >
+                            <Send size={13} /> Gestionar / Responder
+                          </button>
+
+                          {isSuperAdmin && (
+                            <button
+                              className="btn btn-secondary"
+                              style={{ padding: '0.4rem 0.6rem', fontSize: '0.75rem', color: '#DC2626', borderColor: '#FECACA' }}
+                              onClick={() => eliminarPqrs(pqrs)}
+                              title="Eliminar PQRS (Super Admin)"
+                            >
+                              <Trash2 size={13} />
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      <p style={{ fontSize: '0.85rem', color: '#334155', lineHeight: 1.6, marginBottom: '0.8rem' }}>
+                        <b>Hechos / Descripción:</b> {pqrs.descripcion}
+                      </p>
+
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.6rem', fontSize: '0.75rem', color: '#64748B', borderTop: '1px solid #F1F5F9', paddingTop: '0.6rem' }}>
+                        <div><b>Solicitante:</b> {pqrs.nombreCompleto} ({pqrs.tipoDocumento} {pqrs.numeroDocumento})</div>
+                        <div><b>Correo:</b> {pqrs.email}</div>
+                        <div><b>Teléfono:</b> {pqrs.telefono}</div>
+                        <div><b>Servicio:</b> {pqrs.servicio}</div>
+                      </div>
+
+                      {pqrs.respuestaOficial && (
+                        <div style={{ marginTop: '0.9rem', background: '#F0FDF4', border: '1px solid #86EFAC', borderRadius: '8px', padding: '0.8rem', fontSize: '0.82rem' }}>
+                          <div style={{ fontWeight: 800, color: '#166534', marginBottom: '0.2rem' }}>
+                            Respuesta Oficial Emitida:
+                          </div>
+                          <div style={{ color: '#14532D', lineHeight: 1.5 }}>{pqrs.respuestaOficial}</div>
+                          {pqrs.fechaRespuesta && (
+                            <div style={{ fontSize: '0.7rem', color: '#15803D', marginTop: '0.4rem' }}>
+                              Fecha respuesta: {new Date(pqrs.fechaRespuesta).toLocaleString()} por {pqrs.atendidoPor}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ======================================================== */}
       {/* MODAL: CREAR / EDITAR SEDE */}
       {/* ======================================================== */}
       {modalSedeAbierto && (
@@ -3137,6 +3782,374 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                   style={{ background: '#028090', fontWeight: 800, padding: '0.6rem 1.4rem' }}
                 >
                   <Check size={16} /> Guardar Configuración de Tiempos & Pausas
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* MODAL: CREAR / EDITAR DATO CURIOSO (PORTAL WEB) */}
+      {/* ======================================================== */}
+      {modalCuriosoAbierto && (
+        <div className="modal-backdrop">
+          <div className="modal-content" style={{ maxWidth: '640px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ background: '#F0F9E6', color: 'var(--brand-green-dark)', padding: '0.45rem', borderRadius: '8px' }}>
+                  <BookOpen size={20} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', color: '#0F172A', margin: 0 }}>
+                  {curiosoEnEdicion ? 'Editar Dato Curioso' : 'Publicar Nuevo Dato Curioso'}
+                </h3>
+              </div>
+              <button className="btn-close" onClick={() => setModalCuriosoAbierto(false)} type="button">
+                <X size={20} />
+              </button>
+            </div>
+
+            <form onSubmit={guardarCurioso}>
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Título del Dato Curioso *
+                </label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Ej: ¿Por qué la dosimetría personal es vital en salud?"
+                  value={formCurioso.titulo}
+                  onChange={e => setFormCurioso({ ...formCurioso, titulo: e.target.value })}
+                  required
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                    Categoría Temática *
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Ej: Protección Radiológica / Cardiología"
+                    value={formCurioso.categoria}
+                    onChange={e => setFormCurioso({ ...formCurioso, categoria: e.target.value })}
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                    Tipo de Formato *
+                  </label>
+                  <select
+                    className="form-input"
+                    value={formCurioso.tipoMedia}
+                    onChange={e => setFormCurioso({ ...formCurioso, tipoMedia: e.target.value })}
+                  >
+                    <option value="video">Video (YouTube / Shorts / Vimeo / MP4)</option>
+                    <option value="imagen">Imagen / Infografía Médica</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  URL del Medio (Video o Imagen) *
+                </label>
+                <input
+                  type="url"
+                  className="form-input"
+                  placeholder="https://www.youtube.com/watch?v=... o https://images.unsplash.com/..."
+                  value={formCurioso.urlMedia}
+                  onChange={e => setFormCurioso({ ...formCurioso, urlMedia: e.target.value })}
+                  required
+                />
+                <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '0.2rem' }}>
+                  Soporta enlaces de YouTube, YouTube Shorts, Vimeo, o enlaces directos de video/imagen web.
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Descripción / Contenido Explicativo *
+                </label>
+                <textarea
+                  className="form-input"
+                  rows={4}
+                  placeholder="Explique el concepto médico o recomendación de salud con rigor y claridad..."
+                  value={formCurioso.descripcion}
+                  onChange={e => setFormCurioso({ ...formCurioso, descripcion: e.target.value })}
+                  required
+                />
+              </div>
+
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Fuente de Información
+                </label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Ej: Comité Científico IPS ARCAL / OMS"
+                  value={formCurioso.fuente}
+                  onChange={e => setFormCurioso({ ...formCurioso, fuente: e.target.value })}
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={formCurioso.destacado}
+                    onChange={e => setFormCurioso({ ...formCurioso, destacado: e.target.checked })}
+                  />
+                  <span>Destacar en portada</span>
+                </label>
+
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={formCurioso.activo}
+                    onChange={e => setFormCurioso({ ...formCurioso, activo: e.target.checked })}
+                  />
+                  <span>Visible públicamente</span>
+                </label>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.8rem' }}>
+                <button type="button" className="btn btn-secondary" onClick={() => setModalCuriosoAbierto(false)}>
+                  Cancelar
+                </button>
+                <button type="submit" className="btn btn-accent" style={{ background: 'var(--brand-green-dark)', color: 'white' }}>
+                  <Check size={16} /> Guardar Dato Curioso
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* MODAL: CREAR / EDITAR ELEMENTO DE GALERÍA (PORTAL WEB) */}
+      {/* ======================================================== */}
+      {modalGaleriaAbierto && (
+        <div className="modal-backdrop">
+          <div className="modal-content" style={{ maxWidth: '600px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ background: '#FDF2F7', color: '#EF5E95', padding: '0.45rem', borderRadius: '8px' }}>
+                  <ImageIcon size={20} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', color: '#0F172A', margin: 0 }}>
+                  {galeriaEnEdicion ? 'Editar Elemento de Galería' : 'Agregar Elemento a Galería'}
+                </h3>
+              </div>
+              <button className="btn-close" onClick={() => setModalGaleriaAbierto(false)} type="button">
+                <X size={20} />
+              </button>
+            </div>
+
+            <form onSubmit={guardarGaleria}>
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Título del Elemento *
+                </label>
+                <input
+                  type="text"
+                  className="form-input"
+                  placeholder="Ej: Sala de Radiología Digital y Rayos X"
+                  value={formGaleria.titulo}
+                  onChange={e => setFormGaleria({ ...formGaleria, titulo: e.target.value })}
+                  required
+                />
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem', marginBottom: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                    Categoría *
+                  </label>
+                  <select
+                    className="form-input"
+                    value={formGaleria.categoria}
+                    onChange={e => setFormGaleria({ ...formGaleria, categoria: e.target.value })}
+                  >
+                    <option value="Equipos de Alta Tecnología">Equipos de Alta Tecnología</option>
+                    <option value="Instalaciones y Consultorios">Instalaciones y Consultorios</option>
+                    <option value="Procedimientos Especializados">Procedimientos Especializados</option>
+                    <option value="Videos Cortos">Videos Cortos</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                    Tipo de Formato *
+                  </label>
+                  <select
+                    className="form-input"
+                    value={formGaleria.tipoMedia}
+                    onChange={e => setFormGaleria({ ...formGaleria, tipoMedia: e.target.value })}
+                  >
+                    <option value="imagen">Fotografía / Imagen</option>
+                    <option value="video">Video Corto (30-60 seg)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  URL de la Fotografía o Video Corto *
+                </label>
+                <input
+                  type="url"
+                  className="form-input"
+                  placeholder="https://..."
+                  value={formGaleria.urlMedia}
+                  onChange={e => setFormGaleria({ ...formGaleria, urlMedia: e.target.value })}
+                  required
+                />
+                {formGaleria.tipoMedia === 'video' && (
+                  <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '0.2rem' }}>
+                    Sugerencia: use cápsulas breves alojadas en YouTube/Vimeo/enlace directo para no sobrecargar el almacenamiento.
+                  </div>
+                )}
+              </div>
+
+              {formGaleria.tipoMedia === 'video' && (
+                <div style={{ marginBottom: '1rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                    Duración Estimada (Ej: 0:45 min)
+                  </label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="0:45 min"
+                    value={formGaleria.duracion}
+                    onChange={e => setFormGaleria({ ...formGaleria, duracion: e.target.value })}
+                  />
+                </div>
+              )}
+
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Descripción / Pie de Imagen
+                </label>
+                <textarea
+                  className="form-input"
+                  rows={3}
+                  placeholder="Detalles sobre el equipo o el espacio físico mostrado..."
+                  value={formGaleria.descripcion}
+                  onChange={e => setFormGaleria({ ...formGaleria, descripcion: e.target.value })}
+                />
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.8rem' }}>
+                <button type="button" className="btn btn-secondary" onClick={() => setModalGaleriaAbierto(false)}>
+                  Cancelar
+                </button>
+                <button type="submit" className="btn btn-accent" style={{ background: '#EF5E95', color: 'white' }}>
+                  <Check size={16} /> Guardar en Galería
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* MODAL: GESTIONAR Y RESPONDER PQRS */}
+      {/* ======================================================== */}
+      {modalResponderPqrsAbierto && pqrsEnGestion && (
+        <div className="modal-backdrop">
+          <div className="modal-content" style={{ maxWidth: '680px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <div style={{ background: '#FEF3C7', color: '#D97706', padding: '0.45rem', borderRadius: '8px' }}>
+                  <FileText size={20} />
+                </div>
+                <div>
+                  <h3 style={{ fontSize: '1.25rem', color: '#0F172A', margin: 0 }}>
+                    Gestión Oficial de PQRS
+                  </h3>
+                  <div style={{ fontSize: '0.8rem', color: '#64748B' }}>
+                    Radicado: <b>{pqrsEnGestion.radicado}</b> • Tipo: <b>{pqrsEnGestion.tipo}</b>
+                  </div>
+                </div>
+              </div>
+              <button className="btn-close" onClick={() => setModalResponderPqrsAbierto(false)} type="button">
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Resumen del Caso */}
+            <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '10px', padding: '1rem', marginBottom: '1.2rem', fontSize: '0.85rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '0.6rem' }}>
+                <div><b>Solicitante:</b> {pqrsEnGestion.nombreCompleto}</div>
+                <div><b>Documento:</b> {pqrsEnGestion.tipoDocumento} {pqrsEnGestion.numeroDocumento}</div>
+                <div><b>Correo:</b> {pqrsEnGestion.email}</div>
+                <div><b>Teléfono:</b> {pqrsEnGestion.telefono}</div>
+              </div>
+              <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '0.5rem' }}>
+                <b>Asunto:</b> {pqrsEnGestion.asunto}
+              </div>
+              <div style={{ marginTop: '0.3rem', color: '#475569' }}>
+                <b>Descripción:</b> {pqrsEnGestion.descripcion}
+              </div>
+            </div>
+
+            <form onSubmit={guardarRespuestaPqrs}>
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Estado de la Solicitud *
+                </label>
+                <select
+                  className="form-input"
+                  value={formResponderPqrs.estado}
+                  onChange={e => setFormResponderPqrs({ ...formResponderPqrs, estado: e.target.value })}
+                  required
+                >
+                  <option value="Radicado">Radicado (Pendiente de inicio)</option>
+                  <option value="En trámite">En trámite (En revisión asistencial / administrativa)</option>
+                  <option value="Respondido">Respondido (Respuesta formal emitida al usuario)</option>
+                  <option value="Cerrado">Cerrado (Caso concluido)</option>
+                </select>
+              </div>
+
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Respuesta Oficial de IPS ARCAL *
+                </label>
+                <textarea
+                  className="form-input"
+                  rows={5}
+                  placeholder="Redacte la respuesta clara y motivada para el paciente o solicitante..."
+                  value={formResponderPqrs.respuestaOficial}
+                  onChange={e => setFormResponderPqrs({ ...formResponderPqrs, respuestaOficial: e.target.value })}
+                  required
+                />
+              </div>
+
+              <div style={{ marginBottom: '1.2rem' }}>
+                <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
+                  Funcionario / Área Responsable
+                </label>
+                <input
+                  type="text"
+                  className="form-input"
+                  value={formResponderPqrs.atendidoPor}
+                  onChange={e => setFormResponderPqrs({ ...formResponderPqrs, atendidoPor: e.target.value })}
+                  required
+                />
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.8rem' }}>
+                <button type="button" className="btn btn-secondary" onClick={() => setModalResponderPqrsAbierto(false)}>
+                  Cancelar
+                </button>
+                <button type="submit" className="btn btn-accent" style={{ background: '#D97706', color: 'white' }}>
+                  <Send size={16} /> Guardar Resolución Oficial
                 </button>
               </div>
             </form>

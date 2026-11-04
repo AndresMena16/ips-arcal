@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import PortalWebIPS from './components/PortalWebIPS';
 import WebBookingWizard from './components/WebBookingWizard';
 import PresencialBooking from './components/PresencialBooking';
 import AdminDashboard from './components/AdminDashboard';
 import AppointmentLookup from './components/AppointmentLookup';
 import LoginModal from './components/LoginModal';
-import InstitutionalSection from './components/InstitutionalSection';
 import { ShieldCheck, Phone, MapPin, Mail, Clock, ExternalLink } from 'lucide-react';
 
 export default function App() {
@@ -26,7 +26,8 @@ export default function App() {
         return (u.rol === 'admin' || u.rol === 'superadmin') ? 'admin' : 'presencial';
       }
     } catch { }
-    return 'web';
+    // Portal institucional como página web principal
+    return 'portal';
   });
 
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -44,7 +45,7 @@ export default function App() {
   function handleLogout() {
     setUsuarioActual(null);
     localStorage.removeItem('ips_arcal_user');
-    setActiveTab('web');
+    setActiveTab('portal');
   }
 
   return (
@@ -59,12 +60,21 @@ export default function App() {
       />
 
       {/* Contenido Principal según Vista y Rol */}
-      <main className="main-wrapper" style={{ flex: 1 }}>
+      <main style={{ flex: 1 }} className={activeTab === 'portal' ? 'portal-wrapper' : 'main-wrapper'}>
+        {activeTab === 'portal' && (
+          <PortalWebIPS
+            onIrControlCitas={() => setActiveTab('web')}
+            onIrConsulta={() => setActiveTab('consulta')}
+          />
+        )}
         {activeTab === 'web' && (
-          <WebBookingWizard onVerInstitucional={() => setActiveTab('institucional')} />
+          <WebBookingWizard onVerInstitucional={() => setActiveTab('portal')} />
         )}
         {activeTab === 'institucional' && (
-          <InstitutionalSection onAgendarClick={() => setActiveTab('web')} />
+          <PortalWebIPS
+            onIrControlCitas={() => setActiveTab('web')}
+            onIrConsulta={() => setActiveTab('consulta')}
+          />
         )}
         {activeTab === 'consulta' && (
           <AppointmentLookup
@@ -91,29 +101,29 @@ export default function App() {
       <footer className="footer-main">
         <div className="footer-container">
           <div>
-            <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+            <div style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
               <img
                 src="/arcal-logo.png"
                 alt="ARCAL Protección Radiológica IPS"
-                style={{ height: '48px', width: 'auto', background: 'rgba(255,255,255,0.95)', padding: '6px 12px', borderRadius: '10px' }}
+                style={{ height: '36px', width: 'auto', background: 'rgba(255,255,255,0.95)', padding: '4px 10px', borderRadius: '8px' }}
               />
             </div>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.2rem', marginBottom: '0.5rem', fontWeight: 800 }}>
+            <h3 style={{ color: '#FFFFFF', fontSize: '1.05rem', marginBottom: '0.4rem', fontWeight: 800 }}>
               ARCAL PROTECCIÓN RADIOLÓGICA S.A.S. (IPS)
             </h3>
-            <p style={{ color: '#E2E8F0', fontSize: '0.85rem', lineHeight: '1.6', maxWidth: '480px' }}>
+            <p style={{ color: '#E2E8F0', fontSize: '0.78rem', lineHeight: '1.5', maxWidth: '460px' }}>
               Institución Prestadora de Servicios de Salud y Apoyo Diagnóstico. Comprometidos con la integralidad en la prestación de servicios de salud con calidad, capacidad científica, técnica y administrativa con trato humanizado. Habilitada por el Ministerio de Salud y Protección Social.
             </p>
-            <div style={{ marginTop: '0.9rem', fontSize: '0.8rem', color: '#99c85d', fontWeight: 700 }}>
+            <div style={{ marginTop: '0.7rem', fontSize: '0.75rem', color: '#99c85d', fontWeight: 700 }}>
               Habilitación MinSalud: 0500109842-01 • NIT: 901.365.419-8
             </div>
           </div>
 
           <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '0.95rem', marginBottom: '0.8rem', fontWeight: 700, borderBottom: '2px solid var(--brand-cyan)', display: 'inline-block', paddingBottom: '4px' }}>
+            <h4 style={{ color: '#FFFFFF', fontSize: '0.88rem', marginBottom: '0.6rem', fontWeight: 700, borderBottom: '2px solid var(--brand-cyan)', display: 'inline-block', paddingBottom: '3px' }}>
               Departamentos & Portafolio
             </h4>
-            <ul style={{ listStyle: 'none', fontSize: '0.8rem', color: '#CBD5E1', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+            <ul style={{ listStyle: 'none', fontSize: '0.76rem', color: '#CBD5E1', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
               <li>• Consulta Médica Especializada</li>
               <li>• Consulta Medicina General & Terapias</li>
               <li>• Diagnóstico Vascular (Holter, MAPA, EKG, Eco)</li>
@@ -126,10 +136,10 @@ export default function App() {
           </div>
 
           <div>
-            <h4 style={{ color: '#FFFFFF', fontSize: '0.95rem', marginBottom: '0.8rem', fontWeight: 700, borderBottom: '2px solid var(--brand-green)', display: 'inline-block', paddingBottom: '4px' }}>
+            <h4 style={{ color: '#FFFFFF', fontSize: '0.88rem', marginBottom: '0.6rem', fontWeight: 700, borderBottom: '2px solid var(--brand-green)', display: 'inline-block', paddingBottom: '3px' }}>
               Sedes de Atención & Contacto
             </h4>
-            <div style={{ fontSize: '0.8rem', color: '#CBD5E1', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+            <div style={{ fontSize: '0.76rem', color: '#CBD5E1', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
               <div>
                 <b style={{ color: '#FFFFFF' }}>Sede Poblado Medellín:</b><br />
                 Calle 19a Nro. 44-25, Torre Médica Salud y Servicios piso 22 Cons. 2209<br />
@@ -147,7 +157,7 @@ export default function App() {
                 <b style={{ color: '#FFFFFF' }}>WhatsApp Citas:</b> <span style={{ color: '#99c85d', fontWeight: 700 }}>+57 310 854 9210</span><br />
                 <b>Correo:</b> contacto@arcal.com.co
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94A3B8' }}>
+              <div style={{ fontSize: '0.72rem', color: '#94A3B8' }}>
                 Horario: Lunes a Viernes 7:00 AM - 5:00 PM | Sábados 8:00 AM - 1:00 PM
               </div>
             </div>
@@ -155,10 +165,10 @@ export default function App() {
         </div>
 
         <div className="footer-bottom">
-          <div>
+          <div style={{ fontSize: '0.73rem' }}>
             © {new Date().getFullYear()} ARCAL Protección Radiológica S.A.S. (IPS) — Todos los derechos reservados.
           </div>
-          <div style={{ color: '#000000ff' }}>
+          <div style={{ color: '#000000ff', fontSize: '0.73rem' }}>
             Portal Oficial de Agendamiento Médico & Radiológico v3.0
           </div>
         </div>

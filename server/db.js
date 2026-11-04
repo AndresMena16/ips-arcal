@@ -377,6 +377,20 @@ function loadDB() {
         });
       }
 
+      // Asegurar arrays de datos para el Portal Web
+      if (!Array.isArray(data.datosCuriosos)) {
+        data.datosCuriosos = [];
+        needsSave = true;
+      }
+      if (!Array.isArray(data.galeria)) {
+        data.galeria = [];
+        needsSave = true;
+      }
+      if (!Array.isArray(data.pqrs)) {
+        data.pqrs = [];
+        needsSave = true;
+      }
+
       if (needsSave) {
         saveDB(data);
       }

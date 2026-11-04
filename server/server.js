@@ -1,7 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 import { db } from './db.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -1524,6 +1530,318 @@ function enrichCita(cita, database) {
       pausas: medico.pausas || []
     } : null
   };
+}
+
+// ==========================================
+// MÓDULO PORTAL WEB: DATOS CURIOSOS (SALUD Y BIENESTAR)
+// ==========================================
+app.get('/api/datos-curiosos', (req, res) => {
+  const currentDb = db.get();
+  const todos = req.query.admin === 'true';
+  const lista = (currentDb.datosCuriosos || []).filter(item => todos || item.activo !== false);
+  res.json({ success: true, data: lista });
+});
+
+app.post('/api/datos-curiosos', (req, res) => {
+  const currentDb = db.get();
+  const { titulo, descripcion, categoria, tipoMedia, urlMedia, fuente, destacado, activo } = req.body;
+
+  if (!titulo || !descripcion) {
+    return res.status(400).json({ success: false, error: "Título y descripción son obligatorios" });
+  }
+
+  const nuevoItem = {
+    id: `curioso-${uuidv4().substring(0, 8)}`,
+    titulo: titulo.trim(),
+    descripcion: descripcion.trim(),
+    categoria: categoria || "Salud General",
+    tipoMedia: tipoMedia === 'video' ? 'video' : 'imagen',
+    urlMedia: urlMedia || "",
+    fuente: fuente || "Comité Científico IPS ARCAL",
+    destacado: Boolean(destacado),
+    activo: activo !== false,
+    fecha: new Date().toISOString()
+  };
+
+  if (!Array.isArray(currentDb.datosCuriosos)) {
+    currentDb.datosCuriosos = [];
+  }
+  currentDb.datosCuriosos.unshift(nuevoItem);
+
+  currentDb.historialAuditoria.push({
+    id: `log-${Date.now()}`,
+    fecha: new Date().toISOString(),
+    accion: "CREAR_DATO_CURIOSO",
+    descripcion: `Nuevo dato curioso publicado: ${nuevoItem.titulo}`
+  });
+
+  db.save(currentDb);
+  res.status(201).json({ success: true, data: nuevoItem });
+});
+
+app.put('/api/datos-curiosos/:id', (req, res) => {
+  const currentDb = db.get();
+  const index = (currentDb.datosCuriosos || []).findIndex(item => item.id === req.params.id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, error: "Dato curioso no encontrado" });
+  }
+
+  const itemPrevio = currentDb.datosCuriosos[index];
+  const { titulo, descripcion, categoria, tipoMedia, urlMedia, fuente, destacado, activo } = req.body;
+
+  currentDb.datosCuriosos[index] = {
+    ...itemPrevio,
+    ...(titulo !== undefined && { titulo: titulo.trim() }),
+    ...(descripcion !== undefined && { descripcion: descripcion.trim() }),
+    ...(categoria !== undefined && { categoria }),
+    ...(tipoMedia !== undefined && { tipoMedia }),
+    ...(urlMedia !== undefined && { urlMedia }),
+    ...(fuente !== undefined && { fuente }),
+    ...(destacado !== undefined && { destacado: Boolean(destacado) }),
+    ...(activo !== undefined && { activo: Boolean(activo) })
+  };
+
+  db.save(currentDb);
+  res.json({ success: true, data: currentDb.datosCuriosos[index] });
+});
+
+app.delete('/api/datos-curiosos/:id', (req, res) => {
+  const currentDb = db.get();
+  const index = (currentDb.datosCuriosos || []).findIndex(item => item.id === req.params.id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, error: "Dato curioso no encontrado" });
+  }
+
+  const eliminado = currentDb.datosCuriosos.splice(index, 1)[0];
+  db.save(currentDb);
+  res.json({ success: true, data: eliminado });
+});
+
+// ==========================================
+// MÓDULO PORTAL WEB: GALERÍA MULTIMEDIA (FOTOS Y VIDEOS CORTOS)
+// ==========================================
+app.get('/api/galeria', (req, res) => {
+  const currentDb = db.get();
+  const todos = req.query.admin === 'true';
+  const lista = (currentDb.galeria || []).filter(item => todos || item.activo !== false);
+  res.json({ success: true, data: lista });
+});
+
+app.post('/api/galeria', (req, res) => {
+  const currentDb = db.get();
+  const { titulo, descripcion, categoria, tipoMedia, urlMedia, duracion, activo } = req.body;
+
+  if (!titulo || !urlMedia) {
+    return res.status(400).json({ success: false, error: "Título y URL de medio son obligatorios" });
+  }
+
+  const nuevoItem = {
+    id: `gal-${uuidv4().substring(0, 8)}`,
+    titulo: titulo.trim(),
+    descripcion: (descripcion || "").trim(),
+    categoria: categoria || "Instalaciones y Consultorios",
+    tipoMedia: tipoMedia === 'video' ? 'video' : 'imagen',
+    urlMedia: urlMedia.trim(),
+    duracion: duracion || (tipoMedia === 'video' ? "0:45 min" : ""),
+    activo: activo !== false,
+    fecha: new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date())
+  };
+
+  if (!Array.isArray(currentDb.galeria)) {
+    currentDb.galeria = [];
+  }
+  currentDb.galeria.unshift(nuevoItem);
+
+  currentDb.historialAuditoria.push({
+    id: `log-${Date.now()}`,
+    fecha: new Date().toISOString(),
+    accion: "CREAR_ELEMENTO_GALERIA",
+    descripcion: `Nuevo elemento en galería (${nuevoItem.tipoMedia}): ${nuevoItem.titulo}`
+  });
+
+  db.save(currentDb);
+  res.status(201).json({ success: true, data: nuevoItem });
+});
+
+app.put('/api/galeria/:id', (req, res) => {
+  const currentDb = db.get();
+  const index = (currentDb.galeria || []).findIndex(item => item.id === req.params.id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, error: "Elemento de galería no encontrado" });
+  }
+
+  const previo = currentDb.galeria[index];
+  const { titulo, descripcion, categoria, tipoMedia, urlMedia, duracion, activo } = req.body;
+
+  currentDb.galeria[index] = {
+    ...previo,
+    ...(titulo !== undefined && { titulo: titulo.trim() }),
+    ...(descripcion !== undefined && { descripcion: descripcion.trim() }),
+    ...(categoria !== undefined && { categoria }),
+    ...(tipoMedia !== undefined && { tipoMedia }),
+    ...(urlMedia !== undefined && { urlMedia }),
+    ...(duracion !== undefined && { duracion }),
+    ...(activo !== undefined && { activo: Boolean(activo) })
+  };
+
+  db.save(currentDb);
+  res.json({ success: true, data: currentDb.galeria[index] });
+});
+
+app.delete('/api/galeria/:id', (req, res) => {
+  const currentDb = db.get();
+  const index = (currentDb.galeria || []).findIndex(item => item.id === req.params.id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, error: "Elemento no encontrado" });
+  }
+
+  const eliminado = currentDb.galeria.splice(index, 1)[0];
+  db.save(currentDb);
+  res.json({ success: true, data: eliminado });
+});
+
+// ==========================================
+// MÓDULO PORTAL WEB: ATENCIÓN AL USUARIO Y PQRS
+// ==========================================
+app.get('/api/pqrs', (req, res) => {
+  const currentDb = db.get();
+  res.json({ success: true, data: currentDb.pqrs || [] });
+});
+
+app.get('/api/pqrs/consultar/:termino', (req, res) => {
+  const currentDb = db.get();
+  const termino = (req.params.termino || "").trim().toLowerCase();
+
+  const resultados = (currentDb.pqrs || []).filter(item => {
+    const rad = (item.radicado || "").toLowerCase();
+    const doc = (item.numeroDocumento || "").toLowerCase();
+    return rad === termino || doc === termino;
+  });
+
+  res.json({ success: true, data: resultados });
+});
+
+app.post('/api/pqrs', (req, res) => {
+  const currentDb = db.get();
+  const {
+    tipo, nombreCompleto, tipoDocumento, numeroDocumento,
+    email, telefono, sedeId, servicio, asunto, descripcion
+  } = req.body;
+
+  if (!nombreCompleto || !numeroDocumento || !descripcion || !asunto) {
+    return res.status(400).json({
+      success: false,
+      error: "Nombre completo, número de documento, asunto y descripción son obligatorios"
+    });
+  }
+
+  const fechaActual = new Date();
+  const y = fechaActual.getFullYear();
+  const m = String(fechaActual.getMonth() + 1).padStart(2, '0');
+  const d = String(fechaActual.getDate()).padStart(2, '0');
+  const consecutivo = String((currentDb.pqrs || []).length + 1).padStart(4, '0');
+  const radicadoOficial = `PQRS-${y}${m}${d}-${consecutivo}`;
+
+  const nuevoPqrs = {
+    id: `pqrs-${uuidv4().substring(0, 8)}`,
+    radicado: radicadoOficial,
+    tipo: tipo || "Petición",
+    nombreCompleto: nombreCompleto.trim(),
+    tipoDocumento: tipoDocumento || "CC",
+    numeroDocumento: numeroDocumento.trim(),
+    email: (email || "").trim(),
+    telefono: (telefono || "").trim(),
+    sedeId: sedeId || "",
+    servicio: servicio || "Atención General",
+    asunto: asunto.trim(),
+    descripcion: descripcion.trim(),
+    estado: "Radicado",
+    respuestaOficial: "",
+    fechaRadicado: fechaActual.toISOString(),
+    fechaRespuesta: null,
+    atendidoPor: null
+  };
+
+  if (!Array.isArray(currentDb.pqrs)) {
+    currentDb.pqrs = [];
+  }
+  currentDb.pqrs.unshift(nuevoPqrs);
+
+  currentDb.historialAuditoria.push({
+    id: `log-${Date.now()}`,
+    fecha: fechaActual.toISOString(),
+    accion: "RADICAR_PQRS",
+    descripcion: `Nuevo PQRS radicado (${nuevoPqrs.tipo}): ${nuevoPqrs.radicado} por ${nuevoPqrs.nombreCompleto}`
+  });
+
+  db.save(currentDb);
+
+  res.status(201).json({
+    success: true,
+    data: nuevoPqrs,
+    mensaje: `Su solicitud ha sido radicada formalmente bajo el número ${nuevoPqrs.radicado}. Conforme a la normativa de salud, el tiempo de respuesta legal estimado es de hasta 15 días hábiles.`
+  });
+});
+
+app.put('/api/pqrs/:id/responder', (req, res) => {
+  const currentDb = db.get();
+  const index = (currentDb.pqrs || []).findIndex(item => item.id === req.params.id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, error: "Solicitud PQRS no encontrada" });
+  }
+
+  const pqrsActual = currentDb.pqrs[index];
+  const { estado, respuestaOficial, atendidoPor } = req.body;
+
+  currentDb.pqrs[index] = {
+    ...pqrsActual,
+    estado: estado || pqrsActual.estado,
+    respuestaOficial: respuestaOficial !== undefined ? respuestaOficial.trim() : pqrsActual.respuestaOficial,
+    fechaRespuesta: new Date().toISOString(),
+    atendidoPor: atendidoPor || "Dirección de Calidad y Atención al Usuario"
+  };
+
+  currentDb.historialAuditoria.push({
+    id: `log-${Date.now()}`,
+    fecha: new Date().toISOString(),
+    accion: "GESTION_PQRS",
+    descripcion: `PQRS ${pqrsActual.radicado} actualizado a estado ${currentDb.pqrs[index].estado}`
+  });
+
+  db.save(currentDb);
+  res.json({ success: true, data: currentDb.pqrs[index] });
+});
+
+app.delete('/api/pqrs/:id', (req, res) => {
+  const currentDb = db.get();
+  const index = (currentDb.pqrs || []).findIndex(item => item.id === req.params.id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, error: "PQRS no encontrada" });
+  }
+
+  const eliminado = currentDb.pqrs.splice(index, 1)[0];
+  db.save(currentDb);
+  res.json({ success: true, data: eliminado });
+});
+
+// ==========================================
+// COMPATIBILIDAD CON HOSTINGER & PRODUCCIÓN (ARCHIVOS ESTÁTICOS CLIENTE)
+// ==========================================
+const clientDistPath = path.join(__dirname, '../client/dist');
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+  app.get('*', (req, res, next) => {
+    if (req.url.startsWith('/api')) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
 }
 
 app.listen(PORT, () => {

@@ -1,17 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Calendar, Building2, ShieldCheck, Search, Phone,
-  MessageSquare, Activity, LogIn, LogOut, UserCheck, ShieldAlert
+  MessageSquare, Activity, LogIn, LogOut, UserCheck, ShieldAlert,
+  BookOpen, Image as ImageIcon, FileText
 } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenLogin, onLogout }) {
+  const [seccionActiva, setSeccionActiva] = useState('inicio');
+
+  // ScrollSpy para actualizar pestaña activa según la sección visible
+  useEffect(() => {
+    if (activeTab !== 'portal') return;
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const threshold = 180;
+          const pqrsEl = document.getElementById('seccion-pqrs');
+          const galeriaEl = document.getElementById('seccion-galeria');
+          const curiososEl = document.getElementById('seccion-datos-curiosos');
+
+          if (pqrsEl && pqrsEl.getBoundingClientRect().top <= threshold) {
+            setSeccionActiva('pqrs');
+          } else if (galeriaEl && galeriaEl.getBoundingClientRect().top <= threshold) {
+            setSeccionActiva('galeria');
+          } else if (curiososEl && curiososEl.getBoundingClientRect().top <= threshold) {
+            setSeccionActiva('datos-curiosos');
+          } else {
+            setSeccionActiva('inicio');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [activeTab]);
+
+  // Navegación fluida hacia secciones del portal institucional
+  function irASeccion(seccionId, idClave) {
+    if (idClave) setSeccionActiva(idClave);
+
+    const scrollTarget = () => {
+      if (seccionId === 'inicio' || seccionId === 'top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      const el = document.getElementById(seccionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    if (activeTab !== 'portal') {
+      setActiveTab('portal');
+      setTimeout(scrollTarget, 100);
+    } else {
+      scrollTarget();
+    }
+  }
+
   return (
     <>
       {/* Top Banner Oficial */}
       <div className="top-notice-bar">
         <div className="top-notice-item">
           <ShieldCheck size={14} color="var(--primary-700)" />
-          <span><b>ARCAL Protección Radiológica S.A.S. (IPS)</b> — NIT: 901.358.461-8 | Habilitación MinSalud: 0500121425-01</span>
+          <span><b>ARCAL Protección Radiológica S.A.S. (IPS)</b> — NIT: 901.365.419-8 | Habilitación MinSalud: 0500109842-01</span>
         </div>
         <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
           <div className="top-notice-item">
@@ -20,7 +82,7 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
           </div>
           <div className="top-notice-item">
             <MessageSquare size={13} color="var(--brand-green)" />
-            <span>WhatsApp Citas: +57 323 2307453</span>
+            <span>WhatsApp Citas: +57 310 854 9210</span>
           </div>
         </div>
       </div>
@@ -28,7 +90,21 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
       {/* Header Principal */}
       <header className="header-main">
         <div className="header-container">
-          <div className="brand-wrapper" onClick={() => setActiveTab(usuarioActual?.rol === 'agente' ? 'presencial' : (usuarioActual?.rol === 'admin' ? 'admin' : 'web'))} title="ARCAL Protección Radiológica IPS">
+          <div
+            className="brand-wrapper"
+            onClick={() => {
+              if (usuarioActual?.rol === 'agente') {
+                setActiveTab('presencial');
+              } else if (usuarioActual?.rol === 'admin' || usuarioActual?.rol === 'superadmin') {
+                setActiveTab('admin');
+              } else {
+                setActiveTab('portal');
+                setSeccionActiva('inicio');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            title="ARCAL Protección Radiológica IPS"
+          >
             <img
               src="/arcal-logo.png"
               alt="ARCAL Protección Radiológica IPS"
@@ -42,7 +118,7 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                     : usuarioActual.rol === 'admin'
                       ? 'Administración General del Sistema'
                       : 'Atención al Cliente & Recepción')
-                  : 'Portal de Citas & Servicios Médicos'}
+                  : 'Portal Oficial & Apoyo Diagnóstico'}
               </div>
               <div style={{ display: 'flex', gap: '0.35rem', marginTop: '2px', alignItems: 'center' }}>
                 <span className="brand-tag">Apoyo Diagnóstico</span>
@@ -59,30 +135,69 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
             {!usuarioActual && (
               <>
                 <button
-                  className={`nav-tab-btn ${activeTab === 'web' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('web')}
-                  id="tab-web-paciente"
-                >
-                  <Calendar size={16} />
-                  <span>Agendar Cita Web</span>
-                </button>
-
-                {/* <button
-                  className={`nav-tab-btn ${activeTab === 'institucional' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('institucional')}
-                  id="tab-institucional"
+                  className={`nav-tab-btn ${activeTab === 'portal' && seccionActiva === 'inicio' ? 'active' : ''}`}
+                  onClick={() => irASeccion('inicio', 'inicio')}
+                  id="tab-inicio"
                 >
                   <ShieldCheck size={16} />
-                  <span>Conócenos (Misión & Visión)</span>
-                </button>*/}
+                  <span>Inicio</span>
+                </button>
 
                 <button
-                  className={`nav-tab-btn ${activeTab === 'consulta' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('consulta')}
-                  id="tab-consultar-cita"
+                  className={`nav-tab-btn ${activeTab === 'portal' && seccionActiva === 'datos-curiosos' ? 'active' : ''}`}
+                  onClick={() => irASeccion('seccion-datos-curiosos', 'datos-curiosos')}
+                  id="tab-datos-curiosos"
                 >
-                  <Search size={16} />
-                  <span>Consultar mi Cita</span>
+                  <BookOpen size={16} />
+                  <span>Datos Curiosos</span>
+                </button>
+
+                <button
+                  className={`nav-tab-btn ${activeTab === 'portal' && seccionActiva === 'galeria' ? 'active' : ''}`}
+                  onClick={() => irASeccion('seccion-galeria', 'galeria')}
+                  id="tab-galeria"
+                >
+                  <ImageIcon size={16} />
+                  <span>Galería Multimedia</span>
+                </button>
+
+                <button
+                  className={`nav-tab-btn ${activeTab === 'portal' && seccionActiva === 'pqrs' ? 'active' : ''}`}
+                  onClick={() => irASeccion('seccion-pqrs', 'pqrs')}
+                  id="tab-pqrs"
+                >
+                  <FileText size={16} />
+                  <span>PQRS</span>
+                </button>
+
+                <button
+                  className="btn btn-primary"
+                  onClick={() => setActiveTab('web')}
+                  style={{
+                    background: activeTab === 'web'
+                      ? 'linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-green-dark) 100%)'
+                      : 'linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-hover) 100%)',
+                    color: '#0B2233',
+                    fontWeight: 800,
+                    fontSize: '0.82rem',
+                    padding: '0.45rem 1.1rem',
+                    borderRadius: '10px',
+                    boxShadow: activeTab === 'web'
+                      ? '0 0 0 2px #FFFFFF, 0 0 0 4px var(--brand-green)'
+                      : '0 4px 12px rgba(153, 200, 93, 0.35)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.45rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                    marginLeft: '0.4rem',
+                    whiteSpace: 'nowrap'
+                  }}
+                  id="btn-ir-control-citas-navbar"
+                  title="Ir al sistema de agendamiento y control de citas"
+                >
+                  <Calendar size={15} />
+                  <span>Ir al Control de Citas</span>
                 </button>
               </>
             )}
@@ -109,12 +224,21 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                 </button>
 
                 <button
+                  className={`nav-tab-btn ${activeTab === 'portal' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('portal')}
+                  id="tab-portal-agente"
+                >
+                  <ShieldCheck size={16} />
+                  <span>Ver Portal Web</span>
+                </button>
+
+                <button
                   className={`nav-tab-btn ${activeTab === 'web' ? 'active' : ''}`}
                   onClick={() => setActiveTab('web')}
                   id="tab-web-agente"
                 >
                   <Calendar size={16} />
-                  <span>Ver Portal Web</span>
+                  <span>Control de Citas</span>
                 </button>
               </>
             )}
@@ -142,12 +266,21 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                 </button>
 
                 <button
+                  className={`nav-tab-btn ${activeTab === 'portal' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('portal')}
+                  id="tab-portal-admin"
+                >
+                  <ShieldCheck size={16} />
+                  <span>Ver Portal Web</span>
+                </button>
+
+                <button
                   className={`nav-tab-btn ${activeTab === 'web' ? 'active' : ''}`}
                   onClick={() => setActiveTab('web')}
                   id="tab-web-admin"
                 >
                   <Calendar size={16} />
-                  <span>Portal Web (Pacientes)</span>
+                  <span>Control de Citas</span>
                 </button>
 
                 <button
