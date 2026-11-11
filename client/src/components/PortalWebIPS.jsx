@@ -4,7 +4,8 @@ import {
   ArrowRight, ExternalLink, CheckCircle2, AlertCircle, FileText, Video,
   Image as ImageIcon, Play, Eye, Filter, RefreshCw, Send, Check, X,
   Building2, Stethoscope, HeartPulse, Scissors, Activity, User,
-  HelpCircle, MessageSquare, ChevronRight, Layers, Award, Sparkles, BookOpen
+  HelpCircle, MessageSquare, ChevronRight, Layers, Award, Sparkles, BookOpen,
+  Paperclip, Upload, Download
 } from 'lucide-react';
 import { api } from '../services/api';
 
@@ -62,6 +63,7 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
     asunto: '',
     descripcion: ''
   });
+  const [archivosAdjuntos, setArchivosAdjuntos] = useState([]);
   const [enviandoPqrs, setEnviandoPqrs] = useState(false);
   const [resultadoRadicacion, setResultadoRadicacion] = useState(null);
 
@@ -138,13 +140,72 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
     }
   }
 
+  // Manejo de Documentos Adjuntos de Evidencia PQRS
+  function handleArchivosChange(e) {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+
+    if (archivosAdjuntos.length + files.length > 5) {
+      alert('Puede adjuntar un máximo de 5 documentos probatorios por solicitud.');
+      return;
+    }
+
+    const allowed = ['.pdf', '.png', '.jpg', '.jpeg', '.webp', '.doc', '.docx'];
+    const invalidFiles = [];
+    const oversizedFiles = [];
+    const validFiles = [];
+
+    files.forEach(f => {
+      const ext = '.' + f.name.split('.').pop().toLowerCase();
+      if (!allowed.includes(ext)) {
+        invalidFiles.push(f.name);
+      } else if (f.size > 10 * 1024 * 1024) {
+        oversizedFiles.push(f.name);
+      } else {
+        validFiles.push(f);
+      }
+    });
+
+    if (invalidFiles.length > 0) {
+      alert(`Los siguientes archivos no tienen un formato permitido (PDF, PNG, JPG, WEBP, DOC, DOCX):\n- ${invalidFiles.join('\n- ')}`);
+    }
+    if (oversizedFiles.length > 0) {
+      alert(`Los siguientes archivos superan el tamaño máximo de 10 MB:\n- ${oversizedFiles.join('\n- ')}`);
+    }
+
+    if (validFiles.length > 0) {
+      setArchivosAdjuntos(prev => [...prev, ...validFiles]);
+    }
+    e.target.value = '';
+  }
+
+  function eliminarArchivo(index) {
+    setArchivosAdjuntos(prev => prev.filter((_, i) => i !== index));
+  }
+
+  function formatearTamano(bytes) {
+    if (!bytes && bytes !== 0) return '';
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+  }
+
   // Manejo de Formulario PQRS
   async function handleSubmitPqrs(e) {
     e.preventDefault();
     setEnviandoPqrs(true);
     try {
-      const res = await api.radicarPqrs(formPqrs);
+      const formData = new FormData();
+      Object.entries(formPqrs).forEach(([key, val]) => {
+        formData.append(key, val || '');
+      });
+      archivosAdjuntos.forEach(file => {
+        formData.append('archivos', file);
+      });
+
+      const res = await api.radicarPqrs(formData);
       setResultadoRadicacion(res.data);
+      setArchivosAdjuntos([]);
       setFormPqrs({
         tipo: 'Petición',
         nombreCompleto: '',
@@ -205,6 +266,11 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
     if (categoriaGaleria === 'todos') return galeriaItems;
     return galeriaItems.filter(g => g.categoria === categoriaGaleria);
   }, [galeriaItems, categoriaGaleria]);
+
+  // Sedes activas y habilitadas para mostrarse en la página web pública
+  const sedesVisiblesWeb = useMemo(() => {
+    return (sedes || []).filter(s => s.activa !== false && s.mostrarEnWeb !== false);
+  }, [sedes]);
 
   const departamentosPortafolio = [
     {
@@ -372,9 +438,11 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
 
               {/* Botones de Acción Primarios */}
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                <button
+                <a
+                  href="?vista=control-citas"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn"
-                  onClick={onIrControlCitas}
                   style={{
                     background: 'linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-hover) 100%)',
                     color: '#0B2233',
@@ -382,18 +450,21 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                     fontSize: '0.88rem',
                     fontWeight: 800,
                     borderRadius: '10px',
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.55rem',
                     boxShadow: '0 8px 18px -3px rgba(153, 200, 93, 0.45)',
                     border: 'none',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    textDecoration: 'none'
                   }}
                   id="btn-hero-ir-control-citas"
+                  title="Abrir Control de Citas en una nueva pestaña"
                 >
                   <Calendar size={17} />
                   <span>Ir al Control de Citas</span>
-                </button>
+                  <ExternalLink size={14} />
+                </a>
 
                 <button
                   className="btn"
@@ -476,10 +547,12 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
 
                 <div style={{ background: 'rgba(255, 255, 255, 0.04)', padding: '0.75rem', borderRadius: '10px' }}>
                   <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#99c85d' }}>
-                    4 Sedes
+                    {sedesVisiblesWeb.length > 0 ? `${sedesVisiblesWeb.length} ${sedesVisiblesWeb.length === 1 ? 'Sede' : 'Sedes'}` : 'Sedes IPS'}
                   </div>
                   <div style={{ fontSize: '0.72rem', color: '#CBD5E1', marginTop: '0.15rem' }}>
-                    Medellín, Bogotá, Urabá y Ciudad Bolívar
+                    {sedesVisiblesWeb.length > 0
+                      ? [...new Set(sedesVisiblesWeb.map(s => s.ciudad?.split(',')[0]?.trim()).filter(Boolean))].join(', ')
+                      : 'Cobertura Regional'}
                   </div>
                 </div>
 
@@ -617,8 +690,10 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
             </a>
           </div>
 
-          <button
-            onClick={onIrControlCitas}
+          <a
+            href="?vista=control-citas"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary"
             style={{
               padding: '0.38rem 0.95rem',
@@ -628,12 +703,15 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
               background: 'linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-hover) 100%)',
               color: '#0B2233',
               border: 'none',
-              boxShadow: '0 4px 10px rgba(153, 200, 93, 0.3)'
+              boxShadow: '0 4px 10px rgba(153, 200, 93, 0.3)',
+              textDecoration: 'none'
             }}
+            title="Abrir Control de Citas en una nueva pestaña"
           >
             <Calendar size={14} />
             <span>Ir al Control de Citas</span>
-          </button>
+            <ExternalLink size={12} />
+          </a>
         </div>
       </div>
 
@@ -754,20 +832,24 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                 </div>
               </div>
 
-              <button
+              <a
+                href="?vista=control-citas"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary"
-                onClick={onIrControlCitas}
                 style={{
                   background: deptoActual.color,
                   borderColor: deptoActual.color,
                   color: '#FFFFFF',
                   fontWeight: 700,
                   fontSize: '0.8rem',
-                  padding: '0.55rem 1.15rem'
+                  padding: '0.55rem 1.15rem',
+                  textDecoration: 'none'
                 }}
+                title="Abrir Control de Citas en una nueva pestaña"
               >
-                <Calendar size={14} /> Agendar Cita en este Departamento
-              </button>
+                <Calendar size={14} /> Agendar Cita en este Departamento <ExternalLink size={12} />
+              </a>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: '0.6rem' }}>
@@ -1255,9 +1337,22 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                       Radicado No: {resultadoRadicacion.radicado}
                     </div>
 
-                    <p style={{ color: '#334155', fontSize: '0.85rem', maxWidth: '600px', margin: '0 auto 1.2rem auto', lineHeight: 1.55 }}>
+                    <p style={{ color: '#334155', fontSize: '0.85rem', maxWidth: '600px', margin: '0 auto 0.8rem auto', lineHeight: 1.55 }}>
                       Apreciado(a) <b>{resultadoRadicacion.nombreCompleto}</b>: Su {resultadoRadicacion.tipo.toLowerCase()} ha sido remitida al área de Calidad y Auditoría Médica de IPS ARCAL. El plazo legal reglamentario para su atención es de hasta 15 días hábiles.
                     </p>
+
+                    {resultadoRadicacion.email && (
+                      <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '0.65rem 1rem', maxWidth: '580px', margin: '0 auto 0.8rem auto', fontSize: '0.78rem', color: '#475569', display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+                        <Mail size={16} color="var(--brand-cyan-dark)" />
+                        <span>Hemos registrado su correo <b>{resultadoRadicacion.email}</b>. Una vez emitida la resolución oficial por parte de la Dirección Médica, recibirá una notificación para consultar la respuesta formal en este portal con su número de radicado.</span>
+                      </div>
+                    )}
+
+                    {resultadoRadicacion.adjuntos && resultadoRadicacion.adjuntos.length > 0 && (
+                      <div style={{ fontSize: '0.76rem', color: '#64748B', marginBottom: '1rem' }}>
+                        Documentos probatorios adjuntados exitosamente: <b>{resultadoRadicacion.adjuntos.length}</b>
+                      </div>
+                    )}
 
                     <div style={{ display: 'flex', gap: '0.6rem', justifyContent: 'center' }}>
                       <button
@@ -1360,7 +1455,7 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                           style={{ width: '100%', fontSize: '0.82rem', padding: '0.5rem 0.75rem', boxSizing: 'border-box' }}
                         >
                           <option value="">Seleccione sede...</option>
-                          {sedes.map(s => (
+                          {sedes.filter(s => s.activa !== false).map(s => (
                             <option key={s.id} value={s.id}>{s.nombre} ({s.ciudad})</option>
                           ))}
                         </select>
@@ -1417,7 +1512,7 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                     </div>
 
                     {/* Fila 5: Descripción Detallada (100% ancho del contenedor y espaciosa) */}
-                    <div style={{ width: '100%', marginBottom: '1.4rem' }}>
+                    <div style={{ width: '100%', marginBottom: '1.2rem' }}>
                       <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 700, color: '#334155', marginBottom: '0.35rem' }}>
                         Descripción Detallada de los Hechos *
                       </label>
@@ -1442,9 +1537,98 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                       />
                     </div>
 
+                    {/* Fila 6: Adjuntar Documentos de Pruebas o Soporte */}
+                    <div style={{ width: '100%', marginBottom: '1.4rem', background: '#F8FAFC', border: '1px dashed #CBD5E1', borderRadius: '10px', padding: '1rem', boxSizing: 'border-box' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '0.5rem' }}>
+                        <div>
+                          <label style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.82rem', fontWeight: 700, color: '#1E293B', margin: 0 }}>
+                            <Paperclip size={15} color="var(--brand-cyan-dark)" />
+                            <span>Documentos y Evidencias de Prueba (Opcional)</span>
+                          </label>
+                          <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '0.15rem' }}>
+                            Adjunte órdenes médicas, autorizaciones, fórmulas, cédula o soportes (PDF, JPG, PNG, WEBP, DOC, DOCX - máx. 5 archivos, 10 MB c/u).
+                          </div>
+                        </div>
+
+                        <label
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.4rem',
+                            background: '#FFFFFF',
+                            border: '1px solid #CBD5E1',
+                            borderRadius: '6px',
+                            padding: '0.4rem 0.8rem',
+                            fontSize: '0.78rem',
+                            fontWeight: 700,
+                            color: '#0F172A',
+                            cursor: 'pointer',
+                            boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+                          }}
+                        >
+                          <Upload size={14} color="var(--brand-cyan-dark)" />
+                          <span>Seleccionar Archivos</span>
+                          <input
+                            type="file"
+                            multiple
+                            accept=".pdf,.png,.jpg,.jpeg,.webp,.doc,.docx"
+                            onChange={handleArchivosChange}
+                            style={{ display: 'none' }}
+                          />
+                        </label>
+                      </div>
+
+                      {/* Lista de archivos seleccionados */}
+                      {archivosAdjuntos.length > 0 ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '0.6rem' }}>
+                          {archivosAdjuntos.map((archivo, idx) => (
+                            <div
+                              key={idx}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                background: '#FFFFFF',
+                                border: '1px solid #E2E8F0',
+                                borderRadius: '6px',
+                                padding: '0.35rem 0.7rem',
+                                fontSize: '0.76rem'
+                              }}
+                            >
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                <FileText size={14} color="#64748B" />
+                                <span style={{ fontWeight: 600, color: '#1E293B' }}>{archivo.name}</span>
+                                <span style={{ color: '#94A3B8', fontSize: '0.7rem' }}>({formatearTamano(archivo.size)})</span>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => eliminarArchivo(idx)}
+                                style={{
+                                  background: 'none',
+                                  border: 'none',
+                                  cursor: 'pointer',
+                                  color: '#DC2626',
+                                  padding: '0.2rem',
+                                  display: 'flex',
+                                  alignItems: 'center'
+                                }}
+                                title="Quitar archivo"
+                              >
+                                <X size={14} />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div style={{ fontSize: '0.74rem', color: '#94A3B8', fontStyle: 'italic', marginTop: '0.2rem' }}>
+                          Ningún documento seleccionado por el momento.
+                        </div>
+                      )}
+                    </div>
+
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', width: '100%' }}>
                       <div style={{ fontSize: '0.74rem', color: '#64748B', maxWidth: '520px', lineHeight: 1.5 }}>
-                        Sus datos están protegidos bajo la Ley de Habeas Data en Salud (Ley 1581 de 2012). Solo serán empleados para la resolución y trazabilidad de su solicitud.
+                        Sus datos están protegidos bajo la Ley de Habeas Data en Salud (<a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981" target="_blank">Ley 1581 de 2012</a>). Solo serán empleados para la resolución y trazabilidad de su solicitud.
                       </div>
 
                       <button
@@ -1511,8 +1695,8 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                     {resultadosConsulta.map(pqrs => {
                       const colorEstado =
                         pqrs.estado === 'Respondido' ? '#10B981' :
-                        pqrs.estado === 'En trámite' ? '#0284C7' :
-                        pqrs.estado === 'Cerrado' ? '#64748B' : '#D97706';
+                          pqrs.estado === 'En trámite' ? '#0284C7' :
+                            pqrs.estado === 'Cerrado' ? '#64748B' : '#D97706';
 
                       return (
                         <div
@@ -1564,6 +1748,44 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                             <div><b>Fecha de Radicación:</b> {new Date(pqrs.fechaRadicado).toLocaleDateString()}</div>
                             <div><b>Servicio:</b> {pqrs.servicio}</div>
                           </div>
+
+                          {/* Evidencias y Documentos Adjuntos */}
+                          {pqrs.adjuntos && pqrs.adjuntos.length > 0 && (
+                            <div style={{ marginTop: '0.8rem', background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '0.75rem' }}>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.76rem', fontWeight: 700, color: '#334155', marginBottom: '0.4rem' }}>
+                                <Paperclip size={14} color="var(--brand-cyan-dark)" />
+                                <span>Documentos y Pruebas Adjuntas ({pqrs.adjuntos.length}):</span>
+                              </div>
+                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                                {pqrs.adjuntos.map((adj, i) => (
+                                  <a
+                                    key={adj.id || i}
+                                    href={adj.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                      display: 'inline-flex',
+                                      alignItems: 'center',
+                                      gap: '0.35rem',
+                                      background: '#FFFFFF',
+                                      border: '1px solid #CBD5E1',
+                                      borderRadius: '6px',
+                                      padding: '0.3rem 0.6rem',
+                                      fontSize: '0.74rem',
+                                      color: '#0F172A',
+                                      textDecoration: 'none',
+                                      fontWeight: 600
+                                    }}
+                                  >
+                                    <FileText size={13} color="var(--brand-cyan-dark)" />
+                                    <span>{adj.nombreOriginal}</span>
+                                    {adj.tamanoBytes && <span style={{ color: '#94A3B8', fontSize: '0.68rem' }}>({formatearTamano(adj.tamanoBytes)})</span>}
+                                    <ExternalLink size={12} color="#64748B" />
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
 
                           {/* Respuesta Oficial si existe */}
                           {pqrs.respuestaOficial && (
@@ -1630,83 +1852,60 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
-            {/* Sede Poblado Medellín */}
-            <div className="card-panel" style={{ padding: '1.1rem', borderTop: '3.5px solid var(--brand-cyan)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                <Building2 size={17} color="var(--brand-cyan)" />
-                <h3 style={{ fontSize: '0.98rem', color: '#0F172A', margin: 0, fontWeight: 800 }}>
-                  Sede Medellín El Poblado
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.55, marginBottom: '0.8rem' }}>
-                <MapPin size={13} style={{ display: 'inline', marginRight: '3px', color: 'var(--brand-cyan)' }} />
-                Calle 19A # 44-25, Torre Médica Salud y Servicios, Piso 22, Cons. 2209
-              </p>
-              <div style={{ fontSize: '0.76rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.3rem', borderTop: '1px solid #F1F5F9', paddingTop: '0.65rem' }}>
-                <div><b>PBX Medellín:</b> (604) 604 8956</div>
-                <div><b>Celular / WhatsApp:</b> +57 323 230 7453</div>
-                <div><b>Horario:</b> Lunes a Viernes 7:30 AM - 5:30 PM</div>
-              </div>
+          {sedesVisiblesWeb.length === 0 ? (
+            <div className="card-panel" style={{ padding: '2rem', textAlign: 'center', color: '#64748B', fontSize: '0.85rem' }}>
+              No hay sedes de atención publicadas en este momento. Comuníquese con nuestra línea central al +57 310 854 9210.
             </div>
+          ) : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+              {sedesVisiblesWeb.map((sede, index) => {
+                const coloresDefault = ['var(--brand-cyan)', '#EF5E95', '#0284C7', '#10B981'];
+                const colorSede = sede.colorPortal || coloresDefault[index % coloresDefault.length];
+                const emailValido = sede.email && sede.email.includes('@') && !sede.email.includes('[') ? sede.email : '';
 
-            {/* Sede Ciudad Bolívar */}
-            <div className="card-panel" style={{ padding: '1.1rem', borderTop: '3.5px solid var(--brand-green)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                <Building2 size={17} color="var(--brand-green)" />
-                <h3 style={{ fontSize: '0.98rem', color: '#0F172A', margin: 0, fontWeight: 800 }}>
-                  Sede Ciudad Bolívar
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.55, marginBottom: '0.8rem' }}>
-                <MapPin size={13} style={{ display: 'inline', marginRight: '3px', color: 'var(--brand-green)' }} />
-                Calle 48 # 48-01 Local 208, Centro Empresarial Privilegio
-              </p>
-              <div style={{ fontSize: '0.76rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.3rem', borderTop: '1px solid #F1F5F9', paddingTop: '0.65rem' }}>
-                <div><b>Celular de Contacto:</b> 311 601 0895</div>
-                <div><b>Atención Especializada:</b> Consulta programada y ecografía</div>
-                <div><b>Horario:</b> Lunes a Viernes 7:00 AM - 4:00 PM</div>
-              </div>
-            </div>
+                return (
+                  <div key={sede.id} className="card-panel" style={{ padding: '1.1rem', borderTop: `3.5px solid ${colorSede}` }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.6rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <Building2 size={17} color={colorSede} />
+                        <h3 style={{ fontSize: '0.98rem', color: '#0F172A', margin: 0, fontWeight: 800 }}>
+                          {sede.nombre}
+                        </h3>
+                      </div>
+                      {sede.ciudad && (
+                        <span style={{ fontSize: '0.68rem', fontWeight: 700, color: '#475569', background: '#F1F5F9', padding: '0.15rem 0.5rem', borderRadius: '6px', whiteSpace: 'nowrap' }}>
+                          {sede.ciudad.split(',')[0]}
+                        </span>
+                      )}
+                    </div>
 
-            {/* Sede Apartadó Urabá */}
-            <div className="card-panel" style={{ padding: '1.1rem', borderTop: '3.5px solid #EF5E95' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                <Building2 size={17} color="#EF5E95" />
-                <h3 style={{ fontSize: '0.98rem', color: '#0F172A', margin: 0, fontWeight: 800 }}>
-                  Sede Apartadó (Urabá)
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.55, marginBottom: '0.8rem' }}>
-                <MapPin size={13} style={{ display: 'inline', marginRight: '3px', color: '#EF5E95' }} />
-                Calle 99 # 105-44, Piso 1, Barrio Ortiz
-              </p>
-              <div style={{ fontSize: '0.76rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.3rem', borderTop: '1px solid #F1F5F9', paddingTop: '0.65rem' }}>
-                <div><b>Celular de Atención:</b> 314 826 5325</div>
-                <div><b>Servicios:</b> Consulta médica y apoyo diagnóstico</div>
-                <div><b>Horario:</b> Lunes a Viernes 7:00 AM - 5:00 PM</div>
-              </div>
-            </div>
+                    <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.55, marginBottom: '0.8rem' }}>
+                      <MapPin size={13} style={{ display: 'inline', marginRight: '3px', color: colorSede }} />
+                      {sede.direccion}
+                    </p>
 
-            {/* Sede Bogotá */}
-            <div className="card-panel" style={{ padding: '1.1rem', borderTop: '3.5px solid #0284C7' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.6rem' }}>
-                <Building2 size={17} color="#0284C7" />
-                <h3 style={{ fontSize: '0.98rem', color: '#0F172A', margin: 0, fontWeight: 800 }}>
-                  Sede Principal Bogotá
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.55, marginBottom: '0.8rem' }}>
-                <MapPin size={13} style={{ display: 'inline', marginRight: '3px', color: '#0284C7' }} />
-                Carrera 15 # 118-45, Torre Médica Santa Bárbara, Cons. 402
-              </p>
-              <div style={{ fontSize: '0.76rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.3rem', borderTop: '1px solid #F1F5F9', paddingTop: '0.65rem' }}>
-                <div><b>PBX Bogotá:</b> (601) 745 8900</div>
-                <div><b>Línea Nacional WhatsApp:</b> +57 310 854 9210</div>
-                <div><b>Horario:</b> Lunes a Viernes 7:00 AM - 6:00 PM</div>
-              </div>
+                    <div style={{ fontSize: '0.76rem', color: '#334155', display: 'flex', flexDirection: 'column', gap: '0.3rem', borderTop: '1px solid #F1F5F9', paddingTop: '0.65rem' }}>
+                      {sede.telefono && (
+                        <div><b>Teléfono / Celular:</b> {sede.telefono}</div>
+                      )}
+                      {sede.whatsapp && (
+                        <div><b>WhatsApp / PBX:</b> {sede.whatsapp}</div>
+                      )}
+                      {emailValido && (
+                        <div><b>Correo:</b> {emailValido}</div>
+                      )}
+                      {sede.descripcionWeb && (
+                        <div><b>Servicios:</b> {sede.descripcionWeb}</div>
+                      )}
+                      {sede.horarioAtencion && (
+                        <div><b>Horario:</b> {sede.horarioAtencion}</div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </div>
+          )}
         </section>
 
         {/* ======================================================== */}
@@ -1733,9 +1932,11 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
             </p>
 
             <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button
+              <a
+                href="?vista=control-citas"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn"
-                onClick={onIrControlCitas}
                 style={{
                   background: 'linear-gradient(135deg, var(--brand-green) 0%, var(--brand-green-hover) 100%)',
                   color: '#0B2233',
@@ -1743,17 +1944,20 @@ export default function PortalWebIPS({ onIrControlCitas, onIrConsulta, initialSe
                   fontSize: '0.88rem',
                   fontWeight: 800,
                   borderRadius: '10px',
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.55rem',
                   boxShadow: '0 6px 16px rgba(153, 200, 93, 0.4)',
                   border: 'none',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  textDecoration: 'none'
                 }}
+                title="Abrir Control de Citas en una nueva pestaña"
               >
                 <Calendar size={17} />
                 <span>Ir al Control de Citas Ahora</span>
-              </button>
+                <ExternalLink size={14} />
+              </a>
 
               <button
                 className="btn"

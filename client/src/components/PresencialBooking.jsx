@@ -1103,113 +1103,113 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
                       </div>
                       <span className={`badge badge-${cita.estado}`}>
                         {cita.estado === 'no_asistio' ? 'No Asistió' :
-                         cita.estado === 'llego_tarde' ? 'Llegó Tarde' :
-                         cita.estado === 'en_sala' ? 'En Sala' :
-                         cita.estado}
+                          cita.estado === 'llego_tarde' ? 'Llegó Tarde' :
+                            cita.estado === 'en_sala' ? 'En Sala' :
+                              cita.estado}
                       </span>
                     </div>
 
-                  <div style={{ fontWeight: 700, color: '#0F172A', fontSize: '0.95rem' }}>
-                    {cita.pacienteNombres} {cita.pacienteApellidos}
-                  </div>
-                  <div style={{ fontSize: '0.78rem', color: '#64748B' }}>
-                    {cita.pacienteTipoDoc} {cita.pacienteNumDoc} • Cel: {cita.pacienteTelefono}
-                  </div>
-
-                  <div style={{ marginTop: '0.5rem', fontSize: '0.8rem', color: '#028090', fontWeight: 600 }}>
-                    {cita.especialidad?.nombre} • {cita.medico?.nombre}
-                  </div>
-
-                  {cita.motivoCancelacion && (
-                    <div style={{ marginTop: '0.4rem', fontSize: '0.75rem', color: '#991B1B', background: '#FEF2F2', padding: '0.35rem 0.6rem', borderRadius: '6px' }}>
-                      <b>Nota:</b> {cita.motivoCancelacion}
+                    <div style={{ fontWeight: 700, color: '#0F172A', fontSize: '0.95rem' }}>
+                      {cita.pacienteNombres} {cita.pacienteApellidos}
                     </div>
-                  )}
-
-                  {cita.motivoReasignacion && (
-                    <div style={{ marginTop: '0.4rem', fontSize: '0.75rem', color: '#0369A1', background: '#F0F9FF', padding: '0.35rem 0.6rem', borderRadius: '6px' }}>
-                      <b>Reasignada:</b> {cita.motivoReasignacion}
+                    <div style={{ fontSize: '0.78rem', color: '#64748B' }}>
+                      {cita.pacienteTipoDoc} {cita.pacienteNumDoc} • Cel: {cita.pacienteTelefono}
                     </div>
-                  )}
 
-                  {/* Acciones de taquilla */}
-                  <div style={{ display: 'flex', gap: '0.4rem', marginTop: '0.8rem', borderTop: '1px dashed #E2E8F0', paddingTop: '0.6rem', flexWrap: 'wrap' }}>
-                    {/* Si está confirmada o en sala */}
-                    {cita.estado !== 'atendida' && cita.estado !== 'cancelada' && cita.estado !== 'no_asistio' && (
-                      <>
-                        {cita.estado !== 'en_sala' && (
-                          <button
-                            className="btn btn-secondary"
-                            style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem' }}
-                            onClick={() => cambiarEstadoCita(cita.id, 'en_sala')}
-                            title="Registrar que el paciente llegó a sala de espera"
-                          >
-                            En Sala
-                          </button>
-                        )}
+                    <div style={{ marginTop: '0.5rem', fontSize: '0.8rem', color: '#028090', fontWeight: 600 }}>
+                      {cita.especialidad?.nombre} • {cita.medico?.nombre}
+                    </div>
 
-                        {cita.estado === 'en_sala' && (
-                          <button
-                            className="btn btn-secondary"
-                            style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#15803D', fontWeight: 700 }}
-                            onClick={() => cambiarEstadoCita(cita.id, 'atendida')}
-                            title="Marcar cita médica completada"
-                          >
-                            Atendido
-                          </button>
-                        )}
-
-                        {/* Botón de Llegó Tarde / Reasignar (5 días) */}
-                        <button
-                          className="btn btn-secondary"
-                          style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#B45309', background: '#FEF3C7', borderColor: '#FDE68A', fontWeight: 600 }}
-                          onClick={() => abrirModalReasignar(cita)}
-                          title="Paciente llegó tarde: Reasignar al turno más cercano en los próximos 5 días"
-                        >
-                          Llegó Tarde
-                        </button>
-
-                        {/* Botón de Cancelar o No Asistió */}
-                        <button
-                          className="btn btn-secondary"
-                          style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#B91C1C', background: '#FEE2E2', borderColor: '#FECACA', fontWeight: 600 }}
-                          onClick={() => abrirModalCancelar(cita, 'no_asistio')}
-                          title="Marcar como No Asistió o Cita Cancelada"
-                        >
-                          Cancelar / Inasistencia
-                        </button>
-                      </>
+                    {cita.motivoCancelacion && (
+                      <div style={{ marginTop: '0.4rem', fontSize: '0.75rem', color: '#991B1B', background: '#FEF2F2', padding: '0.35rem 0.6rem', borderRadius: '6px' }}>
+                        <b>Nota:</b> {cita.motivoCancelacion}
+                      </div>
                     )}
 
-                    {/* Si ya estaba como No Asistió o Llegó Tarde pero el paciente acude a ventanilla */}
-                    {(cita.estado === 'no_asistio' || cita.estado === 'llego_tarde') && (
+                    {cita.motivoReasignacion && (
+                      <div style={{ marginTop: '0.4rem', fontSize: '0.75rem', color: '#0369A1', background: '#F0F9FF', padding: '0.35rem 0.6rem', borderRadius: '6px' }}>
+                        <b>Reasignada:</b> {cita.motivoReasignacion}
+                      </div>
+                    )}
+
+                    {/* Acciones de taquilla */}
+                    <div style={{ display: 'flex', gap: '0.4rem', marginTop: '0.8rem', borderTop: '1px dashed #E2E8F0', paddingTop: '0.6rem', flexWrap: 'wrap' }}>
+                      {/* Si está confirmada o en sala */}
+                      {cita.estado !== 'atendida' && cita.estado !== 'cancelada' && cita.estado !== 'no_asistio' && (
+                        <>
+                          {cita.estado !== 'en_sala' && (
+                            <button
+                              className="btn btn-secondary"
+                              style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem' }}
+                              onClick={() => cambiarEstadoCita(cita.id, 'en_sala')}
+                              title="Registrar que el paciente llegó a sala de espera"
+                            >
+                              En Sala
+                            </button>
+                          )}
+
+                          {cita.estado === 'en_sala' && (
+                            <button
+                              className="btn btn-secondary"
+                              style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#15803D', fontWeight: 700 }}
+                              onClick={() => cambiarEstadoCita(cita.id, 'atendida')}
+                              title="Marcar cita médica completada"
+                            >
+                              Atendido
+                            </button>
+                          )}
+
+                          {/* Botón de Llegó Tarde / Reasignar (5 días) */}
+                          <button
+                            className="btn btn-secondary"
+                            style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#B45309', background: '#FEF3C7', borderColor: '#FDE68A', fontWeight: 600 }}
+                            onClick={() => abrirModalReasignar(cita)}
+                            title="Paciente llegó tarde: Reasignar al turno más cercano en los próximos 5 días"
+                          >
+                            Llegó Tarde
+                          </button>
+
+                          {/* Botón de Cancelar o No Asistió */}
+                          <button
+                            className="btn btn-secondary"
+                            style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#B91C1C', background: '#FEE2E2', borderColor: '#FECACA', fontWeight: 600 }}
+                            onClick={() => abrirModalCancelar(cita, 'no_asistio')}
+                            title="Marcar como No Asistió o Cita Cancelada"
+                          >
+                            Cancelar / Inasistencia
+                          </button>
+                        </>
+                      )}
+
+                      {/* Si ya estaba como No Asistió o Llegó Tarde pero el paciente acude a ventanilla */}
+                      {(cita.estado === 'no_asistio' || cita.estado === 'llego_tarde') && (
+                        <button
+                          className="btn btn-secondary"
+                          style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#028090', background: '#E0F2FE', borderColor: '#BAE6FD', fontWeight: 700 }}
+                          onClick={() => abrirModalReasignar(cita)}
+                          title="Reasignar cita en los siguientes 5 días"
+                        >
+                          Reasignar (5 Días)
+                        </button>
+                      )}
+
+                      {/* Botón Imprimir PDF */}
                       <button
                         className="btn btn-secondary"
-                        style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', color: '#028090', background: '#E0F2FE', borderColor: '#BAE6FD', fontWeight: 700 }}
-                        onClick={() => abrirModalReasignar(cita)}
-                        title="Reasignar cita en los siguientes 5 días"
+                        style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', marginLeft: 'auto' }}
+                        onClick={() => generarComprobantePDF(cita)}
+                        title="Descargar comprobante oficial en PDF"
                       >
-                        Reasignar (5 Días)
+                        <Printer size={13} /> PDF
                       </button>
-                    )}
-
-                    {/* Botón Imprimir PDF */}
-                    <button
-                      className="btn btn-secondary"
-                      style={{ padding: '0.35rem 0.6rem', fontSize: '0.72rem', marginLeft: 'auto' }}
-                      onClick={() => generarComprobantePDF(cita)}
-                      title="Descargar comprobante oficial en PDF"
-                    >
-                      <Printer size={13} /> PDF
-                    </button>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          );
-        })()}
+                ))}
+              </div>
+            );
+          })()}
+        </div>
       </div>
-    </div>
 
       {/* ======================================================== */}
       {/* MODAL 1: REGISTRAR CITA CANCELADA O NO ASISTIÓ */}
@@ -1260,7 +1260,7 @@ export default function PresencialBooking({ usuarioActual, onOpenLogin }) {
               <label className="form-label" style={{ fontWeight: 700, marginBottom: '0.6rem' }}>
                 Seleccione el estado a registrar:
               </label>
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                 <label style={{
                   display: 'flex',

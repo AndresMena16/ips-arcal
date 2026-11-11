@@ -746,7 +746,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
             </div>
           </div>
 
-          {/* Cuadrícula de Tarjetas del Departamento Seleccionado */}
+          {/* Cuadrícula de Tarjetas del Departamento Seleccionado 
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem', flexWrap: 'wrap', gap: '0.5rem' }}>
               <h4 style={{ fontSize: '0.95rem', color: '#1E293B', fontWeight: 700, margin: 0 }}>
@@ -801,7 +801,7 @@ export default function WebBookingWizard({ onVerInstitucional }) {
                 })}
               </div>
             )}
-          </div>
+          </div>*/}
 
           {/* Vista previa de recomendaciones de la especialidad seleccionada */}
           {espActual && espActual.recomendaciones && especialidadesFiltradasPorDepartamento.length > 0 && (

@@ -4,7 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import multer from 'multer';
 import { db } from './db.js';
+import { enviarNotificacionRespuestaPqrs, enviarConfirmacionRadicadoPqrs } from './services/mailer.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +16,58 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
+
+// Directorio y configuración para almacenamiento de archivos y evidencias PQRS
+const uploadsPqrsDir = path.join(__dirname, 'uploads', 'pqrs');
+if (!fs.existsSync(uploadsPqrsDir)) {
+  fs.mkdirSync(uploadsPqrsDir, { recursive: true });
+}
+
+// Servir archivos estáticos subidos (evidencias de PQRS)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+const storagePqrs = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadsPqrsDir);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    const safeBase = path.basename(file.originalname, ext).replace(/[^a-zA-Z0-9_-]/g, '_').substring(0, 40);
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1E6)}`;
+    cb(null, `${safeBase}-${uniqueSuffix}${ext}`);
+  }
+});
+
+const uploadPqrs = multer({
+  storage: storagePqrs,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10 MB máx por archivo
+  fileFilter: (req, file, cb) => {
+    const allowed = ['.pdf', '.png', '.jpg', '.jpeg', '.webp', '.doc', '.docx'];
+    const ext = path.extname(file.originalname).toLowerCase();
+    if (allowed.includes(ext)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Formato no permitido. Solo se admiten archivos PDF, imágenes (JPG, PNG, WEBP) o documentos Word (DOC, DOCX).'));
+    }
+  }
+});
+
+const uploadPqrsMiddleware = (req, res, next) => {
+  uploadPqrs.array('archivos', 5)(req, res, (err) => {
+    if (err instanceof multer.MulterError) {
+      if (err.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ success: false, error: 'Uno o más archivos superan el tamaño máximo permitido de 10 MB.' });
+      }
+      if (err.code === 'LIMIT_UNEXPECTED_FILE') {
+        return res.status(400).json({ success: false, error: 'Se superó el límite máximo de 5 documentos adjuntos.' });
+      }
+      return res.status(400).json({ success: false, error: `Error en la carga de archivos: ${err.message}` });
+    } else if (err) {
+      return res.status(400).json({ success: false, error: err.message });
+    }
+    next();
+  });
+};
 
 // Log de solicitudes
 app.use((req, res, next) => {
@@ -69,7 +123,11 @@ app.get('/api/sedes', (req, res) => {
 
 app.post('/api/sedes', (req, res) => {
   const currentDb = db.get();
-  const { codigo, nombre, ciudad, direccion, telefono, email, horarioAtencion, consultorios, especialidadesHabilitadas } = req.body;
+  const {
+    codigo, nombre, ciudad, direccion, telefono, whatsapp, email,
+    horarioAtencion, consultorios, especialidadesHabilitadas,
+    descripcionWeb, colorPortal, mostrarEnWeb
+  } = req.body;
 
   if (!nombre || !ciudad || !direccion) {
     return res.status(400).json({ success: false, error: "Nombre, ciudad y dirección son obligatorios" });
@@ -78,13 +136,17 @@ app.post('/api/sedes', (req, res) => {
   const nuevaSede = {
     id: `sede-${uuidv4().substring(0, 8)}`,
     codigo: (codigo || nombre.substring(0, 3)).toUpperCase(),
-    nombre,
-    ciudad,
-    direccion,
-    telefono: telefono || "",
-    email: email || "",
-    horarioAtencion: horarioAtencion || "Lunes a Viernes: 7:00 AM - 5:00 PM",
+    nombre: nombre.trim(),
+    ciudad: ciudad.trim(),
+    direccion: direccion.trim(),
+    telefono: (telefono || "").trim(),
+    whatsapp: (whatsapp || "").trim(),
+    email: (email || "").trim(),
+    horarioAtencion: (horarioAtencion || "Lunes a Viernes: 7:00 AM - 5:00 PM").trim(),
     consultorios: parseInt(consultorios, 10) || 4,
+    descripcionWeb: (descripcionWeb || "").trim(),
+    colorPortal: colorPortal || "#36B0C1",
+    mostrarEnWeb: mostrarEnWeb !== undefined ? Boolean(mostrarEnWeb) : true,
     activa: true,
     especialidadesHabilitadas: Array.isArray(especialidadesHabilitadas) ? especialidadesHabilitadas : []
   };
@@ -121,9 +183,12 @@ app.put('/api/sedes/:id', (req, res) => {
     return res.status(404).json({ success: false, error: "Sede no encontrada" });
   }
 
+  const sedePrevio = currentDb.sedes[index];
   currentDb.sedes[index] = {
-    ...currentDb.sedes[index],
+    ...sedePrevio,
     ...req.body,
+    ...(req.body.consultorios !== undefined ? { consultorios: parseInt(req.body.consultorios, 10) || sedePrevio.consultorios || 4 } : {}),
+    ...(req.body.mostrarEnWeb !== undefined ? { mostrarEnWeb: Boolean(req.body.mostrarEnWeb) } : {}),
     id // id no cambia
   };
 
@@ -156,10 +221,33 @@ app.put('/api/sedes/:id', (req, res) => {
 app.delete('/api/sedes/:id', (req, res) => {
   const currentDb = db.get();
   const { id } = req.params;
-  const sede = currentDb.sedes.find(s => s.id === id);
+  const { permanente } = req.query;
+  const index = currentDb.sedes.findIndex(s => s.id === id);
 
-  if (!sede) {
+  if (index === -1) {
     return res.status(404).json({ success: false, error: "Sede no encontrada" });
+  }
+
+  const sede = currentDb.sedes[index];
+
+  if (permanente === 'true') {
+    const medicosAsociados = (currentDb.medicos || []).filter(m => m.sedeId === id);
+    if (medicosAsociados.length > 0) {
+      return res.status(400).json({
+        success: false,
+        error: `No se puede eliminar definitivamente porque tiene ${medicosAsociados.length} médico(s) asignado(s). Desactívela o reasigne los médicos primero.`
+      });
+    }
+
+    currentDb.sedes.splice(index, 1);
+    currentDb.historialAuditoria.push({
+      id: `log-${Date.now()}`,
+      fecha: new Date().toISOString(),
+      accion: "ELIMINAR_SEDE",
+      descripcion: `Sede eliminada permanentemente: ${sede.nombre} (${sede.codigo})`
+    });
+    db.save(currentDb);
+    return res.json({ success: true, message: "Sede eliminada permanentemente", data: sede });
   }
 
   // Desactivación lógica
@@ -1725,7 +1813,7 @@ app.get('/api/pqrs/consultar/:termino', (req, res) => {
   res.json({ success: true, data: resultados });
 });
 
-app.post('/api/pqrs', (req, res) => {
+app.post('/api/pqrs', uploadPqrsMiddleware, async (req, res) => {
   const currentDb = db.get();
   const {
     tipo, nombreCompleto, tipoDocumento, numeroDocumento,
@@ -1738,6 +1826,17 @@ app.post('/api/pqrs', (req, res) => {
       error: "Nombre completo, número de documento, asunto y descripción son obligatorios"
     });
   }
+
+  // Mapear archivos de prueba adjuntos recibidos por Multer
+  const adjuntos = (req.files || []).map(file => ({
+    id: `adj-${uuidv4().substring(0, 8)}`,
+    nombreOriginal: file.originalname,
+    nombreArchivo: file.filename,
+    url: `/uploads/pqrs/${file.filename}`,
+    tamanoBytes: file.size,
+    mimetype: file.mimetype,
+    fechaSubida: new Date().toISOString()
+  }));
 
   const fechaActual = new Date();
   const y = fechaActual.getFullYear();
@@ -1759,6 +1858,7 @@ app.post('/api/pqrs', (req, res) => {
     servicio: servicio || "Atención General",
     asunto: asunto.trim(),
     descripcion: descripcion.trim(),
+    adjuntos: adjuntos,
     estado: "Radicado",
     respuestaOficial: "",
     fechaRadicado: fechaActual.toISOString(),
@@ -1775,10 +1875,24 @@ app.post('/api/pqrs', (req, res) => {
     id: `log-${Date.now()}`,
     fecha: fechaActual.toISOString(),
     accion: "RADICAR_PQRS",
-    descripcion: `Nuevo PQRS radicado (${nuevoPqrs.tipo}): ${nuevoPqrs.radicado} por ${nuevoPqrs.nombreCompleto}`
+    descripcion: `Nuevo PQRS radicado (${nuevoPqrs.tipo}): ${nuevoPqrs.radicado} por ${nuevoPqrs.nombreCompleto} con ${adjuntos.length} documentos adjuntos`
   });
 
   db.save(currentDb);
+
+  // Envío asíncrono de confirmación por correo al usuario radicante
+  if (nuevoPqrs.email && nuevoPqrs.email.includes('@')) {
+    enviarConfirmacionRadicadoPqrs({
+      email: nuevoPqrs.email,
+      nombreCompleto: nuevoPqrs.nombreCompleto,
+      radicado: nuevoPqrs.radicado,
+      tipo: nuevoPqrs.tipo,
+      asunto: nuevoPqrs.asunto,
+      fechaRadicado: nuevoPqrs.fechaRadicado
+    }).catch(err => {
+      console.error('Error al enviar correo de confirmación de radicado:', err.message);
+    });
+  }
 
   res.status(201).json({
     success: true,
@@ -1787,7 +1901,7 @@ app.post('/api/pqrs', (req, res) => {
   });
 });
 
-app.put('/api/pqrs/:id/responder', (req, res) => {
+app.put('/api/pqrs/:id/responder', async (req, res) => {
   const currentDb = db.get();
   const index = (currentDb.pqrs || []).findIndex(item => item.id === req.params.id);
 
@@ -1796,25 +1910,54 @@ app.put('/api/pqrs/:id/responder', (req, res) => {
   }
 
   const pqrsActual = currentDb.pqrs[index];
-  const { estado, respuestaOficial, atendidoPor } = req.body;
+  const { estado, respuestaOficial, atendidoPor, notificarEmail } = req.body;
+  const fechaRespuesta = new Date().toISOString();
 
   currentDb.pqrs[index] = {
     ...pqrsActual,
     estado: estado || pqrsActual.estado,
     respuestaOficial: respuestaOficial !== undefined ? respuestaOficial.trim() : pqrsActual.respuestaOficial,
-    fechaRespuesta: new Date().toISOString(),
+    fechaRespuesta,
     atendidoPor: atendidoPor || "Dirección de Calidad y Atención al Usuario"
   };
 
   currentDb.historialAuditoria.push({
     id: `log-${Date.now()}`,
-    fecha: new Date().toISOString(),
+    fecha: fechaRespuesta,
     accion: "GESTION_PQRS",
     descripcion: `PQRS ${pqrsActual.radicado} actualizado a estado ${currentDb.pqrs[index].estado}`
   });
 
   db.save(currentDb);
-  res.json({ success: true, data: currentDb.pqrs[index] });
+
+  // Enviar notificación por correo electrónico si está habilitado y el usuario suministró email
+  let notificacionEmail = null;
+  const debeNotificar = notificarEmail !== false && (estado === 'Respondido' || estado === 'Cerrado' || (respuestaOficial && respuestaOficial.trim().length > 0));
+
+  if (debeNotificar && pqrsActual.email && pqrsActual.email.includes('@')) {
+    try {
+      notificacionEmail = await enviarNotificacionRespuestaPqrs({
+        email: pqrsActual.email,
+        nombreCompleto: pqrsActual.nombreCompleto,
+        radicado: pqrsActual.radicado,
+        tipo: pqrsActual.tipo,
+        asunto: pqrsActual.asunto,
+        respuestaOficial: currentDb.pqrs[index].respuestaOficial,
+        atendidoPor: currentDb.pqrs[index].atendidoPor,
+        fechaRadicado: pqrsActual.fechaRadicado,
+        fechaRespuesta
+      });
+    } catch (errEmail) {
+      console.error('Error al enviar correo de respuesta de PQRS:', errEmail.message);
+      notificacionEmail = { sent: false, error: errEmail.message };
+    }
+  }
+
+  res.json({
+    success: true,
+    data: currentDb.pqrs[index],
+    notificacionEmail
+  });
 });
 
 app.delete('/api/pqrs/:id', (req, res) => {

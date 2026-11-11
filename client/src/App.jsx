@@ -7,6 +7,7 @@ import AdminDashboard from './components/AdminDashboard';
 import AppointmentLookup from './components/AppointmentLookup';
 import LoginModal from './components/LoginModal';
 import { ShieldCheck, Phone, MapPin, Mail, Clock, ExternalLink } from 'lucide-react';
+import { api } from './services/api';
 
 export default function App() {
   const [usuarioActual, setUsuarioActual] = useState(() => {
@@ -18,7 +19,15 @@ export default function App() {
     }
   });
 
-  const [activeTab, setActiveTab] = useState(() => {
+  const [activeTab, setActiveTabState] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    const vista = params.get('vista');
+    if (vista === 'control-citas' || vista === 'web') {
+      return 'web';
+    }
+    if (vista === 'consulta') {
+      return 'consulta';
+    }
     try {
       const saved = localStorage.getItem('ips_arcal_user');
       if (saved) {
@@ -30,7 +39,42 @@ export default function App() {
     return 'portal';
   });
 
+  function setActiveTab(nuevoTab) {
+    setActiveTabState(nuevoTab);
+    try {
+      const url = new URL(window.location.href);
+      if (nuevoTab === 'web') {
+        url.searchParams.set('vista', 'control-citas');
+      } else if (nuevoTab === 'consulta') {
+        url.searchParams.set('vista', 'consulta');
+      } else {
+        url.searchParams.delete('vista');
+      }
+      window.history.replaceState({}, '', url.toString());
+    } catch { }
+  }
+
+  function abrirControlCitasNuevaPestana() {
+    const url = new URL(window.location.origin + window.location.pathname);
+    url.searchParams.set('vista', 'control-citas');
+    window.open(url.toString(), '_blank', 'noopener,noreferrer');
+  }
+
   const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [sedesFooter, setSedesFooter] = useState([]);
+
+  async function cargarSedesFooter() {
+    try {
+      const res = await api.getSedes();
+      setSedesFooter(res.data || []);
+    } catch {
+      // Silencioso en caso de fallo de red temporal
+    }
+  }
+
+  useEffect(() => {
+    cargarSedesFooter();
+  }, [activeTab]);
 
   function handleLoginSuccess(user) {
     setUsuarioActual(user);
@@ -63,7 +107,7 @@ export default function App() {
       <main style={{ flex: 1 }} className={activeTab === 'portal' ? 'portal-wrapper' : 'main-wrapper'}>
         {activeTab === 'portal' && (
           <PortalWebIPS
-            onIrControlCitas={() => setActiveTab('web')}
+            onIrControlCitas={abrirControlCitasNuevaPestana}
             onIrConsulta={() => setActiveTab('consulta')}
           />
         )}
@@ -72,7 +116,7 @@ export default function App() {
         )}
         {activeTab === 'institucional' && (
           <PortalWebIPS
-            onIrControlCitas={() => setActiveTab('web')}
+            onIrControlCitas={abrirControlCitasNuevaPestana}
             onIrConsulta={() => setActiveTab('consulta')}
           />
         )}
@@ -86,7 +130,11 @@ export default function App() {
           <PresencialBooking usuarioActual={usuarioActual} onOpenLogin={() => setLoginModalOpen(true)} />
         )}
         {activeTab === 'admin' && (
-          <AdminDashboard usuarioActual={usuarioActual} onOpenLogin={() => setLoginModalOpen(true)} />
+          <AdminDashboard
+            usuarioActual={usuarioActual}
+            onOpenLogin={() => setLoginModalOpen(true)}
+            onSedesChange={cargarSedesFooter}
+          />
         )}
       </main>
 
@@ -99,6 +147,72 @@ export default function App() {
 
       {/* Pie de Página Institucional */}
       <footer className="footer-main">
+        {/* Banner Oficial de Vigilancia MinSalud & Supersalud */}
+        <div style={{
+          background: 'rgba(15, 23, 42, 0.5)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          padding: '0.75rem 1.25rem',
+          marginBottom: '1.25rem'
+        }}>
+          <div style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '0.8rem'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              <div style={{
+                background: 'rgba(153, 200, 93, 0.15)',
+                border: '1px solid rgba(153, 200, 93, 0.35)',
+                color: '#99c85d',
+                padding: '0.35rem',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <ShieldCheck size={20} />
+              </div>
+              <div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#FFFFFF', letterSpacing: '0.02em' }}>
+                  INSTITUCIÓN PRESTADORA DE SERVICIOS DE SALUD VIGILADA POR MINSALUD
+                </div>
+                <div style={{ fontSize: '0.73rem', color: '#CBD5E1' }}>
+                  Vigilada por el Ministerio de Salud y Protección Social de Colombia y la Superintendencia Nacional de Salud (Supersalud)
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <span style={{
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#99c85d',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                padding: '0.22rem 0.65rem',
+                borderRadius: '6px'
+              }}>
+                Habilitación MinSalud: 0500109842-01
+              </span>
+              <span style={{
+                background: 'rgba(54, 176, 193, 0.15)',
+                border: '1px solid rgba(54, 176, 193, 0.3)',
+                color: 'var(--brand-cyan)',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                padding: '0.22rem 0.65rem',
+                borderRadius: '6px'
+              }}>
+                Vigilado Supersalud
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div className="footer-container">
           <div>
             <div style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
@@ -115,7 +229,7 @@ export default function App() {
               Institución Prestadora de Servicios de Salud y Apoyo Diagnóstico. Comprometidos con la integralidad en la prestación de servicios de salud con calidad, capacidad científica, técnica y administrativa con trato humanizado. Habilitada por el Ministerio de Salud y Protección Social.
             </p>
             <div style={{ marginTop: '0.7rem', fontSize: '0.75rem', color: '#99c85d', fontWeight: 700 }}>
-              Habilitación MinSalud: 0500109842-01 • NIT: 901.365.419-8
+              Habilitación MinSalud: 0500109842-01 • NIT: 901.365.419-8 • Vigilado MinSalud y Supersalud
             </div>
           </div>
 
@@ -140,25 +254,22 @@ export default function App() {
               Sedes de Atención & Contacto
             </h4>
             <div style={{ fontSize: '0.76rem', color: '#CBD5E1', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+              {sedesFooter
+                .filter(s => s.activa !== false && s.mostrarEnWeb !== false)
+                .map(sede => (
+                  <div key={sede.id}>
+                    <b style={{ color: '#FFFFFF' }}>{sede.nombre}:</b><br />
+                    {sede.direccion}
+                    {sede.telefono ? ` • Tel: ${sede.telefono}` : ''}
+                    {sede.whatsapp ? ` • WhatsApp: ${sede.whatsapp}` : ''}
+                  </div>
+                ))}
               <div>
-                <b style={{ color: '#FFFFFF' }}>Sede Poblado Medellín:</b><br />
-                Calle 19a Nro. 44-25, Torre Médica Salud y Servicios piso 22 Cons. 2209<br />
-                PBX: (604) 604 8956 • Cel: 323 230 7453
-              </div>
-              <div>
-                <b style={{ color: '#FFFFFF' }}>Sede Ciudad Bolívar:</b><br />
-                Calle 48 #48-01 Local 208, Centro Empresarial Privilegio • Cel: 311 601 0895
-              </div>
-              <div>
-                <b style={{ color: '#FFFFFF' }}>Sede Apartadó (Urabá):</b><br />
-                Cll 99 # 105-44 piso 1 Barrio Ortiz • Cel: 314 826 5325
-              </div>
-              <div>
-                <b style={{ color: '#FFFFFF' }}>WhatsApp Citas:</b> <span style={{ color: '#99c85d', fontWeight: 700 }}>+57 310 854 9210</span><br />
+                <b style={{ color: '#FFFFFF' }}>WhatsApp Citas Nacional:</b> <span style={{ color: '#99c85d', fontWeight: 700 }}>+57 310 854 9210</span><br />
                 <b>Correo:</b> contacto@arcal.com.co
               </div>
               <div style={{ fontSize: '0.72rem', color: '#94A3B8' }}>
-                Horario: Lunes a Viernes 7:00 AM - 5:00 PM | Sábados 8:00 AM - 1:00 PM
+                Horario General: Lunes a Viernes 7:00 AM - 5:00 PM | Sábados 8:00 AM - 1:00 PM
               </div>
             </div>
           </div>
@@ -166,10 +277,10 @@ export default function App() {
 
         <div className="footer-bottom">
           <div style={{ fontSize: '0.73rem' }}>
-            © {new Date().getFullYear()} ARCAL Protección Radiológica S.A.S. (IPS) — Todos los derechos reservados.
+            © {new Date().getFullYear()} ARCAL Protección Radiológica S.A.S. (IPS) — NIT: 901.365.419-8 — Todos los derechos reservados.
           </div>
-          <div style={{ color: '#000000ff', fontSize: '0.73rem' }}>
-            Portal Oficial de Agendamiento Médico & Radiológico v3.0
+          <div style={{ fontSize: '0.73rem', color: '#94A3B8' }}>
+            Página Web Oficial Vigilada por el <b>Ministerio de Salud y Protección Social</b> y la <b>Supersalud</b>
           </div>
         </div>
       </footer>

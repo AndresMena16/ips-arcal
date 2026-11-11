@@ -4,13 +4,14 @@ import {
   Edit2, Trash2, Check, X, FileDown, Activity, RefreshCw, AlertCircle,
   UserCheck, ShieldAlert, Lock, KeyRound, CheckCircle2,
   FileSpreadsheet, Download, Copy, Crown, Clock, Coffee, Sliders, Filter,
-  Search, User, BookOpen, Video, Image as ImageIcon, MessageSquare, Send, Eye, FileText
+  Search, User, BookOpen, Video, Image as ImageIcon, MessageSquare, Send, Eye, FileText,
+  Paperclip, ExternalLink, Mail
 } from 'lucide-react';
 import { api } from '../services/api';
 import { generarComprobantePDF } from '../utils/pdfGenerator';
 import { exportarCitasAExcel, calcularHoraFin } from '../utils/excelExporter';
 
-export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
+export default function AdminDashboard({ usuarioActual, onOpenLogin, onSedesChange }) {
   const isSuperAdmin = usuarioActual?.rol === 'superadmin';
   const [subTab, setSubTab] = useState('citas'); // 'sedes' | 'especialidades' | 'medicos' | 'agentes' | 'citas' | 'metricas'
   const [loading, setLoading] = useState(false);
@@ -56,10 +57,12 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
 
   const [modalResponderPqrsAbierto, setModalResponderPqrsAbierto] = useState(false);
   const [pqrsEnGestion, setPqrsEnGestion] = useState(null);
+  const [guardandoRespuestaPqrs, setGuardandoRespuestaPqrs] = useState(false);
   const [formResponderPqrs, setFormResponderPqrs] = useState({
     estado: 'Respondido',
     respuestaOficial: '',
-    atendidoPor: usuarioActual?.nombre || 'Dirección de Calidad'
+    atendidoPor: usuarioActual?.nombre || 'Dirección de Calidad',
+    notificarEmail: true
   });
 
   const [filtroEstadoPqrs, setFiltroEstadoPqrs] = useState('todos');
@@ -71,12 +74,17 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   const [formSede, setFormSede] = useState({
     nombre: '',
     codigo: '',
-    ciudad: 'Bogotá D.C.',
+    ciudad: 'Medellín, Antioquia',
     direccion: '',
     telefono: '',
+    whatsapp: '',
     email: '',
     horarioAtencion: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
-    consultorios: 4
+    consultorios: 4,
+    descripcionWeb: '',
+    colorPortal: '#36B0C1',
+    mostrarEnWeb: true,
+    especialidadesHabilitadas: []
   });
 
   // Modales y Edición de Médicos
@@ -322,12 +330,20 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   // ==========================================
   // GESTIÓN PORTAL WEB: BANDEJA DE PQRS
   // ==========================================
+  function formatearTamanoBytes(bytes) {
+    if (!bytes && bytes !== 0) return '';
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+  }
+
   function abrirModalResponderPqrs(pqrs) {
     setPqrsEnGestion(pqrs);
     setFormResponderPqrs({
-      estado: pqrs.estado === 'Radicado' ? 'En trámite' : pqrs.estado,
+      estado: pqrs.estado === 'Radicado' ? 'Respondido' : pqrs.estado,
       respuestaOficial: pqrs.respuestaOficial || '',
-      atendidoPor: usuarioActual?.nombre || 'Dirección de Calidad y Auditoría'
+      atendidoPor: usuarioActual?.nombre || 'Dirección de Calidad y Auditoría',
+      notificarEmail: Boolean(pqrs.email && pqrs.email.includes('@'))
     });
     setModalResponderPqrsAbierto(true);
   }
@@ -336,11 +352,22 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
     e.preventDefault();
     if (!pqrsEnGestion) return;
     try {
-      await api.responderPqrs(pqrsEnGestion.id, formResponderPqrs);
+      setGuardandoRespuestaPqrs(true);
+      const res = await api.responderPqrs(pqrsEnGestion.id, formResponderPqrs);
       setModalResponderPqrsAbierto(false);
       cargarTodo();
+
+      if (res.notificacionEmail?.sent) {
+        alert(`Respuesta oficial registrada correctamente. Se envió notificación por correo electrónico a ${pqrsEnGestion.email} con las instrucciones de consulta.`);
+      } else if (res.notificacionEmail && res.notificacionEmail.simulado) {
+        alert(`Respuesta oficial registrada. Notificación por correo simulada correctamente para ${pqrsEnGestion.email}.`);
+      } else {
+        alert(`Respuesta oficial registrada exitosamente para el radicado ${pqrsEnGestion.radicado}.`);
+      }
     } catch (err) {
       alert('Error al guardar respuesta de PQRS: ' + err.message);
+    } finally {
+      setGuardandoRespuestaPqrs(false);
     }
   }
 
@@ -362,12 +389,16 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
     setFormSede({
       nombre: '',
       codigo: '',
-      ciudad: 'Bogotá D.C.',
+      ciudad: 'Medellín, Antioquia',
       direccion: '',
       telefono: '',
+      whatsapp: '',
       email: '',
       horarioAtencion: 'Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 1:00 PM',
-      consultorios: 6,
+      consultorios: 4,
+      descripcionWeb: '',
+      colorPortal: '#36B0C1',
+      mostrarEnWeb: true,
       especialidadesHabilitadas: []
     });
     setModalSedeAbierto(true);
@@ -375,15 +406,20 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
 
   function abrirModalEditarSede(sede) {
     setSedeEnEdicion(sede);
+    const emailLimpio = sede.email && !sede.email.includes('[') ? sede.email : '';
     setFormSede({
-      nombre: sede.nombre,
-      codigo: sede.codigo,
-      ciudad: sede.ciudad,
-      direccion: sede.direccion,
-      telefono: sede.telefono,
-      email: sede.email,
-      horarioAtencion: sede.horarioAtencion,
-      consultorios: sede.consultorios,
+      nombre: sede.nombre || '',
+      codigo: sede.codigo || '',
+      ciudad: sede.ciudad || '',
+      direccion: sede.direccion || '',
+      telefono: sede.telefono || '',
+      whatsapp: sede.whatsapp || '',
+      email: emailLimpio,
+      horarioAtencion: sede.horarioAtencion || '',
+      consultorios: sede.consultorios || 4,
+      descripcionWeb: sede.descripcionWeb || '',
+      colorPortal: sede.colorPortal || '#36B0C1',
+      mostrarEnWeb: sede.mostrarEnWeb !== false,
       especialidadesHabilitadas: sede.especialidadesHabilitadas || []
     });
     setModalSedeAbierto(true);
@@ -398,7 +434,8 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
         await api.createSede(formSede);
       }
       setModalSedeAbierto(false);
-      cargarTodo();
+      await cargarTodo();
+      if (onSedesChange) onSedesChange();
     } catch (err) {
       alert('Error al guardar la sede: ' + err.message);
     }
@@ -407,9 +444,21 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
   async function toggleEstadoSede(sede) {
     try {
       await api.updateSede(sede.id, { activa: !sede.activa });
-      cargarTodo();
+      await cargarTodo();
+      if (onSedesChange) onSedesChange();
     } catch (err) {
       alert('Error al cambiar estado de la sede: ' + err.message);
+    }
+  }
+
+  async function eliminarSedePermanente(sede) {
+    if (!window.confirm(`¿Está seguro de eliminar definitivamente la sede "${sede.nombre}"? Esta acción no se puede deshacer.`)) return;
+    try {
+      await api.deleteSede(sede.id, true);
+      await cargarTodo();
+      if (onSedesChange) onSedesChange();
+    } catch (err) {
+      alert('No se pudo eliminar la sede: ' + err.message);
     }
   }
 
@@ -935,7 +984,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
             <button className="btn btn-secondary" onClick={cargarTodo} title="Actualizar datos">
               <RefreshCw size={16} /> Actualizar
             </button>
-            {subTab === 'sedes' && (
+            {subTab === 'sedes' && isSuperAdmin && (
               <button className="btn btn-accent" onClick={abrirModalNuevaSede}>
                 <Plus size={18} /> Nueva Sede
               </button>
@@ -997,13 +1046,16 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
             {isSuperAdmin ? <Crown size={16} color="#D97706" /> : <UserCheck size={16} />}
             {isSuperAdmin ? `Gestión de Admins & Agentes (${usuarios.length})` : `Agentes de Atención (${usuarios.filter(u => u.rol === 'agente').length})`}
           </button>
-          <button
-            className={`btn ${subTab === 'sedes' ? 'btn-primary' : 'btn-secondary'}`}
-            onClick={() => setSubTab('sedes')}
-            style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}
-          >
-            <Building2 size={16} /> Sedes ({sedes.length})
-          </button>
+          {isSuperAdmin && (
+            <button
+              className={`btn ${subTab === 'sedes' ? 'btn-primary' : 'btn-secondary'}`}
+              onClick={() => setSubTab('sedes')}
+              style={{ fontSize: '0.85rem', padding: '0.5rem 1rem' }}
+            >
+              <Crown size={15} color="#D97706" />
+              <Building2 size={16} /> Sedes Web ({sedes.length})
+            </button>
+          )}
           <button
             className={`btn ${subTab === 'especialidades' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setSubTab('especialidades')}
@@ -1125,17 +1177,18 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
       )}
 
       {/* ======================================================== */}
-      {/* SUBPESTAÑA: GESTIÓN DE SEDES */}
+      {/* SUBPESTAÑA: GESTIÓN DE SEDES (EXCLUSIVO SUPER ADMIN) */}
       {/* ======================================================== */}
-      {subTab === 'sedes' && (
+      {subTab === 'sedes' && isSuperAdmin && (
         <div className="card-panel">
           <div className="panel-header">
             <div>
               <h3 className="panel-title">
+                <Crown size={20} color="#D97706" />
                 <Building2 size={20} color="#028090" />
-                Sedes Habilitadas de IPS ARCAL
+                Sedes Habilitadas de IPS ARCAL (Portal Web & Citas)
               </h3>
-              <p className="panel-subtitle">Administre la información física, contactos, consultorios y estado de cada sede.</p>
+              <p className="panel-subtitle">Los cambios realizados aquí se reflejan en tiempo real tanto en la Página Web Institucional y Footer como en el Agendamiento de Citas.</p>
             </div>
             <button className="btn btn-accent" onClick={abrirModalNuevaSede}>
               <Plus size={18} /> Agregar Sede
@@ -1143,81 +1196,119 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
           </div>
 
           <div className="selection-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))' }}>
-            {sedes.map(sede => (
-              <div key={sede.id} className="select-card" style={{ cursor: 'default' }}>
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                    <span className="brand-tag">{sede.codigo}</span>
-                    <span className={`badge ${sede.activa ? 'badge-confirmada' : 'badge-cancelada'}`}>
-                      {sede.activa ? 'Activa' : 'Inactiva'}
-                    </span>
-                  </div>
+            {sedes.map(sede => {
+              const emailLimpio = sede.email && sede.email.includes('@') && !sede.email.includes('[') ? sede.email : '';
+              const visibleEnWeb = sede.activa !== false && sede.mostrarEnWeb !== false;
 
-                  <h4 style={{ fontSize: '1.15rem', margin: '0.6rem 0 0.3rem' }}>{sede.nombre}</h4>
-                  <div style={{ fontSize: '0.8rem', color: '#028090', fontWeight: 700, marginBottom: '0.6rem' }}>
-                    {sede.ciudad}
-                  </div>
-
-                  <p style={{ fontSize: '0.85rem', color: '#475569' }}>{sede.direccion}</p>
-
-                  <div className="card-meta-list" style={{ marginTop: '0.8rem' }}>
-                    <div className="card-meta-item"><b>Teléfono:</b> {sede.telefono}</div>
-                    <div className="card-meta-item"><b>Horario:</b> {sede.horarioAtencion}</div>
-                    <div className="card-meta-item"><b>Consultorios:</b> {sede.consultorios} habilitados</div>
-                  </div>
-
-                  <div style={{ marginTop: '0.8rem', borderTop: '1px dashed #E2E8F0', paddingTop: '0.6rem' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#475569', marginBottom: '0.4rem' }}>
-                      Especialidades habilitadas ({sede.especialidadesHabilitadas?.length || 0}):
-                    </div>
-                    {(!sede.especialidadesHabilitadas || sede.especialidadesHabilitadas.length === 0) ? (
-                      <span style={{ fontSize: '0.75rem', color: '#94A3B8', fontStyle: 'italic' }}>
-                        Sin especialidades habilitadas
-                      </span>
-                    ) : (
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
-                        {(sede.especialidadesDetalle && sede.especialidadesDetalle.length > 0
-                          ? sede.especialidadesDetalle
-                          : especialidades.filter(e => sede.especialidadesHabilitadas?.includes(e.id))
-                        ).map(esp => (
-                          <span
-                            key={esp.id}
-                            style={{
-                              fontSize: '0.7rem',
-                              background: '#F0FDF4',
-                              color: '#166534',
-                              border: '1px solid #BBF7D0',
-                              padding: '0.15rem 0.45rem',
-                              borderRadius: '6px',
-                              fontWeight: 600
-                            }}
-                          >
-                            {esp.nombre}
-                          </span>
-                        ))}
+              return (
+                <div
+                  key={sede.id}
+                  className="select-card"
+                  style={{ cursor: 'default', borderTop: `4px solid ${sede.colorPortal || 'var(--brand-cyan)'}` }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.4rem', flexWrap: 'wrap' }}>
+                      <span className="brand-tag">{sede.codigo}</span>
+                      <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
+                        <span
+                          style={{
+                            fontSize: '0.68rem',
+                            fontWeight: 700,
+                            padding: '0.18rem 0.5rem',
+                            borderRadius: '9999px',
+                            background: visibleEnWeb ? '#E0F2FE' : '#F1F5F9',
+                            color: visibleEnWeb ? '#0369A1' : '#64748B',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.25rem'
+                          }}
+                        >
+                          <Eye size={11} />
+                          {visibleEnWeb ? 'Visible en Web' : 'Oculta en Web'}
+                        </span>
+                        <span className={`badge ${sede.activa ? 'badge-confirmada' : 'badge-cancelada'}`}>
+                          {sede.activa ? 'Activa' : 'Inactiva'}
+                        </span>
                       </div>
-                    )}
+                    </div>
+
+                    <h4 style={{ fontSize: '1.15rem', margin: '0.6rem 0 0.3rem' }}>{sede.nombre}</h4>
+                    <div style={{ fontSize: '0.8rem', color: '#028090', fontWeight: 700, marginBottom: '0.6rem' }}>
+                      {sede.ciudad}
+                    </div>
+
+                    <p style={{ fontSize: '0.85rem', color: '#475569' }}>{sede.direccion}</p>
+
+                    <div className="card-meta-list" style={{ marginTop: '0.8rem' }}>
+                      {sede.telefono && <div className="card-meta-item"><b>Teléfono:</b> {sede.telefono}</div>}
+                      {sede.whatsapp && <div className="card-meta-item"><b>WhatsApp / PBX:</b> {sede.whatsapp}</div>}
+                      {emailLimpio && <div className="card-meta-item"><b>Correo:</b> {emailLimpio}</div>}
+                      {sede.descripcionWeb && <div className="card-meta-item"><b>Servicios Web:</b> {sede.descripcionWeb}</div>}
+                      <div className="card-meta-item"><b>Horario:</b> {sede.horarioAtencion}</div>
+                      <div className="card-meta-item"><b>Consultorios:</b> {sede.consultorios} habilitados</div>
+                    </div>
+
+                    <div style={{ marginTop: '0.8rem', borderTop: '1px dashed #E2E8F0', paddingTop: '0.6rem' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#475569', marginBottom: '0.4rem' }}>
+                        Especialidades habilitadas ({sede.especialidadesHabilitadas?.length || 0}):
+                      </div>
+                      {(!sede.especialidadesHabilitadas || sede.especialidadesHabilitadas.length === 0) ? (
+                        <span style={{ fontSize: '0.75rem', color: '#94A3B8', fontStyle: 'italic' }}>
+                          Sin especialidades habilitadas
+                        </span>
+                      ) : (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
+                          {(sede.especialidadesDetalle && sede.especialidadesDetalle.length > 0
+                            ? sede.especialidadesDetalle
+                            : especialidades.filter(e => sede.especialidadesHabilitadas?.includes(e.id))
+                          ).map(esp => (
+                            <span
+                              key={esp.id}
+                              style={{
+                                fontSize: '0.7rem',
+                                background: '#F0FDF4',
+                                color: '#166534',
+                                border: '1px solid #BBF7D0',
+                                padding: '0.15rem 0.45rem',
+                                borderRadius: '6px',
+                                fontWeight: 600
+                              }}
+                            >
+                              {esp.nombre}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.2rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.8rem' }}>
+                    <button
+                      className="btn btn-secondary"
+                      style={{ flex: 1, padding: '0.45rem', fontSize: '0.8rem' }}
+                      onClick={() => abrirModalEditarSede(sede)}
+                    >
+                      <Edit2 size={14} /> Editar Sede
+                    </button>
+                    <button
+                      className={`btn ${sede.activa ? 'btn-danger' : 'btn-secondary'}`}
+                      style={{ padding: '0.45rem 0.8rem', fontSize: '0.8rem' }}
+                      onClick={() => toggleEstadoSede(sede)}
+                    >
+                      {sede.activa ? 'Desactivar' : 'Activar'}
+                    </button>
+                    <button
+                      className="btn btn-secondary"
+                      style={{ padding: '0.45rem 0.65rem', fontSize: '0.8rem', color: '#DC2626', borderColor: '#FECACA' }}
+                      onClick={() => eliminarSedePermanente(sede)}
+                      title="Eliminar sede definitivamente"
+                    >
+                      <Trash2 size={14} />
+                    </button>
                   </div>
                 </div>
-
-                <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.2rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.8rem' }}>
-                  <button
-                    className="btn btn-secondary"
-                    style={{ flex: 1, padding: '0.45rem', fontSize: '0.8rem' }}
-                    onClick={() => abrirModalEditarSede(sede)}
-                  >
-                    <Edit2 size={14} /> Editar Sede
-                  </button>
-                  <button
-                    className={`btn ${sede.activa ? 'btn-danger' : 'btn-secondary'}`}
-                    style={{ padding: '0.45rem 0.8rem', fontSize: '0.8rem' }}
-                    onClick={() => toggleEstadoSede(sede)}
-                  >
-                    {sede.activa ? 'Desactivar' : 'Activar'}
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
@@ -1954,10 +2045,10 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                         setBusquedaMedicoTexto('');
                         setMostrarDropdownMedicos(false);
                       }}
-                      style={{ fontSize: '0.7rem', color: '#DC2626', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontWeight: 700 }}
+                      style={{ fontSize: '0.7rem', color: '#DC2626', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}
                       title="Quitar filtro de médico"
                     >
-                      ✕ Quitar
+                      <X size={12} /> Quitar
                     </button>
                   )}
                 </div>
@@ -2863,10 +2954,48 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
 
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.6rem', fontSize: '0.75rem', color: '#64748B', borderTop: '1px solid #F1F5F9', paddingTop: '0.6rem' }}>
                         <div><b>Solicitante:</b> {pqrs.nombreCompleto} ({pqrs.tipoDocumento} {pqrs.numeroDocumento})</div>
-                        <div><b>Correo:</b> {pqrs.email}</div>
+                        <div><b>Correo:</b> {pqrs.email || 'No registrado'}</div>
                         <div><b>Teléfono:</b> {pqrs.telefono}</div>
                         <div><b>Servicio:</b> {pqrs.servicio}</div>
                       </div>
+
+                      {/* Documentos de prueba adjuntos */}
+                      {pqrs.adjuntos && pqrs.adjuntos.length > 0 && (
+                        <div style={{ marginTop: '0.8rem', background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '0.65rem 0.8rem' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem', fontWeight: 700, color: '#334155', marginBottom: '0.35rem' }}>
+                            <Paperclip size={13} color="var(--brand-cyan-dark)" />
+                            <span>Documentos y Pruebas Adjuntas ({pqrs.adjuntos.length}):</span>
+                          </div>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                            {pqrs.adjuntos.map((adj, i) => (
+                              <a
+                                key={adj.id || i}
+                                href={adj.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '0.35rem',
+                                  background: '#FFFFFF',
+                                  border: '1px solid #CBD5E1',
+                                  borderRadius: '6px',
+                                  padding: '0.25rem 0.55rem',
+                                  fontSize: '0.72rem',
+                                  color: '#0F172A',
+                                  textDecoration: 'none',
+                                  fontWeight: 600
+                                }}
+                              >
+                                <FileText size={12} color="var(--brand-cyan-dark)" />
+                                <span>{adj.nombreOriginal}</span>
+                                {adj.tamanoBytes && <span style={{ color: '#94A3B8', fontSize: '0.66rem' }}>({formatearTamanoBytes(adj.tamanoBytes)})</span>}
+                                <ExternalLink size={11} color="#64748B" />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
                       {pqrs.respuestaOficial && (
                         <div style={{ marginTop: '0.9rem', background: '#F0FDF4', border: '1px solid #86EFAC', borderRadius: '8px', padding: '0.8rem', fontSize: '0.82rem' }}>
@@ -2964,6 +3093,28 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 </div>
 
                 <div className="form-group">
+                  <label className="form-label">WhatsApp / PBX Adicional (Web)</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Ej: (604) 604 8956 / +57 310..."
+                    value={formSede.whatsapp || ''}
+                    onChange={e => setFormSede({ ...formSede, whatsapp: e.target.value })}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Correo Electrónico de Sede</label>
+                  <input
+                    type="email"
+                    className="form-input"
+                    placeholder="sede@arcal.com.co"
+                    value={formSede.email || ''}
+                    onChange={e => setFormSede({ ...formSede, email: e.target.value })}
+                  />
+                </div>
+
+                <div className="form-group">
                   <label className="form-label">Número de Consultorios</label>
                   <input
                     type="number"
@@ -2975,6 +3126,36 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                   />
                 </div>
 
+                <div className="form-group">
+                  <label className="form-label">Color de Tarjeta en Página Web</label>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    {['#36B0C1', '#EF5E95', '#0284C7', '#99c85d', '#D97706'].map(color => (
+                      <button
+                        key={color}
+                        type="button"
+                        onClick={() => setFormSede({ ...formSede, colorPortal: color })}
+                        style={{
+                          width: '26px',
+                          height: '26px',
+                          borderRadius: '6px',
+                          background: color,
+                          border: (formSede.colorPortal || '#36B0C1') === color ? '2.5px solid #0F172A' : '1px solid #CBD5E1',
+                          cursor: 'pointer',
+                          padding: 0
+                        }}
+                        title={`Seleccionar color ${color}`}
+                      />
+                    ))}
+                    <input
+                      type="color"
+                      value={formSede.colorPortal || '#36B0C1'}
+                      onChange={e => setFormSede({ ...formSede, colorPortal: e.target.value })}
+                      style={{ width: '34px', height: '30px', border: '1px solid #CBD5E1', borderRadius: '6px', cursor: 'pointer', padding: '2px' }}
+                      title="Color personalizado"
+                    />
+                  </div>
+                </div>
+
                 <div className="form-group full-width">
                   <label className="form-label">Horario de Atención</label>
                   <input
@@ -2983,6 +3164,28 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                     value={formSede.horarioAtencion}
                     onChange={e => setFormSede({ ...formSede, horarioAtencion: e.target.value })}
                   />
+                </div>
+
+                <div className="form-group full-width">
+                  <label className="form-label">Resumen de Servicios (Visible en Página Web)</label>
+                  <input
+                    type="text"
+                    className="form-input"
+                    placeholder="Ej: Consulta médica especializada, ecografía y apoyo diagnóstico"
+                    value={formSede.descripcionWeb || ''}
+                    onChange={e => setFormSede({ ...formSede, descripcionWeb: e.target.value })}
+                  />
+                </div>
+
+                <div className="form-group full-width" style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '0.75rem 0.9rem' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', cursor: 'pointer', fontSize: '0.84rem', fontWeight: 700, color: '#0F172A', margin: 0 }}>
+                    <input
+                      type="checkbox"
+                      checked={formSede.mostrarEnWeb !== false}
+                      onChange={e => setFormSede({ ...formSede, mostrarEnWeb: e.target.checked })}
+                    />
+                    <span>Mostrar esta sede públicamente en la Página Web y en el Footer</span>
+                  </label>
                 </div>
 
                 <div className="form-group full-width" style={{ marginTop: '0.8rem' }}>
@@ -4088,8 +4291,8 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '0.6rem' }}>
                 <div><b>Solicitante:</b> {pqrsEnGestion.nombreCompleto}</div>
                 <div><b>Documento:</b> {pqrsEnGestion.tipoDocumento} {pqrsEnGestion.numeroDocumento}</div>
-                <div><b>Correo:</b> {pqrsEnGestion.email}</div>
-                <div><b>Teléfono:</b> {pqrsEnGestion.telefono}</div>
+                <div><b>Correo:</b> {pqrsEnGestion.email || 'No suministrado'}</div>
+                <div><b>Teléfono:</b> {pqrsEnGestion.telefono || 'No suministrado'}</div>
               </div>
               <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '0.5rem' }}>
                 <b>Asunto:</b> {pqrsEnGestion.asunto}
@@ -4097,6 +4300,44 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
               <div style={{ marginTop: '0.3rem', color: '#475569' }}>
                 <b>Descripción:</b> {pqrsEnGestion.descripcion}
               </div>
+
+              {/* Documentos de prueba adjuntos */}
+              {pqrsEnGestion.adjuntos && pqrsEnGestion.adjuntos.length > 0 && (
+                <div style={{ marginTop: '0.7rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.6rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.78rem', fontWeight: 700, color: '#334155', marginBottom: '0.35rem' }}>
+                    <Paperclip size={13} color="var(--brand-cyan-dark)" />
+                    <span>Documentos de Prueba Adjuntos ({pqrsEnGestion.adjuntos.length}):</span>
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                    {pqrsEnGestion.adjuntos.map((adj, i) => (
+                      <a
+                        key={adj.id || i}
+                        href={adj.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          background: '#FFFFFF',
+                          border: '1px solid #CBD5E1',
+                          borderRadius: '6px',
+                          padding: '0.3rem 0.6rem',
+                          fontSize: '0.72rem',
+                          color: '#0F172A',
+                          textDecoration: 'none',
+                          fontWeight: 600
+                        }}
+                      >
+                        <FileText size={12} color="var(--brand-cyan-dark)" />
+                        <span>{adj.nombreOriginal}</span>
+                        {adj.tamanoBytes && <span style={{ color: '#94A3B8', fontSize: '0.66rem' }}>({formatearTamanoBytes(adj.tamanoBytes)})</span>}
+                        <ExternalLink size={11} color="#64748B" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <form onSubmit={guardarRespuestaPqrs}>
@@ -4131,7 +4372,7 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 />
               </div>
 
-              <div style={{ marginBottom: '1.2rem' }}>
+              <div style={{ marginBottom: '1rem' }}>
                 <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
                   Funcionario / Área Responsable
                 </label>
@@ -4144,12 +4385,44 @@ export default function AdminDashboard({ usuarioActual, onOpenLogin }) {
                 />
               </div>
 
+              {/* Casilla de Notificación por Correo Electrónico */}
+              <div style={{ marginBottom: '1.2rem', background: '#F0FDF4', border: '1px solid #86EFAC', borderRadius: '8px', padding: '0.8rem' }}>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', cursor: pqrsEnGestion.email ? 'pointer' : 'not-allowed', margin: 0 }}>
+                  <input
+                    type="checkbox"
+                    checked={formResponderPqrs.notificarEmail}
+                    disabled={!pqrsEnGestion.email}
+                    onChange={e => setFormResponderPqrs({ ...formResponderPqrs, notificarEmail: e.target.checked })}
+                    style={{ marginTop: '0.15rem' }}
+                  />
+                  <div>
+                    <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#166534', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                      <Mail size={14} />
+                      <span>Enviar notificación formal por correo electrónico</span>
+                    </div>
+                    <div style={{ fontSize: '0.72rem', color: '#15803D', marginTop: '0.2rem', lineHeight: 1.45 }}>
+                      {pqrsEnGestion.email ? (
+                        <>Se enviará una notificación oficial a <b>{pqrsEnGestion.email}</b> informando que el caso <b>{pqrsEnGestion.radicado}</b> ha sido resuelto e indicando que puede consultar la resolución con su radicado en la página web oficial.</>
+                      ) : (
+                        <>El usuario no suministró correo electrónico al momento de radicar esta solicitud.</>
+                      )}
+                    </div>
+                  </div>
+                </label>
+              </div>
+
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.8rem' }}>
                 <button type="button" className="btn btn-secondary" onClick={() => setModalResponderPqrsAbierto(false)}>
                   Cancelar
                 </button>
-                <button type="submit" className="btn btn-accent" style={{ background: '#D97706', color: 'white' }}>
-                  <Send size={16} /> Guardar Resolución Oficial
+                <button
+                  type="submit"
+                  disabled={guardandoRespuestaPqrs}
+                  className="btn btn-accent"
+                  style={{ background: '#D97706', color: 'white' }}
+                >
+                  <Send size={16} />
+                  <span>{guardandoRespuestaPqrs ? 'Enviando y Guardando...' : 'Guardar Resolución Oficial'}</span>
                 </button>
               </div>
             </form>

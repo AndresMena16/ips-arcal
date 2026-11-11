@@ -16,7 +16,6 @@ export default function InstitutionalSection({ onAgendarClick }) {
       badgeColor: 'var(--brand-cyan)',
       descripcion: 'Atención diagnóstica y terapéutica de alto nivel con especialistas calificados.',
       items: [
-        'Hola',
         'Cardiología',
         'Medicina Interna',
         'Pediatría',

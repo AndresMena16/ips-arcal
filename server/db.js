@@ -14,56 +14,7 @@ if (!fs.existsSync(DATA_DIR)) {
 
 // Datos iniciales de demostración para IPS ARCAL
 const INITIAL_DATA = {
-  sedes: [
-    {
-      id: "sede-1",
-      codigo: "BOG-NORTE",
-      nombre: "Sede Principal Bogotá Norte",
-      ciudad: "Bogotá D.C.",
-      direccion: "Carrera 15 # 118-45, Torre Médica Santa Bárbara, Consultorio 402",
-      telefono: "(601) 745-8900 / 310 854 9210",
-      email: "contacto.norte@ipsarcal.com",
-      horarioAtencion: "Lunes a Viernes: 7:00 AM - 6:00 PM | Sábados: 8:00 AM - 1:00 PM",
-      consultorios: 8,
-      activa: true
-    },
-    {
-      id: "sede-2",
-      codigo: "BOG-CHAPINERO",
-      nombre: "Sede Chapinero Radiología & Consultas",
-      ciudad: "Bogotá D.C.",
-      direccion: "Calle 63 # 9-28, Edificio Quirúrgico Central, Piso 3",
-      telefono: "(601) 321-4450 / 315 440 1122",
-      email: "chapinero@ipsarcal.com",
-      horarioAtencion: "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 12:00 PM",
-      consultorios: 6,
-      activa: true
-    },
-    {
-      id: "sede-3",
-      codigo: "MED-POBLADO",
-      nombre: "Sede Medellín El Poblado",
-      ciudad: "Medellín",
-      direccion: "Carrera 43A # 1 Sur-180, San Fernando Plaza, Torre 2, Cons. 610",
-      telefono: "(604) 448-1290 / 320 901 3344",
-      email: "medellin@ipsarcal.com",
-      horarioAtencion: "Lunes a Viernes: 7:30 AM - 5:30 PM | Sábados: 8:00 AM - 1:00 PM",
-      consultorios: 6,
-      activa: true
-    },
-    {
-      id: "sede-4",
-      codigo: "CALI-TEQUENDAMA",
-      nombre: "Sede Cali Tequendama Especializada",
-      ciudad: "Cali",
-      direccion: "Carrera 42 # 5B-75, Centro Médico Tequendama, Piso 4",
-      telefono: "(602) 551-7890 / 318 662 5500",
-      email: "cali@ipsarcal.com",
-      horarioAtencion: "Lunes a Viernes: 7:00 AM - 5:00 PM | Sábados: 8:00 AM - 12:00 PM",
-      consultorios: 5,
-      activa: true
-    }
-  ],
+  sedes: [],
   especialidades: [
     {
       id: "esp-ecografia",

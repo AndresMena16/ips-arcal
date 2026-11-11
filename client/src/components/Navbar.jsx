@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Calendar, Building2, ShieldCheck, Search, Phone,
   MessageSquare, Activity, LogIn, LogOut, UserCheck, ShieldAlert,
-  BookOpen, Image as ImageIcon, FileText
+  BookOpen, Image as ImageIcon, FileText, ExternalLink
 } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenLogin, onLogout }) {
@@ -170,9 +170,11 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                   <span>PQRS</span>
                 </button>
 
-                <button
+                <a
+                  href="?vista=control-citas"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-primary"
-                  onClick={() => setActiveTab('web')}
                   style={{
                     background: activeTab === 'web'
                       ? 'linear-gradient(135deg, var(--brand-green-hover) 0%, var(--brand-green-dark) 100%)'
@@ -185,20 +187,22 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                     boxShadow: activeTab === 'web'
                       ? '0 0 0 2px #FFFFFF, 0 0 0 4px var(--brand-green)'
                       : '0 4px 12px rgba(153, 200, 93, 0.35)',
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.45rem',
                     border: 'none',
                     cursor: 'pointer',
                     marginLeft: '0.4rem',
-                    whiteSpace: 'nowrap'
+                    whiteSpace: 'nowrap',
+                    textDecoration: 'none'
                   }}
                   id="btn-ir-control-citas-navbar"
-                  title="Ir al sistema de agendamiento y control de citas"
+                  title="Abrir Control de Citas en una nueva pestaña"
                 >
                   <Calendar size={15} />
                   <span>Ir al Control de Citas</span>
-                </button>
+                  <ExternalLink size={12} />
+                </a>
               </>
             )}
 
@@ -232,14 +236,19 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                   <span>Ver Portal Web</span>
                 </button>
 
-                <button
+                <a
+                  href="?vista=control-citas"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`nav-tab-btn ${activeTab === 'web' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('web')}
+                  style={{ textDecoration: 'none' }}
                   id="tab-web-agente"
+                  title="Abrir Control de Citas en una nueva pestaña"
                 >
                   <Calendar size={16} />
                   <span>Control de Citas</span>
-                </button>
+                  <ExternalLink size={12} />
+                </a>
               </>
             )}
 
@@ -274,14 +283,19 @@ export default function Navbar({ activeTab, setActiveTab, usuarioActual, onOpenL
                   <span>Ver Portal Web</span>
                 </button>
 
-                <button
+                <a
+                  href="?vista=control-citas"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`nav-tab-btn ${activeTab === 'web' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('web')}
+                  style={{ textDecoration: 'none' }}
                   id="tab-web-admin"
+                  title="Abrir Control de Citas en una nueva pestaña"
                 >
                   <Calendar size={16} />
                   <span>Control de Citas</span>
-                </button>
+                  <ExternalLink size={12} />
+                </a>
 
                 <button
                   className={`nav-tab-btn ${activeTab === 'consulta' ? 'active' : ''}`}

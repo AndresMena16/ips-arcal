@@ -3,8 +3,9 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/a
 
 async function request(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
+  const isFormData = typeof FormData !== 'undefined' && options.body instanceof FormData;
   const headers = {
-    'Content-Type': 'application/json',
+    ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
     ...(options.headers || {})
   };
 
@@ -22,16 +23,16 @@ async function request(endpoint, options = {}) {
 }
 
 export const api = {
-  // Configuración
+  // Configuracion
   getConfig: () => request('/config'),
 
-  // Sedes
+  // Las Sedes
   getSedes: () => request('/sedes'),
   createSede: (data) => request('/sedes', { method: 'POST', body: JSON.stringify(data) }),
   updateSede: (id, data) => request(`/sedes/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
-  deleteSede: (id) => request(`/sedes/${id}`, { method: 'DELETE' }),
+  deleteSede: (id, permanente = false) => request(`/sedes/${id}${permanente ? '?permanente=true' : ''}`, { method: 'DELETE' }),
 
-  // Especialidades
+  // Las Especialidades
   getEspecialidades: (params = {}) => {
     const query = new URLSearchParams(params).toString();
     return request(`/especialidades${query ? `?${query}` : ''}`);
@@ -110,7 +111,13 @@ export const api = {
   // Módulo Portal Web: Atención al Usuario & PQRS
   getPqrs: () => request('/pqrs'),
   consultarPqrs: (termino) => request(`/pqrs/consultar/${encodeURIComponent(termino)}`),
-  radicarPqrs: (data) => request('/pqrs', { method: 'POST', body: JSON.stringify(data) }),
+  radicarPqrs: (data) => {
+    const isFormData = typeof FormData !== 'undefined' && data instanceof FormData;
+    return request('/pqrs', {
+      method: 'POST',
+      body: isFormData ? data : JSON.stringify(data)
+    });
+  },
   responderPqrs: (id, data) => request(`/pqrs/${id}/responder`, { method: 'PUT', body: JSON.stringify(data) }),
   deletePqrs: (id) => request(`/pqrs/${id}`, { method: 'DELETE' }),
 
